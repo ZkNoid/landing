@@ -22,7 +22,7 @@ export default function Home() {
             <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image>
             <Image src={'/image/socials/medium.svg'} className="cursor-pointer" width={30} height={30} alt="Medium"></Image>
           </div>
-          <div className="w-[172px] h-[40px] bg-foreground text-bg-dark text-2xl flex items-center justify-center cursor-pointer">Launch app</div>
+          <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">Launch app</div>
         </div>
       </div>
       <div className="h-[783px] w-full border relative flex justify-center">
@@ -53,7 +53,7 @@ export default function Home() {
           <div className="font-bold text-5xl pt-[150px]">
             About ZkNoid
           </div>
-          <div className="text-sm xl:text-xl font-mono w-[500px] pt-10 font-bold">
+          <div className="text-sm xl:text-xl font-mono w-[400px] lg:w-[500px] pt-10 font-bold">
             ZkNoid - the gaming platform powered by zero knowledge proof technology based on MINA protocol.
           </div>
           <div className="flex-col items-center lg:flex-row flex w-full justify-around pt-16">
