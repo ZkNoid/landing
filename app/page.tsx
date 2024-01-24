@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { TechnologyCard } from "./components/TechnologyCard";
 import { BusinessInvestorsCard } from "./components/BusinessInvestorsCard";
-import { ApplicationCard } from "./components/ApplicationCard";
+import { ApplicationCard, MoreGamesApplicationCard } from "./components/ApplicationCard";
 
 export default function Home() {
   return (
@@ -158,7 +158,7 @@ export default function Home() {
             <div className="pr-0 lg:pr-60">Applications</div>
             <div className="flex flex-col">
               
-              <div className="flex gap-5 justify-around pt-5">
+              <div className="flex gap-5 justify-around pt-5 flex-col lg:flex-row">
                 <ApplicationCard
                   name="Arkanoid"
                   variant={0}
@@ -173,7 +173,7 @@ export default function Home() {
                   description="A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved used zkapp transactions"
                   image="/image/applications/randzu.svg"
                 />
-                <ApplicationCard
+                <MoreGamesApplicationCard
                   name=""
                   variant={1}
                   exploreButton=""

@@ -34,3 +34,23 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
         </div>
     )
 }
+
+export const MoreGamesApplicationCard = (props: ApplicationCardProps) => {
+    return (
+        <div className="flex-grow relative cursor-pointer">
+            <Image
+                src={'/image/applications/more_games.svg'}
+                width={740}
+                height={359}
+                alt="our_tech_upper"
+                className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none"
+            ></Image>
+            <div className="m-3 h-full flex flex-col h-[359px]">
+                <div className="text-2xl mb-3">{props.name}</div>
+                <div className="flex flex-col items-center w-[284px] lg:w-[284px] hidden lg:block">
+                </div>
+            </div>
+
+        </div>
+    )
+}
