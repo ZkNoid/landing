@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { TechnologyCard } from "./components/TechnologyCard";
+import { BusinessInvestorsCard } from "./components/BusinessInvestorsCard";
 
 export default function Home() {
   return (
@@ -25,6 +27,7 @@ export default function Home() {
           <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">Launch app</div>
         </div>
       </div>
+
       <div className="h-[783px] w-full border relative flex justify-center">
         <Image src={'/image/chess.svg'} className="w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
         <div>
@@ -81,14 +84,69 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="h-[783px] w-full border relative flex justify-center">
-          <div className="flex flex-col w-full items-center">
-            <div className="flex flex-col font-bold text-5xl pt-[150px] items-center">
-              <div className="pr-0 lg:pr-60">Our technologies</div>
-              <Image src={'/image/our_tech_upper_line.svg'} width={1106} height={142} alt="our_tech_upper" className="p-5" ></Image>
+
+      <div className=" w-full border flex justify-center max-w-screen">
+        <div className="flex flex-col w-full items-center">
+          <div className="flex flex-col font-bold text-5xl py-[150px] items-center">
+            <div className="pr-0 lg:pr-60">Our technologies</div>
+            <div className="flex flex-col">
+              <Image src={'/image/our_tech_upper_line.svg'} width={1106} height={142} alt="our_tech_upper" className="p-5 px-24 lg:px-36 w-full" ></Image>
+              <div className="flex justify-around">
+                <TechnologyCard
+                  variant={0}
+                  exploreButton="/image/technologies/explore_button/explore_left.svg"
+                  name="ZK Circuit"
+                  description="Allows to prove your game process without revealing your strategy."
+                  image="/image/technologies/circuit.svg"
+                />
+                <TechnologyCard
+                  name="Recursive proofs"
+                  exploreButton="/image/technologies/explore_button/explore_middle.svg"
+                  description="Used to accumulate your game process proof while you’re playing."
+                  image="/image/technologies/recursive_proofs.svg"
+                  variant={1}
+                />
+                <TechnologyCard
+                  name="Mina and protokit networks interplay"
+                  exploreButton="/image/technologies/explore_button/explore_right.svg"
+                  description="Combines power of ZK blockchain with fast and gasless transactions enabling multiplayer and background sessions."
+                  image="/image/technologies/networks_interplay.svg"
+                  variant={2}
+                />
+              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <div className=" w-full border flex justify-center max-w-screen">
+        <div className="flex flex-col w-full items-center">
+          <div className="flex flex-col font-bold text-5xl py-[150px] items-center">
+            <div className="pr-0 lg:pr-60">Benefits for Business and investors</div>
+            <div className="flex flex-col">
+              
+              <div className="flex justify-around pt-5">
+                <BusinessInvestorsCard
+                  variant={0}
+                  exploreButton="/image/business_investors/explore_button/explore_left.svg"
+                  name="ZK Circuit"
+                  description="Host fair competitions within your community and reward your most engaged fans - with no possibility of cheating"
+                  image="/image/business_investors/cup.svg"
+                />
+                <BusinessInvestorsCard
+                  variant={1}
+                  exploreButton="/image/business_investors/explore_button/explore_right.svg"
+                  name="ZK Circuit"
+                  description="Buy token that is backed by project revenue
+                  Revenue is collected to a vault and used to buy token from market"
+                  image="/image/business_investors/coins.svg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     </main>
   );
