@@ -98,6 +98,8 @@ export default function Home() {
                   name="ZK Circuit"
                   description="Allows to prove your game process without revealing your strategy."
                   image="/image/technologies/circuit.svg"
+                  imageW={300}
+                  imageH={150}
                 />
                 <TechnologyCard
                   name="Recursive proofs"
@@ -105,6 +107,8 @@ export default function Home() {
                   description="Used to accumulate your game process proof while you’re playing."
                   image="/image/technologies/recursive_proofs.svg"
                   variant={1}
+                  imageW={339}
+                  imageH={335}
                 />
                 <TechnologyCard
                   name="Mina and protokit networks interplay"
@@ -112,6 +116,9 @@ export default function Home() {
                   description="Combines power of ZK blockchain with fast and gasless transactions enabling multiplayer and background sessions."
                   image="/image/technologies/networks_interplay.svg"
                   variant={2}
+                  imageW={290}
+                  imageH={280}
+
                 />
               </div>
             </div>

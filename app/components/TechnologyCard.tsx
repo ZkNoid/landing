@@ -5,6 +5,8 @@ interface TechnologyCardProps {
     name: string;
     description: string;
     image: string;
+    imageW: number;
+    imageH: number;
     variant: 0 | 1 | 2
 }
 
@@ -36,8 +38,9 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                 </div>
                 <div className="font-mono text-sm font-normal pt-3 max-w-[80%]">{props.description}</div>
                 <div className="w-full flex flex-col items-center py-5 justify-between flex-grow">
-                    <Image src={props.image} width={150} height={300} alt="our_tech_upper" className="w-[100px] h-[200px] lg:w-[150px] lg:h-[300px] hidden lg:block" ></Image>
-                    <div className="flex-grow lg:hidden"></div>
+                <div className="flex-grow "></div>
+                    <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className=" h-[200px]  lg:h-[300px] hidden lg:block" ></Image>
+                    <div className="flex-grow "></div>
                     <Image src={props.exploreButton} width={422} height={52} alt="our_tech_upper" className="pb-5 cursor-pointer" ></Image>
                 </div>
             </div>
