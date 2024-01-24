@@ -61,7 +61,7 @@ export default function Home() {
               <Image src={"image/01.svg"} width={96} height={96} alt="01"></Image>
               <div className="pl-5 pb-5 w-80 text-sm xl:text-xl font-mono">
                 ZkNoid provides the united ecosystem for ZK gaming – developers can use SDK to be a part of the platform.
-                L2 rollup based on protokit network that enables gasless sessions, fast transactions
+                L2 rollup based on protokit network enables gasless sessions, fast transactions
               </div>
             </div>
             <div className="flex items-start px-5">
