@@ -1,12 +1,3 @@
-<svg width="487" height="629" viewBox="0 0 487 629" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-<rect x="3" width="27" height="3" fill="#F9F8F4"/>
-<rect x="487" y="3" width="27" height="3" transform="rotate(90 487 3)" fill="#F9F8F4"/>
-<rect x="487" y="302" width="27" height="3" transform="rotate(90 487 302)" fill="#F9F8F4"/>
-<rect x="3" y="302" width="27" height="3" transform="rotate(90 3 302)" fill="#F9F8F4"/>
-<rect x="484" y="629" width="27" height="3" transform="rotate(-180 484 629)" fill="#F9F8F4"/>
-<rect y="626" width="27" height="3" transform="rotate(-90 0 626)" fill="#F9F8F4"/>
-<rect x="3" width="28" height="3" transform="rotate(90 3 0)" fill="#F9F8F4"/>
-<rect x="487" y="3" width="28" height="3" transform="rotate(-180 487 3)" fill="#F9F8F4"/>
-<rect x="484" y="629" width="28" height="3" transform="rotate(-90 484 629)" fill="#F9F8F4"/>
-<rect y="626" width="28" height="3" fill="#F9F8F4"/>
+<svg width="740" height="360" viewBox="0 0 740 360" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M740 3.39356V0.393557L712 0.393555V3.39355L737 3.39356V30.3936H740V3.39356ZM30 0.393557H3H0V28.3936H3L3 3.39356H30V0.393557ZM740 165.394V192.394H737V165.394H740ZM3 192.394L3 165.394H0V192.394H3ZM737 359.394H710V356.394H737V331.394H740V359.394H737ZM3.54062e-06 329.394L0 356.394V359.394H28V356.394H3L3 329.394H3.54062e-06Z" fill="#F9F8F4"/>
 </svg>

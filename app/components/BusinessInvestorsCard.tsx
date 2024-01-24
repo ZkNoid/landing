@@ -10,11 +10,11 @@ interface BusinessInvestorsCardProps {
 
 export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
     return (
-        <div className="m-10 w-[50%] flex-grow relative ">
+        <div className="m-5 w-[50%] flex-grow relative ">
             <Image
                 src={'/image/business_box.svg'}
-                width={300}
-                height={600}
+                width={740}
+                height={359}
                 alt="our_tech_upper"
                 className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none border"
             ></Image>
@@ -36,8 +36,8 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                             </svg>
                         )}
                     </div>
-                    <div className="font-mono text-sm font-normal pt-3 max-w-[80%]">{props.description}</div>
-                    <div className="w-full flex flex-col items-center py-10 justify-between flex-grow">
+                    <div className="font-mono text-sm font-normal pt-3 max-w-[400px]">{props.description}</div>
+                    <div className="w-full flex flex-col items-center pt-10 justify-between flex-grow">
                         <Image src={props.exploreButton} width={180} height={51} alt="our_tech_upper" className="pb-5 cursor-pointer" ></Image>
                     </div>
                 </div>
