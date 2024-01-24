@@ -56,7 +56,7 @@ export default function Home() {
           <div className="text-sm xl:text-xl font-mono w-[400px] lg:w-[500px] pt-10 font-bold">
             ZkNoid - the gaming platform powered by zero knowledge proof technology based on MINA protocol.
           </div>
-          <div className="flex-col items-center lg:flex-row flex w-full justify-around pt-16">
+          <div className="flex-col items-center lg:flex-row flex w-full justify-around pt-16 items-start">
             <div className="flex items-start px-5">
               <Image src={"image/01.svg"} width={96} height={96} alt="01"></Image>
               <div className="pl-5 pb-5 w-80 text-sm xl:text-xl font-mono">
