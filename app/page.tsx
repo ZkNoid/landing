@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { TechnologyCard } from "./components/TechnologyCard";
 import { BusinessInvestorsCard } from "./components/BusinessInvestorsCard";
+import { ApplicationCard } from "./components/ApplicationCard";
 
 export default function Home() {
   return (
@@ -85,7 +86,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className=" w-full border flex justify-center max-w-screen">
+      <div className="w-full border flex justify-center max-w-screen">
         <div className="flex flex-col w-full items-center">
           <div className="flex flex-col font-bold text-5xl py-[150px] items-center">
             <div className="pr-0 lg:pr-60">Our technologies</div>
@@ -118,7 +119,6 @@ export default function Home() {
                   variant={2}
                   imageW={290}
                   imageH={280}
-
                 />
               </div>
             </div>
@@ -136,14 +136,12 @@ export default function Home() {
                 <BusinessInvestorsCard
                   variant={0}
                   exploreButton="/image/business_investors/explore_button/explore_left.svg"
-                  name="ZK Circuit"
                   description="Host fair competitions within your community and reward your most engaged fans - with no possibility of cheating"
                   image="/image/business_investors/cup.svg"
                 />
                 <BusinessInvestorsCard
                   variant={1}
                   exploreButton="/image/business_investors/explore_button/explore_right.svg"
-                  name="ZK Circuit"
                   description="Buy token that is backed by project revenue
                   Revenue is collected to a vault and used to buy token from market"
                   image="/image/business_investors/coins.svg"
@@ -154,6 +152,40 @@ export default function Home() {
         </div>
       </div>
 
+      <div className=" w-full border flex justify-center max-w-screen">
+        <div className="flex flex-col w-full items-center">
+          <div className="flex flex-col font-bold text-5xl py-[150px] items-center">
+            <div className="pr-0 lg:pr-60">Applications</div>
+            <div className="flex flex-col">
+              
+              <div className="flex gap-5 justify-around pt-5">
+                <ApplicationCard
+                  name="Arkanoid"
+                  variant={0}
+                  exploreButton="/image/applications/play_button/play_left.svg"
+                  description="Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced"
+                  image="/image/applications/arkanoid.svg"
+                />
+                <ApplicationCard
+                  name="Randzu"
+                  variant={1}
+                  exploreButton="/image/applications/play_button/play_right.svg"
+                  description="A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved used zkapp transactions"
+                  image="/image/applications/randzu.svg"
+                />
+                <ApplicationCard
+                  name=""
+                  variant={1}
+                  exploreButton=""
+                  description=""
+                  image="/image/applications/more_games.svg"
+                />
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </main>
   );

@@ -2,7 +2,6 @@ import Image from "next/image";
 
 interface BusinessInvestorsCardProps {
     exploreButton: string;
-    name: string;
     description: string;
     image: string;
     variant: 0 | 1 | 2
@@ -16,7 +15,7 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                 width={740}
                 height={359}
                 alt="our_tech_upper"
-                className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none border"
+                className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none"
             ></Image>
             <div className="m-5 h-full flex flex-row ">
                 <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="w-[284px] h-[275px] lg:w-[284px] lg:h-[275px] hidden lg:block" ></Image>
