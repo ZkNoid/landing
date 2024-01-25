@@ -86,6 +86,20 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="w-full border relative flex justify-center">
+        <div className="flex flex-col w-full items-center">
+          <div className="font-bold text-5xl pt-[150px]">
+            Benefits for gamers
+          </div>
+          <div className="text-base font-mono font-normal w-[400px] lg:w-[500px] p-10">
+            Elevate your gaming journey and embrace a future where transparency and integrity define the ultimate gaming experience
+          </div>
+          <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5"></Image>
+
+        </div>
+      </div>
+
+
       <div className="w-full border flex justify-center max-w-screen">
         <div className="flex flex-col w-full items-center">
           <div className="flex flex-col font-bold text-5xl py-[150px] items-center">
