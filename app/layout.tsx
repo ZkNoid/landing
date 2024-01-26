@@ -8,7 +8,7 @@ const rockswellStd = localFont({
   src: './fonts/RockwellStd.otf', 
   variable: '--rockwell-std', 
   display: 'swap', 
-  declarations: [{prop: 'descent-override', value: '50%'}]
+  // declarations: [{prop: 'descent-override', value: '50%'}]
 })
 
 const plexMono = IBM_Plex_Mono({
