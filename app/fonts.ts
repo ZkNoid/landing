@@ -5,13 +5,12 @@ export const rockswellStd = localFont({
     src: './fonts/RockwellStd.otf',
     variable: '--rockwell-std',
     display: 'swap',
-    // declarations: [{prop: 'descent-override', value: '50%'}]
 });
 
 export const rockswellStdFix = localFont({
     src: './fonts/RockwellStd.otf',
     display: 'swap',
-    declarations: [{ prop: 'descent-override', value: '50%' }]
+    declarations: [{ prop: 'descent-override', value: '40%' }]
 });
 
 export const plexMono = IBM_Plex_Mono({
