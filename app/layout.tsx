@@ -1,28 +1,8 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono } from "next/font/google";
-import localFont from 'next/font/local'
 
 import "./globals.css";
+import { plexMono, rockswellStd } from "./fonts";
 
-const rockswellStd = localFont({ 
-  src: './fonts/RockwellStd.otf', 
-  variable: '--rockwell-std', 
-  display: 'swap', 
-  // declarations: [{prop: 'descent-override', value: '50%'}]
-});
-
-export const rockswellStdFix = localFont({ 
-  src: './fonts/RockwellStd.otf', 
-  display: 'swap', 
-  declarations: [{prop: 'descent-override', value: '50%'}]
-});
-
-const plexMono = IBM_Plex_Mono({
-  weight: "700",
-  subsets: ['latin'],
-  variable: '--plex-mono',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: "ZkNoid project",

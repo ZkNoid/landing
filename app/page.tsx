@@ -5,7 +5,7 @@ import { ApplicationCard, MoreGamesApplicationCard } from "./components/Applicat
 import { TeamMemberCard } from "./components/TeamMemberCard";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { rockswellStdFix } from "./layout";
+import { rockswellStdFix } from "./fonts";
 
 const debug = false;
 
