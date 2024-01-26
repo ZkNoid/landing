@@ -2,6 +2,9 @@ import Image from "next/image";
 import { TechnologyCard } from "./components/TechnologyCard";
 import { BusinessInvestorsCard } from "./components/BusinessInvestorsCard";
 import { ApplicationCard, MoreGamesApplicationCard } from "./components/ApplicationCard";
+import { TeamMemberCard } from "./components/TeamMemberCard";
+
+const debug = false;
 
 export default function Home() {
   return (
@@ -29,7 +32,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="h-[783px] w-full border relative flex justify-center">
+      <div className={`h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
         <Image src={'/image/chess.svg'} className="w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
         <div>
           <div className="font-bold text-5xl md:text-8xl pt-[173px] mx-3 ">
@@ -52,7 +55,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="h-[783px] w-full border relative flex justify-center">
+      <div className={`h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
         <div className="flex flex-col w-full items-center">
           <div className="font-bold text-5xl pt-[150px]">
             About ZkNoid
@@ -86,7 +89,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full border relative flex justify-center">
+      <div className={`w-full relative flex justify-center ${debug && 'border'}`}>
         <div className="flex flex-col w-full items-center">
           <div className="font-bold text-5xl pt-[150px]">
             Benefits for gamers
@@ -94,15 +97,13 @@ export default function Home() {
           <div className="text-base font-mono font-normal w-[400px] lg:w-[500px] p-10">
             Elevate your gaming journey and embrace a future where transparency and integrity define the ultimate gaming experience
           </div>
-          <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5"></Image>
-
+          <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5 w-[100%] max-w-[1500px]"></Image>
         </div>
       </div>
 
-
-      <div className="w-full border flex justify-center max-w-screen">
+      <div className={`w-full flex justify-center max-w-screen ${debug && 'border'}`}>
         <div className="flex flex-col w-full items-center">
-          <div className="flex flex-col font-bold text-5xl py-[150px] items-center">
+          <div className="flex flex-col font-bold text-5xl pt-[150px] items-center">
             <div className="pr-0 lg:pr-60">Our technologies</div>
             <div className="flex flex-col">
               <Image src={'/image/our_tech_upper_line.svg'} width={1106} height={142} alt="our_tech_upper" className="p-5 px-24 lg:px-36 w-full" ></Image>
@@ -140,12 +141,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className=" w-full border flex justify-center max-w-screen">
+      <div className={`w-full flex justify-center max-w-screen ${debug && 'border'}`}>
         <div className="flex flex-col w-full items-center">
-          <div className="flex flex-col font-bold text-5xl py-[150px] items-center">
+          <div className="flex flex-col font-bold text-5xl pt-[150px] items-center">
             <div className="pr-0 lg:pr-60">Benefits for Business and investors</div>
             <div className="flex flex-col">
-              
+
               <div className="flex justify-around pt-5">
                 <BusinessInvestorsCard
                   variant={0}
@@ -166,12 +167,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className=" w-full border flex justify-center max-w-screen">
+      <div className={`w-full flex justify-center max-w-screen ${debug && 'border'}`}>
         <div className="flex flex-col w-full items-center">
           <div className="flex flex-col font-bold text-5xl py-[150px] items-center">
             <div className="pr-0 lg:pr-60">Applications</div>
             <div className="flex flex-col">
-              
               <div className="flex gap-5 justify-around pt-5 flex-col lg:flex-row">
                 <ApplicationCard
                   name="Arkanoid"
@@ -200,6 +200,69 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <div className={`w-full relative flex justify-center ${debug && 'border'}`}>
+        <div className="flex flex-col w-full items-center">
+          <div className="font-bold text-5xl pt-[150px] pr-[20%] pb-7">
+            Backed by
+          </div>
+          <div className="flex flex-row gap-5 flex-wrap p-10">
+            <div className="text-base font-mono font-normal w-[400px]">
+              Our esteemed list of backers and investors who are trust the groundbreaking ZkNoid gaming
+            </div>
+            <Image src={'/image/backed_by/mina_foundation.svg'} width={360} height={184} className="w-[300px]" alt="Mina foundation"></Image>
+            <Image src={'/image/backed_by/o1labs.svg'} width={360} height={184} className="w-[300px]" alt="O1js labs"></Image>
+            <Image src={'/image/backed_by/announced_soon.svg'} width={360} height={184} className="w-[300px]" alt="Announced soon"></Image>
+
+          </div>
+        </div>
+      </div>
+
+      <div className={`w-full relative flex justify-center ${debug && 'border'}`}>
+        <div className="flex flex-col w-full items-center">
+          <div className="font-bold text-5xl pt-[150px] pr-[20%] pb-7">
+            ZkNoid Core Team
+          </div>
+          <div className="flex flex-col">
+            <Image src={'/image/team_upper_line.svg'} width={1106} height={298} alt="our_tech_upper" className="p-5 px-24 lg:px-[13%] w-full" ></Image>
+            <div className="flex justify-around">
+              <TeamMemberCard
+                name="Asimaranov"
+                description="Top-1 solidity auditor at Mixbytes auditor DAO
+                Core builder of xraise.io project – account abstraction based wallet. 
+                Blockchain and full-stack developer. Studied at MSU, applied math and computer science"
+                position="Core builder"
+                image="/image/team/andrey.svg"
+                variant={0}
+                imageW={360}
+                imageH={360}
+              />
+
+              <TeamMemberCard
+                name="Alex"
+                description="Crypto enthusiast since 2020. CS MS in MIPT. Experienced solidity developer with two years experience in DEFI projects."
+                position="Core builder"
+                image="/image/team/alex.svg"
+                variant={1}
+                imageW={360}
+                imageH={360}
+              />
+              <TeamMemberCard
+                name="Shiroy"
+                description="Ui/Ux & Graphic designer in crypto since 2022 as a member of PowerPool R&D and marketing team"
+                position="Ui / Ux designer"
+                image="/image/team/shiroy.svg"
+                variant={2}
+                imageW={360}
+                imageH={360}
+              />
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
 
     </main>
   );
