@@ -5,6 +5,7 @@ import { ApplicationCard, MoreGamesApplicationCard } from "./components/Applicat
 import { TeamMemberCard } from "./components/TeamMemberCard";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { rockswellStdFix } from "./layout";
 
 const debug = false;
 
@@ -68,10 +69,10 @@ export default function Home() {
         <Image src={'/image/chess.svg'} className="w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
         <div>
           <div className="font-bold text-5xl md:text-8xl pt-[173px] mx-3 ">
-            <div>
+            <div className={`${rockswellStdFix.className}`}>
               Web3
             </div>
-            <div className="pb-2">
+            <div className={`${rockswellStdFix.className}`}>
               Gaming platform
             </div>
             <div className="text-base pl-10 font-plex-mono font-normal font-mono flex">

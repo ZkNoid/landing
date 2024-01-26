@@ -18,7 +18,7 @@ const config: Config = {
       fontFamily: {
         rockwell: ['var(--rockwell-std)'],
         plexmono: ['var(--plex-mono)'],
-      }  
+      } 
     },
   },
   plugins: [],
