@@ -23,9 +23,9 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
             <div className="m-3 h-full flex flex-col ">
                 <div className="text-2xl mb-3">{props.name}</div>
                 <div className="flex flex-col items-center h-full">
-                    <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="w-[284px]  lg:w-[284px]  hidden lg:block" ></Image>
+                    <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="hidden lg:block" ></Image>
                     <div className="flex-grow "></div>
-                    <div className="font-mono text-sm max-w-[300px] font-normal">{props.description}</div>
+                    <div className="font-mono text-sm font-normal py-5 px-3">{props.description}</div>
                     <div className="flex-grow "></div>
                     {props.exploreButton && (
                         <Link href={props.link}>
