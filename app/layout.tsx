@@ -4,7 +4,12 @@ import localFont from 'next/font/local'
 
 import "./globals.css";
 
-const rockswellStd = localFont({ src: './fonts/RockwellStd.otf', variable: '--rockwell-std', display: 'swap' })
+const rockswellStd = localFont({ 
+  src: './fonts/RockwellStd.otf', 
+  variable: '--rockwell-std', 
+  display: 'swap', 
+  declarations: [{prop: 'descent-override', value: '50%'}]
+})
 
 const plexMono = IBM_Plex_Mono({
   weight: "700",
