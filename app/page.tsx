@@ -183,7 +183,7 @@ export default function Home() {
       </LandingSection>
       <LandingSection title="Applications">
         <div className="flex flex-col">
-          <div className="grid grid-cols-3 gap-5 justify-around pt-5 flex-col lg:flex-row auto-rows-fr">
+          <div className="grid grid-cols-3 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr]">
             <ApplicationCard
               name="Arkanoid"
               variant={0}
@@ -217,7 +217,7 @@ export default function Home() {
       </LandingSection>
 
       <LandingSection title="ZkNoid Core Team">
-        <div className="flex flex-col h-[783px]">
+        <div className="flex flex-col h-[900px]">
           <Image src={'/image/team_upper_line.svg'} width={1106} height={298} alt="our_tech_upper" className="p-5 px-24 lg:px-[13%] w-full" ></Image>
           <div className="flex justify-around">
             <TeamMemberCard
