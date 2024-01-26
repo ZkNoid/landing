@@ -24,7 +24,7 @@ const LandingSection = (props: { title: string, children: ReactNode }) => {
 const LandingHeader = (props: { children: ReactNode }) => {
   return (
     <div className="flex w-full h-[91px] px-[50px] items-center">
-      <div className="flex w-full justify-between">
+      <div className="flex w-full items-center justify-between">
         {props.children}
       </div>
     </div>
@@ -71,7 +71,7 @@ export default function Home() {
             <div>
               Web3
             </div>
-            <div>
+            <div className="pb-1">
               Gaming platform
             </div>
             <div className="text-base pl-10 font-plex-mono font-normal font-mono flex">
