@@ -12,7 +12,7 @@ interface ApplicationCardProps {
 
 export const ApplicationCard = (props: ApplicationCardProps) => {
     return (
-        <div className="flex-grow relative ">
+        <div className="relative ">
             <Image
                 src={'/image/applications_box.svg'}
                 width={740}
@@ -39,22 +39,15 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
     )
 }
 
-export const MoreGamesApplicationCard = (props: ApplicationCardProps) => {
+export const MoreGamesApplicationCard = () => {
     return (
-        <div className="flex-grow relative ">
             <Image
                 src={'/image/applications/more_games.svg'}
                 width={740}
                 height={359}
                 alt="our_tech_upper"
-                className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none"
+                className=" h-full pointer-events-none"
             ></Image>
-            <div className="m-3 flex flex-col h-[359px]">
-                <div className="text-2xl mb-3">{props.name}</div>
-                <div className="flex-col items-center w-[284px] lg:w-[284px] hidden lg:block">
-                </div>
-            </div>
 
-        </div>
     )
 }

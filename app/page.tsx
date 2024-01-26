@@ -183,7 +183,7 @@ export default function Home() {
       </LandingSection>
       <LandingSection title="Applications">
         <div className="flex flex-col">
-          <div className="grid grid-cols-3 gap-5 justify-around pt-5 flex-col lg:flex-row">
+          <div className="grid grid-cols-3 gap-5 justify-around pt-5 flex-col lg:flex-row auto-rows-fr">
             <ApplicationCard
               name="Arkanoid"
               variant={0}
