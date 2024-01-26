@@ -71,7 +71,7 @@ export default function Home() {
             <div>
               Web3
             </div>
-            <div className="pb-1">
+            <div className="pb-2">
               Gaming platform
             </div>
             <div className="text-base pl-10 font-plex-mono font-normal font-mono flex">
