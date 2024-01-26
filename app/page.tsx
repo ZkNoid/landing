@@ -3,6 +3,7 @@ import { TechnologyCard } from "./components/TechnologyCard";
 import { BusinessInvestorsCard } from "./components/BusinessInvestorsCard";
 import { ApplicationCard, MoreGamesApplicationCard } from "./components/ApplicationCard";
 import { TeamMemberCard } from "./components/TeamMemberCard";
+import Link from "next/link";
 
 const debug = false;
 
@@ -15,20 +16,29 @@ export default function Home() {
             ZkNoid
           </div>
           <div className="hidden sm:flex text-base gap-5">
-            <div className="cursor-pointer text-xl">
+            <Link className="cursor-pointer text-xl" href={'https://docs.zknoid.io'} target="_blank" rel="noopener noreferrer">
               Docs
-            </div>
-            <div className="cursor-pointer text-xl">
+            </Link>
+            <Link className="cursor-pointer text-xl" href={'https://zknoid.medium.com'} target="_blank" rel="noopener noreferrer">
               Blog
-            </div>
+            </Link>
           </div>
           <div className="gap-5 hidden md:flex">
-            <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30} alt="Github"></Image>
-            <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image>
-            <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image>
-            <Image src={'/image/socials/medium.svg'} className="cursor-pointer" width={30} height={30} alt="Medium"></Image>
+            <Link className="cursor-pointer flex items-center justify-center" href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
+              <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30} alt="Github"></Image>
+            </Link>
+            {/* <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image> */}
+            {/* <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image> */}
+            <Link className="cursor-pointer flex items-center justify-center" href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
+              <Image src={'/image/socials/medium.svg'} className="cursor-pointer " width={30} height={30} alt="Medium"></Image>
+            </Link>
           </div>
-          <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">Launch app</div>
+          <Link href={'https://app.zknoid.io'}>
+            <div
+              className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
+              Launch app
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -44,12 +54,14 @@ export default function Home() {
             </div>
             <div className="text-base pl-10 font-plex-mono font-normal font-mono flex">
               Powered by zero knowledge proof technology
-              <div className="hidden sm:flex cursor-pointer font-rockwell text-xl pl-3 underline decoration-left-accent">
+              <Link className="hidden sm:flex cursor-pointer font-rockwell text-xl pl-3 underline decoration-left-accent" href="https://docs.zknoid.io">
                 Open Docs <Image src={"/image/docs_arrow.svg"} className="ml-1 mb-2" width={16} height={16} alt="Arrow"></Image>
-              </div>
+              </Link>
             </div>
             <div className="w-full flex justify-center pt-4">
-              <Image src={'/image/go_to_zkapp_button.svg'} className="cursor-pointer" width={179} height={51} alt="Medium"></Image>
+              <Link href={'https://app.zknoid.io'}>
+                <Image src={'/image/go_to_zkapp_button.svg'} className="cursor-pointer" width={179} height={51} alt="Open ZkApp"></Image>
+              </Link>
             </div>
           </div>
         </div>
@@ -153,6 +165,7 @@ export default function Home() {
                   exploreButton="/image/business_investors/explore_button/explore_left.svg"
                   description="Host fair competitions within your community and reward your most engaged fans - with no possibility of cheating"
                   image="/image/business_investors/cup.svg"
+                  link="https://docs.zknoid.io/docs/competitions"
                 />
                 <BusinessInvestorsCard
                   variant={1}
@@ -160,6 +173,7 @@ export default function Home() {
                   description="Buy token that is backed by project revenue
                   Revenue is collected to a vault and used to buy token from market"
                   image="/image/business_investors/coins.svg"
+                  link="https://docs.zknoid.io/docs/tokenomics"
                 />
               </div>
             </div>
@@ -179,6 +193,7 @@ export default function Home() {
                   exploreButton="/image/applications/play_button/play_left.svg"
                   description="Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced"
                   image="/image/applications/arkanoid.svg"
+                  link="https://app.zknoid.io/arkanoid/global"
                 />
                 <ApplicationCard
                   name="Randzu"
@@ -186,15 +201,16 @@ export default function Home() {
                   exploreButton="/image/applications/play_button/play_right.svg"
                   description="A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved used zkapp transactions"
                   image="/image/applications/randzu.svg"
+                  link="https://app.zknoid.io/ranzu/global"
                 />
                 <MoreGamesApplicationCard
                   name=""
-                  variant={1}
+                  variant={2}
                   exploreButton=""
                   description=""
                   image="/image/applications/more_games.svg"
+                  link=""
                 />
-
               </div>
             </div>
           </div>
@@ -282,20 +298,31 @@ export default function Home() {
             ZkNoid
           </div>
           <div className="hidden sm:flex text-base gap-5">
-            <div className="cursor-pointer text-xl">
-              Docs
-            </div>
-            <div className="cursor-pointer text-xl">
+            <Link className="cursor-pointer text-xl" href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
+              Github
+            </Link>
+            <Link className="cursor-pointer text-xl" href={'https://docs.zknoid.io'} target="_blank" rel="noopener noreferrer">
+              Documentation
+            </Link>
+            <Link className="cursor-pointer text-xl" href={'https://zknoid.medium.com'} target="_blank" rel="noopener noreferrer">
               Blog
-            </div>
+            </Link>
           </div>
           <div className="gap-5 hidden md:flex">
-            <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30} alt="Github"></Image>
-            <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image>
-            <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image>
-            <Image src={'/image/socials/medium.svg'} className="cursor-pointer" width={30} height={30} alt="Medium"></Image>
+            <Link className="cursor-pointer text-xl flex items-center justify-center" href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
+              <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30} alt="Github"></Image>
+            </Link>
+            {/* <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image> */}
+            {/* <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image> */}
+            <Link className="cursor-pointer text-xl flex items-center justify-center" href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
+              <Image src={'/image/socials/medium.svg'} className="cursor-pointer" width={30} height={30} alt="Medium"></Image>
+            </Link>
           </div>
-          <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">Launch app</div>
+          <Link href={'https://app.zknoid.io'}>
+            <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
+              Launch app
+            </div>
+          </Link>
         </div>
       </div>
 

@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface BusinessInvestorsCardProps {
     exploreButton: string;
     description: string;
     image: string;
-    variant: 0 | 1 | 2
+    link: string;
+    variant: 0 | 1 | 2;
 }
 
 export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
@@ -37,7 +39,9 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                     </div>
                     <div className="font-mono text-sm font-normal pt-3 max-w-[400px]">{props.description}</div>
                     <div className="w-full flex flex-col items-center pt-10 justify-between flex-grow">
-                        <Image src={props.exploreButton} width={180} height={51} alt="our_tech_upper" className="pb-5 cursor-pointer" ></Image>
+                        <Link href={props.link} target="_blank" rel="noopener noreferrer">
+                            <Image src={props.exploreButton} width={180} height={51} alt="our_tech_upper" className="pb-5 cursor-pointer" ></Image>
+                        </Link>
                     </div>
                 </div>
             </div>

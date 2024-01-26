@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface ApplicationCardProps {
     exploreButton: string;
     name: string;
     description: string;
+    link: string;
     image: string;
     variant: 0 | 1 | 2
 }
@@ -26,7 +28,9 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
                     <div className="font-mono text-sm max-w-[300px] font-normal">{props.description}</div>
                     <div className="flex-grow "></div>
                     {props.exploreButton && (
-                        <Image src={props.exploreButton} width={300} height={52} alt="our_tech_upper" className="pb-5 cursor-pointer" ></Image>
+                        <Link href={props.link}>
+                            <Image src={props.exploreButton} width={300} height={52} alt="our_tech_upper" className="pb-5 cursor-pointer" ></Image>
+                        </Link>
                     )}
                 </div>
             </div>
