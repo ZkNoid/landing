@@ -17,7 +17,7 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
         <div className="mx-5 w-[33%] max-w-[400px] top-0 relative">
             <div className={`absolute mx-5 h-full flex flex-col ${props.variant != 1 && 'top-[-100px]'}`}>
                 <div className="w-full flex flex-col items-center pb-5 justify-between">
-                    <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[200px] lg:h-[300px]" ></Image>
+                    <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[200px]" ></Image>
                 </div>
                 <div className="flex flex-col items-center ">
                     <div className="flex justify-space-between justify-between">
