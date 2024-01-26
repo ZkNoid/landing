@@ -218,7 +218,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={`w-full relative flex justify-center ${debug && 'border'}`}>
+      <div className={`w-full relative flex justify-center h-[1000px] ${debug && 'border'}`}>
         <div className="flex flex-col w-full items-center">
           <div className="font-bold text-5xl pt-[150px] pr-[20%] pb-7">
             ZkNoid Core Team
@@ -259,10 +259,45 @@ export default function Home() {
 
             </div>
           </div>
-
         </div>
       </div>
 
+      <div className={`w-full relative flex justify-center ${debug && 'border'} mb-[30px]`}>
+        <div className="flex flex-col w-full items-center">
+          <div className="text-3xl pt-[150px] text-middle-accent">
+            Subscribe for updates!
+          </div>
+          <div className="flex flex-row gap-5 flex-wrap p-5">
+            <input type="email" className="w-[486px] h-[50px] border bg-bg-dark text-2xl px-2" placeholder="Enter your e-mail"></input>
+            <div className="w-[175px] h-[50px] border text-middle-accent border-middle-accent flex items-center justify-center text-xl cursor-pointer">
+              Subscribe
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex w-full h-[91px] items-center">
+        <div className="flex mx-[50px] h-[40px] w-full justify-between">
+          <div className="font-bold text-2xl md:text-3xl cursor-pointer">
+            ZkNoid
+          </div>
+          <div className="hidden sm:flex text-base gap-5">
+            <div className="cursor-pointer text-xl">
+              Docs
+            </div>
+            <div className="cursor-pointer text-xl">
+              Blog
+            </div>
+          </div>
+          <div className="gap-5 hidden md:flex">
+            <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30} alt="Github"></Image>
+            <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image>
+            <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image>
+            <Image src={'/image/socials/medium.svg'} className="cursor-pointer" width={30} height={30} alt="Medium"></Image>
+          </div>
+          <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">Launch app</div>
+        </div>
+      </div>
 
     </main>
   );
