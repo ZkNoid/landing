@@ -200,14 +200,7 @@ export default function Home() {
               image="/image/applications/randzu.svg"
               link="https://app.zknoid.io/ranzu/global"
             />
-            <MoreGamesApplicationCard
-              name=""
-              variant={2}
-              exploreButton=""
-              description=""
-              image="/image/applications/more_games.svg"
-              link=""
-            />
+            <MoreGamesApplicationCard />
           </div>
         </div>
       </LandingSection>
