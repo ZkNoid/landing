@@ -20,7 +20,7 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                 className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none"
             ></Image>
             <div className="m-5 h-full flex flex-row ">
-                <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="w-[101px] h-[100px] md:w-[284px] md:h-[275px]" ></Image>
+                <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="m-3 lg:p-0 w-[101px] h-[100px] lg:w-[180px] lg:h-[180px] xl:w-[284px] xl:h-[275px]" ></Image>
                 <div className="">
                     <div className="flex-row justify-space-between justify-between hidden md:flex">
                         <div className="text-2xl"></div>
