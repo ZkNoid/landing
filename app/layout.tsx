@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { plexMono, rockswellStd } from "./fonts";
+import { Analytics } from '@vercel/analytics/react';
 
 
 export const metadata: Metadata = {
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rockswellStd.variable} ${plexMono.variable}`}>{children}</body>
+      <body className={`${rockswellStd.variable} ${plexMono.variable}`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
