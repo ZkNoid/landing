@@ -257,36 +257,56 @@ export default function Home() {
       </LandingSection>
 
       <div className={`w-full relative flex justify-center ${debug && 'border'} mb-[30px]`}>
-        <div className="flex flex-col w-full items-center">
-          <div className="text-3xl pt-[150px] text-middle-accent">
+
+        <div className="flex flex-col w-full items-center font-mono text-sm">
+          <div className="text-5xl pt-[150px] text-middle-accent ">
             Subscribe for updates!
           </div>
-          <div className="flex flex-row gap-5 flex-wrap p-5">
-            <input type="email" className="w-[486px] h-[50px] border bg-bg-dark text-2xl px-2" placeholder="Enter your e-mail"></input>
-            <div className="w-[175px] h-[50px] border text-middle-accent border-middle-accent flex items-center justify-center text-xl cursor-pointer">
-              Subscribe
+          <div className="flex flex-col pt-5 pb-10">
+            <div className="flex flex-row gap-5 flex-wrap py-5">
+              <input type="email" className="w-[486px] h-[50px] border bg-bg-dark text-xl px-2" placeholder="Enter your e-mail"></input>
+              <div className="w-[175px] h-[50px] border text-middle-accent border-middle-accent flex items-center justify-center text-xl cursor-pointer">
+                Subscribe
+              </div>
             </div>
+            <div className="flex items-center gap-5 text-sm">
+              <input type="checkbox" className="accent-middle-accent w-5 h-5" name="terms_agree"></input>
+              <label htmlFor="terms_agree">
+                I agree to the processing of my personal data
+              </label>
+            </div>
+
           </div>
         </div>
       </div>
 
-      <div className="flex w-full h-[91px] items-center">
-        <div className="flex mx-[50px] h-[40px] w-full justify-between">
-          <div className="font-bold text-2xl md:text-3xl cursor-pointer">
-            ZkNoid
+      <div className="flex flex-col px-[50px]">
+        <div className="flex w-full h-[91px] items-center">
+          <div className="flex w-full items-center justify-between">
+            <div className="font-bold text-2xl md:text-3xl cursor-pointer">
+              ZkNoid
+            </div>
+            <div className="hidden sm:flex text-base gap-5">
+              <Link className="cursor-pointer text-xl" href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
+                Github
+              </Link>
+              <Link className="cursor-pointer text-xl" href={'https://docs.zknoid.io'} target="_blank" rel="noopener noreferrer">
+                Documentation
+              </Link>
+              <Link className="cursor-pointer text-xl" href={'https://zknoid.medium.com'} target="_blank" rel="noopener noreferrer">
+                Blog
+              </Link>
+            </div>
+            <div></div>
+            <Link href={'https://app.zknoid.io'}>
+              <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
+                Launch app
+              </div>
+            </Link>
           </div>
-          <div className="hidden sm:flex text-base gap-5">
-            <Link className="cursor-pointer text-xl" href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
-              Github
-            </Link>
-            <Link className="cursor-pointer text-xl" href={'https://docs.zknoid.io'} target="_blank" rel="noopener noreferrer">
-              Documentation
-            </Link>
-            <Link className="cursor-pointer text-xl" href={'https://zknoid.medium.com'} target="_blank" rel="noopener noreferrer">
-              Blog
-            </Link>
-          </div>
-          <div className="gap-5 hidden md:flex">
+        </div>
+        <div className="flex justify-between py-3">
+          <div className="gap-5 hidden md:flex ">
             <Link className="cursor-pointer text-xl flex items-center justify-center" href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
               <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30} alt="Github"></Image>
             </Link>
@@ -296,14 +316,11 @@ export default function Home() {
               <Image src={'/image/socials/medium.svg'} className="cursor-pointer" width={30} height={30} alt="Medium"></Image>
             </Link>
           </div>
-          <Link href={'https://app.zknoid.io'}>
-            <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
-              Launch app
-            </div>
-          </Link>
+          <div className="text-[#F9F8F4]">
+            2024 ZkNoid: all rights reserved
+          </div>
         </div>
       </div>
-
     </main>
   );
 }
