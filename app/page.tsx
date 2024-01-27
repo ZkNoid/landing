@@ -175,8 +175,7 @@ export default function Home() {
             <BusinessInvestorsCard
               variant={1}
               exploreButton="/image/business_investors/explore_button/explore_right.svg"
-              description="Buy token that is backed by project revenue
-                  Revenue is collected to a vault and used to buy token from market"
+              description="Buy token that is backed by project revenue. Revenue is collected to a vault and used to buy token from market"
               image="/image/business_investors/coins.svg"
               link="https://docs.zknoid.io/docs/tokenomics"
             />
@@ -224,34 +223,43 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-around">
             <TeamMemberCard
               name="Asimaranov"
-              description="Top-1 solidity auditor at Mixbytes auditor DAO
-                Core builder of xraise.io project – account abstraction based wallet. 
-                Blockchain and full-stack developer. Studied at MSU, applied math and computer science"
               position="Core builder"
               image="/image/team/andrey.svg"
               variant={0}
               imageW={360}
               imageH={360}
-            />
-
+            >
+              <p>
+                Top-1 solidity auditor at <a href="http://leaderboard.strongholdsec.io/" className="text-left-accent">Mixbytes auditor DAO</a>.
+              </p>
+              <p className="py-2">
+                Core builder of <a href="https://www.xraise.io/" className="text-left-accent">xraise.io</a> project – account abstraction based wallet.
+              </p>
+              <p>
+                Blockchain and full-stack developer. Studied at MSU, applied math and computer science
+              </p>
+            </TeamMemberCard>
             <TeamMemberCard
               name="Alex"
-              description="Crypto enthusiast since 2020. CS MS in MIPT. Experienced solidity developer with two years experience in DEFI projects."
               position="Core builder"
               image="/image/team/alex.svg"
               variant={1}
               imageW={360}
               imageH={360}
-            />
+            >
+                Crypto enthusiast since 2020. CS MS in MIPT. Experienced solidity developer with two years experience in DEFI projects.
+              </TeamMemberCard>
             <TeamMemberCard
               name="Shiroy"
-              description="Ui/Ux & Graphic designer in crypto since 2022 as a member of PowerPool R&D and marketing team"
               position="Ui / Ux designer"
               image="/image/team/shiroy.svg"
               variant={2}
               imageW={360}
               imageH={360}
-            />
+            >
+              Ui/Ux & Graphic designer in crypto since 2022 as a member of PowerPool R&D and marketing team{" "}
+              <a href="https://powerpool.finance" className="text-right-accent inline">powerpool.finance</a>
+            </TeamMemberCard>
 
           </div>
         </div>
@@ -265,7 +273,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col pt-5 pb-10">
             <div className="flex flex-row gap-5 flex-wrap py-5">
-              <input type="email" className="w-full md:w-[486px] md:h-[50px] border bg-bg-dark text-xl px-2" placeholder="Enter your e-mail"></input>
+              <input type="email" className="w-full md:w-[486px] h-[50px] border bg-bg-dark text-base px-2" placeholder="Enter your e-mail"></input>
               <div className="w-[175px] h-[50px] border text-middle-accent border-middle-accent flex items-center justify-center text-xl cursor-pointer">
                 Subscribe
               </div>

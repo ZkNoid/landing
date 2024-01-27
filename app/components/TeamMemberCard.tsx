@@ -1,13 +1,14 @@
 import Image from "next/image";
+import { ReactNode } from "react";
 
 interface TeamMemberCardProps {
     name: string;
-    description: string;
     position: string;
     image: string;
     imageW: number;
     imageH: number;
-    variant: 0 | 1 | 2
+    variant: 0 | 1 | 2;
+    children: ReactNode;
 }
 
 export const TeamMemberCard = (props: TeamMemberCardProps) => {
@@ -24,7 +25,7 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
                         <div className="text-2xl font-bold">{props.name}</div>
                     </div>
                     <div className={`text-base font-normal md:max-w-[80%] py-2 ${color}`}>{props.position}</div>
-                    <div className="font-mono text-sm font-normal md:max-w-[80%]">{props.description}</div>
+                    <div className="font-mono text-sm font-normal md:max-w-[80%]">{props.children}</div>
                     <div className="flex-grow "></div>
                 </div>
             </div>
