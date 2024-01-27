@@ -11,7 +11,7 @@ interface BusinessInvestorsCardProps {
 
 export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
     return (
-        <div className="m-5 w-[50%] flex-grow relative ">
+        <div className="m-5 md:w-[50%] flex-grow relative ">
             <Image
                 src={'/image/business_box.svg'}
                 width={740}
@@ -20,9 +20,9 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                 className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none"
             ></Image>
             <div className="m-5 h-full flex flex-row ">
-                <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="w-[284px] h-[275px] lg:w-[284px] lg:h-[275px] hidden lg:block" ></Image>
-                <div className="flex-row">
-                    <div className="flex flex-row justify-space-between justify-between">
+                <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="w-[101px] h-[100px] md:w-[284px] md:h-[275px]" ></Image>
+                <div className="">
+                    <div className="flex-row justify-space-between justify-between hidden md:flex">
                         <div className="text-2xl"></div>
                         {props.variant == 0 && (
                             <svg width="55" height="37" viewBox="0 0 55 37" fill="none" xmlns="http://www.w3.org/2000/svg">

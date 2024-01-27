@@ -12,7 +12,7 @@ interface TechnologyCardProps {
 
 export const TechnologyCard = (props: TechnologyCardProps) => {
     return (
-        <div className="m-5 w-[33%] flex-grow relative max-w-[400px]">
+        <div className="m-5 flex-grow relative max-w-[400px] justify-self-center">
             <Image src={'/image/technology_box.svg'} width={300} height={600} alt="our_tech_upper" className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none" ></Image>
             <div className="m-5 h-full flex flex-col ">
                 <div className="flex justify-space-between justify-between">
@@ -39,7 +39,7 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                 <div className="font-mono text-sm font-normal pt-3 max-w-[80%]">{props.description}</div>
                 <div className="w-full flex flex-col items-center py-5 justify-between flex-grow">
                 <div className="flex-grow"></div>
-                <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[200px] lg:h-[300px] hidden lg:block" ></Image>
+                <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[200px] lg:h-[300px]" ></Image>
                 <div className="flex-grow"></div>
 
                 </div>

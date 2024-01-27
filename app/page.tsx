@@ -11,9 +11,9 @@ const debug = false;
 
 const LandingSection = (props: { title: string, children: ReactNode }) => {
   return (
-    <div className={`w-full relative flex justify-center px-[50px] ${debug && 'border'}`}>
+    <div className={`w-full relative flex justify-center px-[10px] md:px-[50px] ${debug && 'border'}`}>
       <div className="flex flex-col w-full">
-        <div className="font-bold text-5xl pt-[150px] pl-[30%]">
+        <div className="font-bold text-5xl pt-[150px] md:pl-[30%]">
           {props.title}
         </div>
         {props.children}
@@ -65,23 +65,23 @@ export default function Home() {
         </Link>
       </LandingHeader>
 
-      <div className={`h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
+      <div className={`h-[700px] md:h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
         <Image src={'/image/chess.svg'} className="w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
         <div>
-          <div className="font-bold text-5xl md:text-8xl pt-[173px] mx-3 ">
-            <div className={`${rockswellStdFix.className}`}>
+          <div className="font-bold text-3xl sm:text-4xl md:text-8xl pt-[173px] mx-3 ">
+            <div className={`${rockswellStdFix.className} text-8xl`}>
               Web3
             </div>
             <div className={`${rockswellStdFix.className}`}>
               Gaming platform
             </div>
-            <div className="text-base pl-10 font-plex-mono font-normal font-mono flex">
+            <div className="text-base pl-10 font-plex-mono font-normal font-mono flex flex-col md:flex-row">
               Powered by zero knowledge proof technology
-              <Link className="hidden sm:flex cursor-pointer font-rockwell text-xl pl-3 underline decoration-left-accent underline-offset-[5px]" href="https://docs.zknoid.io">
+              <Link className="cursor-pointer font-rockwell text-xl pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px]" href="https://docs.zknoid.io">
                 Open Docs <Image src={"/image/docs_arrow.svg"} className="ml-1 mb-2" width={16} height={16} alt="Arrow"></Image>
               </Link>
             </div>
-            <div className="w-full flex justify-center pt-4">
+            <div className="w-full flex justify-center pt-6 md:pt-4">
               <Link href={'https://app.zknoid.io'}>
                 <Image src={'/image/go_to_zkapp_button.svg'} className="cursor-pointer" width={179} height={51} alt="Open ZkApp"></Image>
               </Link>
@@ -90,10 +90,10 @@ export default function Home() {
         </div>
       </div>
       <LandingSection title="About ZkNoid">
-        <div className="text-sm xl:text-xl font-mono w-[400px] lg:w-[500px] pt-10 font-bold ml-[30%]">
+        <div className="text-sm xl:text-xl font-mono lg:w-[500px] pt-10 font-bold md:ml-[30%]">
           ZkNoid - the gaming platform powered by zero knowledge proof technology based on MINA protocol.
         </div>
-        <div className="items-center lg:flex-row lg:items-start grid grid-cols-3 w-full justify-between pt-16 gap-[20px]">
+        <div className="items-center  lg:items-start grid flex-rows-3 lg:grid-cols-3 w-full justify-between pt-16 gap-[20px]">
           <div className="flex items-start">
             <Image src={"image/01.svg"} width={96} height={96} alt="01"></Image>
             <div className="pl-5 pb-5 text-sm xl:text-xl font-mono">
@@ -116,10 +116,11 @@ export default function Home() {
           </div>
         </div>
       </LandingSection>
+
       <LandingSection title="Our technologies">
         <div className="flex flex-col">
-          <Image src={'/image/our_tech_upper_line.svg'} width={1106} height={142} alt="our_tech_upper" className="p-5 px-24 lg:px-36 w-full" ></Image>
-          <div className="flex justify-between">
+          <Image src={'/image/our_tech_upper_line.svg'} width={1106} height={142} alt="our_tech_upper" className="p-5 px-24 lg:px-[11vw] w-full hidden lg:block" ></Image>
+          <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-10">
             <TechnologyCard
               variant={0}
               exploreButton="/image/technologies/explore_button/explore_left.svg"
@@ -153,17 +154,17 @@ export default function Home() {
 
 
       <LandingSection title="Benefits for gamers">
-
-        <div className="text-base font-mono font-normal w-[400px] lg:w-[500px] pt-10 ml-[30%]">
-          Elevate your gaming journey and embrace a future where transparency and integrity define the ultimate gaming experience
+        <div className="flex flex-col">
+          <div className="text-base font-mono font-normal md:w-[400px] lg:w-[500px] pt-10 md:ml-[30%]">
+            Elevate your gaming journey and embrace a future where transparency and integrity define the ultimate gaming experience
+          </div>
+          <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5 w-full"></Image>
         </div>
-        <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5 w-full"></Image>
       </LandingSection>
 
       <LandingSection title="Benefits for Business and investors">
         <div className="flex flex-col">
-
-          <div className="flex justify-around pt-5">
+          <div className="flex justify-around pt-5 flex-col md:flex-row">
             <BusinessInvestorsCard
               variant={0}
               exploreButton="/image/business_investors/explore_button/explore_left.svg"
@@ -184,7 +185,7 @@ export default function Home() {
       </LandingSection>
       <LandingSection title="Applications">
         <div className="flex flex-col">
-          <div className="grid grid-cols-3 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr]">
+          <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr]">
             <ApplicationCard
               name="Arkanoid"
               variant={0}
@@ -218,9 +219,9 @@ export default function Home() {
       </LandingSection>
 
       <LandingSection title="ZkNoid Core Team">
-        <div className="flex flex-col h-[900px]">
-          <Image src={'/image/team_upper_line.svg'} width={1106} height={298} alt="our_tech_upper" className="p-5 px-24 lg:px-[13%] w-full" ></Image>
-          <div className="flex justify-around">
+        <div className="flex flex-col min-h-[900px]">
+          <Image src={'/image/team_upper_line.svg'} width={1106} height={298} alt="our_tech_upper" className="hidden md:block p-5 px-24 lg:px-[13%] w-full" ></Image>
+          <div className="flex flex-col md:flex-row justify-around">
             <TeamMemberCard
               name="Asimaranov"
               description="Top-1 solidity auditor at Mixbytes auditor DAO
@@ -256,7 +257,7 @@ export default function Home() {
         </div>
       </LandingSection>
 
-      <div className={`w-full relative flex justify-center ${debug && 'border'} mb-[30px]`}>
+      <div className={`w-full relative flex justify-center ${debug && 'border'} mb-[30px] px-[10px] md:px-[50px]`}>
 
         <div className="flex flex-col w-full items-center font-mono text-sm">
           <div className="text-5xl pt-[150px] text-middle-accent ">
@@ -264,7 +265,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col pt-5 pb-10">
             <div className="flex flex-row gap-5 flex-wrap py-5">
-              <input type="email" className="w-[486px] h-[50px] border bg-bg-dark text-xl px-2" placeholder="Enter your e-mail"></input>
+              <input type="email" className="md:w-[486px] md:h-[50px] border bg-bg-dark text-xl px-2" placeholder="Enter your e-mail"></input>
               <div className="w-[175px] h-[50px] border text-middle-accent border-middle-accent flex items-center justify-center text-xl cursor-pointer">
                 Subscribe
               </div>
