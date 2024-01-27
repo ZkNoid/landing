@@ -265,7 +265,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col pt-5 pb-10">
             <div className="flex flex-row gap-5 flex-wrap py-5">
-              <input type="email" className="md:w-[486px] md:h-[50px] border bg-bg-dark text-xl px-2" placeholder="Enter your e-mail"></input>
+              <input type="email" className="w-full md:w-[486px] md:h-[50px] border bg-bg-dark text-xl px-2" placeholder="Enter your e-mail"></input>
               <div className="w-[175px] h-[50px] border text-middle-accent border-middle-accent flex items-center justify-center text-xl cursor-pointer">
                 Subscribe
               </div>
