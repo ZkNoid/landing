@@ -4,8 +4,9 @@ import { BusinessInvestorsCard } from "./components/BusinessInvestorsCard";
 import { ApplicationCard, MoreGamesApplicationCard } from "./components/ApplicationCard";
 import { TeamMemberCard } from "./components/TeamMemberCard";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { rockswellStdFix } from "./fonts";
+import { SubscribeForm } from "./components/SubscribeForm";
 
 const debug = false;
 
@@ -265,29 +266,7 @@ export default function Home() {
         </div>
       </LandingSection>
 
-      <div className={`w-full relative flex justify-center ${debug && 'border'} mb-[30px] px-[10px] md:px-[50px]`}>
-
-        <div className="flex flex-col w-full items-center font-mono text-sm">
-          <div className="text-5xl pt-[150px] text-middle-accent ">
-            Subscribe for updates!
-          </div>
-          <div className="flex flex-col pt-5 pb-10">
-            <div className="flex flex-row gap-5 flex-wrap py-5">
-              <input type="email" className="w-full md:w-[486px] h-[50px] border bg-bg-dark text-base px-2" placeholder="Enter your e-mail"></input>
-              <div className="w-[175px] h-[50px] border text-middle-accent border-middle-accent flex items-center justify-center text-xl cursor-pointer">
-                Subscribe
-              </div>
-            </div>
-            <div className="flex items-center gap-5 text-sm">
-              <input type="checkbox" className="accent-middle-accent w-5 h-5" name="terms_agree"></input>
-              <label htmlFor="terms_agree">
-                I agree to the processing of my personal data
-              </label>
-            </div>
-
-          </div>
-        </div>
-      </div>
+      <SubscribeForm />
 
       <div className="flex flex-col px-[50px]">
         <div className="flex w-full h-[91px] items-center">
