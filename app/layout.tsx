@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { plexMono, rockswellStd } from "./fonts";
 import { Analytics } from '@vercel/analytics/react';
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "ZkNoid project",
@@ -20,6 +20,7 @@ export default function RootLayout({
       <body className={`${rockswellStd.variable} ${plexMono.variable}`}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
