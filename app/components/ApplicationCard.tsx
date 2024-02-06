@@ -40,6 +40,7 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
 
 export const MoreGamesApplicationCard = () => {
     return (
+        <Link href={"https://app.zknoid.io/"}>
             <Image
                 src={'/image/applications/more_games.svg'}
                 width={740}
@@ -47,6 +48,6 @@ export const MoreGamesApplicationCard = () => {
                 alt="our_tech_upper"
                 className=" h-full pointer-events-none"
             ></Image>
-
+        </Link>
     )
 }
