@@ -200,7 +200,7 @@ export default function Home() {
               exploreButton="/image/applications/play_button/play_right.svg"
               description="A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved using zkapp transactions"
               image="/image/applications/randzu.svg"
-              link="https://app.zknoid.io/ranzu/global"
+              link="https://app.zknoid.io/games/randzu/global"
             />
             <MoreGamesApplicationCard />
           </div>
