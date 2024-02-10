@@ -4,7 +4,7 @@ import { BusinessInvestorsCard } from "./components/BusinessInvestorsCard";
 import { ApplicationCard, MoreGamesApplicationCard } from "./components/ApplicationCard";
 import { TeamMemberCard } from "./components/TeamMemberCard";
 import Link from "next/link";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { rockswellStdFix } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
 
