@@ -16,12 +16,12 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
     return (
         <div className="m-5 flex-grow relative max-w-[400px] justify-self-center">
             <div className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none">
-                <Image src={'/image/technologies/corners/top_left_corner.svg'} width={30} height={30} alt="our_tech_upper" className="absolute top-0 left-0"></Image>
-                <Image src={'/image/technologies/corners/top_right_corner.svg'} width={30} height={30} alt="our_tech_upper" className="absolute top-0 right-0"></Image>
-                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt="our_tech_upper" className="absolute top-1/2 left-0"></Image>
-                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt="our_tech_upper" className="absolute top-1/2 right-0"></Image>
-                <Image src={'/image/technologies/corners/bottom_left_corner.svg'} width={30} height={30} alt="our_tech_upper" className="absolute bottom-0 left-0"></Image>
-                <Image src={'/image/technologies/corners/bottom_right_corner.svg'} width={30} height={30} alt="our_tech_upper" className="absolute bottom-0 right-0"></Image>
+                <Image src={'/image/technologies/corners/top_left_corner.svg'} width={30} height={30} alt="" className="absolute top-0 left-0"></Image>
+                <Image src={'/image/technologies/corners/top_right_corner.svg'} width={30} height={30} alt="" className="absolute top-0 right-0"></Image>
+                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt="" className="absolute top-1/2 left-0"></Image>
+                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt="" className="absolute top-1/2 right-0"></Image>
+                <Image src={'/image/technologies/corners/bottom_left_corner.svg'} width={30} height={30} alt="" className="absolute bottom-0 left-0"></Image>
+                <Image src={'/image/technologies/corners/bottom_right_corner.svg'} width={30} height={30} alt="" className="absolute bottom-0 right-0"></Image>
             </div>
             <div className="m-5 h-full flex flex-col gap-2">
                 <div className="flex justify-between">
