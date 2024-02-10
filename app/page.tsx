@@ -130,6 +130,7 @@ export default function Home() {
               image="/image/technologies/circuit.svg"
               imageW={300}
               imageH={150}
+              link={"#"}
             />
             <TechnologyCard
               name="Recursive proofs"
@@ -139,6 +140,7 @@ export default function Home() {
               variant={1}
               imageW={339}
               imageH={335}
+              link={"#"}
             />
             <TechnologyCard
               name="Mina and protokit networks interplay"
@@ -148,6 +150,7 @@ export default function Home() {
               variant={2}
               imageW={290}
               imageH={280}
+              link={"#"}
             />
           </div>
         </div>

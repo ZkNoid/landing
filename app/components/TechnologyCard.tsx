@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface TechnologyCardProps {
     exploreButton: string;
@@ -8,15 +9,23 @@ interface TechnologyCardProps {
     imageW: number;
     imageH: number;
     variant: 0 | 1 | 2
+    link: string;
 }
 
 export const TechnologyCard = (props: TechnologyCardProps) => {
     return (
         <div className="m-5 flex-grow relative max-w-[400px] justify-self-center">
-            <Image src={'/image/technology_box.svg'} width={300} height={600} alt="our_tech_upper" className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none" ></Image>
-            <div className="m-5 h-full flex flex-col ">
-                <div className="flex justify-space-between justify-between">
-                    <div className="text-2xl">{props.name}</div>
+            <div className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none">
+                <Image src={'/image/technologies/corners/top_left_corner.svg'} width={30} height={30} alt="our_tech_upper" className="absolute top-0 left-0"></Image>
+                <Image src={'/image/technologies/corners/top_right_corner.svg'} width={30} height={30} alt="our_tech_upper" className="absolute top-0 right-0"></Image>
+                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt="our_tech_upper" className="absolute top-1/2 left-0"></Image>
+                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt="our_tech_upper" className="absolute top-1/2 right-0"></Image>
+                <Image src={'/image/technologies/corners/bottom_left_corner.svg'} width={30} height={30} alt="our_tech_upper" className="absolute bottom-0 left-0"></Image>
+                <Image src={'/image/technologies/corners/bottom_right_corner.svg'} width={30} height={30} alt="our_tech_upper" className="absolute bottom-0 right-0"></Image>
+            </div>
+            <div className="m-5 h-full flex flex-col gap-2">
+                <div className="flex justify-between">
+                <div className="text-2xl 2xl:max-w-[250px] xl:max-w-[210px] lg:max-w-[170px] md:max-w-[130px] max-w-[250px]">{props.name}</div>
                     {props.variant == 0 && (
                         <svg width="55" height="37" viewBox="0 0 55 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="18.3848" y="0.707107" width="25" height="25" transform="rotate(45 18.3848 0.707107)" fill="#212121" stroke="#F9F8F4" />
@@ -36,11 +45,18 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                         </svg>
                     )}
                 </div>
-                <div className="font-mono text-sm font-normal pt-3 max-w-[80%]">{props.description}</div>
+                <div className="font-mono text-sm font-normal pt-3 w-full">{props.description}</div>
                 <div className="w-full flex flex-col items-center py-5 justify-between flex-grow">
                 <div className="flex-grow"></div>
                 <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[200px] lg:h-[300px]" ></Image>
                 <div className="flex-grow"></div>
+
+                {/*---Button---*/}
+                {/*<div className="w-full flex flex-col items-center justify-end pb-8 flex-grow">*/}
+                {/*    <Link href={props.link} target="_blank" rel="noopener noreferrer">*/}
+                {/*        <Image src={props.exploreButton} width={180} height={51} alt="our_tech_btn" className="cursor-pointer w-full"></Image>*/}
+                {/*    </Link>*/}
+                {/*</div>*/}
 
                 </div>
             </div>
