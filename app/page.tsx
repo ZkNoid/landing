@@ -60,7 +60,7 @@ export default function Home() {
         </div>
         <Link href={'https://app.zknoid.io'}>
           <div
-            className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
+            className="w-[140px] lg:w-[192px] h-[50px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
             Launch app
           </div>
         </Link>
@@ -295,7 +295,7 @@ export default function Home() {
               </Link>
             </div>
             <Link href={'https://app.zknoid.io'}>
-              <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
+              <div className="w-[140px] lg:w-[192px] h-[50px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
                 Launch app
               </div>
             </Link>
