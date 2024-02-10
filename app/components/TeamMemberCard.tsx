@@ -20,12 +20,12 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
                 <div className="w-full flex flex-col items-center pb-5 justify-between">
                     <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="" ></Image>
                 </div>
-                <div className="flex flex-col items-center ">
-                    <div className="flex justify-space-between justify-between">
+                <div className="flex flex-col items-center">
+                    <div className="flex justify-space-between justify-between w-full pb-2">
                         <div className="text-2xl font-bold">{props.name}</div>
                     </div>
-                    <div className={`text-base font-normal md:max-w-[80%] py-2 ${color}`}>{props.position}</div>
-                    <div className="font-mono text-sm font-normal md:max-w-[80%]">{props.children}</div>
+                    <div className={`text-lg font-semibold w-full ${color}`}>{props.position}</div>
+                    <div className="font-mono text-sm font-normal w-full">{props.children}</div>
                     <div className="flex-grow "></div>
                 </div>
             </div>
