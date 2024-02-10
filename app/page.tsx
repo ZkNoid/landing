@@ -222,7 +222,7 @@ export default function Home() {
       </LandingSection>
 
       <LandingSection title="ZkNoid Core Team">
-        <div className="flex flex-col min-h-[900px]">
+        <div className="flex flex-col min-h-[1000px]">
           <Image src={'/image/team_upper_line.svg'} width={1106} height={298} alt="our_tech_upper" className="hidden md:block p-5 px-24 lg:px-[13%] w-full" ></Image>
           <div className="flex flex-col md:flex-row justify-around">
             <TeamMemberCard

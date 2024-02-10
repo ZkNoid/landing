@@ -20,7 +20,7 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
                 alt="our_tech_upper"
                 className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none"
             ></Image>
-            <div className="m-3 h-full flex flex-col ">
+            <div className="m-6 h-full flex flex-col ">
                 <div className="text-2xl mb-3">{props.name}</div>
                 <div className="flex flex-col items-center h-full">
                     <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="" ></Image>
@@ -28,9 +28,11 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
                     <div className="font-mono text-sm font-normal py-5 px-3">{props.description}</div>
                     <div className="flex-grow "></div>
                     {props.exploreButton && (
-                        <Link href={props.link} className="w-full">
-                            <Image src={props.exploreButton} width={300} height={52} alt="our_tech_upper" className="pb-5 cursor-pointer w-full" ></Image>
-                        </Link>
+                        <div className="w-full flex flex-col items-center justify-end pb-10 flex-grow">
+                            <Link href={props.link} className="w-full">
+                                <Image src={props.exploreButton} width={300} height={52} alt="our_tech_upper" className="cursor-pointer w-full"></Image>
+                            </Link>
+                        </div>
                     )}
                 </div>
             </div>
