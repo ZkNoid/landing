@@ -40,14 +40,15 @@ export const SubscribeForm = (props: { debug?: boolean }) => {
                     </div>
                     <div className="flex items-center gap-5 text-sm">
                         <input
+                            id="terms_agree"
                             type="checkbox"
-                            className="accent-middle-accent w-5 h-5"
+                            className="accent-middle-accent w-5 h-5 cursor-pointer"
                             name="terms_agree"
                             checked={termsChecked}
                             onChange={(e) => setTermsChecked(e.target.checked)}
                         >
                         </input>
-                        <label htmlFor="terms_agree">
+                        <label htmlFor="terms_agree" className="hover:opacity-80 transition-opacity cursor-pointer">
                             I agree to the processing of my personal data
                         </label>
                     </div>

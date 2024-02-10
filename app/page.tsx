@@ -277,10 +277,16 @@ export default function Home() {
             <div className="font-bold text-2xl md:text-3xl cursor-pointer">
               ZkNoid
             </div>
-            <div className="hidden sm:flex text-base gap-5">
+            <div className="hidden sm:flex text-base gap-8">
+              {/*<Link className="cursor-pointer text-xl" href={'#'} target="_blank" rel="noopener noreferrer">*/}
+              {/*  About us*/}
+              {/*</Link>*/}
               <Link className="cursor-pointer text-xl" href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
                 Github
               </Link>
+              {/*<Link className="cursor-pointer text-xl" href={'#'} target="_blank" rel="noopener noreferrer">*/}
+              {/*  Brand assets*/}
+              {/*</Link>*/}
               <Link className="cursor-pointer text-xl" href={'https://docs.zknoid.io'} target="_blank" rel="noopener noreferrer">
                 Documentation
               </Link>
@@ -288,7 +294,6 @@ export default function Home() {
                 Blog
               </Link>
             </div>
-            <div></div>
             <Link href={'https://app.zknoid.io'}>
               <div className="w-[140px] lg:w-[172px] h-[40px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
                 Launch app
