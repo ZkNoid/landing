@@ -32,7 +32,7 @@ export const SubscribeForm = (props: { debug?: boolean }) => {
                             onChange={(e) => setUserEmail(e.target.value)}
                         ></input>
                         <div
-                            className="w-[175px] h-[50px] border text-middle-accent border-middle-accent flex items-center justify-center text-xl cursor-pointer"
+                            className="w-[175px] h-[50px] border text-middle-accent hover:text-[#000] border-middle-accent hover:bg-middle-accent flex items-center justify-center text-xl cursor-pointer"
                             onClick={submitEmail}
                         >
                             Subscribe

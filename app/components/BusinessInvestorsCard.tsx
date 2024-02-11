@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import {BorderMask} from "@/app/components/BorderMask";
+import {Button} from "@/app/components/Button";
 
 interface BusinessInvestorsCardProps {
     exploreButton: string;
@@ -7,25 +8,26 @@ interface BusinessInvestorsCardProps {
     image: string;
     link: string;
     variant: 0 | 1 | 2;
+    color: string;
+    btnColor: string;
+    hoverColor: 'left-accent' | 'middle-accent' | 'right-accent'
 }
 
 export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
+
     return (
-        <div className="m-5 md:w-[50%] flex-grow relative ">
-            <div className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none">
-                <Image src={'/image/technologies/corners/top_left_corner.svg'} width={30} height={30} alt=""
-                       className="absolute top-0 left-0"></Image>
-                <Image src={'/image/technologies/corners/top_right_corner.svg'} width={30} height={30} alt=""
-                       className="absolute top-0 right-0"></Image>
-                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt=""
-                       className="absolute top-1/2 left-0"></Image>
-                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt=""
-                       className="absolute top-1/2 right-0"></Image>
-                <Image src={'/image/technologies/corners/bottom_left_corner.svg'} width={30} height={30} alt=""
-                       className="absolute bottom-0 left-0"></Image>
-                <Image src={'/image/technologies/corners/bottom_right_corner.svg'} width={30} height={30} alt=""
-                       className="absolute bottom-0 right-0"></Image>
-            </div>
+        <div className="m-5 md:w-[50%] flex-grow relative group">
+            <BorderMask
+                color={props.color}
+                hoverColor={props.hoverColor}
+                hasCenterSticks={true}
+                centerSticksAlign={'horizontal'}
+                hasBorder={false}
+                width={30}
+                height={30}
+                className={'pointer-events-none'}
+                classNames={{border: `w-[99.6%] h-[97.6%]`}}
+            />
             <div className="m-5 h-full flex flex-row">
                 <Image src={props.image} width={740} height={359} alt="our_tech_upper"
                        className="m-3 lg:p-0 w-[101px] h-[100px] lg:w-[180px] lg:h-[180px] xl:w-[284px] xl:h-[275px]"></Image>
@@ -52,11 +54,14 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                         )}
                     </div>
                     <div className="font-mono text-sm font-normal pt-3 max-w-[400px] mx-auto">{props.description}</div>
-                    <div className="w-full flex flex-col items-center pt-10 justify-between flex-grow">
-                        <Link href={props.link} target="_blank" rel="noopener noreferrer">
-                            <Image src={props.exploreButton} width={180} height={51} alt="our_tech_upper"
-                                   className="pb-5 cursor-pointer"></Image>
-                        </Link>
+                    <div className={'mx-auto max-w-[400px] flex flex-row justify-start items-center'}>
+                        <Button
+                            link={props.link}
+                            color={props.btnColor}
+                            hoverColor={props.hoverColor}
+                            text={'Explore'}
+                            className={'max-w-[200px] mt-4'}
+                        />
                     </div>
                 </div>
             </div>

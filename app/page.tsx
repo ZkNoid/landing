@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { rockswellStdFix } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
+import {Button} from "@/app/components/Button";
 
 const debug = false;
 
@@ -58,9 +59,9 @@ export default function Home() {
             <Image src={'/image/socials/medium.svg'} className="cursor-pointer " width={30} height={30} alt="Medium"></Image>
           </Link>
         </div>
-        <Link href={'https://app.zknoid.io'}>
+        <Link href={'https://app.zknoid.io'} className='group'>
           <div
-            className="w-[140px] lg:w-[192px] h-[50px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
+            className="w-[140px] lg:w-[192px] h-[50px] bg-foreground group-hover:bg-bg-dark group-hover:border group-hover:border-foreground group-hover:text-[#fff] text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
             Launch app
           </div>
         </Link>
@@ -76,16 +77,23 @@ export default function Home() {
             <div className={`${rockswellStdFix.className}`}>
               Gaming platform
             </div>
-            <div className="text-base pl-10 font-plex-mono font-normal font-mono flex flex-col md:flex-row">
+            <div className="text-lg pl-10 font-plex-mono font-normal font-mono flex flex-col justify-end md:flex-row">
               Powered by zero knowledge proof technology
               <Link className="cursor-pointer font-rockwell text-xl pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px]" href="https://docs.zknoid.io">
                 Open Docs <Image src={"/image/docs_arrow.svg"} className="ml-1 mb-2" width={16} height={16} alt="Arrow"></Image>
               </Link>
             </div>
             <div className="w-full flex justify-center pt-6 md:pt-4">
-              <Link href={'https://app.zknoid.io'}>
-                <Image src={'/image/go_to_zkapp_button.svg'} className="cursor-pointer" width={179} height={51} alt="Open ZkApp"></Image>
-              </Link>
+              {/*<Link href={'https://app.zknoid.io'}>*/}
+              {/*  <Image src={'/image/go_to_zkapp_button.svg'} className="cursor-pointer" width={179} height={51} alt="Open ZkApp"></Image>*/}
+              {/*</Link>*/}
+              <Button
+                  link={'https://app.zknoid.io'}
+                  color={'#97FF00'}
+                  hoverColor={'middle-accent'}
+                  text={'Go to zkApp'}
+                  className={'max-w-[220px] h-[95%] mt-4 pt-[6px] pb-[4px] text-2xl'}
+              />
             </div>
           </div>
         </div>
@@ -131,6 +139,9 @@ export default function Home() {
               imageW={300}
               imageH={150}
               link={"#"}
+              color={'#fff'}
+              btnColor={'#D2FF00'}
+              hoverColor='left-accent'
             />
             <TechnologyCard
               name="Recursive proofs"
@@ -141,6 +152,9 @@ export default function Home() {
               imageW={339}
               imageH={335}
               link={"#"}
+              color={'#fff'}
+              btnColor={'#97FF00'}
+              hoverColor='middle-accent'
             />
             <TechnologyCard
               name="Mina and protokit networks interplay"
@@ -151,6 +165,9 @@ export default function Home() {
               imageW={290}
               imageH={280}
               link={"#"}
+              color={'#fff'}
+              btnColor={'#56EBFF'}
+              hoverColor={'right-accent'}
             />
           </div>
         </div>
@@ -175,6 +192,9 @@ export default function Home() {
               description="Host fair competitions within your community and reward your most engaged fans - with no possibility of cheating"
               image="/image/business_investors/cup.svg"
               link="https://docs.zknoid.io/docs/competitions"
+              color={'#fff'}
+              btnColor={'#D2FF00'}
+              hoverColor={"left-accent"}
             />
             <BusinessInvestorsCard
               variant={1}
@@ -182,6 +202,9 @@ export default function Home() {
               description="Buy token that is backed by project revenue. Revenue is collected to a vault and used to buy token from market"
               image="/image/business_investors/coins.svg"
               link="https://docs.zknoid.io/docs/tokenomics"
+              color={'#fff'}
+              btnColor={'#56EBFF'}
+              hoverColor={"right-accent"}
             />
           </div>
         </div>
@@ -196,6 +219,9 @@ export default function Home() {
               description="Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced"
               image="/image/applications/arkanoid.svg"
               link="https://app.zknoid.io/games/arkanoid/competitions-list"
+              color={'#fff'}
+              btnColor={'#D2FF00'}
+              hoverColor={'left-accent'}
             />
             <ApplicationCard
               name="Randzu"
@@ -204,8 +230,13 @@ export default function Home() {
               description="A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved using zkapp transactions"
               image="/image/applications/randzu.svg"
               link="https://app.zknoid.io/games/randzu/global"
+              color={'#fff'}
+              btnColor={'#56EBFF'}
+              hoverColor={'right-accent'}
             />
+
             <MoreGamesApplicationCard />
+
           </div>
         </div>
       </LandingSection>
@@ -294,8 +325,8 @@ export default function Home() {
                 Blog
               </Link>
             </div>
-            <Link href={'https://app.zknoid.io'}>
-              <div className="w-[140px] lg:w-[192px] h-[50px] bg-foreground text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
+            <Link href={'https://app.zknoid.io'} className='group'>
+              <div className="w-[140px] lg:w-[192px] h-[50px] bg-foreground group-hover:bg-bg-dark group-hover:border group-hover:border-foreground group-hover:text-[#fff] text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
                 Launch app
               </div>
             </Link>

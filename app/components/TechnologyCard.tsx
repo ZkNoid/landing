@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import {BorderMask} from "@/app/components/BorderMask";
+import {Button} from "@/app/components/Button";
 
 interface TechnologyCardProps {
     exploreButton: string;
@@ -10,19 +11,26 @@ interface TechnologyCardProps {
     imageH: number;
     variant: 0 | 1 | 2
     link: string;
+    color: string;
+    btnColor: string;
+    hoverColor: "left-accent" | "middle-accent" | "right-accent";
 }
 
 export const TechnologyCard = (props: TechnologyCardProps) => {
+
     return (
-        <div className="m-5 flex-grow relative max-w-[400px] justify-self-center">
-            <div className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none">
-                <Image src={'/image/technologies/corners/top_left_corner.svg'} width={30} height={30} alt="" className="absolute top-0 left-0"></Image>
-                <Image src={'/image/technologies/corners/top_right_corner.svg'} width={30} height={30} alt="" className="absolute top-0 right-0"></Image>
-                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt="" className="absolute top-1/2 left-0"></Image>
-                <Image src={'/image/technologies/corners/center_stick.svg'} width={3} height={30} alt="" className="absolute top-1/2 right-0"></Image>
-                <Image src={'/image/technologies/corners/bottom_left_corner.svg'} width={30} height={30} alt="" className="absolute bottom-0 left-0"></Image>
-                <Image src={'/image/technologies/corners/bottom_right_corner.svg'} width={30} height={30} alt="" className="absolute bottom-0 right-0"></Image>
-            </div>
+        <div className="m-5 flex-grow relative max-w-[400px] justify-self-center group">
+            <BorderMask
+                color={props.color}
+                hoverColor={props.hoverColor}
+                hasCenterSticks={true}
+                centerSticksAlign={"horizontal"}
+                hasBorder={false}
+                width={30}
+                height={30}
+                className={'pointer-events-none'}
+                classNames={{border: `w-[98.6%] h-[99%]`}}
+            />
             <div className="m-5 h-full flex flex-col gap-2">
                 <div className="flex justify-between">
                 <div className="text-2xl 2xl:max-w-[250px] xl:max-w-[210px] lg:max-w-[170px] md:max-w-[130px] max-w-[250px]">{props.name}</div>
@@ -51,12 +59,12 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                 <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[200px] lg:h-[300px]" ></Image>
                 <div className="flex-grow"></div>
 
-                {/*---Button---*/}
-                {/*<div className="w-full flex flex-col items-center justify-end pb-8 flex-grow">*/}
-                {/*    <Link href={props.link} target="_blank" rel="noopener noreferrer">*/}
-                {/*        <Image src={props.exploreButton} width={180} height={51} alt="our_tech_btn" className="cursor-pointer w-full"></Image>*/}
-                {/*    </Link>*/}
-                {/*</div>*/}
+                {/*<Button*/}
+                {/*    link={props.link}*/}
+                {/*    color={props.btnColor}*/}
+                {/*    hoverColor={props.hoverColor}*/}
+                {/*    text={'Explore'}*/}
+                {/*/>*/}
 
                 </div>
             </div>
