@@ -93,6 +93,7 @@ export default function Home() {
                   hoverColor={'middle-accent'}
                   text={'Go to zkApp'}
                   className={'max-w-[220px] h-[95%] mt-4 pt-[6px] pb-[4px] text-2xl'}
+                  classNames={{text: 'text-[#fff]'}}
               />
             </div>
           </div>

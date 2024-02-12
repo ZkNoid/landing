@@ -41,7 +41,7 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
                         color={props.btnColor}
                         hoverColor={props.hoverColor}
                         text={'Play now!'}
-                        className={'mb-12 text-lg'}
+                        className={'!mb-12 text-lg'}
                         classNames={{border: 'w-[99.8%]'}}
                     />
                 </div>

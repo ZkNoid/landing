@@ -9,6 +9,7 @@ interface ButtonProps {
     className?: string;
     classNames?: {
         border?: string;
+        text?: string;
     }
 }
 
@@ -77,9 +78,9 @@ export const Button = (props: ButtonProps) => {
                 hasBorder={true}
                 width={15}
                 height={15}
-                classNames={{border: `w-[99.4%] h-[94.6%] mt-[1px] mb-0 mr-[1px] ml-[1px] ${borderColor} ${props.classNames?.border}`}}
+                classNames={{border: `w-[99.4%] h-[94.6%] !mt-[1px] !mr-[1px] !ml-[1px] ${borderColor} ${props.classNames?.border}`}}
             />
-            <span className={`${textColor} group-hover/button:text-[#000]`}>{props.text}</span>
+            <span className={`${textColor} group-hover/button:text-[#000] ${props.classNames?.text}`}>{props.text}</span>
         </Link>
     )
 }
