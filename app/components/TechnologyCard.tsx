@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {BorderMask} from "@/app/components/BorderMask";
+import { OutlineDecoration } from "@/app/components/BorderMask";
 import {Button} from "@/app/components/Button";
 
 interface TechnologyCardProps {
@@ -13,24 +13,12 @@ interface TechnologyCardProps {
     link: string;
     color: string;
     btnColor: string;
-    hoverColor: "left-accent" | "middle-accent" | "right-accent";
 }
 
 export const TechnologyCard = (props: TechnologyCardProps) => {
 
     return (
-        <div className="m-5 flex-grow relative max-w-[400px] justify-self-center group">
-            <BorderMask
-                color={props.color}
-                hoverColor={props.hoverColor}
-                hasCenterSticks={true}
-                centerSticksAlign={"horizontal"}
-                hasBorder={false}
-                width={30}
-                height={30}
-                className={'pointer-events-none'}
-                classNames={{border: `w-[98.6%] h-[99%]`}}
-            />
+        <OutlineDecoration className="m-5 flex-grow relative max-w-[400px] justify-self-center group" sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0}>
             <div className="m-5 h-full flex flex-col gap-2">
                 <div className="flex justify-between">
                 <div className="text-2xl 2xl:max-w-[250px] xl:max-w-[210px] lg:max-w-[170px] md:max-w-[130px] max-w-[250px]">{props.name}</div>
@@ -58,16 +46,8 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                 <div className="flex-grow"></div>
                 <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[200px] lg:h-[300px]" ></Image>
                 <div className="flex-grow"></div>
-
-                {/*<Button*/}
-                {/*    link={props.link}*/}
-                {/*    color={props.btnColor}*/}
-                {/*    hoverColor={props.hoverColor}*/}
-                {/*    text={'Explore'}*/}
-                {/*/>*/}
-
                 </div>
             </div>
-        </div>
+        </OutlineDecoration>
     )
 }

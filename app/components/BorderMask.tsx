@@ -1,153 +1,40 @@
+import { ReactNode } from "react";
 
-interface CornerProps {
-    fill: string;
-    className?: string;
-    width: number;
-    height: number;
-}
+export const OutlineDecoration = (
+    { children, sizeMode, colorVariant, hoverMode, orientation, className }:
+        { children: ReactNode, sizeMode: 0 | 1, colorVariant: 0 | 1 | 2, hoverMode: 0 | 1, orientation: 0 | 1, className: string }
+) => {
 
-const TopLeftCorner = (props: CornerProps) => {
+    const borderSizes = {
+        top: sizeMode == 0 ? "border-t-1 top-[-1px]" : "border-t-3 top-[-3px]",
+        right: sizeMode == 0 ? "border-r-1 right-[-1px]" : "border-r-3 right-[-3px]",
+        bottom: sizeMode == 0 ? "border-b-1 bottom-[-1px]" : "border-b-3 bottom-[-3px]",
+        left: sizeMode == 0 ? "border-l-1 left-[-1px]" : "border-l-3 left-[-3px]",
+    };
+
+    const borderColor = hoverMode == 1 ? "" : colorVariant == 0 ? "border-left-accent" : colorVariant == 1 ? "border-middle-accent" : "border-right-accent";
+    const borderHoverColor = colorVariant == 0 ? "group-hover/outline:border-left-accent" : colorVariant == 1 ? "group-hover/outline:border-middle-accent" : "group-hover/outline:border-right-accent";
+    const borderWidth = sizeMode == 0 ? "h-[8px] w-[8px]" : "h-[28px] w-[28px]";
     return (
-        <svg fill={props.fill} width={props.width} height={props.height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28"
-             className={`absolute top-0 left-0 transition-colors ${props.className ? props.className : ''}`}>
-            <rect x="3" width="27" height="3"/>
-            <rect width="3" height="28"/>
-        </svg>
-    )
-}
-
-const TopRightCorner = (props: CornerProps) => {
-    return (
-        <svg fill={props.fill} width={props.width} height={props.height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28"
-             className={`absolute top-0 right-0 transition-colors ${props.className ? props.className : ''}`}>
-            <rect width="27" height="3"/>
-            <rect x="27" width="3" height="28"/>
-        </svg>
-    )
-}
-
-const BottomLeftCorner = (props: CornerProps) => {
-    return (
-        <svg fill={props.fill} width={props.width} height={props.height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28"
-             className={`absolute bottom-0 left-0 transition-colors ${props.className ? props.className : ''}`}>
-            <rect x="3" y="25" width="27" height="3"/>
-            <rect width="3" height="28"/>
-        </svg>
-    )
-}
-
-const BottomRightCorner = (props: CornerProps) => {
-    return (
-        <svg fill={props.fill} width={props.width} height={props.height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 28"
-             className={`absolute bottom-0 right-0 transition-colors ${props.className ? props.className : ''}`}>
-            <rect y="25" width="27" height="3"/>
-            <rect x="27" width="3" height="28"/>
-        </svg>
-    )
-}
-
-
-interface CenterStickProps extends CornerProps {
-    align: "left" | "right" | "top" | "bottom"
-}
-
-const CenterStick = (props: CenterStickProps) => {
-    if (props.align === "left" || props.align === "right")
-        return (
-            <svg fill={props.fill} width={props.width} height={props.height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 27"
-                 className={`absolute top-1/2 ${props.align}-0 transition-colors ${props.className ? props.className : ''}`}>
-                <rect width="3" height="27"/>
-            </svg>
-        )
-    else return (
-        <svg fill={props.fill} width={props.height} height={props.width} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 3"
-             className={`absolute left-1/2 ${props.align}-0 transition-colors ${props.className ? props.className : ''}`}>
-            <rect width="27" height="3"/>
-        </svg>
-    )
-}
-
-
-interface BorderMaskProps {
-    className?: string;
-    classNames?: {
-        topLeftCorner?: string;
-        topRightCorner?: string;
-        centerLeftStick?: string;
-        centerRightStick?: string;
-        bottomLeftCorner?: string;
-        bottomRightCorner?: string;
-        border?: string;
-        all?: string;
-    }
-    color: string;
-    hoverColor: 'left-accent' | 'middle-accent' | 'right-accent';
-    hasCenterSticks: boolean;
-    centerSticksAlign?: "vertical" | "horizontal";
-    hasBorder: boolean;
-    width: number
-    height: number
-}
-
-
-/**
- * Border mask for button and blocks
- *
- * Before use ensure that parent of this element has "relative" CSS property
- */
-
-export const BorderMask = (props: BorderMaskProps) => {
-
-    let allHoverColor;
-
-    switch (props.hoverColor) {
-        case "left-accent":
-            allHoverColor = "group-hover:fill-left-accent"
-            break;
-
-        case "middle-accent":
-            allHoverColor = "group-hover:fill-middle-accent"
-            break;
-
-        case "right-accent":
-            allHoverColor = "group-hover:fill-right-accent"
-            break;
-    }
-
-    let borderHoverColor;
-
-    switch (props.hoverColor) {
-        case "left-accent":
-            borderHoverColor = "group-hover:border-left-accent"
-            break;
-
-        case "middle-accent":
-            borderHoverColor = "group-hover:border-middle-accent"
-            break;
-
-        case "right-accent":
-            borderHoverColor = "group-hover:border-right-accent"
-            break;
-    }
-
-
-    return (
-        <div className={`absolute top-0 bottom-0 w-full h-full ${props.className ? props.className : ''}`}>
-            <TopLeftCorner width={props.width} height={props.height} fill={props.color} className={`${allHoverColor} ${props.classNames?.all} ${props.classNames?.topLeftCorner}`}/>
-            <TopRightCorner width={props.width} height={props.height} fill={props.color} className={`${allHoverColor} ${props.classNames?.all} ${props.classNames?.topRightCorner}`}/>
-            {props.hasCenterSticks &&
+        <div className={`${sizeMode == 0 ? "m-[1px]" : "m-[3px]"} relative group/outline ${className}`}>
+            {orientation == 1 ? (
                 <>
-                    <CenterStick width={props.width / 10} height={props.height} fill={props.color} align={props.centerSticksAlign === "horizontal" ? "left" : "top"}
-                                 className={`${allHoverColor} ${props.classNames?.all} ${props.classNames?.centerLeftStick}`}/>
-                    <CenterStick width={props.width / 10} height={props.height} fill={props.color} align={props.centerSticksAlign === "horizontal" ? "right" : "bottom"}
-                                 className={`${allHoverColor} ${props.classNames?.all} ${props.classNames?.centerRightStick}`}/>
+                    <div className={`absolute ${borderSizes["top"]} left-[0px] right-[0px] m-auto ${borderWidth} ${borderColor} ${borderHoverColor}`} />
+                    <div className={`absolute ${borderSizes["bottom"]} left-[0px] right-[0px] bottom-[-1px] m-auto ${borderWidth} ${borderColor} ${borderHoverColor}`} />
                 </>
-            }
-            <BottomLeftCorner width={props.width} height={props.height} fill={props.color} className={`${allHoverColor} ${props.classNames?.all} ${props.classNames?.bottomLeftCorner}`}/>
-            <BottomRightCorner width={props.width} height={props.height} fill={props.color} className={`${allHoverColor} ${props.classNames?.all} ${props.classNames?.bottomRightCorner}`}/>
-            {props.hasBorder &&
-                <div className={`border mt-[4px] mb-[3px] ml-[3px] mr-[3px] transition-colors ${borderHoverColor} ${props.classNames?.border}`}/>
-            }
+
+            ) : (
+                <>
+                    <div className={`absolute ${borderSizes["left"]} top-[0px] bottom-[0px] left-[-1px] m-auto ${borderWidth} ${borderColor} ${borderHoverColor}`} />
+                    <div className={`absolute ${borderSizes["right"]} top-[0px] bottom-[0px] right-[-1px] m-auto ${borderWidth} ${borderColor} ${borderHoverColor}`} />
+                </>
+            )}
+
+            <div className={`absolute ${borderSizes["top"]} ${borderSizes["left"]} ${borderWidth} ${borderColor} ${borderHoverColor}`} />
+            <div className={`absolute ${borderSizes["bottom"]} ${borderSizes["left"]} ${borderWidth} ${borderColor} ${borderHoverColor}`} />
+            <div className={`absolute ${borderSizes["top"]} ${borderSizes["right"]} ${borderWidth} ${borderColor} ${borderHoverColor}`} />
+            <div className={`absolute ${borderSizes["bottom"]} ${borderSizes["right"]} ${borderWidth} ${borderColor} ${borderHoverColor}`} />
+            {children}
         </div>
     )
 }

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { rockswellStdFix } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
-import {Button} from "@/app/components/Button";
+import { Button } from "@/app/components/Button";
 
 const debug = false;
 
@@ -84,17 +84,12 @@ export default function Home() {
               </Link>
             </div>
             <div className="w-full flex justify-center pt-6 md:pt-4">
-              {/*<Link href={'https://app.zknoid.io'}>*/}
-              {/*  <Image src={'/image/go_to_zkapp_button.svg'} className="cursor-pointer" width={179} height={51} alt="Open ZkApp"></Image>*/}
-              {/*</Link>*/}
-              <Button
-                  link={'https://app.zknoid.io'}
-                  color={'#97FF00'}
-                  hoverColor={'middle-accent'}
-                  text={'Go to zkApp'}
-                  className={'max-w-[220px] h-[95%] mt-4 pt-[6px] pb-[4px] text-2xl'}
-                  classNames={{text: 'text-[#fff]'}}
-              />
+                <Button
+                  colorVariant={1}
+                    link={'https://app.zknoid.io'}
+                    text={'Go to zkApp'}
+                    className="w-[179px] h-[52px] border-middle-accent text-2xl"
+                />
             </div>
           </div>
         </div>
@@ -142,7 +137,6 @@ export default function Home() {
               link={"#"}
               color={'#fff'}
               btnColor={'#D2FF00'}
-              hoverColor='left-accent'
             />
             <TechnologyCard
               name="Recursive proofs"
@@ -155,7 +149,6 @@ export default function Home() {
               link={"#"}
               color={'#fff'}
               btnColor={'#97FF00'}
-              hoverColor='middle-accent'
             />
             <TechnologyCard
               name="Mina and protokit networks interplay"
@@ -168,7 +161,6 @@ export default function Home() {
               link={"#"}
               color={'#fff'}
               btnColor={'#56EBFF'}
-              hoverColor={'right-accent'}
             />
           </div>
         </div>
@@ -186,7 +178,7 @@ export default function Home() {
 
       <LandingSection title="Benefits for Business and investors">
         <div className="flex flex-col">
-          <div className="flex justify-around pt-5 flex-col md:flex-row">
+          <div className="flex justify-around pt-5 flex-col md:flex-row gap-5">
             <BusinessInvestorsCard
               variant={0}
               exploreButton="/image/business_investors/explore_button/explore_left.svg"
@@ -195,17 +187,15 @@ export default function Home() {
               link="https://docs.zknoid.io/docs/competitions"
               color={'#fff'}
               btnColor={'#D2FF00'}
-              hoverColor={"left-accent"}
             />
             <BusinessInvestorsCard
-              variant={1}
+              variant={2}
               exploreButton="/image/business_investors/explore_button/explore_right.svg"
               description="Buy token that is backed by project revenue. Revenue is collected to a vault and used to buy token from market"
               image="/image/business_investors/coins.svg"
               link="https://docs.zknoid.io/docs/tokenomics"
               color={'#fff'}
               btnColor={'#56EBFF'}
-              hoverColor={"right-accent"}
             />
           </div>
         </div>
@@ -215,25 +205,21 @@ export default function Home() {
           <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr]">
             <ApplicationCard
               name="Arkanoid"
-              variant={0}
               exploreButton="/image/applications/play_button/play_left.svg"
               description="Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced"
               image="/image/applications/arkanoid.svg"
               link="https://app.zknoid.io/games/arkanoid/competitions-list"
               color={'#fff'}
-              btnColor={'#D2FF00'}
-              hoverColor={'left-accent'}
+              variant={0}
             />
             <ApplicationCard
               name="Randzu"
-              variant={1}
               exploreButton="/image/applications/play_button/play_right.svg"
               description="A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved using zkapp transactions"
               image="/image/applications/randzu.svg"
               link="https://app.zknoid.io/games/randzu/global"
               color={'#fff'}
-              btnColor={'#56EBFF'}
-              hoverColor={'right-accent'}
+              variant={1}
             />
 
             <MoreGamesApplicationCard />
