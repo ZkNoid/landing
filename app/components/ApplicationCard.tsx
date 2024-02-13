@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import {BorderMask} from "@/app/components/BorderMask";
-import {Button} from "@/app/components/Button";
+import { Button } from "@/app/components/Button";
+import { OutlineDecoration } from "./BorderMask";
 
 interface ApplicationCardProps {
     exploreButton: string;
@@ -9,76 +9,60 @@ interface ApplicationCardProps {
     description: string;
     link: string;
     image: string;
-    variant: 0 | 1 | 2
     color: string;
-    btnColor: string;
-    hoverColor: 'left-accent' | 'middle-accent' | 'right-accent'
+    variant: 0 | 1 | 2
 }
 
 export const ApplicationCard = (props: ApplicationCardProps) => {
+    const borderColor = props.variant == 0 ? "hover/outline:border-left-accent" 
+        : props.variant == 1 ? "hover/outline:border-middle-accent" 
+        : "hover/outline:border-right-accent";
+
     return (
-        <div className="relative group">
-            <BorderMask
-                color={props.color}
-                hoverColor={props.hoverColor}
-                hasCenterSticks={true}
-                centerSticksAlign={"horizontal"}
-                hasBorder={true}
-                width={30}
-                height={30}
-                className={'pointer-events-none'}
-                classNames={{border: `w-[99.3%] h-[99.3%]`}}
-            />
-            <div className="m-6 h-full flex flex-col ">
-                <div className="text-2xl mb-3">{props.name}</div>
-                <div className="flex flex-col items-center h-full">
-                    <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="" ></Image>
-                    <div className="flex-grow "></div>
-                    <div className="font-mono text-sm font-normal py-5 px-3">{props.description}</div>
-                    <div className="flex-grow "></div>
-                    <Button
-                        link={props.link}
-                        color={props.btnColor}
-                        hoverColor={props.hoverColor}
-                        text={'Play now!'}
-                        className={'!mb-12 text-lg'}
-                        classNames={{border: 'w-[99.8%]'}}
-                    />
+        <OutlineDecoration sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0} className={`border ${borderColor}`}>
+            <div className="group w-full h-full">
+                <div className="p-6 h-full flex flex-col ">
+                    <div className="text-2xl mb-3">{props.name}</div>
+                    <div className="flex flex-col items-center h-full">
+                        <Image src={props.image} width={740} height={359} alt="our_tech_upper"></Image>
+                        <div className="flex-grow "></div>
+                        <div className="font-mono text-sm font-normal py-5 px-3">{props.description}</div>
+                        <div className="flex-grow "></div>
+                        
+                        <Button
+                            link={props.link}
+                            colorVariant={props.variant}
+                            text={'Play now!'}
+                            className={'text-lg w-[90%] h-[52px]'}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
+        </OutlineDecoration>
     )
 }
 
 export const MoreGamesApplicationCard = () => {
     return (
-        <Link href={"https://app.zknoid.io/"} className={'relative w-full md:h-auto h-2/4 group'}>
-            <BorderMask
-                color={'#fff'}
-                hoverColor={'right-accent'}
-                hasCenterSticks={true}
-                centerSticksAlign={"horizontal"}
-                hasBorder={true}
-                width={30}
-                height={30}
-                classNames={{border: `w-[99.3%] h-[99.3%]`}}
-            />
-            <Image
-                src={'/image/applications/more-games.svg'}
-                alt={'our_tech_upper'}
-                width={1080}
-                height={360}
-                className={'object-cover object-center h-full'}
-            />
-            <div className={'absolute top-0 bottom-0 w-full flex flex-col justify-center items-center'}>
+        <OutlineDecoration sizeMode={1} colorVariant={2} hoverMode={1} orientation={0} className="border hover/outline:border-right-accent">
+            <Link href={"https://app.zknoid.io/"} className={'relative w-full md:h-auto h-2/4 group'}>
                 <Image
-                    src={'/image/applications/more-games-text.svg'}
+                    src={'/image/applications/more-games.svg'}
                     alt={'our_tech_upper'}
-                    width={240}
-                    height={140}
-                    className={'object-cover'}
+                    width={1080}
+                    height={360}
+                    className={'object-cover object-center h-full'}
                 />
-            </div>
-        </Link>
+                <div className={'absolute top-0 bottom-0 w-full flex flex-col justify-center items-center'}>
+                    <Image
+                        src={'/image/applications/more-games-text.svg'}
+                        alt={'our_tech_upper'}
+                        width={240}
+                        height={140}
+                        className={'object-cover'}
+                    />
+                </div>
+            </Link>
+        </OutlineDecoration>
     )
 }
