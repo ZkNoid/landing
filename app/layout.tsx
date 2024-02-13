@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { plexMono, rockswellStd } from "./fonts";
+import { plexMono, museoSlab } from "./fonts";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rockswellStd.variable} ${plexMono.variable}`}>
+      <body className={`${museoSlab.variable} ${plexMono.variable}`}>
         {children}
         <Analytics />
         <SpeedInsights />

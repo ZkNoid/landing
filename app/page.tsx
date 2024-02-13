@@ -5,7 +5,7 @@ import { ApplicationCard, MoreGamesApplicationCard } from "./components/Applicat
 import { TeamMemberCard } from "./components/TeamMemberCard";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { rockswellStdFix } from "./fonts";
+import { museoSlab } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
 import { Button } from "./components/Button";
 
@@ -15,7 +15,7 @@ const LandingSection = (props: { title: string, children: ReactNode }) => {
   return (
     <div className={`w-full relative flex justify-center px-[10px] md:px-[50px] ${debug && 'border'}`}>
       <div className="flex flex-col w-full">
-        <div className="font-bold text-5xl pt-[150px] md:pl-[30%]">
+        <div className="font-bold text-5xl pt-[150px] md:pl-[30%] pb-4">
           {props.title}
         </div>
         {props.children}
@@ -71,13 +71,13 @@ export default function Home() {
         <Image src={'/image/chess.svg'} className="w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
         <div>
           <div className="font-bold text-3xl sm:text-4xl md:text-8xl pt-[173px] mx-3 ">
-            <div className={`${rockswellStdFix.className} text-8xl`}>
-              Web3
+            <div className={`${museoSlab.className} text-8xl`}>
+              WEB3
             </div>
-            <div className={`${rockswellStdFix.className}`}>
+            <div className={`${museoSlab.className}`}>
               Gaming platform
             </div>
-            <div className="text-lg pl-10 font-plex-mono font-normal font-mono flex flex-col justify-end md:flex-row">
+            <div className="text-lg pl-10 pt-2 font-plex-mono font-normal font-mono flex flex-col justify-end md:flex-row">
               Powered by zero knowledge proof technology
               <Link className="cursor-pointer font-rockwell text-xl pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px]" href="https://docs.zknoid.io">
                 Open Docs <Image src={"/image/docs_arrow.svg"} className="ml-1 mb-2" width={16} height={16} alt="Arrow"></Image>
@@ -96,7 +96,7 @@ export default function Home() {
         </div>
       </div>
       <LandingSection title="About ZkNoid">
-        <div className="text-sm xl:text-xl font-mono lg:w-[500px] pt-10 font-bold md:ml-[30%]">
+        <div className="text-sm xl:text-2xl font-mono lg:w-[500px] 2xl:w-[800px] pt-10 font-bold md:ml-[30%]">
           ZkNoid - the gaming platform powered by zero knowledge proof technology based on MINA protocol.
         </div>
         <div className="items-center  lg:items-start grid flex-rows-3 lg:grid-cols-3 w-full justify-between pt-16 gap-[20px]">
@@ -161,7 +161,7 @@ export default function Home() {
 
       <LandingSection title="Benefits for gamers">
         <div className="flex flex-col">
-          <div className="text-base font-mono font-normal md:w-[400px] lg:w-[500px] pt-10 md:ml-[30%]">
+          <div className="text-base lg:text-lg font-mono font-normal md:w-[400px] lg:w-[500px] 2xl:w-[800px] pt-10 md:ml-[30%]">
             Elevate your gaming journey and embrace a future where transparency and integrity define the ultimate gaming experience
           </div>
           <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5 w-full"></Image>
