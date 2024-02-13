@@ -6,10 +6,10 @@ export const OutlineDecoration = (
 ) => {
 
     const borderSizes = {
-        top: sizeMode == 0 ? "border-t-1 top-[-1px]" : "border-t-3 top-[-3px]",
-        right: sizeMode == 0 ? "border-r-1 right-[-1px]" : "border-r-3 right-[-3px]",
-        bottom: sizeMode == 0 ? "border-b-1 bottom-[-1px]" : "border-b-3 bottom-[-3px]",
-        left: sizeMode == 0 ? "border-l-1 left-[-1px]" : "border-l-3 left-[-3px]",
+        top: sizeMode == 0 ? "border-t-[1px] top-[-1px]" : "border-t-[3px] top-[-3px]",
+        right: sizeMode == 0 ? "border-r-[1px] right-[-1px]" : "border-r-[3px] right-[-3px]",
+        bottom: sizeMode == 0 ? "border-b-[1px] bottom-[-1px]" : "border-b-[3px] bottom-[-3px]",
+        left: sizeMode == 0 ? "border-l-[1px] left-[-1px]" : "border-l-[3px] left-[-3px]",
     };
 
     const borderColor = hoverMode == 1 ? "" : colorVariant == 0 ? "border-left-accent" : colorVariant == 1 ? "border-middle-accent" : "border-right-accent";

@@ -1,9 +1,7 @@
 import Image from "next/image";
-import { OutlineDecoration } from "@/app/components/BorderMask";
-import {Button} from "@/app/components/Button";
+import { OutlineDecoration } from "./OutlineDecoration";
 
 interface TechnologyCardProps {
-    exploreButton: string;
     name: string;
     description: string;
     image: string;
@@ -11,8 +9,6 @@ interface TechnologyCardProps {
     imageH: number;
     variant: 0 | 1 | 2
     link: string;
-    color: string;
-    btnColor: string;
 }
 
 export const TechnologyCard = (props: TechnologyCardProps) => {
@@ -46,6 +42,14 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                 <div className="flex-grow"></div>
                 <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[200px] lg:h-[300px]" ></Image>
                 <div className="flex-grow"></div>
+
+                {/*<Button*/}
+                {/*    link={props.link}*/}
+                {/*    colorVariant={props.variant}*/}
+                {/*    text={'Explore'}*/}
+                {/*    className={'mb-5 text-lg w-full h-[52px]'}*/}
+                {/*/>*/}
+
                 </div>
             </div>
         </OutlineDecoration>

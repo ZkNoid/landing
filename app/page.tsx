@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { rockswellStdFix } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
-import { Button } from "@/app/components/Button";
+import { Button } from "./components/Button";
 
 const debug = false;
 
@@ -86,9 +86,10 @@ export default function Home() {
             <div className="w-full flex justify-center pt-6 md:pt-4">
                 <Button
                   colorVariant={1}
+                  textWhite={true}
                     link={'https://app.zknoid.io'}
                     text={'Go to zkApp'}
-                    className="w-[179px] h-[52px] border-middle-accent text-2xl"
+                    className="w-[199px] h-[52px] text-2xl"
                 />
             </div>
           </div>
@@ -128,39 +129,30 @@ export default function Home() {
           <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-10">
             <TechnologyCard
               variant={0}
-              exploreButton="/image/technologies/explore_button/explore_left.svg"
               name="ZK Circuit"
               description="Allows to prove your game process without revealing your strategy."
               image="/image/technologies/circuit.svg"
               imageW={300}
               imageH={150}
               link={"#"}
-              color={'#fff'}
-              btnColor={'#D2FF00'}
             />
             <TechnologyCard
               name="Recursive proofs"
-              exploreButton="/image/technologies/explore_button/explore_middle.svg"
               description="Used to accumulate your game process proof while you’re playing."
               image="/image/technologies/recursive_proofs.svg"
               variant={1}
               imageW={339}
               imageH={335}
               link={"#"}
-              color={'#fff'}
-              btnColor={'#97FF00'}
             />
             <TechnologyCard
               name="Mina and protokit networks interplay"
-              exploreButton="/image/technologies/explore_button/explore_right.svg"
               description="Combines power of ZK blockchain with fast and gasless transactions enabling multiplayer and background sessions."
               image="/image/technologies/networks_interplay.svg"
               variant={2}
               imageW={290}
               imageH={280}
               link={"#"}
-              color={'#fff'}
-              btnColor={'#56EBFF'}
             />
           </div>
         </div>
@@ -181,21 +173,15 @@ export default function Home() {
           <div className="flex justify-around pt-5 flex-col md:flex-row gap-5">
             <BusinessInvestorsCard
               variant={0}
-              exploreButton="/image/business_investors/explore_button/explore_left.svg"
               description="Host fair competitions within your community and reward your most engaged fans - with no possibility of cheating"
               image="/image/business_investors/cup.svg"
               link="https://docs.zknoid.io/docs/competitions"
-              color={'#fff'}
-              btnColor={'#D2FF00'}
             />
             <BusinessInvestorsCard
               variant={2}
-              exploreButton="/image/business_investors/explore_button/explore_right.svg"
               description="Buy token that is backed by project revenue. Revenue is collected to a vault and used to buy token from market"
               image="/image/business_investors/coins.svg"
               link="https://docs.zknoid.io/docs/tokenomics"
-              color={'#fff'}
-              btnColor={'#56EBFF'}
             />
           </div>
         </div>
@@ -205,20 +191,16 @@ export default function Home() {
           <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr]">
             <ApplicationCard
               name="Arkanoid"
-              exploreButton="/image/applications/play_button/play_left.svg"
               description="Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced"
               image="/image/applications/arkanoid.svg"
               link="https://app.zknoid.io/games/arkanoid/competitions-list"
-              color={'#fff'}
               variant={0}
             />
             <ApplicationCard
               name="Randzu"
-              exploreButton="/image/applications/play_button/play_right.svg"
               description="A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved using zkapp transactions"
               image="/image/applications/randzu.svg"
               link="https://app.zknoid.io/games/randzu/global"
-              color={'#fff'}
               variant={1}
             />
 

@@ -1,15 +1,12 @@
 import Image from "next/image";
-import { OutlineDecoration} from "@/app/components/BorderMask";
-import {Button} from "@/app/components/Button";
+import { OutlineDecoration} from "./OutlineDecoration";
+import { Button } from "./Button";
 
 interface BusinessInvestorsCardProps {
-    exploreButton: string;
     description: string;
     image: string;
     link: string;
     variant: 0 | 2;
-    color: string;
-    btnColor: string;
 }
 
 export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {

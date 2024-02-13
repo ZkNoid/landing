@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/app/components/Button";
-import { OutlineDecoration } from "./BorderMask";
+import { Button } from "./Button";
+import { OutlineDecoration } from "./OutlineDecoration";
 
 interface ApplicationCardProps {
-    exploreButton: string;
     name: string;
     description: string;
     link: string;
     image: string;
-    color: string;
     variant: 0 | 1 | 2
 }
 
@@ -33,7 +31,7 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
                             link={props.link}
                             colorVariant={props.variant}
                             text={'Play now!'}
-                            className={'text-lg w-[90%] h-[52px]'}
+                            className={'text-lg w-full h-[52px]'}
                         />
                     </div>
                 </div>
@@ -45,7 +43,7 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
 export const MoreGamesApplicationCard = () => {
     return (
         <OutlineDecoration sizeMode={1} colorVariant={2} hoverMode={1} orientation={0} className="border hover/outline:border-right-accent">
-            <Link href={"https://app.zknoid.io/"} className={'relative w-full md:h-auto h-2/4 group'}>
+            <Link href={"https://app.zknoid.io/"} className={'relative w-full md:h-auto h-2/4 group inline-block'}>
                 <Image
                     src={'/image/applications/more-games.svg'}
                     alt={'our_tech_upper'}
@@ -53,13 +51,13 @@ export const MoreGamesApplicationCard = () => {
                     height={360}
                     className={'object-cover object-center h-full'}
                 />
-                <div className={'absolute top-0 bottom-0 w-full flex flex-col justify-center items-center'}>
+                <div className={'absolute top-0 bottom-0 w-full h-full flex flex-col justify-center items-center'}>
                     <Image
                         src={'/image/applications/more-games-text.svg'}
                         alt={'our_tech_upper'}
                         width={240}
                         height={140}
-                        className={'object-cover'}
+                        className={'object-cover object-center'}
                     />
                 </div>
             </Link>
