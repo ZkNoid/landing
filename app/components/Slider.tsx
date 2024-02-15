@@ -30,14 +30,14 @@ const Dots = ({ slidesAmount, activeSlide, slideLimiter }: { slidesAmount: numbe
 
 export const Slider = ({children}: { children: ReactNode }) => {
 
-    const DRAG_BUFFER = 50
-
     const [slidesAmount, setSlidesAmount] = useState<number>(0)
     const [slideIndex, setSlideIndex] = useState<number>(0)
     const [translateX, setTranslateX] = useState<number>(0)
     const [slideLimiter, setSlideLimiter] = useState<1 | 3>(1)
     const dragX = useMotionValue<number>(0)
     const sliderRef = useRef<HTMLDivElement>(null)
+
+    const DRAG_BUFFER = slideLimiter == 3 ? 50 : 5
 
     const onDragEnd = () => {
         const x = dragX.get()
