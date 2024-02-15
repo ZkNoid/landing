@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export const OutlineDecoration = (
     { children, sizeMode, colorVariant, hoverMode, orientation, className }:
-        { children: ReactNode, sizeMode: 0 | 1, colorVariant: 0 | 1 | 2, hoverMode: 0 | 1, orientation: 0 | 1, className: string }
+        { children: ReactNode, sizeMode: 0 | 1, colorVariant: 0 | 1 | 2 | 3, hoverMode: 0 | 1, orientation: 0 | 1, className: string }
 ) => {
 
     const borderSizes = {
@@ -12,8 +12,8 @@ export const OutlineDecoration = (
         left: sizeMode == 0 ? "border-l-[1px] left-[-1px]" : "border-l-[3px] left-[-3px]",
     };
 
-    const borderColor = hoverMode == 1 ? "" : colorVariant == 0 ? "border-left-accent" : colorVariant == 1 ? "border-middle-accent" : "border-right-accent";
-    const borderHoverColor = colorVariant == 0 ? "group-hover/outline:border-left-accent" : colorVariant == 1 ? "group-hover/outline:border-middle-accent" : "group-hover/outline:border-right-accent";
+    const borderColor = hoverMode == 1 ? "" : colorVariant == 0 ? "border-left-accent" : colorVariant == 1 ? "border-middle-accent" : colorVariant == 2 ? "border-right-accent" : "border-[#fff]";
+    const borderHoverColor = colorVariant == 0 ? "group-hover/outline:border-left-accent" : colorVariant == 1 ? "group-hover/outline:border-middle-accent" : colorVariant == 2 ? "group-hover/outline:border-right-accent" : "group-hover/outline:border-[#fff]";
     const borderWidth = sizeMode == 0 ? "h-[8px] w-[8px]" : "h-[28px] w-[28px]";
     return (
         <div className={`${sizeMode == 0 ? "m-[1px]" : "m-[3px]"} relative group/outline ${className}`}>

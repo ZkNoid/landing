@@ -49,8 +49,8 @@ export const MoreGamesApplicationCard = ({isSlide}: {isSlide?: boolean}) => {
     const slideStyles = 'overflow-hidden inset-0 min-w-[90vw] md:min-w-[80vw] lg:min-w-[31vw]'
 
     return (
-        <OutlineDecoration sizeMode={1} colorVariant={2} hoverMode={1} orientation={0} className="border hover/outline:border-right-accent">
-            <Link href={"https://app.zknoid.io/"} className={`relative w-full md:h-auto h-full group inline-block ${isSlide && slideStyles}`}>
+        <OutlineDecoration sizeMode={1} colorVariant={2} hoverMode={1} orientation={0} className="border hover/outline:border-right-accent h-2/4 lg:h-auto">
+            <Link href={"https://app.zknoid.io/"} className={`relative w-full h-full lg:h-auto group inline-block ${isSlide && slideStyles}`}>
                 <Image
                     src={'/image/applications/more-games.svg'}
                     alt={'our_tech_upper'}

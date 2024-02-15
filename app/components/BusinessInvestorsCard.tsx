@@ -20,7 +20,7 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
         >            
             <div className="m-5 h-full flex flex-row">
                 <Image src={props.image} width={740} height={359} alt="our_tech_upper"
-                       className="m-3 lg:p-0 w-[101px] h-[100px] lg:w-[180px] lg:h-[180px] xl:w-[284px] xl:h-[275px]"></Image>
+                       className="hidden lg:block m-3 lg:p-0 w-[150px] h-[150px] lg:w-[180px] lg:h-[180px] xl:w-[284px] xl:h-[275px] object-contain object-center"></Image>
                 <div className="w-full">
                     <div className="flex-row justify-space-between justify-between hidden md:flex">
                         <div className="text-2xl"></div>
@@ -43,17 +43,22 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                             </svg>
                         )}
                     </div>
-                    <div className="font-mono text-sm font-normal pt-3 max-w-[400px] mx-auto">{props.description}</div>
+                    <div className={'flex lg:hidden flex-row justify-between]'}>
+                        <Image src={props.image} width={740} height={359} alt="our_tech_upper"
+                               className="w-[120px] h-[120px] object-contain object-center self-center mr-[4px]"></Image>
+                        <div className="font-mono text-sm font-normal pt-3 max-w-[400px] mx-auto">{props.description}</div>
+                    </div>
+                    <div className="font-mono text-sm font-normal pt-3 max-w-[400px] mx-auto hidden lg:block">{props.description}</div>
                     <div className={'mx-auto max-w-[400px] flex flex-row justify-start items-center'}>
                         <Button
                             link={props.link}
                             colorVariant={props.variant}
                             text={'Explore'}
-                            className={'max-w-[200px] mt-4 text-base w-[50%] h-[50px]'}
+                            className={'lg:max-w-[200px] mt-4 text-base w-full lg:w-[50%] h-[50px]'}
                         />
                     </div>
                 </div>
-        </div>
+            </div>
         </OutlineDecoration>
     )
 }

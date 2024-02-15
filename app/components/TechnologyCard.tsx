@@ -25,7 +25,7 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
         <OutlineDecoration className={props.isSlide ? `border ${borderColor} w-full` : "m-5 flex-grow relative max-w-[400px] justify-self-center group"} sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0}>
             <div className={props.isSlide ? slideStyles : "m-5 h-full flex flex-col gap-2"}>
                 <div className="flex justify-between">
-                <div className={`text-2xl ${props.isSlide ? `max-w-[250px]` : "2xl:max-w-[250px] xl:max-w-[210px] lg:max-w-[170px] md:max-w-[130px] max-w-[250px]"}`}>{props.name}</div>
+                <div className={`text-2xl ${props.isSlide ? `max-w-[200px]` : "2xl:max-w-[250px] xl:max-w-[210px] lg:max-w-[170px] md:max-w-[130px] max-w-[250px]"}`}>{props.name}</div>
                     {props.variant == 0 && (
                         <svg width="55" height="37" viewBox="0 0 55 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="18.3848" y="0.707107" width="25" height="25" transform="rotate(45 18.3848 0.707107)" fill="#212121" stroke="#F9F8F4" />
@@ -48,7 +48,7 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                 <div className="font-mono text-sm font-normal pt-3 w-full">{props.description}</div>
                 <div className="w-full flex flex-col items-center py-5 justify-between flex-grow">
                 <div className="flex-grow"></div>
-                <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[200px] lg:h-[300px]" ></Image>
+                <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[250px] lg:h-[300px]" ></Image>
                 <div className="flex-grow"></div>
 
                 {/*<Button*/}
