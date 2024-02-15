@@ -49,7 +49,7 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                             link={props.link}
                             colorVariant={props.variant}
                             text={'Explore'}
-                            className={'max-w-[200px] mt-4 text-base w-[50%] h-[51px]'}
+                            className={'max-w-[200px] mt-4 text-base w-[50%] h-[50px]'}
                         />
                     </div>
                 </div>

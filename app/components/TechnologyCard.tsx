@@ -12,7 +12,6 @@ interface TechnologyCardProps {
 }
 
 export const TechnologyCard = (props: TechnologyCardProps) => {
-
     return (
         <OutlineDecoration className="m-5 flex-grow relative max-w-[400px] justify-self-center group" sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0}>
             <div className="m-5 h-full flex flex-col gap-2">
@@ -47,7 +46,7 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                 {/*    link={props.link}*/}
                 {/*    colorVariant={props.variant}*/}
                 {/*    text={'Explore'}*/}
-                {/*    className={'mb-5 text-lg w-full h-[52px]'}*/}
+                {/*    className={'mb-5 text-lg w-full h-[50px]'}*/}
                 {/*/>*/}
 
                 </div>

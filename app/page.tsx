@@ -8,6 +8,7 @@ import { ReactNode } from "react";
 import { museoSlab } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
 import { Button } from "./components/Button";
+import { Slider } from "./components/Slider";
 
 const debug = false;
 
@@ -89,7 +90,7 @@ export default function Home() {
                   textWhite={true}
                     link={'https://app.zknoid.io'}
                     text={'Go to zkApp'}
-                    className="w-[199px] h-[52px] text-2xl"
+                    className="w-[199px] h-[50px] text-2xl"
                 />
             </div>
           </div>
@@ -128,10 +129,10 @@ export default function Home() {
           <Image src={'/image/our_tech_upper_line.svg'} width={1106} height={142} alt="our_tech_upper" className="p-5 px-24 lg:px-[11vw] w-full hidden lg:block" ></Image>
           <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-10">
             <TechnologyCard
-              variant={0}
               name="ZK Circuit"
               description="Allows to prove your game process without revealing your strategy."
               image="/image/technologies/circuit.svg"
+              variant={0}
               imageW={300}
               imageH={150}
               link={"#"}
@@ -187,14 +188,17 @@ export default function Home() {
         </div>
       </LandingSection>
       <LandingSection title="Applications">
-        <div className="flex flex-col">
-          <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr]">
+        {/*<div className="flex flex-col">*/}
+          {/*<div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr]">*/}
+          <Slider>
+
             <ApplicationCard
               name="Arkanoid"
               description="Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced"
               image="/image/applications/arkanoid.svg"
               link="https://app.zknoid.io/games/arkanoid/competitions-list"
               variant={0}
+              isSlide={true}
             />
             <ApplicationCard
               name="Randzu"
@@ -202,12 +206,14 @@ export default function Home() {
               image="/image/applications/randzu.svg"
               link="https://app.zknoid.io/games/randzu/global"
               variant={1}
+              isSlide={true}
             />
 
-            <MoreGamesApplicationCard />
+            <MoreGamesApplicationCard isSlide={true}/>
 
-          </div>
-        </div>
+          </Slider>
+          {/*</div>*/}
+        {/*</div>*/}
       </LandingSection>
 
       <LandingSection title="Backed by">
@@ -269,10 +275,10 @@ export default function Home() {
         </div>
       </LandingSection>
 
-      <SubscribeForm />
+      <SubscribeForm/>
 
       <div className="flex flex-col px-[50px]">
-        <div className="flex w-full h-[91px] items-center">
+      <div className="flex w-full h-[91px] items-center">
           <div className="flex w-full items-center justify-between">
             <div className="font-bold text-2xl md:text-3xl cursor-pointer">
               ZkNoid
