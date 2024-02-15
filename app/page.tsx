@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { TechnologyCard } from "./components/TechnologyCard";
 import { BusinessInvestorsCard } from "./components/BusinessInvestorsCard";
-import { ApplicationCard, MoreGamesApplicationCard } from "./components/ApplicationCard";
+import { ApplicationCard } from "./components/ApplicationCard";
 import { TeamMemberCard } from "./components/TeamMemberCard";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { museoSlab } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
 import { Button } from "./components/Button";
-import { Slider } from "./components/Slider";
+import { SlidableBlock } from "./components/SlidableBlock";
 
 const debug = false;
 
@@ -16,7 +16,7 @@ const LandingSection = (props: { title: string, children: ReactNode }) => {
   return (
     <div className={`w-full relative flex justify-center px-[10px] md:px-[50px] ${debug && 'border'}`}>
       <div className="flex flex-col w-full">
-        <div className="font-bold text-5xl pt-[150px] md:pl-[30%] pb-4">
+        <div className="font-bold text-4xl lg:text-5xl pt-[150px] md:pl-[30%] pb-4">
           {props.title}
         </div>
         {props.children}
@@ -125,38 +125,41 @@ export default function Home() {
       </LandingSection>
 
       <LandingSection title="Our technologies">
-        <div className="flex flex-col">
-          <Image src={'/image/our_tech_upper_line.svg'} width={1106} height={142} alt="our_tech_upper" className="p-5 px-24 lg:px-[11vw] w-full hidden lg:block" ></Image>
-          <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-10">
-            <TechnologyCard
-              name="ZK Circuit"
-              description="Allows to prove your game process without revealing your strategy."
-              image="/image/technologies/circuit.svg"
-              variant={0}
-              imageW={300}
-              imageH={150}
-              link={"#"}
-            />
-            <TechnologyCard
-              name="Recursive proofs"
-              description="Used to accumulate your game process proof while you’re playing."
-              image="/image/technologies/recursive_proofs.svg"
-              variant={1}
-              imageW={339}
-              imageH={335}
-              link={"#"}
-            />
-            <TechnologyCard
-              name="Mina and protokit networks interplay"
-              description="Combines power of ZK blockchain with fast and gasless transactions enabling multiplayer and background sessions."
-              image="/image/technologies/networks_interplay.svg"
-              variant={2}
-              imageW={290}
-              imageH={280}
-              link={"#"}
-            />
-          </div>
-        </div>
+        <SlidableBlock
+            asComponent={TechnologyCard}
+            slides={[
+              {
+                name: "ZK Circuit",
+                description: "Allows to prove your game process without revealing your strategy.",
+                image: "/image/technologies/circuit.svg",
+                variant: 0,
+                imageW: 300,
+                imageH: 150,
+                link: "#"
+              },
+              {
+                name: "Recursive proofs",
+                description: "Used to accumulate your game process proof while you’re playing.",
+                image: "/image/technologies/recursive_proofs.svg",
+                variant: 1,
+                imageW: 339,
+                imageH: 335,
+                link: "#"
+              },
+              {
+                name: "Mina and protokit networks interplay",
+                description: "Combines power of ZK blockchain with fast and gasless transactions enabling multiplayer and background sessions.",
+                image: "/image/technologies/networks_interplay.svg",
+                variant: 2,
+                imageW: 290,
+                imageH: 280,
+                link: "#"
+              },
+            ]}
+            type={"technologies"}
+            isSlider={true}
+            visibleOn={"mobile"}
+        />
       </LandingSection>
 
 
@@ -188,32 +191,28 @@ export default function Home() {
         </div>
       </LandingSection>
       <LandingSection title="Applications">
-        {/*<div className="flex flex-col">*/}
-          {/*<div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr]">*/}
-          <Slider>
-
-            <ApplicationCard
-              name="Arkanoid"
-              description="Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced"
-              image="/image/applications/arkanoid.svg"
-              link="https://app.zknoid.io/games/arkanoid/competitions-list"
-              variant={0}
-              isSlide={true}
-            />
-            <ApplicationCard
-              name="Randzu"
-              description="A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved using zkapp transactions"
-              image="/image/applications/randzu.svg"
-              link="https://app.zknoid.io/games/randzu/global"
-              variant={1}
-              isSlide={true}
-            />
-
-            <MoreGamesApplicationCard isSlide={true}/>
-
-          </Slider>
-          {/*</div>*/}
-        {/*</div>*/}
+        <SlidableBlock
+            asComponent={ApplicationCard}
+            slides={[
+              {
+                name: 'Arkanoid',
+                description: 'Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced',
+                image: '/image/applications/arkanoid.svg',
+                link: 'https://app.zknoid.io/games/arkanoid/competitions-list',
+                variant: 0
+              },
+              {
+                name: 'Randzu',
+                description: 'A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved using zkapp transactions',
+                image: '/image/applications/randzu.svg',
+                link: 'https://app.zknoid.io/games/randzu/global',
+                variant: 1
+              }
+            ]}
+            type={'applications'}
+            isSlider={true}
+            visibleOn={'desktop'}
+        />
       </LandingSection>
 
       <LandingSection title="Backed by">
@@ -228,51 +227,56 @@ export default function Home() {
       </LandingSection>
 
       <LandingSection title="ZkNoid Core Team">
-        <div className="flex flex-col min-h-[1000px]">
-          <Image src={'/image/team_upper_line.svg'} width={1106} height={298} alt="our_tech_upper" className="hidden md:block p-5 px-24 lg:px-[13%] w-full" ></Image>
-          <div className="flex flex-col md:flex-row justify-around">
-            <TeamMemberCard
-              name="Asimaranov"
-              position="Core builder"
-              image="/image/team/andrey.svg"
-              variant={0}
-              imageW={360}
-              imageH={360}
-            >
-              <p>
-                Top-1 solidity auditor at <a href="https://strongholdsec.io/leaderboard" className="text-left-accent">Mixbytes auditor DAO</a>.
-              </p>
-              <p className="py-2">
-                Core builder of <a href="https://www.xraise.io/" className="text-left-accent">xraise.io</a> project – account abstraction based wallet.
-              </p>
-              <p>
-                Blockchain and full-stack developer. Studied at MSU, applied math and computer science
-              </p>
-            </TeamMemberCard>
-            <TeamMemberCard
-              name="Alex"
-              position="Core builder"
-              image="/image/team/alex.svg"
-              variant={1}
-              imageW={360}
-              imageH={360}
-            >
-                Crypto enthusiast since 2020. CS MS in MIPT. Experienced solidity developer with two years experience in DEFI projects.
-              </TeamMemberCard>
-            <TeamMemberCard
-              name="Shiroy"
-              position="Ui / Ux designer"
-              image="/image/team/shiroy.svg"
-              variant={2}
-              imageW={360}
-              imageH={360}
-            >
-              Ui/Ux & Graphic designer in crypto since 2022 as a member of PowerPool R&D and marketing team{" "}
-              <a href="https://powerpool.finance" className="text-right-accent inline">powerpool.finance</a>
-            </TeamMemberCard>
-
-          </div>
-        </div>
+        <SlidableBlock
+            asComponent={TeamMemberCard}
+            slides={[
+              {
+                name: "Asimaranov",
+                position: "Core builder",
+                image: "/image/team/andrey.svg",
+                variant: 0,
+                imageW: 360,
+                imageH: 360,
+                children: (
+                  <>
+                    <p>Top-1 solidity auditor at <a href="https://strongholdsec.io/leaderboard" className="text-left-accent">Mixbytes auditor DAO</a>.</p>
+                    <p className={'py-2'}>Core builder of <a href="https://www.xraise.io/" className="text-left-accent">xraise.io</a> project – account abstraction based wallet.</p>
+                    <p>Blockchain and full-stack developer. Studied at MSU, applied math and computer science</p>
+                  </>
+                )
+              },
+              {
+                name: "Alex",
+                position: "Core builder",
+                image: "/image/team/alex.svg",
+                variant: 1,
+                imageW: 360,
+                imageH: 360,
+                children: (
+                    <>
+                      <p>Crypto enthusiast since 2020. CS MS in MIPT. Experienced solidity developer with two years experience in DEFI projects.</p>
+                    </>
+                )
+              },
+              {
+                name: "Shiroy",
+                position: "Ui / Ux designer",
+                image: "/image/team/shiroy.svg",
+                variant: 2,
+                imageW: 360,
+                imageH: 360,
+                children: (
+                    <>
+                      Ui/Ux & Graphic designer in crypto since 2022 as a member of PowerPool R&D and marketing team{" "}
+                      <a href="https://powerpool.finance" className="text-right-accent inline">powerpool.finance</a>
+                    </>
+                )
+              }
+            ]}
+            type={'team'}
+            isSlider={true}
+            visibleOn={"mobile"}
+        />
       </LandingSection>
 
       <SubscribeForm/>

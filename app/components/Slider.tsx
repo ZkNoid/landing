@@ -1,7 +1,7 @@
 'use client'
 
 import {motion, useMotionValue} from "framer-motion";
-import {ReactNode, useEffect, useRef, useState} from "react";
+import {Children, ReactNode, useEffect, useRef, useState} from "react";
 
 const Dots = ({ slidesAmount, activeSlide, slideLimiter }: { slidesAmount: number, activeSlide: number, slideLimiter: 1 | 3 }) => {
     const dotsCount = Math.ceil(slidesAmount / slideLimiter);
@@ -28,7 +28,7 @@ const Dots = ({ slidesAmount, activeSlide, slideLimiter }: { slidesAmount: numbe
 };
 
 
-export const Slider = ({children}: { children: ReactNode }) => {
+export const Slider = ({ children }: { children: ReactNode }) => {
 
     const [slidesAmount, setSlidesAmount] = useState<number>(0)
     const [slideIndex, setSlideIndex] = useState<number>(0)
@@ -54,8 +54,7 @@ export const Slider = ({children}: { children: ReactNode }) => {
 
     useEffect(() => {
         setSlideLimiter(window.innerWidth <= 1024 ? 1 : 3)
-        // @ts-ignore
-        const childrenLength = sliderRef.current.children.length
+        const childrenLength = Children.count(children)
         // @ts-ignore
         const width = sliderRef.current.offsetWidth
         const slideWidth = width / childrenLength
@@ -72,7 +71,11 @@ export const Slider = ({children}: { children: ReactNode }) => {
                     drag='x'
                     dragConstraints={{left: 0, right: 0}}
                     animate={{
-                        translateX: slideIndex == 0 ? 0 : `-${translateX * slideIndex}%`
+                        translateX: slideIndex == 0 ? 0 : `-${translateX * slideIndex}%`,
+                        transition: {
+                            type: 'spring',
+                            bounce: 0.1
+                        }
                     }}
                     onDragEnd={onDragEnd}
                     style={{x: dragX}}

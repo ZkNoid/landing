@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import { OutlineDecoration } from "./OutlineDecoration";
 
@@ -9,14 +11,21 @@ interface TechnologyCardProps {
     imageH: number;
     variant: 0 | 1 | 2
     link: string;
+    isSlide?: boolean;
 }
 
 export const TechnologyCard = (props: TechnologyCardProps) => {
+    const borderColor = props.variant == 0 ? "hover/outline:border-left-accent"
+        : props.variant == 1 ? "hover/outline:border-middle-accent"
+            : "hover/outline:border-right-accent";
+
+    const slideStyles = 'flex-grow-0 overflow-hidden inset-0 min-w-[90vw] md:min-w-[80vw] lg:min-w-[31vw] h-full w-full p-4 flex flex-col justify-end'
+
     return (
-        <OutlineDecoration className="m-5 flex-grow relative max-w-[400px] justify-self-center group" sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0}>
-            <div className="m-5 h-full flex flex-col gap-2">
+        <OutlineDecoration className={props.isSlide ? `border ${borderColor} w-full` : "m-5 flex-grow relative max-w-[400px] justify-self-center group"} sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0}>
+            <div className={props.isSlide ? slideStyles : "m-5 h-full flex flex-col gap-2"}>
                 <div className="flex justify-between">
-                <div className="text-2xl 2xl:max-w-[250px] xl:max-w-[210px] lg:max-w-[170px] md:max-w-[130px] max-w-[250px]">{props.name}</div>
+                <div className={`text-2xl ${props.isSlide ? `max-w-[250px]` : "2xl:max-w-[250px] xl:max-w-[210px] lg:max-w-[170px] md:max-w-[130px] max-w-[250px]"}`}>{props.name}</div>
                     {props.variant == 0 && (
                         <svg width="55" height="37" viewBox="0 0 55 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="18.3848" y="0.707107" width="25" height="25" transform="rotate(45 18.3848 0.707107)" fill="#212121" stroke="#F9F8F4" />
@@ -46,7 +55,7 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                 {/*    link={props.link}*/}
                 {/*    colorVariant={props.variant}*/}
                 {/*    text={'Explore'}*/}
-                {/*    className={'mb-5 text-lg w-full h-[50px]'}*/}
+                {/*    className={`${props.isSlide ? "mb-0 my-5": "mb-5 my-0"} text-lg w-full h-[50px]`}*/}
                 {/*/>*/}
 
                 </div>
