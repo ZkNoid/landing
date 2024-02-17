@@ -10,6 +10,8 @@ import { SubscribeForm } from "./components/SubscribeForm";
 import { Button } from "./components/Button";
 import { SlidableBlock } from "./components/SlidableBlock";
 import {OutlineDecoration} from "@/app/components/OutlineDecoration";
+import {MobileNavbar} from "@/app/components/MobileNavbar";
+import {DesktopNavbar} from "@/app/components/DesktopNavbar";
 
 const debug = false;
 
@@ -26,48 +28,23 @@ const LandingSection = (props: { title: string, children: ReactNode }) => {
   )
 }
 
-const LandingHeader = (props: { children: ReactNode }) => {
-  return (
-    <div className="flex w-full h-[91px] px-3 lg:px-[50px] items-center">
-      <div className="flex w-full items-center justify-between">
-        {props.children}
-      </div>
-    </div>
-  )
-};
+// const LandingHeader = (props: { children: ReactNode }) => {
+//   return (
+//     <div className="flex w-full h-[91px] px-3 lg:px-[50px] items-center">
+//       <div className="flex w-full items-center justify-between">
+//         {props.children}
+//       </div>
+//     </div>
+//   )
+// };
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
-      <LandingHeader>
-        <div className="font-bold text-2xl md:text-3xl cursor-pointer">
-          ZkNoid
-        </div>
-        <div className="hidden sm:flex text-base gap-5">
-          <Link className="cursor-pointer text-xl" href={'https://docs.zknoid.io'} target="_blank" rel="noopener noreferrer">
-            Docs
-          </Link>
-          <Link className="cursor-pointer text-xl" href={'https://zknoid.medium.com'} target="_blank" rel="noopener noreferrer">
-            Blog
-          </Link>
-        </div>
-        <div className="gap-5 flex">
-          <Link className="cursor-pointer flex items-center justify-center" href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
-            <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30} alt="Github"></Image>
-          </Link>
-          {/* <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image> */}
-          {/* <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image> */}
-          <Link className="cursor-pointer flex items-center justify-center" href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
-            <Image src={'/image/socials/medium.svg'} className="cursor-pointer " width={30} height={30} alt="Medium"></Image>
-          </Link>
-        </div>
-        <Link href={'https://app.zknoid.io'} className='group hidden lg:block'>
-          <div
-            className="w-[140px] lg:w-[192px] h-[50px] bg-foreground group-hover:bg-bg-dark group-hover:border group-hover:border-foreground group-hover:text-[#fff] text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
-            Launch app
-          </div>
-        </Link>
-      </LandingHeader>
+      {/*<LandingHeader>*/}
+          <DesktopNavbar/>
+          <MobileNavbar/>
+      {/*</LandingHeader>*/}
 
       <div className={`h-[700px] md:h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
         <Image src={'/image/chess.svg'} className="w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
