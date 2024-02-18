@@ -96,7 +96,7 @@ export default function Home() {
                 variant: 0,
                 imageW: 350,
                 imageH: 450,
-                link: "#"
+                link: "https://zknoid.medium.com/zero-knowledge-proofs-for-gaming-how-it-works-why-do-we-need-them-3d0ee659c850"
               },
               {
                 name: "Recursive proofs",
@@ -105,7 +105,7 @@ export default function Home() {
                 variant: 1,
                 imageW: 339,
                 imageH: 400,
-                link: "#"
+                link: "https://zknoid.medium.com/how-protokit-can-revolutionize-on-chain-gaming-how-to-cook-it-to-implement-a-multiplayer-game-955dbb2442ac"
               },
               {
                 name: "Mina and protokit networks interplay",
@@ -114,7 +114,7 @@ export default function Home() {
                 variant: 2,
                 imageW: 290,
                 imageH: 280,
-                link: "#"
+                link: "https://docs.zknoid.io/docs/network_architecture"
               },
             ]}
             type={"technologies"}
