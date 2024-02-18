@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const DesktopNavbar = () => {
     return (
-        <header className="w-full h-[91px] px-3 lg:px-[50px] items-center hidden md:flex">
+        <header className="w-full h-[91px] px-3 lg:px-[50px] items-center hidden lg:flex">
             <div className={'flex w-full items-center justify-between'}>
                 <div className="font-bold text-2xl md:text-3xl cursor-pointer">
                     ZkNoid

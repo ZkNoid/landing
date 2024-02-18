@@ -43,7 +43,7 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                             </svg>
                         )}
                     </div>
-                    <div className={'flex lg:hidden flex-row justify-between]'}>
+                    <div className={'flex lg:hidden flex-row justify-between h-auto md:h-[230px] lg:h-auto'}>
                         <Image src={props.image} width={740} height={359} alt="our_tech_upper"
                                className="w-[120px] h-[120px] object-contain object-center self-center mr-[4px]"></Image>
                         <div className="font-mono text-sm font-normal pt-3 max-w-[400px] mx-auto">{props.description}</div>

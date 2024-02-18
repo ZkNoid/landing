@@ -19,7 +19,7 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
         : props.variant == 1 ? "hover/outline:border-middle-accent"
         : "hover/outline:border-right-accent";
 
-    const slideStyles = 'flex-grow-0 overflow-hidden inset-0 min-w-[90vw] md:min-w-[80vw] xl:min-w-[28vw] 2xl:min-w-[29vw]'
+    const slideStyles = 'flex-grow-0 overflow-hidden inset-0 min-w-[90vw] md:min-w-[27vw] xl:min-w-[28vw] 2xl:min-w-[29vw]'
 
     return (
         <OutlineDecoration sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0} className={`border ${borderColor}`}>
@@ -46,11 +46,11 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
 }
 
 export const MoreGamesApplicationCard = ({isSlide}: {isSlide?: boolean}) => {
-    const slideStyles = 'overflow-hidden inset-0 min-w-[90vw] md:min-w-[80vw] lg:min-w-[31vw]'
+    const slideStyles = 'overflow-hidden inset-0 min-w-[90vw] md:min-w-[27vw] lg:min-w-[30vw]'
 
     return (
         <OutlineDecoration sizeMode={1} colorVariant={2} hoverMode={1} orientation={0} className="border hover/outline:border-right-accent h-2/4 lg:h-auto">
-            <Link href={"https://app.zknoid.io/"} className={`relative w-full h-full lg:h-auto group inline-block hover:opacity-80 ease-in-out ${isSlide && slideStyles}`}>
+            <Link href={"https://app.zknoid.io/"} className={`relative w-full h-full lg:h-full group inline-block hover:opacity-80 ease-in-out ${isSlide && slideStyles}`}>
                 <Image
                     src={'/image/applications/more-games.svg'}
                     alt={'our_tech_upper'}

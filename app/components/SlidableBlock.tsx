@@ -99,7 +99,7 @@ const teamWrap = (slides: any[]) => {
     return (
         <div className="flex flex-col min-h-[1100px]">
             <Image src={'/image/team_upper_line.svg'} width={1106} height={298} alt="our_tech_upper"
-                   className="hidden md:block p-5 px-24 lg:px-[13%] w-full"></Image>
+                   className="hidden lg:block p-5 px-24 lg:px-[13%] w-full"></Image>
             <div className="flex flex-col md:flex-row justify-around">
                 {slides.map((item, index) => (
                     <TeamMemberCard {...item} children={item.children} isSlide={false} key={index}/>

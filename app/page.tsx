@@ -31,7 +31,7 @@ export default function Home() {
       <DesktopNavbar/>
       <MobileNavbar/>
 
-      <div className={`h-[550px] md:h-[700px] lg:h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
+      <div className={`h-[550px] md:h-[800px] lg:h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
         <Image src={'/image/chess.svg'} className="hidden lg:block w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
         <Image src={'/image/cover-image-mobile.svg'} className="block lg:hidden w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
           <div className="font-bold text-3xl sm:text-4xl md:text-8xl pt-[100px] lg:pt-[173px] mx-3 ">
@@ -94,8 +94,8 @@ export default function Home() {
                 description: "Allows to prove your game process without revealing your strategy.",
                 image: "/image/technologies/circuit.svg",
                 variant: 0,
-                imageW: 250,
-                imageH: 250,
+                imageW: 350,
+                imageH: 450,
                 link: "#"
               },
               {
@@ -364,7 +364,7 @@ export default function Home() {
           </div>
         </div>
           <div className="flex justify-between flex-col lg:flex-row py-3">
-              <div className="gap-5 hidden md:flex">
+              <div className="gap-5 hidden lg:flex">
                   <Link className="cursor-pointer text-xl flex items-center justify-center hover:opacity-80 ease-in-out"
                         href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
                       <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30}
