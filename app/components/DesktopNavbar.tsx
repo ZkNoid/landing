@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { SOCIALS } from "../constants/socials";
 
 export const DesktopNavbar = () => {
     return (
@@ -19,18 +20,13 @@ export const DesktopNavbar = () => {
                     </Link>
                 </div>
                 <div className="gap-5 flex">
-                    <Link className="cursor-pointer flex items-center justify-center hover:opacity-80 ease-in-out" href={'https://github.com/ZkNoid'}
+                    {SOCIALS.map(social => (
+                        <Link key={social.name} className="cursor-pointer flex items-center justify-center hover:opacity-80 ease-in-out" href={social.link}
                           target="_blank" rel="noopener noreferrer">
-                        <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30}
-                               alt="Github"></Image>
+                        <Image src={social.image} className="cursor-pointer" width={30} height={30}
+                               alt={social.name}></Image>
                     </Link>
-                    {/* <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image> */}
-                    {/* <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image> */}
-                    <Link className="cursor-pointer flex items-center justify-center hover:opacity-80 ease-in-out" href={'https://zknoid.medium.com/'}
-                          target="_blank" rel="noopener noreferrer">
-                        <Image src={'/image/socials/medium.svg'} className="cursor-pointer " width={30} height={30}
-                               alt="Medium"></Image>
-                    </Link>
+                    ))}
                 </div>
                 <Link href={'https://app.zknoid.io'} className='group block'>
                     <div

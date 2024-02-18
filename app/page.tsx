@@ -9,6 +9,7 @@ import { SlidableBlock } from "./components/SlidableBlock";
 import {OutlineDecoration} from "./components/OutlineDecoration";
 import {MobileNavbar} from "./components/MobileNavbar";
 import {DesktopNavbar} from "./components/DesktopNavbar";
+import { SOCIALS } from "./constants/socials";
 
 const debug = false;
 
@@ -322,18 +323,13 @@ export default function Home() {
               <div className="font-bold text-2xl md:text-3xl cursor-pointer pb-8 lg:pb-0 flex lg:block flex-row justify-between w-full lg:w-auto">
                   <span className='hover:opacity-80 ease-in-out'>ZkNoid</span>
                   <div className="gap-5 flex lg:hidden">
-                      <Link className="cursor-pointer text-xl flex items-center justify-center"
-                            href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
-                          <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30}
-                                 alt="Github"></Image>
+                    {SOCIALS.map(social => (
+                      <Link key={social.name} className="cursor-pointer text-xl flex items-center justify-center"
+                            href={social.link} target="_blank" rel="noopener noreferrer">
+                          <Image src={social.image} className="cursor-pointer" width={30} height={30}
+                                 alt={social.name}></Image>
                       </Link>
-                       {/*<Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image>*/}
-                       {/*<Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image>*/}
-                      <Link className="cursor-pointer text-xl flex items-center justify-center"
-                            href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
-                          <Image src={'/image/socials/medium.svg'} className="cursor-pointer" width={30} height={30}
-                                 alt="Medium"></Image>
-                      </Link>
+                    ))}
                   </div>
               </div>
               <div className="grid lg:flex grid-rows-2 grid-cols-2 text-base gap-2 lg:gap-8 w-full lg:w-auto">
@@ -365,18 +361,13 @@ export default function Home() {
         </div>
           <div className="flex justify-between flex-col lg:flex-row py-3">
               <div className="gap-5 hidden lg:flex">
-                  <Link className="cursor-pointer text-xl flex items-center justify-center hover:opacity-80 ease-in-out"
-                        href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
-                      <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30}
-                             alt="Github"></Image>
+                {SOCIALS.map(social => (
+                  <Link key={social.name} className="cursor-pointer text-xl flex items-center justify-center hover:opacity-80 ease-in-out"
+                        href={social.link} target="_blank" rel="noopener noreferrer">
+                      <Image src={social.image} className="cursor-pointer" width={30} height={30}
+                             alt={social.name}></Image>
                   </Link>
-                  {/* <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image> */}
-                  {/* <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image> */}
-                  <Link className="cursor-pointer text-xl flex items-center justify-center hover:opacity-80 ease-in-out"
-                        href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
-                      <Image src={'/image/socials/medium.svg'} className="cursor-pointer" width={30} height={30}
-                             alt="Medium"></Image>
-                  </Link>
+                ))}
               </div>
               <div className="text-[#F9F8F4] hidden lg:block">
                   2024 ZkNoid: all rights reserved

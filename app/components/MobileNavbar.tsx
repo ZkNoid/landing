@@ -1,16 +1,17 @@
 'use client'
 
-import {AnimatePresence, motion, useCycle, useMotionValueEvent, useScroll} from "framer-motion"
+import { AnimatePresence, motion, useCycle, useMotionValueEvent, useScroll } from "framer-motion"
 import Link from "next/link";
 import Image from "next/image";
-import {useState} from "react";
+import { useState } from "react";
+import { SOCIALS } from "../constants/socials";
 
 
 export const MobileNavbar = () => {
 
     const [hidden, setHidden] = useState(false)
     const [isOpen, toggleOpen] = useCycle(false, true)
-    const {scrollY} = useScroll();
+    const { scrollY } = useScroll();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious()
@@ -29,11 +30,11 @@ export const MobileNavbar = () => {
     return (
         <motion.header
             variants={{
-                visible: {y: 0},
-                hidden: {y: '-100%'}
+                visible: { y: 0 },
+                hidden: { y: '-100%' }
             }}
             animate={hidden ? 'hidden' : 'visible'}
-            transition={{duration: 0.35, ease: 'easeInOut', type: 'just'}}
+            transition={{ duration: 0.35, ease: 'easeInOut', type: 'just' }}
             className="sticky top-0 inset-x-0 p-6 z-10 flex lg:hidden bg-bg-dark"
         >
             <nav className={`container mx-auto z-10 bg-bg-dark flex flex-row items-center justify-between`}>
@@ -42,16 +43,13 @@ export const MobileNavbar = () => {
                 </div>
                 <div className={'flex flex-row items-center gap-6'}>
                     <div className={`w-full flex-row gap-2 ${isOpen ? 'hidden' : 'flex'}`}>
-                        <Link className="cursor-pointer flex items-center justify-center"
-                              href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
-                            <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30}
-                                   height={30} alt="Github"></Image>
-                        </Link>
-                        <Link className="cursor-pointer flex items-center justify-center"
-                              href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
-                            <Image src={'/image/socials/medium.svg'} className="cursor-pointer " width={30}
-                                   height={30} alt="Medium"></Image>
-                        </Link>
+                        {SOCIALS.map(social => (
+                            <Link key={social.name} className="cursor-pointer flex items-center justify-center"
+                                href={social.link} target="_blank" rel="noopener noreferrer">
+                                <Image src={social.image} className="cursor-pointer" width={30}
+                                    height={30} alt={social.name}></Image>
+                            </Link>
+                        ))}
                     </div>
                     <motion.button
                         animate={isOpen ? 'show' : 'hide'}
@@ -74,11 +72,11 @@ export const MobileNavbar = () => {
                             variants={{
                                 hide: {
                                     opacity: 1,
-                                    transition: {duration: 0.1}
+                                    transition: { duration: 0.1 }
                                 },
                                 show: {
                                     opacity: 0,
-                                    transition: {duration: 0.1}
+                                    transition: { duration: 0.1 }
                                 },
                             }}
                             className="w-[30px] h-[3px] bg-[#fff] block"
@@ -138,16 +136,13 @@ export const MobileNavbar = () => {
                                     Social media:
                                 </p>
                                 <div className={'w-full flex flex-row gap-6'}>
-                                    <Link className="cursor-pointer flex items-center justify-center"
-                                          href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
-                                        <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={40}
-                                               height={40} alt="Github"></Image>
-                                    </Link>
-                                    <Link className="cursor-pointer flex items-center justify-center"
-                                          href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
-                                        <Image src={'/image/socials/medium.svg'} className="cursor-pointer " width={40}
-                                               height={40} alt="Medium"></Image>
-                                    </Link>
+                                    {SOCIALS.map(social => (
+                                        <Link key={social.name} className="cursor-pointer flex items-center justify-center"
+                                            href={social.link} target="_blank" rel="noopener noreferrer">
+                                            <Image src={social.image} className="cursor-pointer" width={40}
+                                                height={40} alt={social.name}></Image>
+                                        </Link>
+                                    ))}
                                 </div>
                                 <div className={'w-full h-full flex flex-col justify-end'}>
                                     <Link href={'https://app.zknoid.io'} className='group py-10'>
