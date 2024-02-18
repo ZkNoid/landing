@@ -1,53 +1,73 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "./Button";
+import { OutlineDecoration } from "./OutlineDecoration";
 
 interface ApplicationCardProps {
-    exploreButton: string;
     name: string;
     description: string;
     link: string;
     image: string;
-    variant: 0 | 1 | 2
+    variant: 0 | 1 | 2;
+    isSlide?: boolean;
 }
 
 export const ApplicationCard = (props: ApplicationCardProps) => {
+    const borderColor = props.variant == 0 ? "hover/outline:border-left-accent" 
+        : props.variant == 1 ? "hover/outline:border-middle-accent"
+        : "hover/outline:border-right-accent";
+
+    const slideStyles = 'flex-grow-0 overflow-hidden inset-0 min-w-[90vw] md:min-w-[27vw] xl:min-w-[28vw] 2xl:min-w-[29vw]'
+
     return (
-        <div className="relative ">
-            <Image
-                src={'/image/applications_box.svg'}
-                width={740}
-                height={359}
-                alt="our_tech_upper"
-                className="grow absolute top-0 bottom-0 w-full h-full pointer-events-none"
-            ></Image>
-            <div className="m-3 h-full flex flex-col ">
-                <div className="text-2xl mb-3">{props.name}</div>
-                <div className="flex flex-col items-center h-full">
-                    <Image src={props.image} width={740} height={359} alt="our_tech_upper" className="" ></Image>
-                    <div className="flex-grow "></div>
-                    <div className="font-mono text-sm font-normal py-5 px-3">{props.description}</div>
-                    <div className="flex-grow "></div>
-                    {props.exploreButton && (
-                        <Link href={props.link} className="w-full">
-                            <Image src={props.exploreButton} width={300} height={52} alt="our_tech_upper" className="pb-5 cursor-pointer w-full" ></Image>
-                        </Link>
-                    )}
+        <OutlineDecoration sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0} className={`border ${borderColor}`}>
+            <div className={`group w-full h-full ${props.isSlide && slideStyles}`}>
+                <div className="p-6 h-full flex flex-col ">
+                    <div className="text-3xl mb-3">{props.name}</div>
+                    <div className="flex flex-col items-center h-full">
+                        <Image src={props.image} width={740} height={359} alt="our_tech_upper" className={'pointer-events-none'}></Image>
+                        <div className="flex-grow "></div>
+                        <div className="font-mono text-xl font-normal py-5 px-3">{props.description}</div>
+                        <div className="flex-grow "></div>
+                        
+                        <Button
+                            link={props.link}
+                            colorVariant={props.variant}
+                            text={'Play now!'}
+                            className={'text-lg w-full h-[50px]'}
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
+        </OutlineDecoration>
     )
 }
 
-export const MoreGamesApplicationCard = () => {
+export const MoreGamesApplicationCard = ({isSlide}: {isSlide?: boolean}) => {
+    const slideStyles = 'overflow-hidden inset-0 min-w-[90vw] md:min-w-[27vw] lg:min-w-[30vw]'
+
     return (
-        <Link href={"https://app.zknoid.io/"}>
-            <Image
-                src={'/image/applications/more_games.svg'}
-                width={740}
-                height={359}
-                alt="our_tech_upper"
-                className=" h-full pointer-events-none"
-            ></Image>
-        </Link>
+        <OutlineDecoration sizeMode={1} colorVariant={2} hoverMode={1} orientation={0} className="border hover/outline:border-right-accent h-2/4 lg:h-auto">
+            <Link href={"https://app.zknoid.io/"} className={`relative w-full h-full lg:h-full group inline-block hover:opacity-80 ease-in-out ${isSlide && slideStyles}`}>
+                <Image
+                    src={'/image/applications/more-games.svg'}
+                    alt={'our_tech_upper'}
+                    width={1080}
+                    height={360}
+                    className={'object-cover object-center h-full'}
+                />
+                <div className={'absolute top-0 bottom-0 w-full h-full flex flex-col justify-center items-center'}>
+                    <Image
+                        src={'/image/applications/more-games-text.svg'}
+                        alt={'our_tech_upper'}
+                        width={240}
+                        height={140}
+                        className={'object-cover object-center'}
+                    />
+                </div>
+            </Link>
+        </OutlineDecoration>
     )
 }

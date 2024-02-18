@@ -12,12 +12,13 @@ const config: Config = {
       'foreground': '#F9F8F4',
       'left-accent': '#D2FF00',
       'middle-accent': '#97FF00',
-      'right-accent': '#56EBFF'
+      'right-accent': '#56EBFF',
+      'dark-buttons-text': '#212121'
     },
     extend: {
       fontFamily: {
-        rockwell: ['var(--rockwell-std)'],
-        plexmono: ['var(--plex-mono)'],
+        museo: ['var(--museo-slab)'],
+        plexmono: ['var(--plex-mono)']
       } 
     },
   },

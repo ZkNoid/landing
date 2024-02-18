@@ -18,8 +18,8 @@ export const SubscribeForm = (props: { debug?: boolean }) => {
 
     return (
         <div className={`w-full relative flex justify-center ${props.debug && 'border'} mb-[30px] px-[10px] md:px-[50px]`}>
-            <div className="flex flex-col w-full items-center font-mono text-sm">
-                <div className="text-5xl pt-[150px] text-middle-accent ">
+            <div className="flex flex-col w-full items-center text-sm">
+                <div className="text-5xl pt-[150px] text-middle-accent">
                     Subscribe for updates!
                 </div>
                 <div className="flex flex-col pt-5 pb-10">
@@ -32,7 +32,7 @@ export const SubscribeForm = (props: { debug?: boolean }) => {
                             onChange={(e) => setUserEmail(e.target.value)}
                         ></input>
                         <div
-                            className="w-[175px] h-[50px] border text-middle-accent border-middle-accent flex items-center justify-center text-xl cursor-pointer"
+                            className="w-[175px] h-[50px] border text-middle-accent hover:text-[#000] border-middle-accent hover:bg-middle-accent flex items-center justify-center text-xl cursor-pointer"
                             onClick={submitEmail}
                         >
                             Subscribe
@@ -40,14 +40,15 @@ export const SubscribeForm = (props: { debug?: boolean }) => {
                     </div>
                     <div className="flex items-center gap-5 text-sm">
                         <input
+                            id="terms_agree"
                             type="checkbox"
-                            className="accent-middle-accent w-5 h-5"
+                            className="accent-middle-accent w-5 h-5 cursor-pointer"
                             name="terms_agree"
                             checked={termsChecked}
                             onChange={(e) => setTermsChecked(e.target.checked)}
                         >
                         </input>
-                        <label htmlFor="terms_agree">
+                        <label htmlFor="terms_agree" className="hover:opacity-80 transition-opacity cursor-pointer">
                             I agree to the processing of my personal data
                         </label>
                     </div>
