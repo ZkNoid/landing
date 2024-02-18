@@ -1,17 +1,14 @@
 import Image from "next/image";
-import { TechnologyCard } from "./components/TechnologyCard";
 import { BusinessInvestorsCard } from "./components/BusinessInvestorsCard";
-import { ApplicationCard } from "./components/ApplicationCard";
-import { TeamMemberCard } from "./components/TeamMemberCard";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { museoSlab } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
 import { Button } from "./components/Button";
 import { SlidableBlock } from "./components/SlidableBlock";
-import {OutlineDecoration} from "@/app/components/OutlineDecoration";
-import {MobileNavbar} from "@/app/components/MobileNavbar";
-import {DesktopNavbar} from "@/app/components/DesktopNavbar";
+import {OutlineDecoration} from "./components/OutlineDecoration";
+import {MobileNavbar} from "./components/MobileNavbar";
+import {DesktopNavbar} from "./components/DesktopNavbar";
 
 const debug = false;
 
@@ -28,27 +25,15 @@ const LandingSection = (props: { title: string, children: ReactNode }) => {
   )
 }
 
-// const LandingHeader = (props: { children: ReactNode }) => {
-//   return (
-//     <div className="flex w-full h-[91px] px-3 lg:px-[50px] items-center">
-//       <div className="flex w-full items-center justify-between">
-//         {props.children}
-//       </div>
-//     </div>
-//   )
-// };
-
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/*<LandingHeader>*/}
-          <DesktopNavbar/>
-          <MobileNavbar/>
-      {/*</LandingHeader>*/}
+      <DesktopNavbar/>
+      <MobileNavbar/>
 
-      <div className={`h-[700px] md:h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
-        <Image src={'/image/chess.svg'} className="w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
-        <div>
+      <div className={`h-[550px] md:h-[700px] lg:h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
+        <Image src={'/image/chess.svg'} className="hidden lg:block w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
+        <Image src={'/image/cover-image-mobile.svg'} className="block lg:hidden w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
           <div className="font-bold text-3xl sm:text-4xl md:text-8xl pt-[100px] lg:pt-[173px] mx-3 ">
             <div className={`${museoSlab.className} text-6xl lg:text-8xl`}>
               WEB3
@@ -58,8 +43,8 @@ export default function Home() {
             </div>
             <div className="text-lg lg:pl-10 pt-2 font-plex-mono font-normal font-mono flex flex-col justify-end md:flex-row">
               Powered by zero knowledge proof technology
-              <Link className="cursor-pointer font-rockwell text-xl pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px]" href="https://docs.zknoid.io">
-                Open Docs <Image src={"/image/docs_arrow.svg"} className="ml-1 mb-2" width={16} height={16} alt="Arrow"></Image>
+              <Link className="cursor-pointer font-rockwell text-xl pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px] hover:opacity-80 ease-in-out" href="https://docs.zknoid.io">
+                Open Docs <Image src={"/image/docs_arrow.svg"} className="ml-1" width={16} height={16} alt="Arrow"></Image>
               </Link>
             </div>
             <div className="w-full flex justify-center pt-6 md:pt-4">
@@ -72,7 +57,6 @@ export default function Home() {
                 />
             </div>
           </div>
-        </div>
       </div>
       <LandingSection title="About ZkNoid">
         <div className="text-xl xl:text-2xl font-mono lg:w-[500px] 2xl:w-[800px] pt-4 xl:pt-10 font-bold md:ml-[30%]">
@@ -104,14 +88,13 @@ export default function Home() {
 
       <LandingSection title="Our technologies">
         <SlidableBlock
-            asComponent={TechnologyCard}
             slides={[
               {
                 name: "ZK Circuit",
                 description: "Allows to prove your game process without revealing your strategy.",
                 image: "/image/technologies/circuit.svg",
                 variant: 0,
-                imageW: 300,
+                imageW: 250,
                 imageH: 250,
                 link: "#"
               },
@@ -121,7 +104,7 @@ export default function Home() {
                 image: "/image/technologies/recursive_proofs.svg",
                 variant: 1,
                 imageW: 339,
-                imageH: 335,
+                imageH: 400,
                 link: "#"
               },
               {
@@ -143,7 +126,7 @@ export default function Home() {
 
       <LandingSection title="Benefits for gamers">
         <div className="flex flex-col">
-          <div className="text-base lg:text-lg font-mono font-normal md:w-[400px] lg:w-[500px] 2xl:w-[800px] pt-4 lg:pt-10 md:ml-[30%]">
+          <div className="text-base lg:text-2xl font-mono font-normal md:w-[400px] lg:w-[500px] 2xl:w-[800px] pt-4 lg:pt-10 md:ml-[30%]">
             Elevate your gaming journey and embrace a future where transparency and integrity define the ultimate gaming experience
           </div>
           <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5 w-full hidden lg:block"></Image>
@@ -236,7 +219,6 @@ export default function Home() {
 
       <LandingSection title="Applications">
         <SlidableBlock
-            asComponent={ApplicationCard}
             slides={[
                 {
                     name: 'Arkanoid',
@@ -262,24 +244,22 @@ export default function Home() {
         <LandingSection title="Backed by">
             <div className={'flex flex-col lg:flex-row gap-4 justify-start items-center'}>
                 <div
-                    className="text-base font-mono font-normal w-full lg:w-[400px]">
+                    className="text-lg font-mono font-normal w-full lg:w-[450px]">
                     Our esteemed list of backers and investors who are trust the groundbreaking ZkNoid gaming
                 </div>
-                <div className="grid lg:flex flex-row grid-rows-2 grid-cols-2 gap-4 lg:p-10">
+                <div className="grid grid-rows-2 lg:grid-rows-1 grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 w-full lg:p-10 flex-grow">
                     <Image src={'/image/backed_by/mina_foundation.svg'} width={360} height={184}
-                           className="lg:w-[300px]"
-                           alt="Mina foundation"></Image>
-                    <Image src={'/image/backed_by/o1labs.svg'} width={360} height={184} className="lg:w-[300px]"
-                           alt="O1js labs"></Image>
-                    <Image src={'/image/backed_by/announced_soon.svg'} width={360} height={184} className="lg:w-[300px]"
-                           alt="Announced soon"></Image>
+                           className="lg:w-full" alt="Mina foundation"></Image>
+                    <Image src={'/image/backed_by/o1labs.svg'} width={360} height={184}
+                           className="lg:w-full" alt="O1js labs"></Image>
+                    <Image src={'/image/backed_by/announced_soon.svg'} width={360} height={184}
+                           className="lg:w-full" alt="Announced soon"></Image>
                 </div>
             </div>
         </LandingSection>
 
         <LandingSection title="ZkNoid Core Team">
             <SlidableBlock
-                asComponent={TeamMemberCard}
                 slides={[
                     {
                         name: "Asimaranov",
@@ -340,7 +320,7 @@ export default function Home() {
       <div className="flex w-full h-[91px] items-center">
           <div className="flex flex-col lg:flex-row w-full items-center justify-between">
               <div className="font-bold text-2xl md:text-3xl cursor-pointer pb-8 lg:pb-0 flex lg:block flex-row justify-between w-full lg:w-auto">
-                  <span>ZkNoid</span>
+                  <span className='hover:opacity-80 ease-in-out'>ZkNoid</span>
                   <div className="gap-5 flex lg:hidden">
                       <Link className="cursor-pointer text-xl flex items-center justify-center"
                             href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
@@ -360,18 +340,18 @@ export default function Home() {
                   {/*<Link className="cursor-pointer text-xl" href={'#'} target="_blank" rel="noopener noreferrer">*/}
                   {/*  About us*/}
                   {/*</Link>*/}
-                  <Link className="cursor-pointer text-lg lg:text-xl" href={'https://github.com/ZkNoid'} target="_blank"
+                  <Link className="cursor-pointer text-lg lg:text-xl hover:opacity-80 ease-in-out even:text-right" href={'https://github.com/ZkNoid'} target="_blank"
                         rel="noopener noreferrer">
                       Github
                   </Link>
                   {/*<Link className="cursor-pointer text-xl" href={'#'} target="_blank" rel="noopener noreferrer">*/}
                   {/*  Brand assets*/}
                   {/*</Link>*/}
-                  <Link className="cursor-pointer text-lg lg:text-xl" href={'https://docs.zknoid.io'} target="_blank"
+                  <Link className="cursor-pointer text-lg lg:text-xl hover:opacity-80 ease-in-out even:text-right" href={'https://docs.zknoid.io'} target="_blank"
                         rel="noopener noreferrer">
                       Documentation
                   </Link>
-                  <Link className="cursor-pointer text-lg lg:text-xl" href={'https://zknoid.medium.com'} target="_blank"
+                  <Link className="cursor-pointer text-lg lg:text-xl hover:opacity-80 ease-in-out even:text-right" href={'https://zknoid.medium.com'} target="_blank"
                         rel="noopener noreferrer">
                       Blog
                   </Link>
@@ -385,14 +365,14 @@ export default function Home() {
         </div>
           <div className="flex justify-between flex-col lg:flex-row py-3">
               <div className="gap-5 hidden md:flex">
-                  <Link className="cursor-pointer text-xl flex items-center justify-center"
+                  <Link className="cursor-pointer text-xl flex items-center justify-center hover:opacity-80 ease-in-out"
                         href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
                       <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30}
                              alt="Github"></Image>
                   </Link>
                   {/* <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image> */}
                   {/* <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image> */}
-                  <Link className="cursor-pointer text-xl flex items-center justify-center"
+                  <Link className="cursor-pointer text-xl flex items-center justify-center hover:opacity-80 ease-in-out"
                         href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
                       <Image src={'/image/socials/medium.svg'} className="cursor-pointer" width={30} height={30}
                              alt="Medium"></Image>

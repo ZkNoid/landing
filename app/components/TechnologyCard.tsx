@@ -22,7 +22,7 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
     const slideStyles = 'flex-grow-0 overflow-hidden inset-0 min-w-[90vw] md:min-w-[80vw] lg:min-w-[31vw] h-full w-full p-4 flex flex-col justify-end'
 
     return (
-        <OutlineDecoration className={props.isSlide ? `border ${borderColor} w-full` : "m-5 flex-grow relative max-w-[400px] justify-self-center group"} sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0}>
+        <OutlineDecoration className={props.isSlide ? `border ${borderColor} w-full` : "max-w-[720px] flex-grow relative w-full justify-self-center group"} sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0}>
             <div className={props.isSlide ? slideStyles : "m-5 h-full flex flex-col gap-2"}>
                 <div className="flex justify-between">
                 <div className={`text-2xl ${props.isSlide ? `max-w-[200px]` : "2xl:max-w-[250px] xl:max-w-[210px] lg:max-w-[170px] md:max-w-[130px] max-w-[250px]"}`}>{props.name}</div>
@@ -45,10 +45,10 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                         </svg>
                     )}
                 </div>
-                <div className="font-mono text-sm font-normal pt-3 w-full">{props.description}</div>
-                <div className="w-full flex flex-col items-center py-5 justify-between flex-grow">
+                <div className="font-mono text-sm font-normal py-3 w-full">{props.description}</div>
+                <div className="w-full flex flex-col items-center py-0 lg:py-5 justify-center lg:justify-between flex-grow">
                 <div className="flex-grow"></div>
-                <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="h-[250px] lg:h-[300px]" ></Image>
+                <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="max-h-[350px] lg:h-[300px]" ></Image>
                 <div className="flex-grow"></div>
 
                 {/*<Button*/}

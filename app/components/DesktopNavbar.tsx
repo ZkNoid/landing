@@ -9,24 +9,24 @@ export const DesktopNavbar = () => {
                     ZkNoid
                 </div>
                 <div className="flex text-base gap-5">
-                    <Link className="cursor-pointer text-xl" href={'https://docs.zknoid.io'} target="_blank"
+                    <Link className="cursor-pointer text-xl hover:opacity-80 ease-in-out" href={'https://docs.zknoid.io'} target="_blank"
                           rel="noopener noreferrer">
                         Docs
                     </Link>
-                    <Link className="cursor-pointer text-xl" href={'https://zknoid.medium.com'} target="_blank"
+                    <Link className="cursor-pointer text-xl hover:opacity-80 ease-in-out" href={'https://zknoid.medium.com'} target="_blank"
                           rel="noopener noreferrer">
                         Blog
                     </Link>
                 </div>
                 <div className="gap-5 flex">
-                    <Link className="cursor-pointer flex items-center justify-center" href={'https://github.com/ZkNoid'}
+                    <Link className="cursor-pointer flex items-center justify-center hover:opacity-80 ease-in-out" href={'https://github.com/ZkNoid'}
                           target="_blank" rel="noopener noreferrer">
                         <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={30} height={30}
                                alt="Github"></Image>
                     </Link>
                     {/* <Image src={'/image/socials/twitter.svg'} className="cursor-pointer" width={30} height={30} alt="Twitter"></Image> */}
                     {/* <Image src={'/image/socials/telegram.svg'} className="cursor-pointer" width={30} height={30} alt="Telegram"></Image> */}
-                    <Link className="cursor-pointer flex items-center justify-center" href={'https://zknoid.medium.com/'}
+                    <Link className="cursor-pointer flex items-center justify-center hover:opacity-80 ease-in-out" href={'https://zknoid.medium.com/'}
                           target="_blank" rel="noopener noreferrer">
                         <Image src={'/image/socials/medium.svg'} className="cursor-pointer " width={30} height={30}
                                alt="Medium"></Image>

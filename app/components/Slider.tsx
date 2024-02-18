@@ -53,13 +53,20 @@ export const Slider = ({ children }: { children: ReactNode }) => {
     }
 
     useEffect(() => {
-        setSlideLimiter(window.innerWidth <= 1024 ? 1 : 3)
-        const childrenLength = Children.count(children)
-        // @ts-ignore
-        const width = sliderRef.current.offsetWidth
-        const slideWidth = width / childrenLength
-        setTranslateX(slideWidth * 100 / width)
-        setSlidesAmount(childrenLength)
+        const updateSlideLimiter = () => {
+            setSlideLimiter(window.innerWidth <= 1024 ? 1 : 3)
+            const childrenLength = Children.count(children)
+            // @ts-ignore
+            const width = sliderRef.current.offsetWidth
+            const slideWidth = width / childrenLength
+            setTranslateX(slideWidth * 100 / width)
+            setSlidesAmount(childrenLength)
+        }
+
+        window.addEventListener('resize', updateSlideLimiter);
+        updateSlideLimiter()
+
+        return () => window.removeEventListener('resize', updateSlideLimiter);
     }, []);
 
     return (

@@ -18,6 +18,11 @@ export const MobileNavbar = () => {
         if (latest > previous && latest > 150 && !isOpen) {
             setHidden(true)
         }
+        // @ts-ignore
+        else if (isOpen && latest - previous >= 20 || previous - latest >= 20 && isOpen) {
+            toggleOpen()
+        }
+
         else setHidden(false)
     })
 
@@ -31,7 +36,7 @@ export const MobileNavbar = () => {
             transition={{duration: 0.35, ease: 'easeInOut', type: 'just'}}
             className="sticky top-0 inset-x-0 p-6 z-10 flex lg:hidden bg-bg-dark"
         >
-            <nav className="container mx-auto z-10 bg-bg-dark flex flex-row items-center justify-between">
+            <nav className={`container mx-auto z-10 bg-bg-dark flex flex-row items-center justify-between`}>
                 <div className="font-bold text-2xl md:text-3xl cursor-pointer">
                     ZkNoid
                 </div>
@@ -102,7 +107,8 @@ export const MobileNavbar = () => {
                                     transition: {
                                         type: 'spring',
                                         bounce: 0.1,
-                                        duration: 0.20
+                                        duration: 0.35,
+                                        ease: 'easeInOut'
                                     }
                                 },
                                 closed: {
@@ -110,7 +116,8 @@ export const MobileNavbar = () => {
                                     transition: {
                                         type: 'spring',
                                         bounce: 0.1,
-                                        duration: 0.20
+                                        duration: 0.35,
+                                        ease: 'easeInOut'
                                     }
                                 }
                             }}
@@ -130,7 +137,7 @@ export const MobileNavbar = () => {
                                 <p>
                                     Social media:
                                 </p>
-                                <div className={'w-full flex flex-row gap-2'}>
+                                <div className={'w-full flex flex-row gap-6'}>
                                     <Link className="cursor-pointer flex items-center justify-center"
                                           href={'https://github.com/ZkNoid'} target="_blank" rel="noopener noreferrer">
                                         <Image src={'/image/socials/github.svg'} className="cursor-pointer" width={40}

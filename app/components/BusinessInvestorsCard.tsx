@@ -48,7 +48,7 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                                className="w-[120px] h-[120px] object-contain object-center self-center mr-[4px]"></Image>
                         <div className="font-mono text-sm font-normal pt-3 max-w-[400px] mx-auto">{props.description}</div>
                     </div>
-                    <div className="font-mono text-sm font-normal pt-3 max-w-[400px] mx-auto hidden lg:block">{props.description}</div>
+                    <div className="font-mono text-lg font-normal pt-3 max-w-[400px] mx-auto hidden lg:block">{props.description}</div>
                     <div className={'mx-auto max-w-[400px] flex flex-row justify-start items-center'}>
                         <Button
                             link={props.link}
