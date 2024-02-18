@@ -74,7 +74,7 @@ const technologiesWrap = (slides: any[]) => {
                    className="p-5 px-24 lg:px-[11vw] w-full hidden lg:block"></Image>
             <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-6 justify-center">
                 {slides.map((item, index) => (
-                    <TechnologyCard {...item} isSlide={true} key={index}/>
+                    <TechnologyCard {...item} isSlide={false} key={index}/>
                 ))}
             </div>
         </div>
@@ -102,7 +102,7 @@ const teamWrap = (slides: any[]) => {
                    className="hidden md:block p-5 px-24 lg:px-[13%] w-full"></Image>
             <div className="flex flex-col md:flex-row justify-around">
                 {slides.map((item, index) => (
-                    <TeamMemberCard {...item} children={item.children} isSlide={true} key={index}/>
+                    <TeamMemberCard {...item} children={item.children} isSlide={false} key={index}/>
                 ))}
             </div>
         </div>
