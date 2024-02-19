@@ -80,8 +80,6 @@ export const Slider = ({ children }: { children: ReactNode }) => {
                     animate={{
                         translateX: slideIndex == 0 ? 0 : `-${translateX * slideIndex}%`,
                         transition: {
-                            // type: 'just',
-                            // bounce: 0.1,
                             ease: 'easeInOut',
                             duration: 0.35
                         }

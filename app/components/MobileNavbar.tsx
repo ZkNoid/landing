@@ -145,9 +145,9 @@ export const MobileNavbar = () => {
                                     ))}
                                 </div>
                                 <div className={'w-full h-full flex flex-col justify-end'}>
-                                    <Link href={'https://app.zknoid.io'} className='group py-10'>
+                                    <Link href={'https://app.zknoid.io'} className='group pb-10'>
                                         <div
-                                            className="w-full h-[80px] bg-foreground group-hover:bg-bg-dark group-hover:border group-hover:border-foreground group-hover:text-[#fff] text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
+                                            className="w-full h-[50px] bg-foreground group-hover:bg-bg-dark group-hover:border group-hover:border-foreground group-hover:text-[#fff] text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
                                             Launch app
                                         </div>
                                     </Link>

@@ -6,10 +6,10 @@ import { museoSlab } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
 import { Button } from "./components/Button";
 import { SlidableBlock } from "./components/SlidableBlock";
-import {OutlineDecoration} from "./components/OutlineDecoration";
 import {MobileNavbar} from "./components/MobileNavbar";
 import {DesktopNavbar} from "./components/DesktopNavbar";
 import { SOCIALS } from "./constants/socials";
+import {BenefitsForGamersCard} from "./components/BenefitsForGamersCard";
 
 const debug = false;
 
@@ -132,69 +132,30 @@ export default function Home() {
           </div>
           <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5 w-full hidden lg:block"></Image>
             <div className={'flex lg:hidden flex-col gap-4 w-full pt-4'}>
-                <OutlineDecoration
-                    sizeMode={1}
-                    colorVariant={3}
-                    hoverMode={1}
-                    orientation={0}
-                    className={'border border-[#fff] p-4'}
-                >
-                    <div className={'flex flex-row justify-between gap-4 w-full'}>
-                        <Image src={"/image/gamers-camera.svg"} alt={"gamers-camera"} width={100} height={100} className={'aspect-square object-center object-contain'}/>
-                        <div className={'flex flex-col gap-4 w-full'}>
-                            <div className={'w-full text-xl font-semibold'}>Provable</div>
-                            <div>Experience true gaming transparency with provable game process correctness</div>
-                        </div>
-                    </div>
-                </OutlineDecoration>
-
-                <OutlineDecoration
-                    sizeMode={1}
-                    colorVariant={3}
-                    hoverMode={1}
-                    orientation={0}
-                    className={'border border-[#fff] p-4'}
-                >
-                    <div className={'flex flex-row justify-between gap-4 w-full'}>
-                        <div className={'flex flex-col gap-4 w-full'}>
-                            <div className={'w-full text-xl font-semibold'}>Valuble rewards</div>
-                            <div>Showcase your skills and results publicly and earn valuable NFT rewards for your achievements</div>
-                        </div>
-                        <Image src={"/image/gamers-diamond.svg"} alt={"gamers-diamond"} width={100} height={100} className={'aspect-square object-center object-contain'}/>
-                    </div>
-                </OutlineDecoration>
-
-                <OutlineDecoration
-                    sizeMode={1}
-                    colorVariant={3}
-                    hoverMode={1}
-                    orientation={0}
-                    className={'border border-[#fff] p-4'}
-                >
-                    <div className={'flex flex-row justify-between gap-4 w-full'}>
-                        <Image src={"/image/gamers-phone.svg"} alt={"gamers-diamond"} width={100} height={100} className={'aspect-square object-center object-contain'}/>
-                        <div className={'flex flex-col gap-4 w-full'}>
-                            <div className={'w-full text-xl font-semibold'}>No bots, no cheats</div>
-                            <div>Compete against real, fair players - no bots, no cheaters</div>
-                        </div>
-                    </div>
-                </OutlineDecoration>
-
-                <OutlineDecoration
-                    sizeMode={1}
-                    colorVariant={3}
-                    hoverMode={1}
-                    orientation={0}
-                    className={'border border-[#fff] p-4'}
-                >
-                    <div className={'flex flex-row justify-between gap-4 w-full'}>
-                        <div className={'flex flex-col gap-4 w-full'}>
-                            <div className={'w-full text-xl font-semibold'}>Trustworthy environment</div>
-                            <div>Challenge and compete with your friends in a trustworthy environment</div>
-                        </div>
-                        <Image src={"/image/gamers-joystick.svg"} alt={"gamers-diamond"} width={100} height={100} className={'aspect-square object-center object-contain'}/>
-                    </div>
-                </OutlineDecoration>
+                <BenefitsForGamersCard
+                    image={"/image/gamers-camera.svg"}
+                    imageSide={"left"}
+                    title={"Provable"}
+                    text={"Experience true gaming transparency with provable game process correctness"}
+                />
+                <BenefitsForGamersCard
+                    image={"/image/gamers-diamond.svg"}
+                    imageSide={"right"}
+                    title={"Valuble rewards"}
+                    text={"Showcase your skills and results publicly and earn valuable NFT rewards for your achievements"}
+                />
+                <BenefitsForGamersCard
+                    image={"/image/gamers-phone.svg"}
+                    imageSide={"left"}
+                    title={"No bots, no cheats"}
+                    text={"Compete against real, fair players - no bots, no cheaters"}
+                />
+                <BenefitsForGamersCard
+                    image={"/image/gamers-joystick.svg"}
+                    imageSide={"right"}
+                    title={"Trustworthy environment"}
+                    text={"Challenge and compete with your friends in a trustworthy environment"}
+                />
             </div>
         </div>
       </LandingSection>
