@@ -20,11 +20,10 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
         : props.variant == 1 ? "hover/outline:border-middle-accent"
             : "hover/outline:border-right-accent";
 
-    const slideStyles = 'flex-grow-0 overflow-hidden inset-0 min-w-[90vw] md:min-w-[80vw] lg:min-w-[31vw] h-full w-full p-4 flex flex-col justify-end'
-
+    const slideStyles = 'w-full h-full inset-0'
     return (
-        <OutlineDecoration className={props.isSlide ? `border ${borderColor} w-full` : "max-w-[720px] flex-grow relative w-full justify-self-center group"} sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0}>
-            <div className={props.isSlide ? slideStyles : "m-5 h-full flex flex-col gap-2"}>
+        <OutlineDecoration className={props.isSlide ? `border ${borderColor} ${slideStyles}` : "max-w-[720px] flex-grow relative w-full justify-self-center group"} sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0}>
+            <div className={"m-5 h-full flex flex-col gap-2"}>
                 <div className="flex justify-between">
                 <div className={`text-2xl ${props.isSlide ? `max-w-[200px]` : "2xl:max-w-[350px] xl:max-w-[310px] lg:max-w-[200px] md:max-w-[130px] max-w-[250px]"}`}>{props.name}</div>
                     {props.variant == 0 && (
@@ -56,7 +55,7 @@ export const TechnologyCard = (props: TechnologyCardProps) => {
                     link={props.link}
                     colorVariant={props.variant}
                     text={'Explore'}
-                    className={`${props.isSlide ? "mb-0 my-5": "mb-5 my-0"} text-lg w-full h-[50px]`}
+                    className={`${props.isSlide ? "mb-10 mt-5": "mb-5 mt-0"} text-lg w-full h-[50px]`}
                 />
 
                 </div>

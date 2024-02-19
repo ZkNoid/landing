@@ -85,7 +85,9 @@ const applicationsWrap = (slides: any[]) => {
     return (
         <div className={'flex flex-col'}>
             <div
-                className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr] -mb-[400px] lg:mb-0">
+                // className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr] -mb-[300px] lg:mb-0">
+                className={"flex flex-col gap-5 justify-around pt-5"}
+            >
                 {slides.map((item, index) => (
                     <ApplicationCard {...item} isSlide={false} key={index}/>
                 ))}

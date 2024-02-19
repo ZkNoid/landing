@@ -186,15 +186,23 @@ export default function Home() {
                     name: 'Arkanoid',
                     description: 'Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced',
                     image: '/image/applications/arkanoid.svg',
+                    imageW: 740,
+                    imageH: 359,
                     link: 'https://app.zknoid.io/games/arkanoid/competitions-list',
-                    variant: 0
+                    variant: 0,
+                    isBordered: true,
+                    isWrapped: false
                 },
                 {
                     name: 'Randzu',
                     description: 'A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved using zkapp transactions',
                     image: '/image/applications/randzu.svg',
+                    imageW: 400,
+                    imageH: 400,
                     link: 'https://app.zknoid.io/games/randzu/global',
-                    variant: 1
+                    variant: 2,
+                    isBordered: true,
+                    isWrapped: true
                 }
             ]}
             type={'applications'}
@@ -235,11 +243,10 @@ export default function Home() {
                                 <p>Top-1 solidity auditor at <a href="https://strongholdsec.io/leaderboard"
                                                                 className="text-left-accent">Mixbytes auditor DAO</a>.
                                 </p>
-                                <p className={'py-2'}>Core builder of <a href="https://www.xraise.io/"
-                                                                         className="text-left-accent">xraise.io</a> project
-                                    – account abstraction based wallet.</p>
-                    <p>Blockchain and full-stack developer. Studied at MSU, applied math and computer science</p>
-                  </>
+                                <p className={'py-2'}>Core builder of <a href="https://www.xraise.io/" className="text-left-accent">xraise.io</a>
+                                    project – account abstraction based wallet.</p>
+                                <p>Blockchain and full-stack developer. Studied at MSU, applied math and computer science</p>
+                            </>
                 )
               },
               {
@@ -250,9 +257,7 @@ export default function Home() {
                 imageW: 360,
                 imageH: 360,
                 children: (
-                    <>
-                      <p>Crypto enthusiast since 2020. CS MS in MIPT. Experienced solidity developer with two years experience in DEFI projects.</p>
-                    </>
+                    <p>Crypto enthusiast since 2020. CS MS in MIPT. Experienced solidity developer with two years experience in DEFI projects.</p>
                 )
               },
               {
@@ -340,8 +345,8 @@ export default function Home() {
                       Launch app
                   </div>
               </Link>
-              <div className="text-[#F9F8F4] text-center text-sm lg:hidden font-light">
-                  2024 ZkNoid: all rights reserved
+              <div className="text-[#F9F8F4] text-center text-sm font-mono lg:hidden font-light">
+                  ©{" "}2024 ZkNoid: all rights reserved
               </div>
           </div>
       </div>

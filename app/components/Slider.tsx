@@ -86,9 +86,13 @@ export const Slider = ({ children }: { children: ReactNode }) => {
                     }}
                     onDragEnd={onDragEnd}
                     style={{x: dragX}}
-                    className='flex gap-2 lg:gap-4 cursor-grab active:cursor-grabbing'
+                    className='flex gap-4 cursor-grab active:cursor-grabbing lg:mr-2'
                 >
-                    {children}
+                    {Children.map(children, child => (
+                        <div className={`h-full w-[90vw] lg:w-full py-2`}>
+                            {child}
+                        </div>
+                    ))}
                 </motion.div>
             </div>
             <Dots slidesAmount={slidesAmount} activeSlide={slideIndex} slideLimiter={slideLimiter}/>
