@@ -17,7 +17,7 @@ const LandingSection = (props: { title: string, children: ReactNode }) => {
   return (
     <div className={`w-full relative flex justify-center px-[10px] md:px-[50px] ${debug && 'border'}`}>
       <div className="flex flex-col w-full">
-        <div className="font-bold text-4xl lg:text-5xl pt-[100px] lg:pt-[150px] md:pl-[30%] pb-4">
+        <div className="text-mobile-headline-1 lg:text-headline-1 pt-[100px] lg:pt-[150px] md:pl-[30%] pb-4">
           {props.title}
         </div>
         {props.children}
@@ -35,16 +35,16 @@ export default function Home() {
       <div className={`h-[550px] md:h-[800px] lg:h-[783px] w-full relative flex justify-center ${debug && 'border'}`}>
         <Image src={'/image/chess.svg'} className="hidden lg:block w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
         <Image src={'/image/cover-image-mobile.svg'} className="block lg:hidden w-full absolute bottom-0 pointer-events-none" width={1618} height={541} alt="Medium"></Image>
-          <div className="font-bold text-3xl sm:text-4xl md:text-8xl pt-[100px] lg:pt-[173px] mx-3 ">
-            <div className={`${museoSlab.className} text-6xl lg:text-8xl`}>
+          <div className="pt-[40px] lg:pt-[173px] mx-3 ">
+            <div className={`${museoSlab.className} text-mobile-headline-0 lg:text-cover-text-1`}>
               WEB3
             </div>
-            <div className={`${museoSlab.className}`}>
+            <div className={`${museoSlab.className} text-[33px]/[33px] lg:text-cover-text-2`}>
               Gaming platform
             </div>
-            <div className="text-lg lg:pl-10 pt-2 font-plex-mono font-normal font-mono flex flex-col justify-end md:flex-row">
+            <div className="lg:pl-10 pt-2 flex flex-col justify-end md:flex-row font-mono text-mobile-main-text lg:text-regular-text">
               Powered by zero knowledge proof technology
-              <Link className="cursor-pointer font-rockwell text-xl pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px] hover:opacity-80 ease-in-out" href="https://docs.zknoid.io">
+              <Link className="cursor-pointer font-rockwell text-mobile-link-1 lg:text-headline3 pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px] hover:opacity-80 ease-in-out" href="https://docs.zknoid.io">
                 Open Docs <Image src={"/image/docs_arrow.svg"} className="ml-1" width={16} height={16} alt="Arrow"></Image>
               </Link>
             </div>
@@ -54,33 +54,33 @@ export default function Home() {
                   textWhite={true}
                     link={'https://app.zknoid.io'}
                     text={'Go to zkApp'}
-                    className="w-[199px] h-[50px] text-2xl"
+                    className="w-[199px] h-[50px]"
                 />
             </div>
           </div>
       </div>
       <LandingSection title="About ZkNoid">
-        <div className="text-xl xl:text-2xl font-mono lg:w-[500px] 2xl:w-[800px] pt-4 xl:pt-10 font-bold md:ml-[30%]">
+        <div className="lg:w-[500px] 2xl:w-[800px] pt-4 xl:pt-10 md:ml-[30%] font-mono font-semibold text-mobile-big-text lg:text-big-text">
           ZkNoid - the gaming platform powered by zero knowledge proof technology based on MINA protocol.
         </div>
         <div className="items-center  lg:items-start grid flex-rows-3 lg:grid-cols-3 w-full justify-between pt-16 gap-[20px]">
           <div className="flex items-start">
             <Image src={"image/01.svg"} width={96} height={96} alt="01"></Image>
-            <div className="pl-5 pb-5 text-base xl:text-xl">
+            <div className="pl-5 pb-5 font-mono text-mobile-main-text lg:text-regular-text">
               ZkNoid provides the united ecosystem for ZK gaming – developers can use SDK to be a part of the platform.
               L2 rollup based on protokit network enables gasless sessions, fast transactions
             </div>
           </div>
           <div className="flex items-start">
             <Image src={"image/02.svg"} width={96} height={96} alt="02"></Image>
-            <div className="pl-5 pb-5 text-base xl:text-xl">
+            <div className="pl-5 pb-5 font-mono text-mobile-main-text lg:text-regular-text">
               While playing all your actions are accumulated inside a zero-knowledge circuit on the client side,
               ensuring verifiability of the game process while your strategy remains confidential.
             </div>
           </div>
           <div className="flex items-start">
             <Image src={"image/03.svg"} width={96} height={96} alt="03"></Image>
-            <div className="pl-5 pb-5 text-base xl:text-xl">
+            <div className="pl-5 pb-5 font-mono text-mobile-main-text lg:text-regular-text">
               Host fair competitions within your community and reward your most engaged fans - with no possibility of cheating
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
 
       <LandingSection title="Benefits for gamers">
         <div className="flex flex-col">
-          <div className="text-base lg:text-xl font-mono md:w-[400px] lg:w-[500px] 2xl:w-[800px] pt-4 lg:pt-10 md:ml-[30%]">
+          <div className="md:w-[400px] lg:w-[500px] 2xl:w-[800px] pt-4 lg:pt-10 md:ml-[30%] font-mono text-mobile-main-text lg:text-regular-text">
             Elevate your gaming journey and embrace a future where transparency and integrity define the ultimate gaming experience
           </div>
           <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5 w-full hidden lg:block"></Image>
@@ -214,7 +214,7 @@ export default function Home() {
         <LandingSection title="Backed by">
             <div className={'flex flex-col lg:flex-row gap-4 justify-start items-center'}>
                 <div
-                    className="text-xl font-mono w-full lg:w-[450px]">
+                    className="font-mono text-mobile-main-text lg:text-regular-text w-full lg:w-[450px]">
                     Our esteemed list of backers and investors who are trust the groundbreaking ZkNoid gaming
                 </div>
                 <div className="grid grid-rows-2 lg:grid-rows-1 grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 w-full lg:p-10 flex-grow">
@@ -286,8 +286,8 @@ export default function Home() {
       <div className="flex flex-col px-[10px] lg:px-[50px]">
       <div className="flex w-full h-[91px] items-center">
           <div className="flex flex-col lg:flex-row w-full items-center justify-between">
-              <div className="font-bold text-2xl md:text-3xl cursor-pointer pb-8 lg:pb-0 flex lg:block flex-row justify-between w-full lg:w-auto">
-                  <span className='hover:opacity-80 ease-in-out'>ZkNoid</span>
+              <div className="font-bold cursor-pointer pb-8 lg:pb-0 flex lg:block flex-row justify-between w-full lg:w-auto">
+                  <span className='hover:opacity-80 ease-in-out text-logo-text'>ZkNoid</span>
                   <div className="gap-5 flex lg:hidden">
                     {SOCIALS.map(social => (
                       <Link key={social.name} className="cursor-pointer text-xl flex items-center justify-center"
@@ -298,7 +298,7 @@ export default function Home() {
                     ))}
                   </div>
               </div>
-              <div className="grid lg:flex grid-rows-2 grid-cols-2 text-base gap-2 lg:gap-8 w-full lg:w-auto">
+              <div className="grid lg:flex grid-rows-2 grid-cols-2 text-base gap-2 lg:gap-8 w-full lg:w-auto text-menu-text">
                   {/*<Link className="cursor-pointer text-xl" href={'#'} target="_blank" rel="noopener noreferrer">*/}
                   {/*  About us*/}
                   {/*</Link>*/}
@@ -335,7 +335,7 @@ export default function Home() {
                   </Link>
                 ))}
               </div>
-              <div className="text-[#F9F8F4] hidden lg:block">
+              <div className="text-[#F9F8F4] hidden lg:block text-small-text">
                   2024 ZkNoid: all rights reserved
               </div>
 
@@ -345,7 +345,7 @@ export default function Home() {
                       Launch app
                   </div>
               </Link>
-              <div className="text-[#F9F8F4] text-center text-sm font-mono lg:hidden font-light">
+              <div className="text-[#F9F8F4] text-center lg:hidden font-mono text-mobile-copyright">
                   ©{" "}2024 ZkNoid: all rights reserved
               </div>
           </div>

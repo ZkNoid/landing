@@ -14,7 +14,7 @@ export const Button = ({ text, link, colorVariant, textWhite, className = '' }: 
                 rel="noopener noreferrer"
                 className={`flex text-center items-center justify-center group/button border w-full h-full group/button ${borderColor} ${hoverColor}`}
             >
-                <span className={`group-hover/button:text-dark-buttons-text ${textColor}`}>{text}</span>
+                <span className={`group-hover/button:text-dark-buttons-text text-mobile-button lg:text-mobile-button ${textColor}`}>{text}</span>
             </Link>
         </OutlineDecoration>
     )

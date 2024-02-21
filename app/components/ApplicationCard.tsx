@@ -33,8 +33,8 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
         <OutlineDecoration sizeMode={1} colorVariant={props.variant} hoverMode={1} orientation={0} className={`border ${borderColor} ${props.isSlide ? slideStyles : ''}`}>
             <div className={`group/inner w-full h-full`}>
                 <div className="p-6 h-full flex flex-col">
-                    <div className="text-3xl mb-3">{props.name}</div>
-                    <div className="flex flex-col items-center h-full">
+                    <div className="font-bold text-mobile-headline-2 lg:text-headline-2 mb-3">{props.name}</div>
+                    <div className="flex flex-col items-center justify-between h-full">
                         {props.isWrapped ? (
                             <div className={`${props.isBordered ? `border border-[#fff] ${innerBorderColor}` : ''} w-full p-10 flex justify-center items-center`}>
                                 <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className={'pointer-events-none object-center object-contain'}/>
@@ -42,15 +42,13 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
                         ) : (
                             <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className={`pointer-events-none object-center object-contain py-4 ${props.isBordered ? `border border-[#fff] ${innerBorderColor}` : ''}`}/>
                         )}
-                        <div className="flex-grow "></div>
-                        <div className="font-mono text-xl font-normal py-5 px-3">{props.description}</div>
-                        <div className="flex-grow "></div>
-                        
+                        <div className="font-mono text-mobile-main-text lg:text-regular-text py-5">{props.description}</div>
+
                         <Button
                             link={props.link}
                             colorVariant={props.variant}
                             text={'Play now!'}
-                            className={'text-lg w-full h-[50px]'}
+                            className={'w-full h-[50px]'}
                         />
                     </div>
                 </div>

@@ -46,15 +46,15 @@ export const BusinessInvestorsCard = (props: BusinessInvestorsCardProps) => {
                     <div className={'flex lg:hidden flex-row justify-between h-auto md:h-[230px] lg:h-auto'}>
                         <Image src={props.image} width={740} height={359} alt="our_tech_upper"
                                className="w-[120px] h-[120px] object-contain object-center self-center mr-[4px]"></Image>
-                        <div className="font-mono text-sm font-normal pt-3 max-w-[400px] mx-auto">{props.description}</div>
+                        <div className="font-mono text-mobile-main-text pt-3 max-w-[400px] mx-auto">{props.description}</div>
                     </div>
-                    <div className="font-mono text-lg font-normal pt-3 max-w-[400px] mx-auto hidden lg:block">{props.description}</div>
+                    <div className="font-mono text-regular-text pt-3 max-w-[400px] mx-auto hidden lg:block">{props.description}</div>
                     <div className={'mx-auto max-w-[400px] flex flex-row justify-start items-center'}>
                         <Button
                             link={props.link}
                             colorVariant={props.variant}
                             text={'Explore'}
-                            className={'lg:max-w-[200px] mt-4 text-base w-full lg:w-[50%] h-[50px]'}
+                            className={'lg:max-w-[200px] mt-4 w-full lg:w-[50%] h-[50px]'}
                         />
                     </div>
                 </div>
