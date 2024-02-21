@@ -18,3 +18,7 @@ export const SOCIALS = [
         image: '/image/socials/medium.svg',
     },
 ];
+
+export const MOBILE_HEADER_SOCIALS = SOCIALS.filter(
+    item => item.id === 'github' || item.id === 'twitter'
+)

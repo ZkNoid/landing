@@ -6,9 +6,12 @@ export const DesktopNavbar = () => {
     return (
         <header className="w-full h-[91px] px-3 lg:px-[50px] items-center hidden lg:flex">
             <div className={'flex w-full items-center justify-between'}>
-                <div className="font-bold text-2xl md:text-3xl cursor-pointer">
-                    ZkNoid
-                </div>
+                <Image
+                    src={'/image/zknoid-logo.svg'}
+                    alt={'ZkNoid logo'}
+                    width={219}
+                    height={47}
+                />
                 <div className="flex text-base gap-5">
                     <Link className="cursor-pointer text-xl hover:opacity-80 ease-in-out" href={'https://docs.zknoid.io'} target="_blank"
                           rel="noopener noreferrer">

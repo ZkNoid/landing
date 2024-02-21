@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useCycle, useMotionValueEvent, useScroll } fro
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { SOCIALS } from "../constants/socials";
+import {MOBILE_HEADER_SOCIALS, SOCIALS} from "../constants/socials";
 
 
 export const MobileNavbar = () => {
@@ -38,12 +38,15 @@ export const MobileNavbar = () => {
             className="sticky top-0 inset-x-0 p-6 z-50 flex lg:hidden bg-bg-dark"
         >
             <nav className={`container mx-auto z-50 bg-bg-dark flex flex-row items-center justify-between`}>
-                <div className="font-bold text-2xl md:text-3xl cursor-pointer">
-                    ZkNoid
-                </div>
+                <Image
+                    src={'/image/zknoid-logo.svg'}
+                    alt={'ZkNoid logo'}
+                    width={130}
+                    height={47}
+                />
                 <div className={'flex flex-row items-center gap-6'}>
                     <div className={`w-full flex-row gap-2 ${isOpen ? 'hidden' : 'flex'}`}>
-                        {SOCIALS.map(social => (
+                        {MOBILE_HEADER_SOCIALS.map(social => (
                             <Link key={social.name} className="cursor-pointer flex items-center justify-center"
                                 href={social.link} target="_blank" rel="noopener noreferrer">
                                 <Image src={social.image} className="cursor-pointer" width={30}
