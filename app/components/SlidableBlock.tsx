@@ -13,26 +13,10 @@ const sliderComponent = (type: 'technologies' | 'applications' | 'team', slides:
         <>
             {isApplicationComponent ? (
                 <>
-                    {type === 'technologies' && (
-                        <Slider>
-                            {slides.map((item, index) => (
-                                <TechnologyCard {...item} isSlide={true} key={index}/>
-                            ))}
-                            <MoreGamesApplicationCard isSlide={true}/>
-                        </Slider>
-                    )}
                     {type === 'applications' && (
                         <Slider>
                             {slides.map((item, index) => (
                                 <ApplicationCard {...item} isSlide={true} key={index}/>
-                            ))}
-                            <MoreGamesApplicationCard isSlide={true}/>
-                        </Slider>
-                    )}
-                    {type === 'team' && (
-                        <Slider>
-                            {slides.map((item, index) => (
-                                <TeamMemberCard {...item} children={item.children} isSlide={true} key={index}/>
                             ))}
                             <MoreGamesApplicationCard isSlide={true}/>
                         </Slider>

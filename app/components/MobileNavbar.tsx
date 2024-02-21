@@ -35,9 +35,9 @@ export const MobileNavbar = () => {
             }}
             animate={hidden ? 'hidden' : 'visible'}
             transition={{ duration: 0.35, ease: 'easeInOut', type: 'just' }}
-            className="sticky top-0 inset-x-0 p-6 z-10 flex lg:hidden bg-bg-dark"
+            className="sticky top-0 inset-x-0 p-6 z-50 flex lg:hidden bg-bg-dark"
         >
-            <nav className={`container mx-auto z-10 bg-bg-dark flex flex-row items-center justify-between`}>
+            <nav className={`container mx-auto z-50 bg-bg-dark flex flex-row items-center justify-between`}>
                 <div className="font-bold text-2xl md:text-3xl cursor-pointer">
                     ZkNoid
                 </div>
@@ -54,7 +54,7 @@ export const MobileNavbar = () => {
                     <motion.button
                         animate={isOpen ? 'show' : 'hide'}
                         onClick={() => toggleOpen()}
-                        className={`flex flex-col space-y-1.5 relative z-10`}
+                        className={`flex flex-col space-y-1.5 relative z-50`}
                     >
                         <motion.span
                             variants={{
@@ -125,7 +125,7 @@ export const MobileNavbar = () => {
                             className={'fixed inset-0 container mx-auto flex flex-row justify-end'}
                         >
                             <div
-                                className={'w-3/5 h-screen bg-bg-dark flex flex-col gap-4 px-4 pb-4 pt-[80px] text-xl z-10'}>
+                                className={'w-3/5 h-screen bg-bg-dark flex flex-col gap-4 px-4 pb-4 pt-[80px] text-xl z-50'}>
                                 <Link href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
                                     Docs
                                 </Link>

@@ -21,11 +21,20 @@ export const DesktopNavbar = () => {
                 </div>
                 <div className="gap-5 flex">
                     {SOCIALS.map(social => (
-                        <Link key={social.name} className="cursor-pointer flex items-center justify-center hover:opacity-80 ease-in-out" href={social.link}
-                          target="_blank" rel="noopener noreferrer">
-                        <Image src={social.image} className="cursor-pointer" width={30} height={30}
-                               alt={social.name}></Image>
-                    </Link>
+                        <Link
+                            key={social.name}
+                            className="cursor-pointer flex items-center justify-center hover:opacity-80 ease-in-out"
+                            href={social.link}
+                            target="_blank" rel="noopener noreferrer"
+                        >
+                            <Image
+                                src={social.image}
+                                className="cursor-pointer"
+                                width={30}
+                                height={30}
+                                alt={social.name}
+                            />
+                        </Link>
                     ))}
                 </div>
                 <Link href={'https://app.zknoid.io'} className='group block'>
