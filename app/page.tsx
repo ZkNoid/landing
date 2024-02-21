@@ -6,10 +6,10 @@ import { museoSlab } from "./fonts";
 import { SubscribeForm } from "./components/SubscribeForm";
 import { Button } from "./components/Button";
 import { SlidableBlock } from "./components/SlidableBlock";
-import {MobileNavbar} from "./components/MobileNavbar";
-import {DesktopNavbar} from "./components/DesktopNavbar";
+import { MobileNavbar } from "./components/MobileNavbar";
+import { DesktopNavbar } from "./components/DesktopNavbar";
 import { SOCIALS } from "./constants/socials";
-import {BenefitsForGamersCard} from "./components/BenefitsForGamersCard";
+import { BenefitsForGamersCard } from "./components/BenefitsForGamersCard";
 
 const debug = false;
 
@@ -66,21 +66,21 @@ export default function Home() {
         <div className="items-center  lg:items-start grid flex-rows-3 lg:grid-cols-3 w-full justify-between pt-16 gap-[20px]">
           <div className="flex items-start">
             <Image src={"image/01.svg"} width={96} height={96} alt="01"></Image>
-            <div className="pl-5 pb-5 text-base xl:text-xl font-mono">
+            <div className="pl-5 pb-5 text-base xl:text-xl">
               ZkNoid provides the united ecosystem for ZK gaming – developers can use SDK to be a part of the platform.
               L2 rollup based on protokit network enables gasless sessions, fast transactions
             </div>
           </div>
           <div className="flex items-start">
             <Image src={"image/02.svg"} width={96} height={96} alt="02"></Image>
-            <div className="pl-5 pb-5 text-base xl:text-xl font-mono">
+            <div className="pl-5 pb-5 text-base xl:text-xl">
               While playing all your actions are accumulated inside a zero-knowledge circuit on the client side,
               ensuring verifiability of the game process while your strategy remains confidential.
             </div>
           </div>
           <div className="flex items-start">
             <Image src={"image/03.svg"} width={96} height={96} alt="03"></Image>
-            <div className="pl-5 pb-5 text-base xl:text-xl font-mono">
+            <div className="pl-5 pb-5 text-base xl:text-xl">
               Host fair competitions within your community and reward your most engaged fans - with no possibility of cheating
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
 
       <LandingSection title="Benefits for gamers">
         <div className="flex flex-col">
-          <div className="text-base lg:text-2xl font-mono font-normal md:w-[400px] lg:w-[500px] 2xl:w-[800px] pt-4 lg:pt-10 md:ml-[30%]">
+          <div className="text-base lg:text-xl font-mono md:w-[400px] lg:w-[500px] 2xl:w-[800px] pt-4 lg:pt-10 md:ml-[30%]">
             Elevate your gaming journey and embrace a future where transparency and integrity define the ultimate gaming experience
           </div>
           <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5 w-full hidden lg:block"></Image>
@@ -214,7 +214,7 @@ export default function Home() {
         <LandingSection title="Backed by">
             <div className={'flex flex-col lg:flex-row gap-4 justify-start items-center'}>
                 <div
-                    className="text-lg font-mono font-normal w-full lg:w-[450px]">
+                    className="text-xl font-mono w-full lg:w-[450px]">
                     Our esteemed list of backers and investors who are trust the groundbreaking ZkNoid gaming
                 </div>
                 <div className="grid grid-rows-2 lg:grid-rows-1 grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 w-full lg:p-10 flex-grow">
@@ -244,7 +244,7 @@ export default function Home() {
                                                                 className="text-left-accent">Mixbytes auditor DAO</a>.
                                 </p>
                                 <p className={'py-2'}>Core builder of <a href="https://www.xraise.io/" className="text-left-accent">xraise.io</a>
-                                    project – account abstraction based wallet.</p>
+                                    {' '}project – account abstraction based wallet.</p>
                                 <p>Blockchain and full-stack developer. Studied at MSU, applied math and computer science</p>
                             </>
                 )

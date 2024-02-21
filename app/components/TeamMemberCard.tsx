@@ -28,10 +28,10 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
                 </div>
                 <div className="flex flex-col items-center">
                     <div className="flex justify-space-between justify-between w-full pb-2">
-                        <div className="text-2xl font-bold">{props.name}</div>
+                        <div className="text-4xl font-bold">{props.name}</div>
                     </div>
-                    <div className={`text-lg font-semibold w-full ${color}`}>{props.position}</div>
-                    <div className="font-mono text-sm font-normal w-full">{props.children}</div>
+                    <div className={`text-2xl font-semibold w-full ${color}`}>{props.position}</div>
+                    <div className="font-mono text-xl font-normal w-full">{props.children}</div>
                     <div className="flex-grow "></div>
                 </div>
             </div>
