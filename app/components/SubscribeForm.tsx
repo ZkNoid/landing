@@ -19,7 +19,7 @@ export const SubscribeForm = (props: { debug?: boolean }) => {
     return (
         <div className={`w-full relative flex justify-center ${props.debug && 'border'} mb-[30px] px-[10px] md:px-[50px]`}>
             <div className="flex flex-col w-full items-center text-sm">
-                <div className="font-medium lg:font-bold text-mobile-headline-4 lg:text-headline-1 pt-[150px] text-middle-accent">
+                <div className="font-medium lg:font-bold text-mobile-headline-4 lg:text-headline-1 pt-[100px] lg:pt-[150px] text-middle-accent">
                     Subscribe for updates!
                 </div>
                 <div className="flex flex-col pt-5 pb-10">

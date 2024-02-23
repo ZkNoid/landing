@@ -23,7 +23,7 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
     return (
         <div className={props.isSlide ? slideStyles : "m-5 lg:w-[33%] max-w-[400px] lg:top-0 lg:relative"}>
             <div className={`lg:absolute lg:mx-5 h-full flex flex-col ${props.variant != 1 && 'top-[-10vw]'}`}>
-                <div className="w-full flex flex-col items-center pb-5 justify-between">
+                <div className="w-full flex flex-col lg:items-center pb-5 justify-start items-start lg:justify-between">
                     <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className="" ></Image>
                 </div>
                 <div className="flex flex-col items-center">

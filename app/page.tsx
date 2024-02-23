@@ -351,7 +351,7 @@ export default function Home() {
                   2024 ZkNoid: all rights reserved
               </div>
 
-              <LaunchAppButton visibleOn={'mobile'} fullWidth className='py-10'/>
+              <LaunchAppButton visibleOn={'mobile'} fullWidth className='my-4'/>
               <div className="text-[#F9F8F4] text-center lg:hidden font-plexmono text-mobile-copyright">
                   ©{" "}2024 ZkNoid: all rights reserved
               </div>
