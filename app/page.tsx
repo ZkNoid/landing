@@ -303,7 +303,13 @@ export default function Home() {
       <div className="flex w-full h-[91px] items-center">
           <div className="flex flex-col lg:flex-row w-full items-center justify-between">
               <div className="font-bold cursor-pointer pb-8 lg:pb-0 flex lg:block flex-row justify-between w-full lg:w-auto">
-                  <span className='hover:opacity-80 ease-in-out text-logo-text'>ZkNoid</span>
+                  <Link
+                      href={'https://zknoid.io'}
+                      target="_blank" rel="noopener noreferrer"
+                      className={'hover:opacity-80 ease-in-out cursor-pointer text-logo-text'}
+                  >
+                      ZkNoid
+                  </Link>
                   <div className="gap-5 flex lg:hidden">
                     {SOCIALS.map(social => (
                       <Link key={social.name} className="cursor-pointer text-xl flex items-center justify-center"

@@ -39,12 +39,18 @@ export const MobileNavbar = () => {
             className="sticky top-0 inset-x-0 p-6 z-50 flex lg:hidden bg-bg-dark"
         >
             <nav className={`container mx-auto z-50 bg-bg-dark flex flex-row items-center justify-between`}>
-                <Image
-                    src={'/image/zknoid-logo.svg'}
-                    alt={'ZkNoid logo'}
-                    width={130}
-                    height={47}
-                />
+                <Link
+                    href={'https://zknoid.io'}
+                    target="_blank" rel="noopener noreferrer"
+                    className={'hover:opacity-80 ease-in-out cursor-pointer'}
+                >
+                    <Image
+                        src={'/image/zknoid-logo.svg'}
+                        alt={'ZkNoid logo'}
+                        width={130}
+                        height={47}
+                    />
+                </Link>
                 <div className={'flex flex-row items-center gap-6'}>
                     <div className={`w-full flex-row gap-2 ${isOpen ? 'hidden' : 'flex'}`}>
                         {MOBILE_HEADER_SOCIALS.map(social => (
