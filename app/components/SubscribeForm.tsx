@@ -26,7 +26,7 @@ export const SubscribeForm = (props: { debug?: boolean }) => {
                     <div className="flex flex-row gap-5 flex-wrap py-5">
                         <input
                             type="email"
-                            className="w-full md:w-[486px] h-[50px] border bg-bg-dark px-2 rounded-none font-mono text-mobile-main-text lg:text-regular-text"
+                            className="w-full md:w-[486px] h-[50px] border bg-bg-dark px-2 rounded-none font-plexmono text-mobile-main-text lg:text-regular-text"
                             placeholder="Enter your e-mail"
                             value={userEmail}
                             onChange={(e) => setUserEmail(e.target.value)}
@@ -48,7 +48,7 @@ export const SubscribeForm = (props: { debug?: boolean }) => {
                             onChange={(e) => setTermsChecked(e.target.checked)}
                         >
                         </input>
-                        <label htmlFor="terms_agree" className="hover:opacity-80 transition-opacity cursor-pointer font-mono text-small-text">
+                        <label htmlFor="terms_agree" className="hover:opacity-80 transition-opacity cursor-pointer font-plexmono text-small-text">
                             I agree to the processing of my personal data
                         </label>
                     </div>

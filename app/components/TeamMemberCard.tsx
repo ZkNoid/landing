@@ -31,7 +31,7 @@ export const TeamMemberCard = (props: TeamMemberCardProps) => {
                         <div className="font-bold text-mobile-headline-2 lg:text-headline-2">{props.name}</div>
                     </div>
                     <div className={`font-bold text-mobile-headline-3 lg:text-headline-3 w-full ${color}`}>{props.position}</div>
-                    <div className="font-mono text-mobile-main-text lg:text-regular-text w-full">{props.children}</div>
+                    <div className="font-plexmono text-mobile-main-text lg:text-regular-text w-full">{props.children}</div>
                     <div className="flex-grow"></div>
                 </div>
             </div>

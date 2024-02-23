@@ -10,6 +10,7 @@ import { MobileNavbar } from "./components/MobileNavbar";
 import { DesktopNavbar } from "./components/DesktopNavbar";
 import { SOCIALS } from "./constants/socials";
 import { BenefitsForGamersCard } from "./components/BenefitsForGamersCard";
+import { LaunchAppButton } from "@/app/components/LaunchAppButton";
 
 const debug = false;
 
@@ -39,10 +40,10 @@ export default function Home() {
             <div className={`${museoSlab.className} text-mobile-headline-0 lg:text-cover-text-1`}>
               WEB3
             </div>
-            <div className={`${museoSlab.className} text-[33px]/[33px] lg:text-cover-text-2`}>
+            <div className={`${museoSlab.className} text-[30px]/[30px] lg:text-cover-text-2`}>
               Gaming platform
             </div>
-            <div className="lg:pl-10 pt-2 flex flex-col justify-end md:flex-row font-mono text-mobile-main-text lg:text-regular-text">
+            <div className="lg:pl-10 pt-2 flex flex-col justify-end md:flex-row font-plexmono text-mobile-main-text lg:text-regular-text">
               Powered by zero knowledge proof technology
               <Link className="cursor-pointer font-rockwell text-mobile-link-1 lg:text-headline3 pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px] hover:opacity-80 ease-in-out" href="https://docs.zknoid.io">
                 Open Docs <Image src={"/image/docs_arrow.svg"} className="ml-1" width={16} height={16} alt="Arrow"></Image>
@@ -60,27 +61,27 @@ export default function Home() {
           </div>
       </div>
       <LandingSection title="About ZkNoid">
-        <div className="lg:w-[500px] 2xl:w-[800px] pt-4 xl:pt-10 md:ml-[30%] font-mono font-semibold text-mobile-big-text lg:text-big-text">
+        <div className="lg:w-[500px] 2xl:w-[800px] pt-4 xl:pt-10 md:ml-[30%] font-plexmono font-semibold text-mobile-big-text lg:text-big-text">
           ZkNoid - the gaming platform powered by zero knowledge proof technology based on MINA protocol.
         </div>
         <div className="items-center  lg:items-start grid flex-rows-3 lg:grid-cols-3 w-full justify-between pt-16 gap-[20px]">
           <div className="flex items-start">
             <Image src={"image/01.svg"} width={96} height={96} alt="01"></Image>
-            <div className="pl-5 pb-5 font-mono text-mobile-main-text lg:text-regular-text">
+            <div className="pl-5 pb-5 font-plexmono text-mobile-main-text lg:text-regular-text">
               ZkNoid provides the united ecosystem for ZK gaming – developers can use SDK to be a part of the platform.
               L2 rollup based on protokit network enables gasless sessions, fast transactions
             </div>
           </div>
           <div className="flex items-start">
             <Image src={"image/02.svg"} width={96} height={96} alt="02"></Image>
-            <div className="pl-5 pb-5 font-mono text-mobile-main-text lg:text-regular-text">
+            <div className="pl-5 pb-5 font-plexmono text-mobile-main-text lg:text-regular-text">
               While playing all your actions are accumulated inside a zero-knowledge circuit on the client side,
               ensuring verifiability of the game process while your strategy remains confidential.
             </div>
           </div>
           <div className="flex items-start">
             <Image src={"image/03.svg"} width={96} height={96} alt="03"></Image>
-            <div className="pl-5 pb-5 font-mono text-mobile-main-text lg:text-regular-text">
+            <div className="pl-5 pb-5 font-plexmono text-mobile-main-text lg:text-regular-text">
               Host fair competitions within your community and reward your most engaged fans - with no possibility of cheating
             </div>
           </div>
@@ -95,8 +96,8 @@ export default function Home() {
                 description: "Allows to prove your game process without revealing your strategy.",
                 image: "/image/technologies/circuit.svg",
                 variant: 0,
-                imageW: 350,
-                imageH: 450,
+                imageW: 187,
+                imageH: 345,
                 link: "https://zknoid.medium.com/zero-knowledge-proofs-for-gaming-how-it-works-why-do-we-need-them-3d0ee659c850"
               },
               {
@@ -127,16 +128,22 @@ export default function Home() {
 
       <LandingSection title="Benefits for gamers">
         <div className="flex flex-col">
-          <div className="md:w-[400px] lg:w-[500px] 2xl:w-[800px] pt-4 lg:pt-10 md:ml-[30%] font-mono text-mobile-main-text lg:text-regular-text">
+          <div className="md:w-[400px] lg:w-[500px] 2xl:w-[800px] pt-4 lg:pt-10 md:ml-[30%] font-plexmono text-mobile-main-text lg:text-regular-text">
             Elevate your gaming journey and embrace a future where transparency and integrity define the ultimate gaming experience
           </div>
-          <Image src={"image/user_benefits.svg"} width={1500} height={899} alt="01" className="p-5 w-full hidden lg:block"></Image>
-            <div className={'flex lg:hidden flex-col gap-4 w-full pt-4'}>
+            <div className={'flex lg:grid grid-cols-4 grid-rows-2 flex-col gap-4 lg:gap-0 w-full pt-4'}>
                 <BenefitsForGamersCard
                     image={"/image/gamers-camera.svg"}
                     imageSide={"left"}
                     title={"Provable"}
                     text={"Experience true gaming transparency with provable game process correctness"}
+                />
+                <Image
+                    src={'/image/gamers-rectangle-center.svg'}
+                    alt={'gamers-decoration'}
+                    width={1000}
+                    height={1000}
+                    className={'h-full object-cover object-center hidden lg:block'}
                 />
                 <BenefitsForGamersCard
                     image={"/image/gamers-diamond.svg"}
@@ -144,17 +151,26 @@ export default function Home() {
                     title={"Valuble rewards"}
                     text={"Showcase your skills and results publicly and earn valuable NFT rewards for your achievements"}
                 />
+                <Image
+                    src={'/image/gamers-rectangle-right.svg'}
+                    alt={'gamers-decoration'}
+                    width={1000}
+                    height={1000}
+                    className={'h-full object-cover object-center hidden lg:block'}
+                />
                 <BenefitsForGamersCard
                     image={"/image/gamers-phone.svg"}
                     imageSide={"left"}
                     title={"No bots, no cheats"}
                     text={"Compete against real, fair players - no bots, no cheaters"}
+                    className={'col-start-2 col-end-3 lg:-mt-px lg:mx-4'}
                 />
                 <BenefitsForGamersCard
                     image={"/image/gamers-joystick.svg"}
                     imageSide={"right"}
                     title={"Trustworthy environment"}
                     text={"Challenge and compete with your friends in a trustworthy environment"}
+                    className={'col-start-4 col-end-5 lg:-mt-px lg:mx-4'}
                 />
             </div>
         </div>
@@ -214,7 +230,7 @@ export default function Home() {
         <LandingSection title="Backed by">
             <div className={'flex flex-col lg:flex-row gap-4 justify-start items-center'}>
                 <div
-                    className="font-mono text-mobile-main-text lg:text-regular-text w-full lg:w-[450px]">
+                    className="font-plexmono text-mobile-main-text lg:text-regular-text w-full lg:w-[450px] lg:h-full lg:pt-10">
                     Our esteemed list of backers and investors who are trust the groundbreaking ZkNoid gaming
                 </div>
                 <div className="grid grid-rows-2 lg:grid-rows-1 grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 w-full lg:p-10 flex-grow">
@@ -318,11 +334,7 @@ export default function Home() {
                       Blog
                   </Link>
               </div>
-              <Link href={'https://app.zknoid.io'} className='group hidden lg:block'>
-              <div className="w-[140px] lg:w-[192px] h-[50px] bg-foreground group-hover:bg-bg-dark group-hover:border group-hover:border-foreground group-hover:text-[#fff] text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
-                Launch app
-              </div>
-            </Link>
+              <LaunchAppButton visibleOn={'desktop'}/>
           </div>
         </div>
           <div className="flex justify-between flex-col lg:flex-row py-3">
@@ -339,13 +351,8 @@ export default function Home() {
                   2024 ZkNoid: all rights reserved
               </div>
 
-              <Link href={'https://app.zknoid.io'} className='group py-10 lg:hidden'>
-                  <div
-                      className="w-full h-[50px] bg-foreground group-hover:bg-bg-dark group-hover:border group-hover:border-foreground group-hover:text-[#fff] text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
-                      Launch app
-                  </div>
-              </Link>
-              <div className="text-[#F9F8F4] text-center lg:hidden font-mono text-mobile-copyright">
+              <LaunchAppButton visibleOn={'mobile'} fullWidth className='py-10'/>
+              <div className="text-[#F9F8F4] text-center lg:hidden font-plexmono text-mobile-copyright">
                   ©{" "}2024 ZkNoid: all rights reserved
               </div>
           </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SOCIALS } from "../constants/socials";
+import {LaunchAppButton} from "@/app/components/LaunchAppButton";
 
 export const DesktopNavbar = () => {
     return (
@@ -40,12 +41,7 @@ export const DesktopNavbar = () => {
                         </Link>
                     ))}
                 </div>
-                <Link href={'https://app.zknoid.io'} className='group block'>
-                    <div
-                        className="w-[140px] lg:w-[192px] h-[50px] bg-foreground group-hover:bg-bg-dark group-hover:border group-hover:border-foreground group-hover:text-[#fff] text-bg-dark text-xl lg:text-2xl flex items-center justify-center cursor-pointer">
-                        Launch app
-                    </div>
-                </Link>
+                <LaunchAppButton visibleOn={'all'}/>
             </div>
         </header>
     )

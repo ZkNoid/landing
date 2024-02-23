@@ -105,7 +105,7 @@ export const Slider = ({ children }: { children: ReactNode }) => {
     }, []);
 
     return (
-        <div className='flex flex-col justify-center w-full relative'>
+        <div className='flex flex-col justify-center w-full relative h-full'>
             <div className={'flex flex-row overflow-hidden w-full'}>
                 <motion.div
                     ref={sliderRef}

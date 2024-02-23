@@ -42,7 +42,7 @@ export const ApplicationCard = (props: ApplicationCardProps) => {
                         ) : (
                             <Image src={props.image} width={props.imageW} height={props.imageH} alt="our_tech_upper" className={`pointer-events-none object-center object-contain py-4 ${props.isBordered ? `border border-[#fff] ${innerBorderColor}` : ''}`}/>
                         )}
-                        <div className="font-mono text-mobile-main-text lg:text-regular-text py-5">{props.description}</div>
+                        <div className="font-plexmono text-mobile-main-text lg:text-regular-text py-5">{props.description}</div>
 
                         <Button
                             link={props.link}
