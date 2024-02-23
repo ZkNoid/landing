@@ -130,7 +130,7 @@ export const Slider = ({ children }: { children: ReactNode }) => {
                     </AnimatePresence>
 
                     {Children.map(children, child => (
-                        <div className={`h-full w-[85vw] lg:w-full py-2`}>
+                        <div className={`h-full w-[85vw] md:w-[65vw] lg:w-full py-2`}>
                             {child}
                         </div>
                     ))}

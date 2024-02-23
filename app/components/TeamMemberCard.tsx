@@ -17,7 +17,7 @@ interface TeamMemberCardProps {
 export const TeamMemberCard = (props: TeamMemberCardProps) => {
     const color = props.variant == 0 ? 'text-left-accent' : props.variant == 1 ? 'text-middle-accent' : 'text-right-accent';
 
-    const slideStyles = 'w-full h-full inset-0'
+    const slideStyles = 'w-full md:w-fit h-full inset-0'
 
 
     return (
