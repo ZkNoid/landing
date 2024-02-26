@@ -123,7 +123,7 @@ export const Slider = ({ children }: { children: ReactNode }) => {
                     onDragStart={() => {isDragHelperVisible && setIsDragAnimationVisible(false)}}
                     onDragEnd={onDragEnd}
                     style={{x: dragX}}
-                    className='flex gap-4 cursor-grab active:cursor-grabbing lg:mr-2 w-full'
+                    className='flex gap-4 cursor-grab active:cursor-grabbing lg:mr-2'
                 >
                     <AnimatePresence initial={false}>
                         {isDragHelperVisible && <DragHelper/>}
