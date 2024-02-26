@@ -6,9 +6,21 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
-  title: "ZkNoid gaming platform",
-  description: "Web3 gaming platform powered by ZK",
-};
+  metadataBase: new URL('https://zknoid.io'),
+  alternates: {
+    canonical: '/',
+  },
+  title: 'ZkNoid gaming platform',
+  description: 'Web3 gaming platform powered by ZK',
+  openGraph: {
+    title: 'ZkNoid gaming platform',
+    description: 'Web3 gaming platform powered by ZK',
+    url: 'https://zknoid.io',
+    images: '/meta-preview.png',
+    siteName: 'ZkNoid gaming platform',
+    type: "website"
+  }
+}
 
 export default function RootLayout({
   children,
