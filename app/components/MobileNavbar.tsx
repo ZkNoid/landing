@@ -132,7 +132,7 @@ export const MobileNavbar = () => {
                             initial={'closed'}
                             animate={'open'}
                             exit={'closed'}
-                            className={'fixed inset-0 container mx-auto flex flex-row justify-end'}
+                            className={'fixed inset-0 container mx-auto md:mr-0 flex flex-row justify-end'}
                         >
                             <div
                                 className={'w-3/5 h-screen bg-bg-dark flex flex-col gap-4 px-4 pb-4 pt-[80px] text-xl z-50'}>
