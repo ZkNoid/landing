@@ -10,7 +10,7 @@ import { MobileNavbar } from "./components/MobileNavbar";
 import { DesktopNavbar } from "./components/DesktopNavbar";
 import { SOCIALS } from "./constants/socials";
 import { BenefitsForGamersCard } from "./components/BenefitsForGamersCard";
-import { LaunchAppButton } from "@/app/components/LaunchAppButton";
+import { LaunchAppButton } from "./components/LaunchAppButton";
 
 const debug = false;
 
@@ -45,7 +45,7 @@ export default function Home() {
             </div>
             <div className="lg:pl-10 pt-2 flex flex-col justify-end md:flex-row font-plexmono text-mobile-main-text lg:text-regular-text">
               Powered by zero knowledge proof technology
-              <Link className="cursor-pointer font-rockwell text-mobile-link-1 lg:text-headline3 pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px] hover:opacity-80 ease-in-out" href="https://docs.zknoid.io">
+              <Link className="cursor-pointer text-mobile-link-1 lg:text-headline-3 pt-3 md:pt-0 md:pl-3 flex underline decoration-left-accent underline-offset-[5px] hover:opacity-80 ease-in-out" href="https://docs.zknoid.io">
                 Open Docs <Image src={"/image/docs_arrow.svg"} className="ml-1" width={16} height={16} alt="Arrow"></Image>
               </Link>
             </div>
@@ -297,7 +297,7 @@ export default function Home() {
         />
       </LandingSection>
 
-      <SubscribeForm/>
+      <SubscribeForm text={'Subscribe for updates!'} endText={'Thanks for subscribe!'}/>
 
       <div className="flex flex-col px-[10px] lg:px-[50px]">
       <div className="flex w-full h-[91px] items-center">

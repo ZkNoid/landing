@@ -1,11 +1,11 @@
 'use client'
 
-import {Slider} from "./Slider";
-import React, {useEffect, useState} from "react";
+import { Slider } from "./Slider";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import {ApplicationCard, MoreGamesApplicationCard} from "./ApplicationCard";
-import {TechnologyCard} from "./TechnologyCard";
-import {TeamMemberCard} from "./TeamMemberCard";
+import { ApplicationCard, MoreGamesApplicationCard } from "./ApplicationCard";
+import { TechnologyCard } from "./TechnologyCard";
+import { TeamMemberCard } from "./TeamMemberCard";
 
 const sliderComponent = (type: 'technologies' | 'applications' | 'team', slides: any[], isApplicationComponent?: boolean) => {
 
@@ -68,10 +68,7 @@ const technologiesWrap = (slides: any[]) => {
 const applicationsWrap = (slides: any[]) => {
     return (
         <div className={'flex flex-col'}>
-            <div
-                // className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr] -mb-[300px] lg:mb-0">
-                className={"flex flex-col gap-5 justify-around pt-5"}
-            >
+            <div className={"flex flex-col gap-5 justify-around pt-5"}>
                 {slides.map((item, index) => (
                     <ApplicationCard {...item} isSlide={false} key={index}/>
                 ))}
