@@ -376,7 +376,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="text-[#F9F8F4] hidden lg:block text-small-text">
-                  2024 ZkNoid: all rights reserved
+                  ©{" "}2024 ZkNoid: all rights reserved
               </div>
 
               <LaunchAppButton visibleOn={'mobile'} fullWidth className='my-4'/>
