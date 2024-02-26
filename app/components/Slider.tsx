@@ -1,6 +1,6 @@
 'use client'
 
-import {motion, useMotionValue} from "framer-motion";
+import {AnimatePresence, motion, useMotionValue} from "framer-motion";
 import {Children, ReactNode, useEffect, useRef, useState} from "react";
 
 const Dots = ({ slidesAmount, activeSlide, slideLimiter }: { slidesAmount: number, activeSlide: number, slideLimiter: 1 | 3 }) => {
@@ -34,6 +34,7 @@ export const Slider = ({ children }: { children: ReactNode }) => {
     const [slideIndex, setSlideIndex] = useState<number>(0)
     const [translateX, setTranslateX] = useState<number>(0)
     const [slideLimiter, setSlideLimiter] = useState<1 | 3>(1)
+    const [isDragHelperVisible, setIsDragAnimationVisible] = useState(false)
     const dragX = useMotionValue<number>(0)
     const sliderRef = useRef<HTMLDivElement>(null)
 
@@ -52,15 +53,49 @@ export const Slider = ({ children }: { children: ReactNode }) => {
         }
     }
 
+    const DragHelper = () => {
+        return (
+            <motion.div
+                className={`absolute z-10 ${slideLimiter === 1 ? 'top-1/3 left-3/4' : 'top-1/3 left-[65%]'}`}
+                initial={{opacity: 1}}
+                exit={{opacity: 0}}
+                transition={{ease: "easeOut", duration: 0.7}}
+            >
+                <div className={'bg-left-accent w-[100px] h-[100px] rounded-full flex justify-center items-center relative z-0'}>
+                    <p className={'text-center text-[#000]'}>Drag</p>
+                </div>
+                <motion.div
+                    aria-hidden
+                    className={'bg-left-accent/70 w-[100px] h-[100px] rounded-full absolute top-0 left-0 -z-10'}
+                    variants={{
+                        hidden: {
+                            scale: 1,
+                            opacity: 0
+                        },
+                        visible: {
+                            scale: 1.3,
+                            opacity: 1,
+                            transition: {ease: "easeIn", duration: 1, repeat: Infinity, repeatType: 'reverse'}
+                        }
+                    }}
+                    initial={'hidden'}
+                    animate={'visible'}
+                />
+            </motion.div>
+        )
+    }
+
     useEffect(() => {
         const updateSlideLimiter = () => {
-            setSlideLimiter(window.innerWidth <= 1024 ? 1 : 3)
+            const innerWidth = window.innerWidth
+            setSlideLimiter(innerWidth <= 1024 ? 1 : 3)
             const childrenLength = Children.count(children)
             // @ts-ignore
             const width = sliderRef.current.offsetWidth
             const slideWidth = width / childrenLength
             setTranslateX(slideWidth * 100 / width)
             setSlidesAmount(childrenLength)
+            setIsDragAnimationVisible(innerWidth <= 1024 ? false : childrenLength > 3)
         }
 
         window.addEventListener('resize', updateSlideLimiter);
@@ -70,7 +105,7 @@ export const Slider = ({ children }: { children: ReactNode }) => {
     }, []);
 
     return (
-        <div className='flex flex-col justify-center w-full relative'>
+        <div className='flex flex-col justify-center w-full relative h-full'>
             <div className={'flex flex-row overflow-hidden w-full'}>
                 <motion.div
                     ref={sliderRef}
@@ -80,17 +115,25 @@ export const Slider = ({ children }: { children: ReactNode }) => {
                     animate={{
                         translateX: slideIndex == 0 ? 0 : `-${translateX * slideIndex}%`,
                         transition: {
-                            // type: 'just',
-                            // bounce: 0.1,
                             ease: 'easeInOut',
                             duration: 0.35
                         }
                     }}
+
+                    onDragStart={() => {isDragHelperVisible && setIsDragAnimationVisible(false)}}
                     onDragEnd={onDragEnd}
                     style={{x: dragX}}
-                    className='flex gap-2 lg:gap-4 cursor-grab active:cursor-grabbing'
+                    className='flex gap-4 cursor-grab active:cursor-grabbing lg:mr-2'
                 >
-                    {children}
+                    <AnimatePresence initial={false}>
+                        {isDragHelperVisible && <DragHelper/>}
+                    </AnimatePresence>
+
+                    {Children.map(children, child => (
+                        <div className={`h-full w-[85vw] md:w-[65vw] ${slidesAmount > 3 ? 'lg:w-[30vw]' : 'lg:w-full'} py-2`}>
+                            {child}
+                        </div>
+                    ))}
                 </motion.div>
             </div>
             <Dots slidesAmount={slidesAmount} activeSlide={slideIndex} slideLimiter={slideLimiter}/>

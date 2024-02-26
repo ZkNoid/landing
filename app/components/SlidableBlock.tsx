@@ -1,11 +1,11 @@
 'use client'
 
-import {Slider} from "./Slider";
-import React, {useEffect, useState} from "react";
+import { Slider } from "./Slider";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import {ApplicationCard, MoreGamesApplicationCard} from "./ApplicationCard";
-import {TechnologyCard} from "./TechnologyCard";
-import {TeamMemberCard} from "./TeamMemberCard";
+import { ApplicationCard, MoreGamesApplicationCard } from "./ApplicationCard";
+import { TechnologyCard } from "./TechnologyCard";
+import { TeamMemberCard } from "./TeamMemberCard";
 
 const sliderComponent = (type: 'technologies' | 'applications' | 'team', slides: any[], isApplicationComponent?: boolean) => {
 
@@ -13,26 +13,10 @@ const sliderComponent = (type: 'technologies' | 'applications' | 'team', slides:
         <>
             {isApplicationComponent ? (
                 <>
-                    {type === 'technologies' && (
-                        <Slider>
-                            {slides.map((item, index) => (
-                                <TechnologyCard {...item} isSlide={true} key={index}/>
-                            ))}
-                            <MoreGamesApplicationCard isSlide={true}/>
-                        </Slider>
-                    )}
                     {type === 'applications' && (
                         <Slider>
                             {slides.map((item, index) => (
                                 <ApplicationCard {...item} isSlide={true} key={index}/>
-                            ))}
-                            <MoreGamesApplicationCard isSlide={true}/>
-                        </Slider>
-                    )}
-                    {type === 'team' && (
-                        <Slider>
-                            {slides.map((item, index) => (
-                                <TeamMemberCard {...item} children={item.children} isSlide={true} key={index}/>
                             ))}
                             <MoreGamesApplicationCard isSlide={true}/>
                         </Slider>
@@ -84,8 +68,7 @@ const technologiesWrap = (slides: any[]) => {
 const applicationsWrap = (slides: any[]) => {
     return (
         <div className={'flex flex-col'}>
-            <div
-                className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-5 justify-around pt-5 flex-col lg:flex-row auto-cols-[1fr] -mb-[400px] lg:mb-0">
+            <div className={"flex flex-col gap-5 justify-around pt-5"}>
                 {slides.map((item, index) => (
                     <ApplicationCard {...item} isSlide={false} key={index}/>
                 ))}
@@ -97,7 +80,7 @@ const applicationsWrap = (slides: any[]) => {
 
 const teamWrap = (slides: any[]) => {
     return (
-        <div className="flex flex-col min-h-[1100px]">
+        <div className="flex flex-col min-h-[1200px]">
             <Image src={'/image/team_upper_line.svg'} width={1106} height={298} alt="our_tech_upper"
                    className="hidden lg:block p-5 px-24 lg:px-[13%] w-full"></Image>
             <div className="flex flex-col md:flex-row justify-around">
