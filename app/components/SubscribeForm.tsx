@@ -17,6 +17,8 @@ export const SubscribeForm = ({debug, text, endText}: { debug?: boolean, text: s
     //     return characters.charAt(Math.floor(Math.random() * characters.length))
     // }
 
+    const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
     const shuffleText = (inputText: string): string => {
         const characters = inputText.split('')
         for (let i = characters.length - 1; i > 0; i--) {
@@ -31,10 +33,14 @@ export const SubscribeForm = ({debug, text, endText}: { debug?: boolean, text: s
             setEmailInvalid(true)
             return false
         }
-        else {
-            setEmailInvalid(false)
-            return true
+
+        if (!EMAIL_REGEXP.test(userEmail)) {
+            setEmailInvalid(true)
+            return false
         }
+
+        setEmailInvalid(false)
+        return true
     }
 
     const submitEmail = () => {
@@ -109,7 +115,11 @@ export const SubscribeForm = ({debug, text, endText}: { debug?: boolean, text: s
                             Subscribe
                         </div>
                     </div>
-                    <div className="flex items-center gap-2 lg:gap-5 text-sm group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-85">
+                    {isEmailInvalid && (
+                        <span className={'pb-2 text-[#FF0000]'}>Incorrect email</span>
+                    )}
+                    <div
+                        className="flex items-center gap-2 lg:gap-5 text-sm group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-85">
                         <input
                             id="terms_agree"
                             type="checkbox"

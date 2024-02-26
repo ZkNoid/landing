@@ -123,14 +123,14 @@ export const Slider = ({ children }: { children: ReactNode }) => {
                     onDragStart={() => {isDragHelperVisible && setIsDragAnimationVisible(false)}}
                     onDragEnd={onDragEnd}
                     style={{x: dragX}}
-                    className='flex gap-4 cursor-grab active:cursor-grabbing lg:mr-2'
+                    className='flex gap-4 cursor-grab active:cursor-grabbing lg:mr-2 w-full'
                 >
                     <AnimatePresence initial={false}>
                         {isDragHelperVisible && <DragHelper/>}
                     </AnimatePresence>
 
                     {Children.map(children, child => (
-                        <div className={`h-full w-[85vw] md:w-[65vw] lg:w-full py-2`}>
+                        <div className={`h-full w-[85vw] md:w-[65vw] lg:w-1/3 py-2`}>
                             {child}
                         </div>
                     ))}
