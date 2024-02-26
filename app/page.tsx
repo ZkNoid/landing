@@ -219,28 +219,6 @@ export default function Home() {
                     variant: 2,
                     isBordered: true,
                     isWrapped: true
-                },
-                {
-                    name: 'Arkanoid',
-                    description: 'Old but gold game. Beat all the bricks and protect the ball from falling. Every game tick is reproduced inside ZK circuit and synced',
-                    image: '/image/applications/arkanoid.svg',
-                    imageW: 740,
-                    imageH: 359,
-                    link: 'https://app.zknoid.io/games/arkanoid/competitions-list',
-                    variant: 0,
-                    isBordered: true,
-                    isWrapped: false
-                },
-                {
-                    name: 'Randzu',
-                    description: 'A tic tac toe like game. Two players take turns placing pieces on the board attempting to create lines of 5 of their own color. Game state is synced and proved using zkapp transactions',
-                    image: '/image/applications/randzu.svg',
-                    imageW: 400,
-                    imageH: 400,
-                    link: 'https://app.zknoid.io/games/randzu/global',
-                    variant: 2,
-                    isBordered: true,
-                    isWrapped: true
                 }
             ]}
             type={'applications'}
