@@ -64,7 +64,7 @@ export const SubscribeForm = ({debug, text, endText}: { debug?: boolean, text: s
                 setIsAnimationEnd(true)
                 setIsAnimate(false)
                 clearInterval(anim)
-            }, 3500)
+            }, 500)
 
             fetch('/api/subscribe', {
                 method: 'POST',
