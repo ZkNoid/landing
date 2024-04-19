@@ -310,7 +310,7 @@ export default function Home() {
                   >
                       ZkNoid
                   </Link>
-                  <div className="gap-5 flex lg:hidden">
+                  <div className="gap-2 flex lg:hidden">
                     {SOCIALS.map(social => (
                       <Link key={social.name} className="cursor-pointer text-xl flex items-center justify-center"
                             href={social.link} target="_blank" rel="noopener noreferrer">

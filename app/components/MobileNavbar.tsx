@@ -132,11 +132,11 @@ export const MobileNavbar = () => {
                             initial={'closed'}
                             animate={'open'}
                             exit={'closed'}
-                            className={'fixed inset-0 container mx-auto flex flex-row justify-end'}
+                            className={'fixed inset-0 container mx-auto md:mr-0 flex flex-row justify-end'}
                         >
                             <div
                                 className={'w-3/5 h-screen bg-bg-dark flex flex-col gap-4 px-4 pb-4 pt-[80px] text-xl z-50'}>
-                                <Link href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
+                                <Link href={'https://docs.zknoid.io/'} target="_blank" rel="noopener noreferrer">
                                     Docs
                                 </Link>
                                 <Link href={'https://zknoid.medium.com/'} target="_blank" rel="noopener noreferrer">
@@ -145,7 +145,7 @@ export const MobileNavbar = () => {
                                 <p>
                                     Social media:
                                 </p>
-                                <div className={'w-full flex flex-row gap-6'}>
+                                <div className={'w-full flex flex-row gap-2'}>
                                     {SOCIALS.map(social => (
                                         <Link key={social.name} className="cursor-pointer flex items-center justify-center"
                                             href={social.link} target="_blank" rel="noopener noreferrer">
