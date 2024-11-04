@@ -1,26 +1,27 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { plexMono, museoSlab } from "./fonts";
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { helveticaNow, outfit, kavaimo } from "./fonts";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import Header from "@/widgets/Header";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zknoid.io'),
+  metadataBase: new URL("https://zknoid.io"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
-  title: 'ZkNoid gaming platform',
-  description: 'Web3 gaming platform powered by ZK',
+  title: "ZkNoid gaming platform",
+  description: "Web3 gaming platform powered by ZK",
   openGraph: {
-    title: 'ZkNoid gaming platform',
-    description: 'Web3 gaming platform powered by ZK',
-    url: 'https://zknoid.io',
-    images: '/meta-preview.png',
-    siteName: 'ZkNoid gaming platform',
-    type: "website"
-  }
-}
+    title: "ZkNoid gaming platform",
+    description: "Web3 gaming platform powered by ZK",
+    url: "https://zknoid.io",
+    images: "/meta-preview.png",
+    siteName: "ZkNoid gaming platform",
+    type: "website",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -29,8 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${museoSlab.variable} ${plexMono.variable}`}>
-        {children}
+      <body
+        className={`${helveticaNow.variable} ${outfit.variable} ${kavaimo.variable}`}
+      >
+        <main>
+          <Header />
+          {children}
+        </main>
+
         <Analytics />
         <SpeedInsights />
       </body>

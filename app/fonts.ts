@@ -1,76 +1,102 @@
-import { IBM_Plex_Mono } from "next/font/google";
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 
-export const plexMono = IBM_Plex_Mono({
-    weight: "400",
-    subsets: ['latin'],
-    variable: '--plex-mono',
-    display: 'swap',
+export const kavaimo = localFont({
+  variable: "--kavaimo",
+  display: "swap",
+  src: [
+    {
+      path: "./fonts/KAWAIMORegular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
 });
 
-export const museoSlab = localFont({
-    variable: '--museo-slab',
-    display: 'swap',
-    src: [
-        {
-            path: './fonts/MuseoSlab-100.woff2',
-            weight: '100',
-            style: 'normal'
-        },
-        {
-            path: './fonts/MuseoSlab-100Italic.woff2',
-            weight: '100',
-            style: 'italic'
-        },
-        {
-            path: './fonts/MuseoSlab-300.woff2',
-            weight: '300',
-            style: 'normal'
-        },
-        {
-            path: './fonts/MuseoSlab-300Italic.woff2',
-            weight: '300',
-            style: 'italic'
-        },
-        {
-            path: './fonts/MuseoSlab-500.woff2',
-            weight: '500',
-            style: 'normal'
-        },
-        {
-            path: './fonts/MuseoSlab-500Italic.woff2',
-            weight: '500',
-            style: 'italic'
-        },
-        {
-            path: './fonts/MuseoSlab-700.woff2',
-            weight: '700',
-            style: 'normal'
-        },
-        {
-            path: './fonts/MuseoSlab-700Italic.woff2',
-            weight: '700',
-            style: 'italic'
-        },
-        {
-            path: './fonts/MuseoSlab-900.woff2',
-            weight: '900',
-            style: 'normal'
-        },
-        {
-            path: './fonts/MuseoSlab-900Italic.woff2',
-            weight: '900',
-            style: 'italic'
-        },
-        {
-            path: './fonts/MuseoSlab-1000.woff2',
-            weight: '1000',
-            style: 'normal'
-        },
-        {
-            path: './fonts/MuseoSlab-1000Italic.woff2',
-            weight: '1000',
-            style: 'italic'
-        }
-    ]
-})
+export const helveticaNow = localFont({
+  variable: "--helvetica-now",
+  display: "swap",
+  src: [
+    {
+      path: "./fonts/HelveticaNowDisplay-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HelveticaNowDisplay-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HelveticaNowDisplay-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HelveticaNowDisplay-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HelveticaNowDisplay-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./fonts/HelveticaNowDisplay-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+});
+
+export const outfit = localFont({
+  variable: "--outfit",
+  display: "swap",
+  src: [
+    {
+      path: "./fonts/Outfit-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Outfit-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Outfit-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Outfit-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Outfit-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Outfit-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Outfit-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Outfit-ExtraLight.ttf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Outfit-Thin.ttf",
+      weight: "100",
+      style: "normal",
+    },
+  ],
+});

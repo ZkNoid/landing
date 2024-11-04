@@ -5,7 +5,7 @@ if (!process.env.MONGODB_URI) {
 }
 
 if (!process.env.MONGODB_DB) {
-    throw new Error('Invalid/Missing environment variable: "MONGODB_DB"');
+  throw new Error('Invalid/Missing environment variable: "MONGODB_DB"');
 }
 
 const uri = process.env.MONGODB_URI;
