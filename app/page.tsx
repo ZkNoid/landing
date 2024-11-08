@@ -3,6 +3,7 @@ import About from "@/sections/About";
 import Benefits from "@/sections/Benefits";
 import Technologies from "@/sections/Technologies";
 import Games from "@/sections/Games";
+import ForDevelopers from "@/sections/ForDevelopers";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Benefits />
       <Games />
       <Technologies />
+      <ForDevelopers />
     </div>
   );
 }
