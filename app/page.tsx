@@ -4,6 +4,7 @@ import Benefits from "@/sections/Benefits";
 import Technologies from "@/sections/Technologies";
 import Games from "@/sections/Games";
 import ForDevelopers from "@/sections/ForDevelopers";
+import Backers from "@/sections/Backers";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Games />
       <Technologies />
       <ForDevelopers />
+      <Backers />
     </div>
   );
 }
