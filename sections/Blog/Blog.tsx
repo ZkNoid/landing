@@ -266,19 +266,31 @@ export default function Blog() {
       className={"px-[10.938vw] mt-[10.417vw] flex flex-col gap-[0.521vw]"}
     >
       <div className={"flex flex-row gap-[0.521vw]"}>
-        {articlesTop.map((item, index) => (
-          <>
-            <Card
-              key={index}
-              color={item.color}
-              tag={item.tag}
-              link={item.link}
-              title={item.title}
-              text={item.text}
-            />
-            {index == 0 && <ArticlesCounter />}
-          </>
-        ))}
+        <Card
+          key={0}
+          color={articlesTop[0].color}
+          tag={articlesTop[0].tag}
+          link={articlesTop[0].link}
+          title={articlesTop[0].title}
+          text={articlesTop[0].text}
+        />
+        <ArticlesCounter />
+        <Card
+          key={1}
+          color={articlesTop[1].color}
+          tag={articlesTop[1].tag}
+          link={articlesTop[1].link}
+          title={articlesTop[1].title}
+          text={articlesTop[1].text}
+        />
+        <Card
+          key={2}
+          color={articlesTop[2].color}
+          tag={articlesTop[2].tag}
+          link={articlesTop[2].link}
+          title={articlesTop[2].title}
+          text={articlesTop[2].text}
+        />
       </div>
       <div className={"flex flex-row gap-[0.521vw]"}>
         {articlesBottom.map((item, index) => (

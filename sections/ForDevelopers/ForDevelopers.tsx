@@ -82,51 +82,51 @@ const FeatureAccordion = ({
   );
 };
 
+const features: {
+  title: string;
+  description: string;
+  status: "progress" | "ready";
+}[] = [
+  {
+    title: "Session keys",
+    description:
+      "Session keys are generated for each match and stored on the user's frontend, eliminating the need for manual transaction signing. This greatly improves the user experience by keeping transactions hidden from the user.",
+    status: "ready",
+  },
+  {
+    title: "Cards Engine",
+    description:
+      "The Card Engine provides game developers with user-friendly tools to create custom card games without the need for complex encryption implementations. Developers simply need to design the cards and define the game logic, and the Card Engine will handle everything else, including provable shuffle, card disclosure and the secure management of the game state.",
+    status: "progress",
+  },
+  {
+    title: "Commit Reveal Scheme",
+    description:
+      "The Commit-Reveal Schema is a two-step process that helps conceal information on-chain before proving it. First, a hash of the hidden data and a random salt is published. Later, the data and salt are provided to verify the original commitment.",
+    status: "ready",
+  },
+  {
+    title: "VRF Random generation",
+    description:
+      "A Verifiable Random Function (VRF) generates a provably random number. It ensures that the number is truly random, preventing any prior prediction, while also being verifiable, allowing others to confirm its proper computation. Random numbers are crucial in many games, such as lotteries.",
+    status: "progress",
+  },
+  {
+    title: "Matchmaking and Lobby",
+    description:
+      "The matchmaking and lobby features provided in our SDK offer an out-of-the-box solution for multiplayer games, simplifying multiplayer session creation and player discovery.",
+    status: "ready",
+  },
+  {
+    title: "Leaderboard",
+    description:
+      "The ZkNoid SDK includes the GameHub module, which allows developers to easily create runtime modules for single-player games with zk-proofed scores. Games built on top of GameHub automatically store users' scores on a leaderboard, encouraging competition and enabling reward distribution among the top players.",
+    status: "ready",
+  },
+];
+
 export default function ForDevelopers() {
   const [openIndex, setOpenIndex] = useState<number | undefined>(undefined);
-
-  const features: {
-    title: string;
-    description: string;
-    status: "progress" | "ready";
-  }[] = [
-    {
-      title: "Session keys",
-      description:
-        "Session keys are generated for each match and stored on the user's frontend, eliminating the need for manual transaction signing. This greatly improves the user experience by keeping transactions hidden from the user.",
-      status: "ready",
-    },
-    {
-      title: "Cards Engine",
-      description:
-        "The Card Engine provides game developers with user-friendly tools to create custom card games without the need for complex encryption implementations. Developers simply need to design the cards and define the game logic, and the Card Engine will handle everything else, including provable shuffle, card disclosure and the secure management of the game state.",
-      status: "progress",
-    },
-    {
-      title: "Commit Reveal Scheme",
-      description:
-        "The Commit-Reveal Schema is a two-step process that helps conceal information on-chain before proving it. First, a hash of the hidden data and a random salt is published. Later, the data and salt are provided to verify the original commitment.",
-      status: "ready",
-    },
-    {
-      title: "VRF Random generation",
-      description:
-        "A Verifiable Random Function (VRF) generates a provably random number. It ensures that the number is truly random, preventing any prior prediction, while also being verifiable, allowing others to confirm its proper computation. Random numbers are crucial in many games, such as lotteries.",
-      status: "progress",
-    },
-    {
-      title: "Matchmaking and Lobby",
-      description:
-        "The matchmaking and lobby features provided in our SDK offer an out-of-the-box solution for multiplayer games, simplifying multiplayer session creation and player discovery.",
-      status: "ready",
-    },
-    {
-      title: "Leaderboard",
-      description:
-        "The ZkNoid SDK includes the GameHub module, which allows developers to easily create runtime modules for single-player games with zk-proofed scores. Games built on top of GameHub automatically store users' scores on a leaderboard, encouraging competition and enabling reward distribution among the top players.",
-      status: "ready",
-    },
-  ];
 
   return (
     <section className={"px-[10.938vw] mt-[10.417vw] flex flex-col"}>
@@ -141,6 +141,7 @@ export default function ForDevelopers() {
         <div className={"w-[56%] flex flex-col"}>
           {features.map((item, index) => (
             <FeatureAccordion
+              key={index}
               index={index + 1}
               title={item.title}
               description={item.description}

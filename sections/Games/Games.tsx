@@ -162,6 +162,72 @@ const Slide = ({
   );
 };
 
+const slides = [
+  {
+    tags: ["L1appchain", "Lucky"],
+    network: "Testnet",
+    image: lotteryGameImg,
+    gameName: "Lottery",
+    description:
+      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
+    link: "#",
+  },
+  {
+    tags: ["L1appchain", "Lucky"],
+    network: "Testnet",
+    image: lotteryGameImg,
+    gameName: "Lottery",
+    description:
+      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
+    link: "#",
+  },
+  {
+    tags: ["L1appchain", "Lucky"],
+    network: "Testnet",
+    image: lotteryGameImg,
+    gameName: "Lottery",
+    description:
+      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
+    link: "#",
+  },
+  {
+    tags: ["L1appchain", "Lucky"],
+    network: "Testnet",
+    image: lotteryGameImg,
+    gameName: "Lottery",
+    description:
+      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
+    link: "#",
+  },
+  {
+    tags: ["L1appchain", "Lucky"],
+    network: "Testnet",
+    image: lotteryGameImg,
+    gameName: "Lottery",
+    description:
+      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
+    link: "#",
+  },
+  {
+    tags: ["L1appchain", "Lucky"],
+    network: "Testnet",
+    image: lotteryGameImg,
+    gameName: "Lottery",
+    description:
+      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
+    link: "#",
+  },
+  {
+    tags: ["L1appchain", "Lucky"],
+    network: "Testnet",
+    image: lotteryGameImg,
+    gameName: "Lottery",
+    description:
+      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
+    link: "#",
+  },
+];
+
 export default function Games() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     startIndex: 2,
@@ -171,72 +237,6 @@ export default function Games() {
     skipSnaps: true,
   });
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-
-  const slides = [
-    {
-      tags: ["L1appchain", "Lucky"],
-      network: "Testnet",
-      image: lotteryGameImg,
-      gameName: "Lottery",
-      description:
-        "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-      link: "#",
-    },
-    {
-      tags: ["L1appchain", "Lucky"],
-      network: "Testnet",
-      image: lotteryGameImg,
-      gameName: "Lottery",
-      description:
-        "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-      link: "#",
-    },
-    {
-      tags: ["L1appchain", "Lucky"],
-      network: "Testnet",
-      image: lotteryGameImg,
-      gameName: "Lottery",
-      description:
-        "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-      link: "#",
-    },
-    {
-      tags: ["L1appchain", "Lucky"],
-      network: "Testnet",
-      image: lotteryGameImg,
-      gameName: "Lottery",
-      description:
-        "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-      link: "#",
-    },
-    {
-      tags: ["L1appchain", "Lucky"],
-      network: "Testnet",
-      image: lotteryGameImg,
-      gameName: "Lottery",
-      description:
-        "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-      link: "#",
-    },
-    {
-      tags: ["L1appchain", "Lucky"],
-      network: "Testnet",
-      image: lotteryGameImg,
-      gameName: "Lottery",
-      description:
-        "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-      link: "#",
-    },
-    {
-      tags: ["L1appchain", "Lucky"],
-      network: "Testnet",
-      image: lotteryGameImg,
-      gameName: "Lottery",
-      description:
-        "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-      link: "#",
-    },
-  ];
 
   const onSelect = useCallback((emblaApi: any) => {
     setSelectedIndex(emblaApi.selectedScrollSnap());

@@ -58,8 +58,8 @@ const SubscriptionForm = () => {
                     <path
                       d="M10.2231 1.52515L17.502 9.6953M17.502 9.6953L8.66345 17.5073M17.502 9.6953L1.40008 9.34652"
                       stroke="#141414"
-                      stroke-miterlimit="10"
-                      stroke-linecap="square"
+                      strokeMiterlimit="10"
+                      strokeLinecap="square"
                     />
                   </svg>
                 </button>
@@ -96,8 +96,8 @@ const SubscriptionForm = () => {
                     <path
                       d="M2 5.63636L8.22222 12L18 2"
                       stroke="#1E1E1E"
-                      stroke-width="3"
-                      stroke-linejoin="round"
+                      strokeWidth="3"
+                      strokeLinejoin="round"
                     />
                   </motion.svg>
                 </div>

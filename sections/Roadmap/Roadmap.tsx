@@ -117,8 +117,8 @@ const CheckboxedItem = ({
           <path
             d="M2 5.63636L8.22222 12L18 2"
             stroke="#1E1E1E"
-            stroke-width="3"
-            stroke-linejoin="round"
+            strokeWidth="3"
+            strokeLinejoin="round"
           />
         </motion.svg>
       </motion.div>
@@ -363,6 +363,7 @@ export default function Roadmap() {
         <div className={"flex flex-col"}>
           {roadmapItems.map((item, index) => (
             <RoadmapItem
+              key={index}
               date={item.date}
               title={item.title}
               isOpen={index == openIndex}
@@ -404,8 +405,8 @@ export default function Roadmap() {
             <motion.path
               d="M-215.997 7C-62.8554 7 -62.8554 221.866 90.2891 221.866C243.434 221.866 243.431 7 396.572 7C549.714 7 549.714 221.866 702.858 221.866C856.003 221.866 856 7 1009.14 7C1162.29 7 1162.29 221.866 1315.43 221.866C1468.58 221.866 1468.57 7 1621.72 7C1774.86 7 1774.86 221.866 1928 221.866"
               stroke="#3A39FF"
-              stroke-width="4"
-              stroke-miterlimit="10"
+              strokeWidth="4"
+              strokeMiterlimit="10"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
               transition={{ duration: 1.2 }}
@@ -413,8 +414,8 @@ export default function Roadmap() {
             <motion.path
               d="M1928 110C1749.34 110 1749.34 238.918 1570.67 238.918C1392.01 238.918 1392.01 110 1213.34 110C1034.67 110 1034.67 238.918 856.003 238.918C677.334 238.918 677.337 110 498.669 110C320 110 320.003 238.918 141.334 238.918C-37.3342 238.918 -37.3315 110 -216 110"
               stroke="#D4FF33"
-              stroke-width="4"
-              stroke-miterlimit="10"
+              strokeWidth="4"
+              strokeMiterlimit="10"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
               transition={{ duration: 1.2 }}
@@ -422,8 +423,8 @@ export default function Roadmap() {
             <motion.path
               d="M-215.997 95C-1.59705 95 -1.59705 180.947 212.803 180.947C427.203 180.947 427.203 95 641.603 95C856.003 95 856.003 180.947 1070.4 180.947C1284.8 180.947 1284.8 95 1499.2 95C1713.6 95 1713.6 180.947 1928 180.947"
               stroke="#FF5B23"
-              stroke-width="4"
-              stroke-miterlimit="10"
+              strokeWidth="4"
+              strokeMiterlimit="10"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
               transition={{ duration: 1.2 }}

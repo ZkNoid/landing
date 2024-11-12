@@ -41,9 +41,9 @@ export default function ArrowButton({
           <path
             d="M11.7692 20.3672L21 11.1831L11.7692 1.999M19.7179 11.1831L0.999987 11.1831"
             stroke="#141414"
-            stroke-width="2"
-            stroke-miterlimit="10"
-            stroke-linecap="square"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="square"
           />
         </svg>
       </div>

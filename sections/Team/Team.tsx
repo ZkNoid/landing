@@ -180,87 +180,87 @@ const TeamCard = ({
   );
 };
 
+const members: {
+  type: "sm" | "md" | "lg";
+  image: any;
+  fullName: string;
+  title: string;
+  description: string;
+  socials: { icon: ReactNode; link: string }[];
+}[] = [
+  {
+    type: "lg",
+    image: alexImg,
+    fullName: "Alex Ivlev",
+    title: "Contracts developer",
+    description:
+      "Lead developer on the core contracts of the ZKNoid platform. Crypto Enthusiast since 2020. Over 6 years of experience in CRM development. 2 years of Solidity development experience, specializing in DeFi projects. Earned a Master of Science in Computer Science with focus on blockchain technologies from MIPT.",
+    socials: [
+      { icon: <TwitterIcon />, link: "#" },
+      { icon: <DiscordIcon />, link: "#" },
+    ],
+  },
+  {
+    type: "sm",
+    image: mizoriImg,
+    fullName: "Shirouki mizori",
+    title: "Ui\\Ux Designer",
+    description:
+      "Design and marketing lead in ZkNoid. Ui/Ux & Graphic designer in Web3 since 2021. Masters degree in quantum physics and engineer at MIPT University. Making your user expirience better every day.",
+    socials: [
+      {
+        icon: <TwitterIcon />,
+        link: "https://twitter.com/intent/follow?screen_name=Shiroy_k&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3AShiroy_k%7Ctwcon%5Es2",
+      },
+      { icon: <DiscordIcon />, link: "#" },
+    ],
+  },
+  {
+    type: "lg",
+    image: andreyImg,
+    fullName: "Simaranov Andrey",
+    title: "Fullstack Developer",
+    description:
+      "Top-1 solidity auditor at Mixbytes auditor DAO. Core builder of xraise.io project – account abstraction based wallet. Blockchain and full-stack developer. Studied at MSU, applied math and computer science. A leader who inspires the whole team to conquer new heights",
+    socials: [
+      {
+        icon: <TwitterIcon />,
+        link: "https://twitter.com/intent/follow?screen_name=asimaranov&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3Aasimaranov%7Ctwcon%5Es2",
+      },
+      { icon: <DiscordIcon />, link: "#" },
+    ],
+  },
+  {
+    type: "sm",
+    image: fosImg,
+    fullName: "Antony Solover",
+    title: "Content manager",
+    description:
+      "Web3 content creator, community manager, and researcher since 2022. Academic background, on the verge of obtaining a PhD in biotechnology. His work includes in-depth analysis of current hot topics and passionate exploration of emerging trends",
+    socials: [
+      // { icon: <TwitterIcon />, link: "#" },
+      { icon: <DiscordIcon />, link: "#" },
+    ],
+  },
+  {
+    type: "md",
+    image: neoImg,
+    fullName: "Nikita Vatletsov",
+    title: "Frontend Developer",
+    description:
+      "Lead frontend developer at ZkNoid. Developed most of the UI for the ZkNoid, focusing on user-friendly interfaces and design. Over 3 years of experience building and improving web applications. Specializes in frontend architecture, optimizing performance and scalability across the platform",
+    socials: [
+      {
+        icon: <TwitterIcon />,
+        link: "https://twitter.com/intent/follow?screen_name=NeoGar_real&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3ANeoGar_real%7Ctwcon%5Es2",
+      },
+      { icon: <DiscordIcon />, link: "#" },
+    ],
+  },
+];
+
 export default function Team() {
   const [openIndex, setOpenIndex] = useState<number | undefined>(undefined);
-
-  const members: {
-    type: "sm" | "md" | "lg";
-    image: any;
-    fullName: string;
-    title: string;
-    description: string;
-    socials: { icon: ReactNode; link: string }[];
-  }[] = [
-    {
-      type: "lg",
-      image: alexImg,
-      fullName: "Alex Ivlev",
-      title: "Contracts developer",
-      description:
-        "Lead developer on the core contracts of the ZKNoid platform. Crypto Enthusiast since 2020. Over 6 years of experience in CRM development. 2 years of Solidity development experience, specializing in DeFi projects. Earned a Master of Science in Computer Science with focus on blockchain technologies from MIPT.",
-      socials: [
-        { icon: <TwitterIcon />, link: "#" },
-        { icon: <DiscordIcon />, link: "#" },
-      ],
-    },
-    {
-      type: "sm",
-      image: mizoriImg,
-      fullName: "Shirouki mizori",
-      title: "Ui\\Ux Designer",
-      description:
-        "Design and marketing lead in ZkNoid. Ui/Ux & Graphic designer in Web3 since 2021. Masters degree in quantum physics and engineer at MIPT University. Making your user expirience better every day.",
-      socials: [
-        {
-          icon: <TwitterIcon />,
-          link: "https://twitter.com/intent/follow?screen_name=Shiroy_k&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3AShiroy_k%7Ctwcon%5Es2",
-        },
-        { icon: <DiscordIcon />, link: "#" },
-      ],
-    },
-    {
-      type: "lg",
-      image: andreyImg,
-      fullName: "Simaranov Andrey",
-      title: "Fullstack Developer",
-      description:
-        "Top-1 solidity auditor at Mixbytes auditor DAO. Core builder of xraise.io project – account abstraction based wallet. Blockchain and full-stack developer. Studied at MSU, applied math and computer science. A leader who inspires the whole team to conquer new heights",
-      socials: [
-        {
-          icon: <TwitterIcon />,
-          link: "https://twitter.com/intent/follow?screen_name=asimaranov&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3Aasimaranov%7Ctwcon%5Es2",
-        },
-        { icon: <DiscordIcon />, link: "#" },
-      ],
-    },
-    {
-      type: "sm",
-      image: fosImg,
-      fullName: "Antony Solover",
-      title: "Content manager",
-      description:
-        "Web3 content creator, community manager, and researcher since 2022. Academic background, on the verge of obtaining a PhD in biotechnology. His work includes in-depth analysis of current hot topics and passionate exploration of emerging trends",
-      socials: [
-        // { icon: <TwitterIcon />, link: "#" },
-        { icon: <DiscordIcon />, link: "#" },
-      ],
-    },
-    {
-      type: "md",
-      image: neoImg,
-      fullName: "Nikita Vatletsov",
-      title: "Frontend Developer",
-      description:
-        "Lead frontend developer at ZkNoid. Developed most of the UI for the ZkNoid, focusing on user-friendly interfaces and design. Over 3 years of experience building and improving web applications. Specializes in frontend architecture, optimizing performance and scalability across the platform",
-      socials: [
-        {
-          icon: <TwitterIcon />,
-          link: "https://twitter.com/intent/follow?screen_name=NeoGar_real&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3ANeoGar_real%7Ctwcon%5Es2",
-        },
-        { icon: <DiscordIcon />, link: "#" },
-      ],
-    },
-  ];
 
   return (
     <section
@@ -275,6 +275,7 @@ export default function Team() {
       </span>
       <div className={"w-full flex flex-row gap-[0.521vw]"}>
         <TeamCard
+          key={0}
           type={1 == openIndex ? "sm" : members[0].type}
           image={members[0].image}
           fullName={members[0].fullName}
@@ -287,6 +288,7 @@ export default function Team() {
           }
         />
         <TeamCard
+          key={1}
           type={members[1].type}
           image={members[1].image}
           fullName={members[1].fullName}
@@ -299,6 +301,7 @@ export default function Team() {
           }
         />
         <TeamCard
+          key={2}
           type={3 == openIndex ? "sm" : 4 == openIndex ? "md" : members[2].type}
           image={members[2].image}
           fullName={members[2].fullName}
@@ -311,6 +314,7 @@ export default function Team() {
           }
         />
         <TeamCard
+          key={3}
           type={members[3].type}
           image={members[3].image}
           fullName={members[3].fullName}
@@ -323,6 +327,7 @@ export default function Team() {
           }
         />
         <TeamCard
+          key={4}
           type={members[4].type}
           image={members[4].image}
           fullName={members[4].fullName}
