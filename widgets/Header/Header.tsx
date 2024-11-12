@@ -50,14 +50,16 @@ export default function Header() {
         <NavItem link={"#"} text={"Blog"} />
         <NavItem link={"#"} text={"Events"} />
       </nav>
-      <motion.button
-        className={
-          "bg-yellow text-[0.833vw] font-helvetica-now font-medium text-black rounded-[0.521vw] px-[0.625vw] py-[0.417vw]"
-        }
-        whileHover={{ backgroundColor: "#FFFCF5" }}
-      >
-        Start Build
-      </motion.button>
+      <Link href={"https://app.zknoid.io"}>
+        <motion.div
+          className={
+            "bg-yellow text-[0.833vw] font-helvetica-now font-medium text-black rounded-[0.521vw] px-[0.625vw] py-[0.417vw]"
+          }
+          whileHover={{ backgroundColor: "#FFFCF5" }}
+        >
+          Start Build
+        </motion.div>
+      </Link>
     </header>
   );
 }
