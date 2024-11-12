@@ -5,6 +5,10 @@ import Technologies from "@/sections/Technologies";
 import Games from "@/sections/Games";
 import ForDevelopers from "@/sections/ForDevelopers";
 import Backers from "@/sections/Backers";
+import Team from "@/sections/Team";
+import Community from "@/sections/Community";
+import Roadmap from "@/sections/Roadmap";
+import Blog from "@/sections/Blog";
 
 export default function Home() {
   return (
@@ -16,6 +20,10 @@ export default function Home() {
       <Technologies />
       <ForDevelopers />
       <Backers />
+      <Team />
+      <Community />
+      <Roadmap />
+      <Blog />
     </div>
   );
 }
