@@ -72,7 +72,9 @@ const SubscriptionForm = () => {
                 <Field
                   name={"dataAccept"}
                   type={"checkbox"}
-                  className={"absolute left-0 top-0 w-full h-full opacity-0"}
+                  className={
+                    "absolute z-[1] cursor-pointer left-0 top-0 w-full h-full opacity-0"
+                  }
                 />
                 <div
                   className={cn(

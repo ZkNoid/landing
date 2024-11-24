@@ -169,7 +169,7 @@ export default function ForDevelopers() {
           </span>
           <span
             className={
-              "font-medium font-helvetica-now leading-[120%] text-[0.833vw] text-gray-dark mr-[4.688vw]"
+              "font-medium mt-[0.521vw] font-helvetica-now leading-[120%] text-[0.833vw] text-gray-dark mr-[4.688vw]"
             }
           >
             By providing our infrastructure, we enable developers to focus on
