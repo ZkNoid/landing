@@ -311,6 +311,7 @@ export default function Games() {
         <div className={"flex flex-row gap-[0.182vw]"}>
           {slides.map((_, index) => (
             <motion.div
+              key={index}
               className={"h-[0.313vw] rounded-full border-white border"}
               animate={
                 index == selectedIndex
