@@ -6,6 +6,8 @@ import Link from "next/link";
 import lotteryGameImg from "@/public/image/slides/lottery-game.svg";
 import { cn } from "@/lib/helpers";
 import { useCallback, useEffect, useState } from "react";
+import ArrowButton from "@/shared/ArrowButton";
+import { motion } from "framer-motion";
 
 const Slide = ({
   gameName,
@@ -252,13 +254,18 @@ export default function Games() {
 
   return (
     <section className={"px-[10.938vw] mt-[10.417vw] flex flex-col"}>
-      <span
+      <div
         className={
-          "font-kavaimo z-[1] -mb-[2.604vw] text-[5.208vw] text-yellow leading-[80%]"
+          "flex flex-row w-full justify-between items-center z-[1] -mb-[2.604vw]"
         }
       >
-        Games
-      </span>
+        <span
+          className={"font-kavaimo text-[5.208vw] text-yellow leading-[80%]"}
+        >
+          Games
+        </span>
+        <ArrowButton link={"#"} text={"Go to App"} />
+      </div>
       <div className={"overflow-hidden w-full"} ref={emblaRef}>
         <div className={"flex flex-row w-full"}>
           {slides.map((slide, index) => (
@@ -291,6 +298,24 @@ export default function Games() {
                             ? "-mr-[5%]"
                             : "-ml-[5%]"
                   : undefined
+              }
+            />
+          ))}
+        </div>
+      </div>
+      <div
+        className={
+          "w-full flex flex-col items-center justify-center mt-[1.563vw]"
+        }
+      >
+        <div className={"flex flex-row gap-[0.182vw]"}>
+          {slides.map((_, index) => (
+            <motion.div
+              className={"h-[0.313vw] rounded-full border-white border"}
+              animate={
+                index == selectedIndex
+                  ? { backgroundColor: "#fff", width: "0.938vw" }
+                  : { width: "0.313vw" }
               }
             />
           ))}
