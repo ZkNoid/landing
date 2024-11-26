@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/widgets/Header";
 import Footer from "@/widgets/Footer";
+import MobileHeader from "@/widgets/MobileHeader";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zknoid.io"),
@@ -36,6 +37,7 @@ export default function RootLayout({
       >
         <main>
           <Header />
+          <MobileHeader />
           {children}
           <Footer />
         </main>
