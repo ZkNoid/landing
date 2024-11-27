@@ -196,7 +196,7 @@ export default function MobileHeader() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <motion.header
-      className={"lg:hidden w-full z-[51] sticky right-0 top-0"}
+      className={"lg:!hidden w-full z-[51] sticky right-0 top-0"}
       variants={{
         open: {
           backgroundColor: "#D4FF33",

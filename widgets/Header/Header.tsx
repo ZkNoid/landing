@@ -30,7 +30,7 @@ export default function Header() {
   return (
     <header
       className={
-        "w-full lg:flex hidden py-[2.344vw] px-[10.938vw] flex-row justify-between items-center"
+        "w-full lg:!flex hidden py-[2.344vw] px-[10.938vw] flex-row justify-between items-center"
       }
     >
       <Link href="/">
