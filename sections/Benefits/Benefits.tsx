@@ -1,14 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import { cn } from "@/lib/helpers";
 
-const benefits = [
+const benefits: {
+  title: string;
+  text: string;
+  color: "blue" | "red" | "purple";
+  icon: ReactNode;
+}[] = [
   {
-    link: "#",
     title: "Information Hiding",
     text: "Imagine a battle where a player can attack an opponent without revealing his hero’s skills. Zero knowledge proofs can prove literally everything while preserving the next level of data privacy control.",
+    color: "blue",
     icon: (
       <svg
         width="77"
@@ -26,9 +32,9 @@ const benefits = [
     ),
   },
   {
-    link: "#",
     title: "Transparency and Trustworthiness",
     text: "Provable games allow players to independently verify the fairness of any outcome. This transparency helps to build trust among players, as they know that the game cannot be rigged.",
+    color: "red",
     icon: (
       <svg
         width="50"
@@ -54,9 +60,9 @@ const benefits = [
     ),
   },
   {
-    link: "#",
     title: "Low fees",
     text: "Games on the ZkNoid platform require to verify not the game logic execution BUT the cryptographic PROOF of the game logic execution. Block creators spend less effort, on execution making the games playing cheaper",
+    color: "blue",
     icon: (
       <svg
         width="50"
@@ -76,9 +82,9 @@ const benefits = [
     ),
   },
   {
-    link: "#",
     title: "High scalability",
     text: "Cryptography allows to connect different ZK-native networks using proofs. Games can launch their own appchain solutions like protokit or use the Zeko. Matchmaking can be moved an appchain to be free for players. Assets from the Zeko network may be used in-game.",
+    color: "purple",
     icon: (
       <svg
         width="192"
@@ -104,9 +110,9 @@ const benefits = [
     ),
   },
   {
-    link: "#",
     title: "Immutable Records",
     text: "Using blockchain technology, game outcomes and proof verifications are recorded in an immutable ledger, ensuring that none of the parties involved can alter the results afterwards.",
+    color: "red",
     icon: (
       <svg
         width="322"
@@ -126,52 +132,68 @@ const benefits = [
 ];
 
 const BenefitCard = ({
-  link,
   title,
   text,
+  color,
   icon,
-  isOpen,
-  setIsOpen,
 }: {
-  link: string;
   title: string;
   text: string;
+  color: "blue" | "red" | "purple";
   icon: ReactNode;
-  isOpen: boolean;
-  setIsOpen: () => void;
 }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <div
       className={
-        "rounded-[3.529vw] relative lg:!rounded-[0.781vw] h-full w-full p-[3.529vw] lg:!p-[0.781vw] flex flex-col bg-white"
+        "relative rounded-[3.529vw] lg:!rounded-[0.781vw] h-full w-full p-[3.529vw] lg:!p-[0.781vw] flex flex-col bg-white"
       }
     >
-      {icon}
-      <span
-        className={
-          "mt-[0.781vw] leading-[110%] text-[4.235vw] lg:!text-[1.042vw] text-gray-dark font-helvetica-now font-medium"
-        }
-      >
-        {title}
-      </span>
-      {isOpen && (
+      <AnimatePresence initial={false} mode={"popLayout"}>
+        {!isOpen && (
+          <motion.div
+            key={"open-icon" + title}
+            initial={{ display: "none", opacity: 0 }}
+            animate={{ display: "block", opacity: 100 }}
+            exit={{ display: "none", opacity: 0 }}
+          >
+            {icon}
+          </motion.div>
+        )}
+
         <span
-          key={"mobile"}
           className={
-            "font-helvetica-now text-[0.833vw] leading-[120%] text-gray-dark mb-[3.646vw]"
+            "mt-[0.781vw] leading-[110%] text-[4.235vw] lg:!text-[1.042vw] text-gray-dark font-helvetica-now font-medium"
           }
         >
-          {text}
+          {title}
         </span>
-      )}
+        {isOpen && (
+          <motion.span
+            key={"mobile" + title}
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            transition={{ type: "spring", duration: 0.4, bounce: 0 }}
+            className={
+              "font-helvetica-now text-[3.765vw] overflow-hidden leading-[120%] text-gray-dark"
+            }
+          >
+            {text}
+          </motion.span>
+        )}
+      </AnimatePresence>
       <span
+        key={"desktop" + title}
         className={
           "font-helvetica-now hidden lg:inline-block text-[0.833vw] leading-[120%] text-gray-dark mb-[3.646vw]"
         }
       >
         {text}
       </span>
-      <svg
+      <motion.svg
+        key={"mobile-svg" + title}
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -180,21 +202,32 @@ const BenefitCard = ({
         className={
           "lg:hidden w-[4.941vw] h-[4.941vw] absolute right-[3.529vw] top-[3.529vw]"
         }
+        animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+        transition={{ type: "spring", duration: 0.4, bounce: 0 }}
       >
-        <motion.ellipse
+        <ellipse
           cx="12.2637"
           cy="11.6123"
           rx="11.6143"
           ry="11.5714"
           fill="#D4FF33"
-          animate={isOpen ? { fill: "#FFFCF5" } : { fill: "#D4FF33" }}
+          className={cn(
+            color === "blue"
+              ? "fill-blue"
+              : color === "red"
+                ? "fill-red"
+                : "fill-purple",
+          )}
         />
-        <motion.path
+        <path
           d="M11.8396 12.0341V18.7755H12.6855V12.0341H19.4528V11.1914H12.6855V4.44897H11.8396V11.1914H5.07324V12.0341H11.8396Z"
-          fill="#141414"
-          animate={isOpen ? { rotate: "45deg" } : { rotate: 0 }}
+          fill="#FFFCF5"
         />
-      </svg>
+      </motion.svg>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={"absolute left-0 top-0 w-full h-full lg:!hidden"}
+      />
     </div>
   );
 };
@@ -302,38 +335,30 @@ export default function Benefits() {
             "flex w-full lg:!w-auto flex-col lg:!flex-row items-center gap-[2.353vw] lg:!gap-[0.521vw]"
           }
         >
-          {benefits
-            .filter((_, cardIndex) => cardIndex <= 2)
-            .map((item, index) => (
-              <BenefitCard
-                key={index}
-                link={item.link}
-                title={item.title}
-                text={item.text}
-                icon={item.icon}
-                setIsOpen={() => {}}
-                isOpen={false}
-              />
-            ))}
+          {benefits.toSpliced(3, benefits.length).map((item, index) => (
+            <BenefitCard
+              key={index}
+              title={item.title}
+              text={item.text}
+              color={item.color}
+              icon={item.icon}
+            />
+          ))}
         </div>
         <div
           className={
             "flex flex-col w-full lg:!w-auto lg:!flex-row items-center gap-[2.353vw] lg:!gap-[0.521vw]"
           }
         >
-          {benefits
-            .filter((_, cardIndex) => cardIndex > 2)
-            .map((item, index) => (
-              <BenefitCard
-                key={index}
-                link={item.link}
-                title={item.title}
-                text={item.text}
-                icon={item.icon}
-                setIsOpen={() => {}}
-                isOpen={false}
-              />
-            ))}
+          {benefits.toSpliced(0, 3).map((item, index) => (
+            <BenefitCard
+              key={index + 3}
+              title={item.title}
+              text={item.text}
+              color={item.color}
+              icon={item.icon}
+            />
+          ))}
         </div>
       </div>
     </section>
