@@ -15,40 +15,48 @@ export default function Backers() {
   return (
     <section
       className={
-        "mt-[10.417vw] pb-[3.906vw] flex flex-col bg-gray-light rounded-[1.563vw]"
+        "mt-[25.882vw] lg:!mt-[10.417vw] pb-[3.906vw] flex flex-col bg-gray-light rounded-[1.563vw]"
       }
     >
       <span
         className={
-          "text-[5.208vw] mt-[2.083vw] mb-[1.042vw] text-center leading-[80%] font-kavaimo uppercase text-red"
+          "text-[13.647vw] lg:!text-[5.208vw] mt-[4.706vw] lg:!mt-[2.083vw] mb-[4.706vw] lg:!mb-[1.042vw] text-center leading-[80%] font-kavaimo uppercase text-red"
         }
       >
-        Partners & Backers
+        Partners and Backers
       </span>
-      <div className={"flex flex-col px-[10.938vw] gap-[1.823vw] mt-[2.604vw]"}>
-        <div className={"flex flex-row w-full gap-[5.208vw]"}>
+      <div
+        className={
+          "flex flex-col px-[4.706vw] lg:!px-[10.938vw] gap-[4.706vw] lg:!gap-[1.823vw] mt-[5.882vw] lg:!mt-[2.604vw]"
+        }
+      >
+        <div
+          className={
+            "grid grid-cols-2 lg:!flex flex-row w-full gap-[4.706vw] lg:!gap-[5.208vw] items-center justify-center"
+          }
+        >
           <Link
             href={"https://minaprotocol.com/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80"}
+            className={"hover:opacity-80 flex justify-center items-center"}
           >
             <Image
               src={minaLogo}
               alt={"Mina logo"}
-              className={"w-[11.979vw]"}
+              className={"w-[25.882vw] lg:!w-[11.979vw]"}
             />
           </Link>
           <Link
             href={"https://www.aurowallet.com/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80"}
+            className={"hover:opacity-80 flex justify-center items-center"}
           >
             <Image
               src={aurowalletLogo}
               alt={"Aurowallet logo"}
-              className={"w-[20.208vw]"}
+              className={"w-[28.706vw] lg:!w-[20.208vw]"}
             />
           </Link>
 
@@ -56,12 +64,12 @@ export default function Backers() {
             href={"https://pallad.co/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80"}
+            className={"hover:opacity-80 flex justify-center items-center"}
           >
             <Image
               src={palladLogo}
               alt={"Pallad logo"}
-              className={"w-[16.771vw]"}
+              className={"w-[23.529vw] lg:!w-[16.771vw]"}
             />
           </Link>
 
@@ -69,26 +77,30 @@ export default function Backers() {
             href={"https://www.zkon.xyz/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80"}
+            className={"hover:opacity-80 flex justify-center items-center"}
           >
             <Image
               src={zkonLogo}
               alt={"Zkon logo"}
-              className={"w-[13.177vw]"}
+              className={"w-[14.353vw] lg:!w-[13.177vw]"}
             />
           </Link>
         </div>
-        <div className={"flex flex-row w-full gap-[4.167vw]"}>
+        <div
+          className={
+            "grid grid-cols-2 lg:!flex flex-row w-full gap-[4.706vw] lg:!gap-[4.167vw]"
+          }
+        >
           <Link
             href={"https://protokit.dev/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80"}
+            className={"hover:opacity-80 flex justify-center items-center"}
           >
             <Image
               src={protokitLogo}
               alt={"Protokit logo"}
-              className={"w-[14.01vw]"}
+              className={"w-[28.706vw] lg:!w-[14.01vw]"}
             />
           </Link>
 
@@ -96,41 +108,49 @@ export default function Backers() {
             href={"https://www.extropy.io/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80"}
+            className={"hover:opacity-80 flex justify-center items-center"}
           >
             <Image
               src={extropyLogo}
               alt={"Extropy logo"}
-              className={"w-[12.083vw]"}
+              className={"w-[23.529vw] lg:!w-[12.083vw]"}
             />
           </Link>
           <Link
             href={"https://minaprotocol.com/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80"}
+            className={"hover:opacity-80 flex justify-center items-center"}
           >
             <Image
               src={minaFoundationLogo}
               alt={"MinaFoundation logo"}
-              className={"w-[9.792vw]"}
+              className={"w-[23.529vw] lg:!w-[9.792vw]"}
             />
           </Link>
           <Link
             href={"https://zkok.io/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80"}
+            className={"hover:opacity-80 flex justify-center items-center"}
           >
-            <Image src={zkokLogo} alt={"Zkok logo"} className={"w-[3.542vw]"} />
+            <Image
+              src={zkokLogo}
+              alt={"Zkok logo"}
+              className={"w-[9.412vw] lg:!w-[3.542vw]"}
+            />
           </Link>
           <Link
             href={"https://zeko.io/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80"}
+            className={"hover:opacity-80 flex justify-center items-center"}
           >
-            <Image src={zekoLogo} alt={"Zeko logo"} className={"w-[5.521vw]"} />
+            <Image
+              src={zekoLogo}
+              alt={"Zeko logo"}
+              className={"w-[13.176vw] lg:!w-[5.521vw]"}
+            />
           </Link>
           <Link
             href={"https://astromina.org/"}
@@ -141,7 +161,7 @@ export default function Backers() {
             <Image
               src={astrominaLogo}
               alt={"Astromina logo"}
-              className={"w-[12.344vw]"}
+              className={"w-[28.706vw] lg:!w-[12.344vw]"}
             />
           </Link>
         </div>

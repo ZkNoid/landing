@@ -23,30 +23,44 @@ const FeatureAccordion = ({
   return (
     <button
       className={
-        "bg-gray-light p-[1.042vw] border border-white border-b-0 last:border-b rounded-[0.781vw] flex flex-col"
+        "bg-gray-light px-[4.706vw] py-[2.353vw] lg:!px-[1.042vw] lg:!py-[1.042vw] border border-white border-b-0 last:border-b rounded-[3.529vw] lg:!rounded-[0.781vw] flex flex-col"
       }
       onClick={onClick}
     >
-      <div className={"grid grid-cols-7 items-center w-full"}>
+      <div className={"grid grid-cols-5 lg:!grid-cols-7 items-center w-full"}>
         <span
           className={cn(
-            "leading-[110%] mr-auto text-[1.042vw] font-helvetica-now font-medium col-span-2",
+            "leading-[110%] mr-auto text-[3.765vw] lg:!text-[1.042vw] font-helvetica-now font-medium lg:!col-span-2",
             isOpen ? "text-yellow" : "text-white",
           )}
         >
           0{index}
         </span>
-        <span
-          className={cn(
-            "font-helvetica-now mr-auto text-[1.042vw] font-medium leading-[110%] col-span-2",
-            isOpen ? "text-yellow" : "text-white",
-          )}
+        <div
+          className={
+            "flex flex-col gap-[1.176vw] justify-start items-start col-span-3 lg:!col-span-2 mr-auto"
+          }
         >
-          {title}
-        </span>
+          <span
+            className={cn(
+              "lg:!hidden text-[2.824vw] font-helvetica-now leading-[120%]",
+              status === "progress" ? "text-red" : "text-purple",
+            )}
+          >
+            {status === "progress" ? "In progress..." : "Ready to use"}
+          </span>
+          <span
+            className={cn(
+              "font-helvetica-now text-[3.765vw] lg:!text-[1.042vw] font-medium leading-[110%]",
+              isOpen ? "text-yellow" : "text-white",
+            )}
+          >
+            {title}
+          </span>
+        </div>
         <span
           className={cn(
-            "text-[0.833vw] font-helvetica-now leading-[120%] col-span-2",
+            "hidden lg:!inline-block text-[0.833vw] font-helvetica-now leading-[120%] lg:!col-span-2",
             status === "progress" ? "text-red" : "text-purple",
           )}
         >
@@ -54,7 +68,7 @@ const FeatureAccordion = ({
         </span>
         <div
           className={cn(
-            "w-[1.146vw] h-[1.146vw] border rounded-full ml-auto",
+            "w-[3.529vw] lg:!w-[1.146vw] h-[3.529vw] lg:!h-[1.146vw] border rounded-full ml-auto",
             isOpen ? "border-yellow bg-yellow" : "border-white bg-gray-light",
           )}
         />
@@ -62,7 +76,7 @@ const FeatureAccordion = ({
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            className={"grid grid-cols-7 overflow-hidden"}
+            className={"grid grid-cols-5 lg:!grid-cols-7 overflow-hidden"}
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
@@ -70,7 +84,7 @@ const FeatureAccordion = ({
           >
             <span
               className={
-                "col-start-3 text-left col-span-4 text-[0.833vw] font-helvetica-now text-white leading-[120%]"
+                "col-start-2 lg:!col-start-3 text-left col-span-4 lg:!col-span-4 text-[3.294vw] opacity-80 lg:!text-[0.833vw] font-helvetica-now text-white leading-[120%]"
               }
             >
               {description}
@@ -129,16 +143,24 @@ export default function ForDevelopers() {
   const [openIndex, setOpenIndex] = useState<number | undefined>(undefined);
 
   return (
-    <section className={"px-[10.938vw] mt-[10.417vw] flex flex-col"}>
+    <section
+      className={
+        "px-[4.706vw] lg:!px-[10.938vw] mt-[25.882vw] lg:!mt-[10.417vw] flex flex-col"
+      }
+    >
       <span
         className={
-          "text-[5.208vw] mb-[1.042vw] text-center leading-[80%] font-kavaimo uppercase text-yellow"
+          "text-[13.647vw] lg:!text-[5.208vw] mb-[3.529vw] lg:!mb-[1.042vw] lg:!text-center leading-[80%] font-kavaimo uppercase text-yellow"
         }
       >
         For Developers
       </span>
-      <div className={"flex flex-row gap-[0.521vw]"}>
-        <div className={"w-[56%] flex flex-col"}>
+      <div
+        className={
+          "flex flex-col-reverse lg:!flex-row gap-[2.353vw] lg:!gap-[0.521vw]"
+        }
+      >
+        <div className={"w-full lg:!w-[56%] flex flex-col"}>
           {features.map((item, index) => (
             <FeatureAccordion
               key={index}
@@ -157,19 +179,19 @@ export default function ForDevelopers() {
         </div>
         <div
           className={
-            "w-[44%] p-[0.781vw] flex flex-col h-auto bg-white rounded-[0.781vw]"
+            "w-full lg:!w-[44%] p-[3.529vw] lg:!p-[0.781vw] flex flex-col h-auto bg-white rounded-[3.529vw] lg:!rounded-[0.781vw]"
           }
         >
           <span
             className={
-              "font-outfit font-bold leading-[110%] uppercase text-[1.25vw] text-gray-dark mr-[4.688vw]"
+              "font-outfit font-bold leading-[110%] uppercase text-[6.118vw] lg:!text-[1.25vw] text-gray-dark mr-[4.688vw]"
             }
           >
             What we can provide for development
           </span>
           <span
             className={
-              "font-medium mt-[0.521vw] font-helvetica-now leading-[120%] text-[0.833vw] text-gray-dark mr-[4.688vw]"
+              "font-medium mt-[2.353vw] lg:!mt-[0.521vw] font-helvetica-now leading-[120%] text-[3.765vw] lg:!text-[0.833vw] text-gray-dark lg:!mr-[4.688vw]"
             }
           >
             By providing our infrastructure, we enable developers to focus on
@@ -180,12 +202,12 @@ export default function ForDevelopers() {
           <Link
             href={"#"}
             className={
-              "mt-auto hover:opacity-80 py-[0.417vw] rounded-[0.521vw] bg-yellow w-full flex justify-center items-center"
+              "mt-[7.059vw] lg:!mt-auto hover:opacity-80 py-[2.353vw] lg:!py-[0.417vw] rounded-[2.353vw] lg:!rounded-[0.521vw] bg-yellow w-full flex justify-center items-center"
             }
           >
             <span
               className={
-                "text-[0.833vw] font-helvetica-now font-medium text-gray-dark"
+                "text-[3.765vw] lg:!text-[0.833vw] font-helvetica-now font-medium text-gray-dark"
               }
             >
               Show all opportunities

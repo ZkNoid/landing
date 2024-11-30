@@ -277,7 +277,11 @@ export default function Games() {
   }, [emblaApi, onSelect, mobileEmblaApi, onSelectMobile]);
 
   return (
-    <section className={"px-[10.938vw] mt-[10.417vw] flex flex-col"}>
+    <section
+      className={
+        "px-[4.706vw] lg:!px-[10.938vw] mt-[25.882vw] lg:!mt-[10.417vw] flex flex-col"
+      }
+    >
       <div
         className={
           "flex flex-row w-full justify-between items-center z-[1] mb-[3.529vw] lg:!-mb-[2.604vw]"
