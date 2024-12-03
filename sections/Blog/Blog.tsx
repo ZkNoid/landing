@@ -3,6 +3,7 @@
 import { cn } from "@/lib/helpers";
 import Link from "next/link";
 import ArrowButton from "@/shared/ArrowButton";
+import useEmblaCarousel from "embla-carousel-react";
 
 const Card = ({
   color,
@@ -22,15 +23,15 @@ const Card = ({
   return (
     <div
       className={cn(
-        "rounded-[0.521vw] p-[0.781vw] w-full flex flex-col",
+        "rounded-[2.353vw] lg:!rounded-[0.521vw] p-[3.529vw] lg:!p-[0.781vw] w-full flex flex-col flex-[0_0_85%] ml-[2.353vw] first:ml-0 lg:!ml-0 min-w-0 lg:!flex-none",
         color == "white" ? "bg-white" : "bg-gray-light",
         className,
       )}
     >
-      <div className={"flex flex-col gap-[0.781vw]"}>
+      <div className={"flex flex-col gap-[2.353vw] lg:!gap-[0.781vw]"}>
         <div
           className={cn(
-            "rounded-full mr-auto px-[0.781vw] py-[0.104vw] border text-[0.729vw] font-bold font-helvetica-now leading-[110%]",
+            "rounded-full mr-auto px-[4.235vw] lg:!px-[0.781vw] py-[0.471vw] lg:!py-[0.104vw] border text-[2.824vw] lg:!text-[0.729vw] font-bold font-helvetica-now leading-[110%]",
             tag.color === "yellow"
               ? "border-yellow text-yellow"
               : tag.color === "red"
@@ -44,7 +45,7 @@ const Card = ({
         </div>
         <span
           className={cn(
-            "text-[1.042vw] uppercase font-outfit font-bold leading-[110%]",
+            "text-[3.765vw] lg:!text-[1.042vw] uppercase font-outfit font-bold leading-[110%]",
             color === "white" ? "text-gray-light" : "text-white",
           )}
         >
@@ -64,7 +65,7 @@ const Card = ({
         />
         <span
           className={cn(
-            "text-[0.938vw] max-w-[26.042vw] font-helvetica-now leading-[120%]",
+            "text-[3.765vw] lg:!text-[0.938vw] opacity-80 lg:!max-w-[26.042vw] font-helvetica-now leading-[120%]",
             color === "white" ? "text-gray-light" : "text-white",
           )}
         >
@@ -74,7 +75,7 @@ const Card = ({
       <Link
         href={link}
         className={cn(
-          "underline hover:opacity-80 uppercase text-[0.833vw] font-semibold font-outfit mt-auto ml-auto",
+          "underline hover:opacity-80 uppercase text-[3.765vw] lg:!text-[0.833vw] font-semibold font-outfit mt-auto mr-auto lg:!mr-0 lg:!ml-auto",
           color === "white" ? "text-black" : "text-white",
         )}
       >
@@ -145,127 +146,79 @@ const articlesBottom: {
   },
 ];
 
+const ArticleCounterItem = ({
+  title,
+  count,
+}: {
+  title: string;
+  count: number;
+}) => {
+  return (
+    <div
+      className={
+        "flex flex-row border-t last-of-type:border-b border-white items-center justify-between py-[1.176vw] lg:!py-[0.26vw]"
+      }
+    >
+      <span
+        className={
+          "text-[3.765vw] lg:!text-[0.833vw] font-helvetica-now leading-[120%] font-medium text-white"
+        }
+      >
+        {title}
+      </span>
+      <span
+        className={
+          "text-[3.765vw] lg:!text-[0.833vw] font-helvetica-now text-white"
+        }
+      >
+        ({count})
+      </span>
+    </div>
+  );
+};
+
 const ArticlesCounter = () => {
   return (
     <div className={"w-full flex flex-col"}>
       <span
         className={
-          "text-[5.208vw] mb-[1.042vw] text-center leading-[80%] font-kavaimo uppercase text-yellow"
+          "text-[13.647vw] lg:!text-[5.208vw] mb-[4.706vw] lg:!mb-[1.042vw] text-center leading-[80%] font-kavaimo uppercase text-yellow"
         }
       >
         Blog
       </span>
-      <div
-        className={
-          "flex flex-row border-t last:border-b border-white items-center justify-between py-[0.26vw]"
-        }
-      >
-        <span
-          className={
-            "text-[0.833vw] font-helvetica-now leading-[120%] font-medium text-white"
-          }
-        >
-          Overview
-        </span>
-        <span className={"text-[0.833vw] font-helvetica-now text-white"}>
-          (0)
-        </span>
-      </div>
-      <div
-        className={
-          "flex flex-row border-t last:border-b border-white items-center justify-between py-[0.26vw]"
-        }
-      >
-        <span
-          className={
-            "text-[0.833vw] font-helvetica-now leading-[120%] font-medium text-white"
-          }
-        >
-          Updates
-        </span>
-        <span className={"text-[0.833vw] font-helvetica-now text-white"}>
-          (0)
-        </span>
-      </div>
-      <div
-        className={
-          "flex flex-row border-t last:border-b border-white items-center justify-between py-[0.26vw]"
-        }
-      >
-        <span
-          className={
-            "text-[0.833vw] font-helvetica-now leading-[120%] font-medium text-white"
-          }
-        >
-          Development
-        </span>
-        <span className={"text-[0.833vw] font-helvetica-now text-white"}>
-          (0)
-        </span>
-      </div>
-      <div
-        className={
-          "flex flex-row border-t last:border-b border-white items-center justify-between py-[0.26vw]"
-        }
-      >
-        <span
-          className={
-            "text-[0.833vw] font-helvetica-now leading-[120%] font-medium text-white"
-          }
-        >
-          News
-        </span>
-        <span className={"text-[0.833vw] font-helvetica-now text-white"}>
-          (0)
-        </span>
-      </div>
-      <div
-        className={
-          "flex flex-row border-t last:border-b border-white items-center justify-between py-[0.26vw]"
-        }
-      >
-        <span
-          className={
-            "text-[0.833vw] font-helvetica-now leading-[120%] font-medium text-white"
-          }
-        >
-          Interview
-        </span>
-        <span className={"text-[0.833vw] font-helvetica-now text-white"}>
-          (0)
-        </span>
-      </div>
-      <div
-        className={
-          "flex flex-row border-t last:border-b border-white items-center justify-between py-[0.26vw]"
-        }
-      >
-        <span
-          className={
-            "text-[0.833vw] font-helvetica-now leading-[120%] font-medium text-white"
-          }
-        >
-          Guide
-        </span>
-        <span className={"text-[0.833vw] font-helvetica-now text-white"}>
-          (0)
-        </span>
-      </div>
+      <ArticleCounterItem title={"Overview"} count={0} />
+      <ArticleCounterItem title={"Updates"} count={0} />
+      <ArticleCounterItem title={"Development"} count={0} />
+      <ArticleCounterItem title={"News"} count={0} />
+      <ArticleCounterItem title={"Interview"} count={0} />
+      <ArticleCounterItem title={"Guide"} count={0} />
       <ArrowButton
         link={"#"}
         text={"VIEW ALL"}
-        className={"my-[1.563vw] mx-auto"}
+        className={
+          "mt-[3.529vw] mb-0 lg:!mt-[1.563vw] lg:!mb-[1.563vw] mx-auto"
+        }
       />
     </div>
   );
 };
 
 export default function Blog() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    startIndex: 0,
+    align: "start",
+    containScroll: false,
+    slidesToScroll: 1,
+    skipSnaps: true,
+  });
   return (
     <section
-      className={"px-[10.938vw] mt-[10.417vw] flex flex-col gap-[0.521vw]"}
+      className={
+        "px-[4.706vw] lg:!px-[10.938vw] mt-[25.882vw] lg:!mt-[10.417vw] flex flex-col lg:!gap-[0.521vw]"
+      }
     >
-      <div className={"flex flex-row gap-[0.521vw]"}>
+      <div className={"hidden lg:!flex flex-row gap-[0.521vw]"}>
         <Card
           key={0}
           color={articlesTop[0].color}
@@ -292,7 +245,7 @@ export default function Blog() {
           text={articlesTop[2].text}
         />
       </div>
-      <div className={"flex flex-row gap-[0.521vw]"}>
+      <div className={"hidden lg:!flex flex-row gap-[0.521vw]"}>
         {articlesBottom.map((item, index) => (
           <Card
             key={index}
@@ -304,6 +257,26 @@ export default function Blog() {
             className={index == 0 ? "w-[200%]" : undefined}
           />
         ))}
+      </div>
+      <div className={"lg:!hidden flex flex-col gap-[4.706vw]"}>
+        <ArticlesCounter />
+        <div
+          ref={emblaRef}
+          className={"overflow-hidden w-full flex lg:!hidden"}
+        >
+          <div className={"w-full flex flex-row"}>
+            {[...articlesTop, ...articlesBottom].map((item, index) => (
+              <Card
+                key={index}
+                color={item.color}
+                tag={item.tag}
+                link={item.link}
+                title={item.title}
+                text={item.text}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

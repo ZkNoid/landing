@@ -21,24 +21,26 @@ const RoadmapItem = ({
     <div
       onClick={setIsOpen}
       className={
-        "border border-b-0 last:border-b bg-gray-dark w-full cursor-pointer border-white rounded-[0.781vw] p-[1.042vw] flex flex-col"
+        "border border-b-0 last:border-b bg-gray-dark w-full cursor-pointer border-white rounded-[3.529vw] lg:!rounded-[0.781vw] px-[4.706vw] py-[2.353vw] lg:!px-[1.042vw] lg:!py-[1.042vw] flex flex-col"
       }
     >
       <div className={"flex flex-row items-center"}>
-        <span
-          className={
-            "text-[1.042vw] w-[30%] mr-auto leading-[120%] font-helvetica-now font-medium uppercase text-white"
-          }
-        >
-          {date}
-        </span>
-        <span
-          className={
-            "text-[1.25vw] w-full font-outfit font-semibold text-center text-white uppercase"
-          }
-        >
-          {title}
-        </span>
+        <div className={"flex flex-col lg:!flex-row w-full"}>
+          <span
+            className={
+              "text-[3.765vw] lg:!text-[1.042vw] lg:!w-[30%] lg:!mr-auto leading-[120%] font-helvetica-now font-medium uppercase text-white"
+            }
+          >
+            {date}
+          </span>
+          <span
+            className={
+              "text-[3.765vw] lg:!text-[1.25vw] w-full font-outfit font-semibold text-left lg:!text-center text-white uppercase"
+            }
+          >
+            {title}
+          </span>
+        </div>
         <div
           className={"w-[30%] ml-auto flex flex-row justify-end items-center"}
         >
@@ -48,7 +50,7 @@ const RoadmapItem = ({
             viewBox="0 0 21 21"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className={"w-[1.094vw]"}
+            className={"w-[4.941vw] lg:!w-[1.094vw]"}
           >
             <motion.circle
               cx="10.5"
@@ -94,10 +96,12 @@ const CheckboxedItem = ({
   text: string;
 }) => {
   return (
-    <div className={"flex flex-row gap-[0.521vw] items-center"}>
+    <div
+      className={"flex flex-row gap-[1.882vw] lg:!gap-[0.521vw] items-center"}
+    >
       <motion.div
         className={
-          "flex flex-col justify-center border items-center rounded-full w-[1.198vw] h-[1.198vw]"
+          "flex flex-col justify-center border items-center rounded-full w-[5.412vw] lg:!w-[1.198vw] h-[5.412vw] lg:!h-[1.198vw]"
         }
         animate={
           isChecked
@@ -111,7 +115,7 @@ const CheckboxedItem = ({
           viewBox="0 0 20 14"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className={"w-[1.042vw]"}
+          className={"w-[3.765vw] lg:!w-[1.042vw]"}
           animate={isChecked ? { opacity: 1 } : { opacity: 0 }}
         >
           <path
@@ -124,7 +128,7 @@ const CheckboxedItem = ({
       </motion.div>
       <span
         className={
-          "text-[0.938vw] text-white font-helvetica-now leading-[120%]"
+          "text-[3.294vw] lg:!text-[0.938vw] text-white font-helvetica-now leading-[120%]"
         }
       >
         {text}
@@ -142,9 +146,15 @@ const roadmapItems: {
     date: "Q1, 2024",
     title: "Arcanoid, Randzu, Thimblerig",
     content: (
-      <div className={"w-full flex flex-col"}>
-        <div className={"flex flex-row justify-between gap-[2.083vw]"}>
-          <div className={"flex flex-col gap-[0.521vw] w-full"}>
+      <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
+        <div
+          className={
+            "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:!flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
+          }
+        >
+          <div
+            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
+          >
             <CheckboxedItem isChecked={true} text={"Lending development"} />
             <CheckboxedItem
               isChecked={true}
@@ -164,7 +174,9 @@ const roadmapItems: {
               text={"Matchmaking mechanism implementation"}
             />
           </div>
-          <div className={"flex flex-col gap-[0.521vw] w-full"}>
+          <div
+            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
+          >
             <CheckboxedItem
               isChecked={true}
               text={"Migrated to recursive proofs in arkanoid"}
@@ -192,7 +204,7 @@ const roadmapItems: {
         <Link
           href={"#"}
           className={
-            "underline mr-auto mt-[1.302vw] font-outfit text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
+            "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
           }
         >
           Show full progress
@@ -204,9 +216,15 @@ const roadmapItems: {
     date: "Q2, 2024",
     title: "PvP infrastructure, Testnet",
     content: (
-      <div className={"w-full flex flex-col"}>
-        <div className={"flex flex-row justify-between gap-[2.083vw]"}>
-          <div className={"flex flex-col gap-[0.521vw] w-full"}>
+      <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
+        <div
+          className={
+            "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:!flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
+          }
+        >
+          <div
+            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
+          >
             <CheckboxedItem
               isChecked={true}
               text={"Unified opponent timeout proving for multiplayer games"}
@@ -226,7 +244,9 @@ const roadmapItems: {
               text={"Poker game design development"}
             />
           </div>
-          <div className={"flex flex-col gap-[0.521vw] w-full"}>
+          <div
+            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
+          >
             <CheckboxedItem
               isChecked={true}
               text={"Lottery initial impelematation"}
@@ -241,7 +261,7 @@ const roadmapItems: {
         <Link
           href={"#"}
           className={
-            "underline mr-auto mt-[1.302vw] font-outfit text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
+            "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
           }
         >
           Show full progress
@@ -253,9 +273,15 @@ const roadmapItems: {
     date: "Q3, 2024",
     title: "Lottery L1, SDK",
     content: (
-      <div className={"w-full flex flex-col"}>
-        <div className={"flex flex-row justify-between gap-[2.083vw]"}>
-          <div className={"flex flex-col gap-[0.521vw] w-full"}>
+      <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
+        <div
+          className={
+            "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:!flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
+          }
+        >
+          <div
+            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
+          >
             <CheckboxedItem isChecked={true} text={"Lottery game updates"} />
             <CheckboxedItem isChecked={true} text={"Documentation update"} />
             <CheckboxedItem
@@ -271,7 +297,9 @@ const roadmapItems: {
               text={"Move to microservice architecture"}
             />
           </div>
-          <div className={"flex flex-col gap-[0.521vw] w-full"}>
+          <div
+            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
+          >
             <CheckboxedItem isChecked={true} text={"SDK for games"} />
             <CheckboxedItem isChecked={true} text={"SDK: Cards Engine"} />
             <CheckboxedItem isChecked={false} text={"Lottery game testnet"} />
@@ -282,7 +310,7 @@ const roadmapItems: {
         <Link
           href={"#"}
           className={
-            "underline mr-auto mt-[1.302vw] font-outfit text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
+            "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
           }
         >
           Show full roadmap
@@ -294,9 +322,15 @@ const roadmapItems: {
     date: "Q4, 2024",
     title: "Orderbook & Tokenomics",
     content: (
-      <div className={"w-full flex flex-col"}>
-        <div className={"flex flex-row justify-between gap-[2.083vw]"}>
-          <div className={"flex flex-col gap-[0.521vw] w-full"}>
+      <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
+        <div
+          className={
+            "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
+          }
+        >
+          <div
+            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
+          >
             <CheckboxedItem
               isChecked={false}
               text={"Order book conception on Mina Protocol development"}
@@ -318,7 +352,9 @@ const roadmapItems: {
               text={"Order book frontend development"}
             />
           </div>
-          <div className={"flex flex-col gap-[0.521vw] w-full"}>
+          <div
+            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
+          >
             <CheckboxedItem isChecked={false} text={"Token design"} />
             <CheckboxedItem isChecked={false} text={"Token contracts"} />
             <CheckboxedItem isChecked={false} text={"Revenue model"} />
@@ -337,7 +373,7 @@ const roadmapItems: {
     content: (
       <div
         className={
-          "text-[0.938vw] text-white w-[60%] leading-[120%] font-helvetica-now"
+          "text-[3.294vw] mt-[2.353vw] lg:!mb-0 lg:!mt-[1.563vw] last:mb-[2.353vw] lg:!text-[0.938vw] text-white lg:!w-[60%] leading-[120%] font-helvetica-now"
         }
       >
         Initial token distribution will be made by the “proof of tap” online
@@ -351,11 +387,13 @@ export default function Roadmap() {
   const [openIndex, setOpenIndex] = useState<number | undefined>(undefined);
 
   return (
-    <section className={"mt-[10.417vw] relative flex flex-col"}>
-      <div className={"px-[26.667vw] flex flex-col"}>
+    <section
+      className={"mt-[25.882vw] lg:!mt-[10.417vw] relative flex flex-col"}
+    >
+      <div className={"px-[4.706vw] lg:!px-[26.667vw] flex flex-col"}>
         <span
           className={
-            "text-[5.208vw] mb-[1.042vw] text-center leading-[80%] font-kavaimo uppercase text-yellow"
+            "text-[13.647vw] lg:!text-[5.208vw] mb-[4.706vw] lg:!mb-[1.042vw] text-center leading-[80%] font-kavaimo uppercase text-yellow"
           }
         >
           Roadmap
@@ -379,7 +417,7 @@ export default function Roadmap() {
       </div>
       <div
         className={
-          "absolute -z-[1] top-0 left-0 flex flex-col justify-center items-center w-full h-full"
+          "absolute -z-[1] top-0 left-0 hidden lg:!flex flex-col justify-center items-center w-full h-full"
         }
       >
         <svg
