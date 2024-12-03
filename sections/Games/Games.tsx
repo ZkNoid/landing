@@ -300,7 +300,7 @@ export default function Games() {
           className={"hidden lg:!flex"}
         />
       </div>
-      <div className={"overflow-hidden w-full hidden lg:!block"} ref={emblaRef}>
+      <div ref={emblaRef} className={"overflow-hidden w-full hidden lg:!block"}>
         <div className={"flex-row w-full flex"}>
           {slides.map((slide, index) => (
             <Slide

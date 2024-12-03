@@ -117,7 +117,7 @@ export default function Backers() {
             />
           </Link>
           <Link
-            href={"https://minaprotocol.com/"}
+            href={"https://www.minafoundation.com/"}
             target="_blank"
             rel="noopener noreferrer"
             className={"hover:opacity-80 flex justify-center items-center"}
@@ -132,12 +132,28 @@ export default function Backers() {
             href={"https://zkok.io/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80 flex justify-center items-center"}
+            className={
+              "hover:opacity-80 justify-center items-center hidden lg:!flex"
+            }
           >
             <Image
               src={zkokLogo}
               alt={"Zkok logo"}
               className={"w-[9.412vw] lg:!w-[3.542vw]"}
+            />
+          </Link>
+          <Link
+            href={"https://astromina.org/"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={
+              "hover:opacity-80 flex justify-center items-center lg:!hidden"
+            }
+          >
+            <Image
+              src={astrominaLogo}
+              alt={"Astromina logo"}
+              className={"w-[28.706vw] lg:!w-[12.344vw]"}
             />
           </Link>
           <Link
@@ -156,12 +172,28 @@ export default function Backers() {
             href={"https://astromina.org/"}
             target="_blank"
             rel="noopener noreferrer"
-            className={"hover:opacity-80 flex justify-center items-center"}
+            className={
+              "hover:opacity-80 justify-center items-center hidden lg:!flex"
+            }
           >
             <Image
               src={astrominaLogo}
               alt={"Astromina logo"}
               className={"w-[28.706vw] lg:!w-[12.344vw]"}
+            />
+          </Link>
+          <Link
+            href={"https://zkok.io/"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={
+              "hover:opacity-80 flex justify-center items-center lg:!hidden"
+            }
+          >
+            <Image
+              src={zkokLogo}
+              alt={"Zkok logo"}
+              className={"w-[9.412vw] lg:!w-[3.542vw]"}
             />
           </Link>
         </div>

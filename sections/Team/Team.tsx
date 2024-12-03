@@ -2,13 +2,14 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { ReactNode, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import alexImg from "@/public/image/team/alex.svg";
 import andreyImg from "@/public/image/team/andrey.svg";
 import fosImg from "@/public/image/team/fos.svg";
 import mizoriImg from "@/public/image/team/mizori.svg";
 import neoImg from "@/public/image/team/neo.svg";
 import Link from "next/link";
+import useEmblaCarousel from "embla-carousel-react";
 
 const TwitterIcon = () => {
   return (
@@ -18,7 +19,7 @@ const TwitterIcon = () => {
       viewBox="0 0 37 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={"w-[1.927vw]"}
+      className={"w-[8.235vw] lg:!w-[1.927vw]"}
     >
       <g opacity="0.6">
         <path
@@ -40,7 +41,7 @@ const DiscordIcon = () => {
       viewBox="0 0 37 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={"w-[1.927vw]"}
+      className={"w-[8.235vw] lg:!w-[1.927vw]"}
     >
       <g opacity="0.6">
         <path d="M29 1H36V29H29" stroke="#FFFCF5" strokeWidth="2" />
@@ -64,7 +65,7 @@ const TeamCard = ({
   isOpen,
   setIsOpen,
 }: {
-  type: "sm" | "md" | "lg";
+  type: "sm" | "md" | "lg" | "mobile";
   image: any;
   fullName: string;
   title: string;
@@ -77,16 +78,17 @@ const TeamCard = ({
     <AnimatePresence initial={false}>
       <motion.div
         className={
-          "p-[0.521vw] cursor-pointer bg-gray-light h-fit rounded-[0.521vw] flex flex-col justify-center items-center"
+          "flex-[0_0_85%] ml-[2.353vw] first:ml-0 lg:!ml-0 min-w-0 lg:!flex-none p-[2.353vw] lg:!p-[0.521vw] cursor-pointer bg-gray-light h-fit rounded-[2.353vw] lg:!rounded-[0.521vw] flex flex-col justify-center items-center"
         }
         animate={
-          isOpen
+          type !== "mobile" &&
+          (isOpen
             ? { width: "18.802vw" }
             : type === "sm"
               ? { width: "12.135vw" }
               : type === "md"
                 ? { width: "14.115vw" }
-                : { width: "18.802vw" }
+                : { width: "18.802vw" })
         }
         whileTap={{ scale: 0.95 }}
         onClick={setIsOpen}
@@ -103,19 +105,19 @@ const TeamCard = ({
           />
           <div
             className={
-              "flex absolute flex-col gap-[0.26vw] left-[0.521vw] bottom-[0.521vw]"
+              "flex absolute flex-col gap-[0.941vw] lg:!gap-[0.26vw] left-[2.353vw] lg:!left-[0.521vw] bottom-[2.353vw] lg:!bottom-[0.521vw]"
             }
           >
             <span
               className={
-                "font-outfit uppercase text-[0.833vw] font-medium leading-[110%] text-white"
+                "font-outfit uppercase text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] text-white"
               }
             >
               {fullName}
             </span>
             <span
               className={
-                "text-white text-[0.833vw] leading-[110%] font-helvetica-now"
+                "text-white text-[3.765vw] lg:!text-[0.833vw] leading-[110%] font-helvetica-now"
               }
             >
               {title}
@@ -128,7 +130,7 @@ const TeamCard = ({
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={
-              "w-[1.25vw] h-[1.25vw] absolute right-[0.521vw] top-[0.521vw]"
+              "w-[5.647vw] lg:!w-[1.25vw] h-[5.647vw] lg:!h-[1.25vw] absolute right-[2.353vw] lg:!right-[0.521vw] top-[2.353vw] lg:!top-[0.521vw]"
             }
           >
             <motion.ellipse
@@ -148,19 +150,25 @@ const TeamCard = ({
         </div>
         {isOpen && (
           <motion.div
-            className={"flex flex-col gap-[0.781vw] mt-[0.521vw]"}
+            className={
+              "flex flex-col gap-[2.824vw] lg:!gap-[0.781vw] mt-[2.353vw] lg:!mt-[0.521vw]"
+            }
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "90%", transition: { delay: 0.18 } }}
             exit={{ opacity: 0, height: 0 }}
           >
             <span
               className={
-                "text-white h-full text-[0.833vw] font-helvetica-now leading-[120%]"
+                "text-white h-full opacity-60 text-[3.294vw] lg:!text-[0.833vw] font-helvetica-now leading-[120%]"
               }
             >
               {description}
             </span>
-            <div className={"flex flex-row gap-[0.521vw] items-center"}>
+            <div
+              className={
+                "flex flex-row gap-[2.353vw] lg:!gap-[0.521vw] items-center"
+              }
+            >
               {socials.map((item, index) => (
                 <Link
                   key={index}
@@ -195,10 +203,7 @@ const members: {
     title: "Contracts developer",
     description:
       "Lead developer on the core contracts of the ZKNoid platform. Crypto Enthusiast since 2020. Over 6 years of experience in CRM development. 2 years of Solidity development experience, specializing in DeFi projects. Earned a Master of Science in Computer Science with focus on blockchain technologies from MIPT.",
-    socials: [
-      { icon: <TwitterIcon />, link: "#" },
-      { icon: <DiscordIcon />, link: "#" },
-    ],
+    socials: [{ icon: <TwitterIcon />, link: "#" }],
   },
   {
     type: "sm",
@@ -212,7 +217,6 @@ const members: {
         icon: <TwitterIcon />,
         link: "https://twitter.com/intent/follow?screen_name=Shiroy_k&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3AShiroy_k%7Ctwcon%5Es2",
       },
-      { icon: <DiscordIcon />, link: "#" },
     ],
   },
   {
@@ -227,7 +231,6 @@ const members: {
         icon: <TwitterIcon />,
         link: "https://twitter.com/intent/follow?screen_name=asimaranov&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3Aasimaranov%7Ctwcon%5Es2",
       },
-      { icon: <DiscordIcon />, link: "#" },
     ],
   },
   {
@@ -239,7 +242,6 @@ const members: {
       "Web3 content creator, community manager, and researcher since 2022. Academic background, on the verge of obtaining a PhD in biotechnology. His work includes in-depth analysis of current hot topics and passionate exploration of emerging trends",
     socials: [
       // { icon: <TwitterIcon />, link: "#" },
-      { icon: <DiscordIcon />, link: "#" },
     ],
   },
   {
@@ -254,26 +256,57 @@ const members: {
         icon: <TwitterIcon />,
         link: "https://twitter.com/intent/follow?screen_name=NeoGar_real&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3ANeoGar_real%7Ctwcon%5Es2",
       },
-      { icon: <DiscordIcon />, link: "#" },
     ],
   },
 ];
 
 export default function Team() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    startIndex: 0,
+    align: "start",
+    containScroll: false,
+    slidesToScroll: 1,
+    skipSnaps: true,
+  });
   const [openIndex, setOpenIndex] = useState<number | undefined>(undefined);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
+
+  const setOpen = (index: number) => {
+    if (index != currentSlideIndex) return;
+    if (index == openIndex) {
+      setOpenIndex(undefined);
+    } else {
+      setOpenIndex(index);
+    }
+  };
+
+  const onSelect = useCallback((emblaApi: any) => {
+    setCurrentSlideIndex(emblaApi.selectedScrollSnap());
+    setOpenIndex(undefined);
+  }, []);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    onSelect(emblaApi);
+
+    emblaApi.on("reInit", onSelect).on("select", onSelect);
+  }, [emblaApi, onSelect]);
 
   return (
     <section
-      className={"px-[10.938vw] h-[29.375vw] mt-[10.417vw] flex flex-col"}
+      className={
+        "px-[4.706vw] lg:!px-[10.938vw] h-[136.471vw] lg:!h-[29.375vw] mt-[25.882vw] lg:!mt-[10.417vw] flex flex-col"
+      }
     >
       <span
         className={
-          "text-[5.208vw] mb-[1.042vw] text-left leading-[80%] font-kavaimo uppercase text-yellow"
+          "text-[13.647vw] lg:!text-[5.208vw] mb-[2.353vw] lg:!mb-[1.042vw] text-left leading-[80%] font-kavaimo uppercase text-yellow"
         }
       >
         Team
       </span>
-      <div className={"w-full flex flex-row gap-[0.521vw]"}>
+      <div className={"w-full hidden lg:!flex flex-row gap-[0.521vw]"}>
         <TeamCard
           key={0}
           type={1 == openIndex ? "sm" : members[0].type}
@@ -339,6 +372,23 @@ export default function Team() {
             openIndex == 4 ? setOpenIndex(undefined) : setOpenIndex(4)
           }
         />
+      </div>
+      <div ref={emblaRef} className={"overflow-hidden w-full flex lg:!hidden"}>
+        <div className={"w-full flex flex-row"}>
+          {members.map((item, index) => (
+            <TeamCard
+              key={index}
+              type={"mobile"}
+              image={item.image}
+              fullName={item.fullName}
+              title={item.title}
+              description={item.description}
+              socials={item.socials}
+              isOpen={openIndex == index}
+              setIsOpen={() => setOpen(index)}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
