@@ -23,7 +23,7 @@ const Card = ({
   return (
     <div
       className={cn(
-        "rounded-[2.353vw] lg:!rounded-[0.521vw] p-[3.529vw] lg:!p-[0.781vw] w-full flex flex-col flex-[0_0_85%] ml-[2.353vw] first:ml-0 lg:!ml-0 min-w-0 lg:!flex-none",
+        "rounded-[2.353vw] lg:!rounded-[0.521vw] p-[3.529vw] lg:!p-[0.781vw] w-full flex flex-col flex-[0_0_85%] ml-[2.353vw] first:ml-0 lg:!ml-0 min-w-0 lg:!min-w-0 lg:!flex-auto",
         color == "white" ? "bg-white" : "bg-gray-light",
         className,
       )}
@@ -205,7 +205,7 @@ const ArticlesCounter = () => {
 };
 
 export default function Blog() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
+  const [emblaRef] = useEmblaCarousel({
     startIndex: 0,
     align: "start",
     containScroll: false,

@@ -22,9 +22,7 @@ const SocialLink = ({ link, icon }: { link: string; icon: ReactNode }) => {
 export default function Community() {
   return (
     <section
-      className={
-        "mt-[25.882vw] lg:!mt-[10.417vw] bg-gray-light lg:!rounded-[1.563vw]"
-      }
+      className={"lg:!mt-[10.417vw] bg-gray-light lg:!rounded-[1.563vw]"}
     >
       <div
         className={
