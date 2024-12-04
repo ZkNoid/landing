@@ -4,9 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import headerLogo from "@/public/image/logos/header-logo.svg";
 import blackLogo from "@/public/image/logos/black-logo.svg";
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import { ReactNode, useState } from "react";
-import { cn } from "@/lib/helpers";
 
 const games = [
   {
@@ -194,9 +198,15 @@ const MenuItem = ({
 
 export default function MobileHeader() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", () => {
+    setIsOpen(false);
+  });
+
   return (
     <motion.header
-      className={"lg:!hidden w-full z-[51] sticky right-0 top-0"}
+      className={"lg:!hidden w-full z-[51] fixed right-0 top-0"}
       variants={{
         open: {
           backgroundColor: "#D4FF33",
@@ -205,6 +215,7 @@ export default function MobileHeader() {
         },
         closed: { backgroundColor: "#121212" },
       }}
+      initial={false}
       animate={isOpen ? "open" : "closed"}
     >
       <div className={"flex w-full p-[4.706vw] flex-row items-center"}>
@@ -232,17 +243,18 @@ export default function MobileHeader() {
                 open: { rotate: "45deg", y: "42%", fill: "#1E1E1E" },
                 closed: { y: 0, fill: "#FFFCF5" },
               }}
+              initial={false}
             />
             <motion.rect
               y="8"
               width="30"
               height="3"
               fill="#FFFCF5"
-              // animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
               variants={{
                 open: { opacity: 0 },
                 closed: { opacity: 1 },
               }}
+              initial={false}
             />
             <motion.rect
               y="16"
@@ -253,6 +265,7 @@ export default function MobileHeader() {
                 open: { rotate: "-45deg", y: "-42%", fill: "#1E1E1E" },
                 closed: { y: 0, fill: "#FFFCF5" },
               }}
+              initial={false}
             />
           </svg>
         </button>
@@ -274,7 +287,6 @@ export default function MobileHeader() {
                 width: 0,
                 height: 0,
                 opacity: 0,
-                transition: { staggerChildren: 0.05, staggerDirection: -1 },
               },
             }}
             className={"px-[4.706vw] pb-[5.882vw]"}
