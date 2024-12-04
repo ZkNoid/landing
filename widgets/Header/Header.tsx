@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import headerLogoImg from "@/public/image/logos/header-logo.svg";
-import { motion } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useState } from "react";
 
 const NavItem = ({ link, text }: { link: string; text: string }) => {
   return (
@@ -27,10 +28,30 @@ const NavItem = ({ link, text }: { link: string; text: string }) => {
 };
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latestValue) => {
+    const previous = scrollY.getPrevious() || 0;
+
+    if (!isOpen && latestValue < previous) setIsOpen(true);
+    if (isOpen && latestValue > previous) setIsOpen(false);
+  });
+
   return (
-    <header
+    <motion.header
+      variants={{
+        open: {
+          y: 0,
+        },
+        closed: {
+          y: "-100%",
+        },
+      }}
+      animate={isOpen ? "open" : "closed"}
+      transition={{ duration: 0.35, ease: "easeInOut", type: "just" }}
       className={
-        "w-full lg:!flex hidden py-[2.344vw] px-[10.938vw] flex-row justify-between items-center"
+        "w-full z-[51] top-0 left-0 bg-bg-dark fixed lg:!flex hidden py-[2.344vw] px-[3.125vw] flex-row justify-between items-center"
       }
     >
       <Link href="/">
@@ -60,6 +81,6 @@ export default function Header() {
           Start Build
         </motion.div>
       </Link>
-    </header>
+    </motion.header>
   );
 }

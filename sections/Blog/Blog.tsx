@@ -75,8 +75,15 @@ const Card = ({
       <Link
         href={link}
         className={cn(
-          "underline hover:opacity-80 uppercase text-[3.765vw] lg:!text-[0.833vw] font-semibold font-outfit mt-auto mr-auto lg:!mr-0 lg:!ml-auto",
+          "underline uppercase text-[3.765vw] lg:!text-[0.833vw] font-semibold font-outfit mt-auto mr-auto lg:!mr-0 lg:!ml-auto",
           color === "white" ? "text-black" : "text-white",
+          tag.color === "yellow"
+            ? "hover:text-yellow"
+            : tag.color === "red"
+              ? "hover:text-red"
+              : tag.color === "blue"
+                ? "hover:text-blue"
+                : "hover:text-purple",
         )}
       >
         Read article

@@ -263,7 +263,7 @@ const ListItem = ({
           key={index}
           href={item.link}
           className={
-            "text-black uppercase hover:opacity-80 font-medium font-outfit text-[3.765vw] lg:!text-[0.833vw]"
+            "text-black uppercase hover:opacity-60 font-medium font-outfit text-[3.765vw] lg:!text-[0.833vw]"
           }
         >
           {item.text}
@@ -298,7 +298,7 @@ const AnimatedListItem = ({
           <Link
             href={item.link}
             className={
-              "hover:opacity-80 flex flex-row-reverse lg:!flex-row gap-[0.706vw] lg:!gap-[1.042vw] items-center"
+              "hover:opacity-70 flex flex-row-reverse lg:!flex-row gap-[0.706vw] lg:!gap-[1.042vw] items-center"
             }
           >
             <span
@@ -420,7 +420,7 @@ export default function Footer() {
             <Link
               href="#"
               className={
-                "text-[0.833vw] hover:opacity-80 uppercase underline text-black font-medium font-outfit leading-[110%]"
+                "text-[0.833vw] hover:opacity-60 uppercase underline text-black font-medium font-outfit leading-[110%]"
               }
             >
               Privacy policy
@@ -430,7 +430,7 @@ export default function Footer() {
             <Link
               href="#"
               className={
-                "text-[0.833vw] hover:opacity-80 uppercase underline text-black font-medium font-outfit leading-[110%]"
+                "text-[0.833vw] hover:opacity-60 uppercase underline text-black font-medium font-outfit leading-[110%]"
               }
             >
               Copyright

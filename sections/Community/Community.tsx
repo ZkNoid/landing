@@ -48,7 +48,11 @@ export default function Community() {
           >
             Do you have any more questions about our project?
           </span>
-          <div className={"flex flex-row w-full items-center justify-center"}>
+          <div
+            className={
+              "flex flex-row w-full items-center justify-center gap-[0.26vw]"
+            }
+          >
             <SocialLink
               link={"#"}
               icon={

@@ -18,6 +18,7 @@ const Slide = ({
   description,
   type,
   className,
+  onClick,
 }: {
   gameName: string;
   link: string;
@@ -27,10 +28,11 @@ const Slide = ({
   description: string;
   type: "currentSlide" | "nextSlide" | "slide";
   className?: string;
+  onClick: () => void;
 }) => {
   return (
-    <Link
-      href={link}
+    <button
+      onClick={onClick}
       className={cn(
         "rounded-[2.353vw] lg:!rounded-[0.521vw] transition-transform min-w-0 flex-[0_0_85%] lg:!flex-[0_0_25%] px-[3.529vw] lg:!px-[0.781vw] pt-[3.529vw] lg:!pt-[0.781vw] pb-[2.353vw] lg:!pb-[0.521vw] flex flex-col",
         type === "currentSlide"
@@ -93,8 +95,8 @@ const Slide = ({
       </span>
       <span
         className={cn(
-          "mt-[1.176vw] lg:!mt-[0.26vw] font-helvetica-now text-[3.294vw] opacity-60 lg:!text-[0.833vw]",
-          type === "currentSlide" ? "text-gray-dark" : "text-white",
+          "mt-[1.176vw] lg:!mt-[0.26vw] font-helvetica-now text-[3.294vw] lg:!text-[0.833vw]",
+          type === "currentSlide" ? "text-gray-dark" : "text-white opacity-80",
         )}
       >
         {description}
@@ -105,9 +107,10 @@ const Slide = ({
           type === "currentSlide" ? "bg-gray-dark" : "bg-white",
         )}
       />
-      <div
+      <Link
+        href={link}
         className={
-          "flex flex-row gap-[1.176vw] lg:!gap-[0.625vw] ml-auto items-center mt-[2.353vw] lg:!mt-[0.625vw] mr-px"
+          "flex hover:opacity-80 flex-row gap-[1.176vw] lg:!gap-[0.625vw] ml-auto items-center mt-[2.353vw] lg:!mt-[0.625vw] mr-px"
         }
       >
         <span
@@ -167,8 +170,8 @@ const Slide = ({
             />
           </svg>
         )}
-      </div>
-    </Link>
+      </Link>
+    </button>
   );
 };
 
@@ -311,6 +314,7 @@ export default function Games() {
               gameName={slide.gameName}
               description={slide.description}
               link={slide.link}
+              onClick={() => emblaApi?.scrollTo(index)}
               type={
                 index == selectedIndex
                   ? "currentSlide"
@@ -348,6 +352,7 @@ export default function Games() {
               gameName={slide.gameName}
               description={slide.description}
               link={slide.link}
+              onClick={() => mobileEmblaApi?.scrollTo(index)}
               type={index == mobileSelectedIndex ? "currentSlide" : "nextSlide"}
             />
           ))}

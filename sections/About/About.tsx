@@ -13,7 +13,7 @@ export default function About() {
     >
       <span
         className={
-          "hidden lg:!inline-block w-[45%] mt-[6%] text-center text-[0.833vw] leading-[120%] font-helvetica-now font-medium text-white"
+          "hidden lg:!inline-block w-[45%] opacity-80 mt-[6%] text-center text-[0.833vw] leading-[120%] font-helvetica-now font-medium text-white"
         }
       >
         While playing all your actions are accumulated inside a zero-knowledge
@@ -23,7 +23,7 @@ export default function About() {
       <div className={"w-full flex flex-col justify-center items-center"}>
         <span
           className={
-            "uppercase text-center text-yellow font-kavaimo text-[13.647vw] lg:!text-[5.208vw]"
+            "uppercase text-center text-yellow font-kavaimo text-[13.647vw] lg:!text-[5.208vw] leading-[110%]"
           }
         >
           About us
@@ -68,7 +68,7 @@ export default function About() {
       </div>
       <span
         className={
-          "hidden lg:!inline-block w-[45%] mt-[6%] text-center text-[0.833vw] leading-[120%] font-helvetica-now font-medium text-white"
+          "hidden lg:!inline-block w-[45%] opacity-80 mt-[6%] text-center text-[0.833vw] leading-[120%] font-helvetica-now font-medium text-white"
         }
       >
         ZkNoid provides the united ecosystem for ZK gaming – developers can use

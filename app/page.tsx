@@ -12,7 +12,7 @@ import Blog from "@/sections/Blog";
 
 export default function Home() {
   return (
-    <div className={"flex flex-col"}>
+    <div className={"flex flex-col mt-[14.118vw] lg:!mt-[5.99vw]"}>
       <TitleSection />
       <About />
       <Benefits />

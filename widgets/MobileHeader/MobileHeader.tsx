@@ -218,7 +218,11 @@ export default function MobileHeader() {
       initial={false}
       animate={isOpen ? "open" : "closed"}
     >
-      <div className={"flex w-full p-[4.706vw] flex-row items-center"}>
+      <div
+        className={
+          "flex w-full px-[4.706vw] py-[3.529vw] flex-row items-center"
+        }
+      >
         <Link href="/" className={"hover:opacity-80"}>
           <Image
             src={isOpen ? blackLogo : headerLogo}
