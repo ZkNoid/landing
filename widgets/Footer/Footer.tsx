@@ -7,8 +7,12 @@ import { cn } from "@/lib/helpers";
 import Image from "next/image";
 import blackLogo from "@/public/image/logos/black-logo.svg";
 import Link from "next/link";
+import { SOCIALS } from "@/lib/socials";
+import { useEffect, useState } from "react";
 
 const SubscriptionForm = () => {
+  const [isDone, setIsDone] = useState<boolean>(false);
+
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .typeError("Wrong email")
@@ -19,11 +23,25 @@ const SubscriptionForm = () => {
       .isTrue("This is required field"),
   });
 
+  useEffect(() => {
+    if (isDone) setTimeout(() => setIsDone(false), 5000);
+  }, [isDone]);
+
   return (
     <Formik
       initialValues={{ email: "", dataAccept: false }}
       validationSchema={validationSchema}
-      onSubmit={() => {}}
+      onSubmit={(values, formikHelpers) => {
+        fetch("/api/subscribe", {
+          method: "POST",
+          body: JSON.stringify({
+            email: values.email,
+            termsChecked: values.dataAccept,
+          }),
+        }).catch((err) => console.error(err));
+        formikHelpers.resetForm();
+        setIsDone(true);
+      }}
     >
       {({ values, errors, touched }) => (
         <Form>
@@ -135,6 +153,18 @@ const SubscriptionForm = () => {
                   {errors.email}
                 </span>
               )}
+              {isDone && (
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className={
+                    "text-[3.294vw] lg:!text-[0.729vw] font-helvetica-now text-[#16a34a]"
+                  }
+                >
+                  Success!
+                </motion.span>
+              )}
             </div>
           </div>
         </Form>
@@ -149,19 +179,19 @@ const lists = [
     items: [
       {
         text: "Our story",
-        link: "#",
+        link: "https://medium.com/zknoid/zknoid-way-progress-recap-from-scratch-31a525d2d5b8",
       },
       {
         text: "Roadmap",
-        link: "#",
+        link: "/#roadmap",
       },
       {
         text: "Blog",
-        link: "#",
+        link: SOCIALS.medium,
       },
       {
         text: "Brand guideline",
-        link: "#",
+        link: "https://www.figma.com/design/yOsjUu6cvP3FvyvjEOAbj3/ZkNoidBrandAssets_Public?node-id=0-1&t=sc0NLIjqwoWK99YG-1",
       },
     ],
   },
@@ -170,19 +200,21 @@ const lists = [
     items: [
       {
         text: "Games",
-        link: "#",
+        link: "/#games",
       },
       {
         text: "Events",
-        link: "#",
+        link: "https://quest.zknoid.io/",
       },
       {
         text: "NFT",
         link: "#",
+        disabled: true,
       },
       {
         text: "Token",
         link: "#",
+        disabled: true,
       },
     ],
   },
@@ -191,23 +223,24 @@ const lists = [
     items: [
       {
         text: "Docs",
-        link: "#",
+        link: "https://docs.zknoid.io/docs",
       },
       {
         text: "Github",
-        link: "#",
+        link: SOCIALS.github,
       },
       {
         text: "SDK",
-        link: "#",
+        link: "https://docs.zknoid.io/docs/zknoid_for_developers/sdk/overview",
       },
       {
         text: "Education",
         link: "#",
+        disabled: true,
       },
       {
-        text: "Listing guide",
-        link: "#",
+        text: "Integration guide",
+        link: "https://docs.zknoid.io/docs/zknoid_for_developers/integration_guide",
       },
     ],
   },
@@ -216,23 +249,23 @@ const lists = [
     items: [
       {
         text: "Twitter",
-        link: "#",
+        link: SOCIALS.twitter,
       },
       {
         text: "Discord",
-        link: "#",
+        link: SOCIALS.discord,
       },
       {
         text: "Telegram",
-        link: "#",
+        link: SOCIALS.telegram,
       },
       {
         text: "Youtube",
-        link: "#",
+        link: SOCIALS.youtube,
       },
       {
         text: "Medium",
-        link: "#",
+        link: SOCIALS.medium,
       },
     ],
   },
@@ -244,7 +277,7 @@ const ListItem = ({
   className,
 }: {
   title: string;
-  items: { text: string; link: string }[];
+  items: { text: string; link: string; disabled?: boolean }[];
   className?: string;
 }) => {
   return (
@@ -258,17 +291,28 @@ const ListItem = ({
       >
         {title}
       </span>
-      {items.map((item, index) => (
-        <Link
-          key={index}
-          href={item.link}
-          className={
-            "text-black uppercase hover:opacity-60 font-medium font-outfit text-[3.765vw] lg:!text-[0.833vw]"
-          }
-        >
-          {item.text}
-        </Link>
-      ))}
+      {items.map((item, index) =>
+        item.disabled ? (
+          <span
+            key={index}
+            className={
+              "opacity-60 cursor-not-allowed text-black uppercase hover:opacity-60 font-medium font-outfit text-[3.765vw] lg:!text-[0.833vw]"
+            }
+          >
+            {item.text}
+          </span>
+        ) : (
+          <Link
+            key={index}
+            href={item.link}
+            className={
+              "text-black uppercase hover:opacity-60 font-medium font-outfit text-[3.765vw] lg:!text-[0.833vw]"
+            }
+          >
+            {item.text}
+          </Link>
+        ),
+      )}
     </div>
   );
 };
@@ -349,24 +393,22 @@ export default function Footer() {
             }
           >
             <div className={"w-full flex justify-start items-center"}>
-              <Link
-                href="#"
+              <span
                 className={
-                  "text-[3.765vw] lg:!text-[0.833vw] hover:opacity-80 uppercase underline text-black font-medium font-outfit leading-[110%]"
+                  "opacity-60 cursor-not-allowed text-[3.765vw] lg:!text-[0.833vw] hover:opacity-80 uppercase underline text-black font-medium font-outfit leading-[110%]"
                 }
               >
                 Privacy policy
-              </Link>
+              </span>
             </div>
             <div className={"w-full flex justify-end items-center"}>
-              <Link
-                href="#"
+              <span
                 className={
-                  "text-[3.765vw] lg:!text-[0.833vw] hover:opacity-80 uppercase underline text-black font-medium font-outfit leading-[110%]"
+                  "opacity-60 cursor-not-allowed text-[3.765vw] lg:!text-[0.833vw] hover:opacity-80 uppercase underline text-black font-medium font-outfit leading-[110%]"
                 }
               >
                 Copyright
-              </Link>
+              </span>
             </div>
           </div>
           <SubscriptionForm />
@@ -417,24 +459,22 @@ export default function Footer() {
             </Link>
           </div>
           <div className={"w-full flex justify-center items-end"}>
-            <Link
-              href="#"
+            <span
               className={
-                "text-[0.833vw] hover:opacity-60 uppercase underline text-black font-medium font-outfit leading-[110%]"
+                "opacity-60 cursor-not-allowed text-[0.833vw] hover:opacity-60 uppercase underline text-black font-medium font-outfit leading-[110%]"
               }
             >
               Privacy policy
-            </Link>
+            </span>
           </div>
           <div className={"w-full flex justify-end items-end"}>
-            <Link
-              href="#"
+            <span
               className={
-                "text-[0.833vw] hover:opacity-60 uppercase underline text-black font-medium font-outfit leading-[110%]"
+                "opacity-60 cursor-not-allowed text-[0.833vw] hover:opacity-60 uppercase underline text-black font-medium font-outfit leading-[110%]"
               }
             >
               Copyright
-            </Link>
+            </span>
           </div>
         </div>
       </div>

@@ -126,13 +126,14 @@ const CheckboxedItem = ({
           />
         </motion.svg>
       </motion.div>
-      <span
+      <motion.span
         className={
           "text-[3.294vw] lg:!text-[0.938vw] text-white font-helvetica-now leading-[120%]"
         }
+        animate={isChecked ? { opacity: 0.8 } : { opacity: 1 }}
       >
         {text}
-      </span>
+      </motion.span>
     </div>
   );
 };
@@ -202,7 +203,11 @@ const roadmapItems: {
           </div>
         </div>
         <Link
-          href={"#"}
+          href={
+            "https://medium.com/zknoid/monthly-recap-march-2024-576b61398d41"
+          }
+          target={"_blank"}
+          rel={"noopener noreferrer"}
           className={
             "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
           }
@@ -259,7 +264,11 @@ const roadmapItems: {
           </div>
         </div>
         <Link
-          href={"#"}
+          href={
+            "https://medium.com/zknoid/monthly-recap-april-2024-243fa068677d"
+          }
+          target={"_blank"}
+          rel={"noopener noreferrer"}
           className={
             "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
           }
@@ -308,7 +317,11 @@ const roadmapItems: {
           </div>
         </div>
         <Link
-          href={"#"}
+          href={
+            "https://forums.minaprotocol.com/t/zknoid-l1-lottery-sdk-improvements/6424"
+          }
+          target={"_blank"}
+          rel={"noopener noreferrer"}
           className={
             "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
           }
@@ -320,7 +333,7 @@ const roadmapItems: {
   },
   {
     date: "Q4, 2024",
-    title: "Orderbook & Tokenomics",
+    title: "Tokenomics",
     content: (
       <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
         <div
@@ -328,30 +341,6 @@ const roadmapItems: {
             "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
           }
         >
-          <div
-            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
-          >
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book conception on Mina Protocol development"}
-            />
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book contracts development"}
-            />
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book backend development"}
-            />
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book user interface & design"}
-            />
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book frontend development"}
-            />
-          </div>
           <div
             className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
           >
@@ -388,6 +377,7 @@ export default function Roadmap() {
 
   return (
     <section
+      id="roadmap"
       className={"mt-[25.882vw] lg:!mt-[10.417vw] relative flex flex-col"}
     >
       <div className={"px-[4.706vw] lg:!px-[26.667vw] flex flex-col"}>

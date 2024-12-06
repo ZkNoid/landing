@@ -200,7 +200,11 @@ export default function ForDevelopers() {
             support you can build your dream games on Mina Protocol.
           </span>
           <Link
-            href={"#"}
+            href={
+              "https://docs.zknoid.io/docs/zknoid_for_developers/integration_guide"
+            }
+            target={"_blank"}
+            rel="noopener noreferrer"
             className={
               "mt-[7.059vw] lg:!mt-auto hover:opacity-80 py-[2.353vw] lg:!py-[0.417vw] rounded-[2.353vw] lg:!rounded-[0.521vw] bg-yellow w-full flex justify-center items-center"
             }

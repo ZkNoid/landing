@@ -18,6 +18,8 @@ const Block = ({
   return (
     <Link
       href={link}
+      target="_blank"
+      rel="noopener noreferrer"
       className={
         "w-full group p-[3.529vw] lg:!p-[0.781vw] hover:bg-white transition-colors hover:text-black h-auto rounded-[2.353vw] lg:!rounded-[0.521vw] bg-gray-light flex flex-col"
       }
@@ -80,7 +82,7 @@ const Block = ({
 
 const blocks = [
   {
-    link: "#",
+    link: "https://docs.zknoid.io/docs/our_technologies#recursive-proof",
     title: "Recursive proof",
     text: "Recursive Proof allows the division of calculations into parts, allowing more complex circuits and enabling conditional execution of specific components.",
     icon: (
@@ -126,7 +128,7 @@ const blocks = [
     ),
   },
   {
-    link: "#",
+    link: "https://docs.zknoid.io/docs/our_technologies#zk-circuit",
     title: "Zk Circuit",
     text: "ZK Circuits are sets of constraints applied to variables. A ZK Proof verifies that the given inputs satisfy all these constraints, ensuring the integrity of computations without revealing the underlying data.",
     icon: (
@@ -175,7 +177,7 @@ const blocks = [
     ),
   },
   {
-    link: "#",
+    link: "https://docs.zknoid.io/docs/our_technologies#zk-proof",
     title: "Zk Proof",
     text: "Proof is a cryptographic technology that allows you to prove certain properties of an object without revealing any additional data about that object.",
     icon: (
@@ -196,7 +198,7 @@ const blocks = [
     ),
   },
   {
-    link: "#",
+    link: "https://docs.zknoid.io/docs/our_technologies#protokit",
     title: "Mina and protokit networks interplay",
     text: "Combines power of ZK blockchain with fast and gasless transactions enabling multiplayer and background sessions.",
     icon: (

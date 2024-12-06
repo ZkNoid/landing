@@ -5,14 +5,25 @@ import Image from "next/image";
 import headerLogoImg from "@/public/image/logos/header-logo.svg";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useState } from "react";
+import { SOCIALS } from "@/lib/socials";
 
-const NavItem = ({ link, text }: { link: string; text: string }) => {
+const NavItem = ({
+  link,
+  text,
+  openAsNewTab,
+}: {
+  link: string;
+  text: string;
+  openAsNewTab?: boolean;
+}) => {
   return (
     <Link
       href={link}
       className={
         "group group-first:rounded-l-[0.521vw] group-last:rounded-r-[0.521vw]"
       }
+      target={openAsNewTab ? "_blank" : "_self"}
+      rel={"noopener noreferrer"}
     >
       <motion.div
         className={
@@ -64,14 +75,26 @@ export default function Header() {
         </motion.div>
       </Link>
       <nav className={"flex flex-row items-center justify-center"}>
-        <NavItem link={"#"} text={"About"} />
-        <NavItem link={"#"} text={"Games"} />
-        <NavItem link={"#"} text={"For Devs"} />
-        <NavItem link={"#"} text={"Media"} />
-        <NavItem link={"#"} text={"Blog"} />
-        <NavItem link={"#"} text={"Events"} />
+        <NavItem link={"/#about"} text={"About"} />
+        <NavItem link={"/#games"} text={"Games"} />
+        <NavItem
+          link={"https://docs.zknoid.io/docs/zknoid_for_developers/faq"}
+          text={"For Devs"}
+          openAsNewTab
+        />
+        <NavItem link={"/#community"} text={"Media"} />
+        <NavItem link={SOCIALS.medium} text={"Blog"} openAsNewTab />
+        <NavItem
+          link={"https://quest.zknoid.io/"}
+          text={"Events"}
+          openAsNewTab
+        />
       </nav>
-      <Link href={"https://app.zknoid.io"}>
+      <Link
+        href={"https://docs.zknoid.io/docs/zknoid_for_developers/sdk/overview"}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <motion.div
           className={
             "bg-yellow text-[0.833vw] font-helvetica-now font-medium text-black rounded-[0.521vw] px-[0.625vw] py-[0.417vw]"

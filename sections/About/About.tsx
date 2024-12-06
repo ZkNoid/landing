@@ -7,6 +7,7 @@ import aboutBgImg from "@/public/image/about-bg.svg";
 export default function About() {
   return (
     <section
+      id="about"
       className={
         "px-[4.706vw] lg:!px-[10.938vw] mt-[23.529vw] lg:!mt-[7.813vw] relative gap-[4.167vw] flex flex-row items-center justify-center"
       }
@@ -61,9 +62,10 @@ export default function About() {
           </span>
         </div>
         <ArrowButton
-          link={"#"}
+          link={"https://docs.zknoid.io/docs"}
           text={"More About Us"}
           className={"mt-[3.529vw] lg:!mt-[1.302vw]"}
+          openAsNewTab
         />
       </div>
       <span

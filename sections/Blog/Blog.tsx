@@ -4,6 +4,17 @@ import { cn } from "@/lib/helpers";
 import Link from "next/link";
 import ArrowButton from "@/shared/ArrowButton";
 import useEmblaCarousel from "embla-carousel-react";
+import { SOCIALS } from "@/lib/socials";
+
+enum ArticleType {
+  Announcements = "Announcements",
+  Vision = "Vision",
+  Reports = "Reports",
+  DeepDive = "Deep Dive",
+  Guides = "Guides",
+  ZkNoidSDK = "ZkNoid SDK",
+  Ecosystem = "Ecosystem",
+}
 
 const Card = ({
   color,
@@ -14,7 +25,7 @@ const Card = ({
   className,
 }: {
   color: "white" | "black";
-  tag: { text: string; color: "yellow" | "red" | "blue" | "purple" };
+  tag: { type: ArticleType; color: "yellow" | "red" | "blue" | "purple" };
   link: string;
   title: string;
   text: string;
@@ -41,7 +52,7 @@ const Card = ({
                   : "border-purple text-purple",
           )}
         >
-          {tag.text}
+          {tag.type}
         </div>
         <span
           className={cn(
@@ -74,6 +85,8 @@ const Card = ({
       </div>
       <Link
         href={link}
+        target={"_blank"}
+        rel={"noopener noreferrer"}
         className={cn(
           "underline uppercase text-[3.765vw] lg:!text-[0.833vw] font-semibold font-outfit mt-auto mr-auto lg:!mr-0 lg:!ml-auto",
           color === "white" ? "text-black" : "text-white",
@@ -94,29 +107,29 @@ const Card = ({
 
 const articlesTop: {
   color: "white" | "black";
-  tag: { text: string; color: "yellow" | "red" | "blue" | "purple" };
+  tag: { type: ArticleType; color: "yellow" | "red" | "blue" | "purple" };
   link: string;
   title: string;
   text: string;
 }[] = [
   {
     color: "black",
-    tag: { text: "Guide", color: "yellow" },
-    link: "#",
+    tag: { type: ArticleType.Guides, color: "yellow" },
+    link: "https://medium.com/zknoid/building-our-first-mina-zkapp-game-chapter-1-de7880584aff",
     title: "Building our first Mina zkApp game: Chapter 1",
     text: "In this tutorial, we will build a simple number-guessing game. One user hides a number, and another tries to guess it. We’ll also keep track of the number of correct guesses for each user.",
   },
   {
     color: "white",
-    tag: { text: "Development", color: "red" },
-    link: "#",
+    tag: { type: ArticleType.Guides, color: "red" },
+    link: "https://medium.com/zknoid/protokit-tips-tricks-our-experience-bonus-part-a7c6d04c5bfc",
     title: "Protokit tips & tricks: our experience",
     text: "Protokit is a popular app-chain solution in the Mina world. It allows developers to launch their own sequencer that proves state changes to the Mina network enabling fast transactions and low fees. In this article we want to share some ZkNoid team experience, tips and tricks dealing with protokit.",
   },
   {
     color: "black",
-    tag: { text: "Guide", color: "yellow" },
-    link: "#",
+    tag: { type: ArticleType.DeepDive, color: "yellow" },
+    link: "https://medium.com/zknoid/mina-action-reducers-guide-why-we-need-them-81b6836c1700",
     title: "Mina Action & Reducers Guide: Why We Need Them",
     text: "Have you faced an issue of processing multiple transactions in the same block - both users trying to update the state simutaniously, one do it successfully, but other one got a failed transaction? Don’t worry, it isn’t a problem no more for all MinaDevelopers who building on MinaProtocol. The beauty and clear solution to this problem: Reducers.",
   },
@@ -124,40 +137,42 @@ const articlesTop: {
 
 const articlesBottom: {
   color: "white" | "black";
-  tag: { text: string; color: "yellow" | "red" | "blue" | "purple" };
+  tag: { type: ArticleType; color: "yellow" | "red" | "blue" | "purple" };
   link: string;
   title: string;
   text: string;
 }[] = [
   {
     color: "white",
-    tag: { text: "Overview", color: "blue" },
-    link: "#",
+    tag: { type: ArticleType.Vision, color: "blue" },
+    link: "https://medium.com/zknoid/zero-knowledge-proofs-for-gaming-how-it-works-why-do-we-need-them-3d0ee659c850",
     title:
       "Zero knowledge proofs for gaming: how it works & why do we need them",
     text: "ZK technologies become more and more popular. People expect them to bring the completely new UX to everyday life and start generation of products with previously impossible possibilities. While ZK proofs found their use in different application areas in this article we will focus on how proofs can bring the completely new gaming experience.",
   },
   {
     color: "black",
-    tag: { text: "Interview", color: "purple" },
-    link: "#",
+    tag: { type: ArticleType.Ecosystem, color: "purple" },
+    link: "https://medium.com/zknoid/exploring-zknoid-sdk-interview-from-tileville-game-developer-cc04e7d31c90",
     title: "Exploring ZkNoid SDK: Interview from TileVille game Developer",
     text: "The first game embedded in our platform was TileVille strategic city-builder game. The game is firmly established in the Mina ecosystem and is actively attracting users. Check out the TileVille game developer interview to learn more about the experience of using the ZkNoid SDK directly from developers.",
   },
   {
     color: "white",
-    tag: { text: "Overview", color: "blue" },
-    link: "#",
-    title: "Building our first Mina zkApp game: Chapter 1",
+    tag: { type: ArticleType.Announcements, color: "blue" },
+    link: "https://medium.com/zknoid/mina-navigators-l1-lottery-ab2df88c985c",
+    title: "Mina Navigators: L1 Lottery",
     text: "Mina community is interested in playing games on the Mina blockchain. The Lottery game would be the first gaming zkApp ready for the real funds. In this game players try their luck in a fair lottery getting used to ZK gaming experience.",
   },
 ];
 
 const ArticleCounterItem = ({
   title,
+  link,
   count,
 }: {
   title: string;
+  link: string;
   count: number;
 }) => {
   return (
@@ -166,13 +181,16 @@ const ArticleCounterItem = ({
         "flex flex-row border-t last-of-type:border-b border-white items-center justify-between py-[1.176vw] lg:!py-[0.26vw]"
       }
     >
-      <span
+      <Link
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
         className={
-          "text-[3.765vw] lg:!text-[0.833vw] font-helvetica-now leading-[120%] font-medium text-white"
+          "hover:opacity-80 text-[3.765vw] lg:!text-[0.833vw] font-helvetica-now leading-[120%] font-medium text-white"
         }
       >
         {title}
-      </span>
+      </Link>
       <span
         className={
           "text-[3.765vw] lg:!text-[0.833vw] font-helvetica-now text-white"
@@ -194,18 +212,48 @@ const ArticlesCounter = () => {
       >
         Blog
       </span>
-      <ArticleCounterItem title={"Overview"} count={0} />
-      <ArticleCounterItem title={"Updates"} count={0} />
-      <ArticleCounterItem title={"Development"} count={0} />
-      <ArticleCounterItem title={"News"} count={0} />
-      <ArticleCounterItem title={"Interview"} count={0} />
-      <ArticleCounterItem title={"Guide"} count={0} />
+      <ArticleCounterItem
+        title={ArticleType.Announcements}
+        link={"https://medium.com/zknoid/tagged/announcements"}
+        count={1}
+      />
+      <ArticleCounterItem
+        title={ArticleType.Vision}
+        link={"https://medium.com/zknoid/tagged/vision"}
+        count={4}
+      />
+      <ArticleCounterItem
+        title={ArticleType.Reports}
+        link={"https://medium.com/zknoid/tagged/report"}
+        count={8}
+      />
+      <ArticleCounterItem
+        title={ArticleType.DeepDive}
+        link={"https://medium.com/zknoid/tagged/technology"}
+        count={6}
+      />
+      <ArticleCounterItem
+        title={ArticleType.Guides}
+        link={"https://medium.com/zknoid/tagged/guide"}
+        count={6}
+      />
+      <ArticleCounterItem
+        title={ArticleType.ZkNoidSDK}
+        link={"https://medium.com/zknoid/tagged/sdk"}
+        count={2}
+      />
+      <ArticleCounterItem
+        title={ArticleType.Ecosystem}
+        link={"https://medium.com/zknoid/tagged/ecosystem"}
+        count={2}
+      />
       <ArrowButton
-        link={"#"}
+        link={SOCIALS.medium}
         text={"VIEW ALL"}
         className={
           "mt-[3.529vw] mb-0 lg:!mt-[1.563vw] lg:!mb-[1.563vw] mx-auto"
         }
+        openAsNewTab
       />
     </div>
   );

@@ -203,7 +203,12 @@ const members: {
     title: "Contracts developer",
     description:
       "Lead developer on the core contracts of the ZKNoid platform. Crypto Enthusiast since 2020. Over 6 years of experience in CRM development. 2 years of Solidity development experience, specializing in DeFi projects. Earned a Master of Science in Computer Science with focus on blockchain technologies from MIPT.",
-    socials: [{ icon: <TwitterIcon />, link: "#" }],
+    socials: [
+      {
+        icon: <TwitterIcon />,
+        link: "https://twitter.com/intent/follow?screen_name=IvlevCrypto&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3AShiroy_k%7Ctwcon%5Es2",
+      },
+    ],
   },
   {
     type: "sm",
@@ -240,9 +245,7 @@ const members: {
     title: "Content manager",
     description:
       "Web3 content creator, community manager, and researcher since 2022. Academic background, on the verge of obtaining a PhD in biotechnology. His work includes in-depth analysis of current hot topics and passionate exploration of emerging trends",
-    socials: [
-      // { icon: <TwitterIcon />, link: "#" },
-    ],
+    socials: [],
   },
   {
     type: "md",

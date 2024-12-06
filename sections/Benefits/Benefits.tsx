@@ -310,7 +310,9 @@ export default function Benefits() {
             support.
           </span>
           <Link
-            href="#"
+            href="https://docs.zknoid.io/docs#benefits"
+            target="_blank"
+            rel="noopener noreferrer"
             className={
               "bg-blue mt-[7.059vw] lg:!mt-[1.302vw] hover:opacity-80 rounded-[2.353vw] lg:!rounded-[0.521vw] flex justify-center items-center py-[2.353vw] lg:!py-[0.417vw]"
             }

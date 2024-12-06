@@ -11,56 +11,58 @@ import {
   useScroll,
 } from "framer-motion";
 import { ReactNode, useState } from "react";
+import { SOCIALS } from "@/lib/socials";
 
 const games = [
   {
-    link: "#",
+    link: "https://app.zknoid.io/games/arkanoid/global",
     text: "Arkanoid",
   },
   {
-    link: "#",
+    link: "https://app.zknoid.io/games/randzu/global",
     text: "Randzu",
   },
   {
-    link: "#",
+    link: "https://app.zknoid.io/games/lottery/global",
     text: "Lottery",
   },
   {
-    link: "#",
+    link: "https://app.zknoid.io/games/thimblerig/global",
     text: "Thimblerig",
   },
   {
-    link: "#",
+    link: "https://app.zknoid.io/games/checkers/global",
     text: "Checkers",
   },
 ];
 
 const forDevs = [
   {
-    link: "#",
+    link: "https://docs.zknoid.io/docs",
     text: "Docs",
   },
   {
-    link: "#",
+    link: SOCIALS.github,
     text: "GitHub",
   },
   {
-    link: "#",
+    link: "https://docs.zknoid.io/docs/zknoid_for_developers/sdk/overview",
     text: "SDK",
   },
   {
     link: "#",
     text: "Education",
+    disabled: true,
   },
   {
-    link: "#",
-    text: "Listing Guide",
+    link: "https://docs.zknoid.io/docs/zknoid_for_developers/integration_guide",
+    text: "Integration Guide",
   },
 ];
 
 const socials = [
   {
-    link: "#",
+    link: SOCIALS.twitter,
     icon: (
       <svg
         width="25"
@@ -91,7 +93,7 @@ const socials = [
     ),
   },
   {
-    link: "#",
+    link: SOCIALS.medium,
     icon: (
       <svg
         width="44"
@@ -109,7 +111,7 @@ const socials = [
     ),
   },
   {
-    link: "#",
+    link: SOCIALS.youtube,
     icon: (
       <svg
         width="36"
@@ -127,7 +129,7 @@ const socials = [
     ),
   },
   {
-    link: "#",
+    link: SOCIALS.discord,
     icon: (
       <svg
         width="36"
@@ -145,7 +147,7 @@ const socials = [
     ),
   },
   {
-    link: "#",
+    link: SOCIALS.telegram,
     icon: (
       <svg
         width="30"
@@ -297,7 +299,7 @@ export default function MobileHeader() {
           >
             <MenuItem className={"mb-[2.353vw]"}>
               <Link
-                href={"#"}
+                href={"/#about"}
                 className={
                   "text-[3.765vw] text-gray-dark font-bold font-outfit leading-[110%] uppercase"
                 }
@@ -307,7 +309,7 @@ export default function MobileHeader() {
             </MenuItem>
             <MenuItem className={"mb-[2.353vw]"}>
               <Link
-                href={"#"}
+                href={"/#games"}
                 className={
                   "text-[3.765vw] text-gray-dark font-bold font-outfit leading-[110%] uppercase"
                 }
@@ -329,7 +331,9 @@ export default function MobileHeader() {
             ))}
             <MenuItem className={"mt-[2.353vw] mb-[4.706vw] w-full"}>
               <Link
-                href={"#"}
+                href={"https://app.zknoid.io/"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={
                   "py-[2.588vw] bg-blue rounded-[2.353vw] flex flex-col justify-center items-center"
                 }
@@ -345,7 +349,9 @@ export default function MobileHeader() {
             </MenuItem>
             <MenuItem className={"mb-[1.176vw]"}>
               <Link
-                href={"#"}
+                href={"https://docs.zknoid.io/docs/zknoid_for_developers/faq"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={
                   "text-[3.765vw] text-gray-dark font-bold font-outfit leading-[110%] uppercase"
                 }
@@ -353,21 +359,39 @@ export default function MobileHeader() {
                 For devs
               </Link>
             </MenuItem>
-            {forDevs.map((item, index) => (
-              <MenuItem key={index} className={"mb-[1.176vw]"}>
-                <Link
-                  href={item.link}
-                  className={
-                    "text-[3.765vw] text-gray-dark font-medium font-helvetica-now leading-[110%]"
-                  }
-                >
-                  {item.text}
-                </Link>
-              </MenuItem>
-            ))}
+            {forDevs.map((item, index) =>
+              item.disabled ? (
+                <MenuItem key={index} className={"mb-[1.176vw]"}>
+                  <span
+                    className={
+                      "cursor-not-allowed opacity-60 text-[3.765vw] text-gray-dark font-medium font-helvetica-now leading-[110%]"
+                    }
+                  >
+                    {item.text}
+                  </span>
+                </MenuItem>
+              ) : (
+                <MenuItem key={index} className={"mb-[1.176vw]"}>
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={
+                      "text-[3.765vw] text-gray-dark font-medium font-helvetica-now leading-[110%]"
+                    }
+                  >
+                    {item.text}
+                  </Link>
+                </MenuItem>
+              ),
+            )}
             <MenuItem className={"mt-[2.353vw] mb-[4.706vw] w-full"}>
               <Link
-                href={"#"}
+                href={
+                  "https://docs.zknoid.io/docs/zknoid_for_developers/sdk/overview"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
                 className={
                   "py-[2.588vw] bg-blue rounded-[2.353vw] flex flex-col justify-center items-center"
                 }
@@ -388,7 +412,12 @@ export default function MobileHeader() {
             >
               <div className={"flex flex-row items-center gap-[3.529vw]"}>
                 {socials.map((item, index) => (
-                  <Link key={index} href={item.link}>
+                  <Link
+                    key={index}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {item.icon}
                   </Link>
                 ))}

@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { SOCIALS } from "@/lib/socials";
 
 const SocialLink = ({ link, icon }: { link: string; icon: ReactNode }) => {
   return (
@@ -22,11 +23,12 @@ const SocialLink = ({ link, icon }: { link: string; icon: ReactNode }) => {
 export default function Community() {
   return (
     <section
+      id="community"
       className={"lg:!mt-[10.417vw] bg-gray-light lg:!rounded-[1.563vw]"}
     >
       <div
         className={
-          "px-[4.706vw] lg:!px-[10.938vw] pt-[4.706vw] lg:!pt-[1.406vw] pb-[4.706vw] lg:!pb-[5.208vw] flex flex-col justify-center items-center"
+          "px-[4.706vw] lg:!px-[3.646vw] pt-[4.706vw] lg:!pt-[1.406vw] pb-[4.706vw] lg:!pb-[5.208vw] flex flex-col justify-center items-center"
         }
       >
         <span
@@ -38,12 +40,12 @@ export default function Community() {
         </span>
         <div
           className={
-            "lg:!w-[72.917vw] flex flex-col lg:!flex-row gap-[2.353vw] lg:!gap-[1.042vw] items-center"
+            "lg:!w-full flex flex-col lg:!flex-row gap-[2.353vw] lg:!gap-0 items-center"
           }
         >
           <span
             className={
-              "font-helvetica-now lg:!w-[40%] text-center uppercase text-white text-[5.412vw] lg:!text-[1.563vw] leading-[110%] font-medium"
+              "font-outfit lg:!w-[40%] text-center uppercase text-white text-[5.412vw] lg:!text-[1.563vw] leading-[110%] font-medium"
             }
           >
             Do you have any more questions about our project?
@@ -54,7 +56,7 @@ export default function Community() {
             }
           >
             <SocialLink
-              link={"#"}
+              link={SOCIALS.twitter}
               icon={
                 <svg
                   width="65"
@@ -88,7 +90,7 @@ export default function Community() {
               }
             />
             <SocialLink
-              link={"#"}
+              link={SOCIALS.discord}
               icon={
                 <svg
                   width="57"
@@ -106,7 +108,7 @@ export default function Community() {
               }
             />
             <SocialLink
-              link={"#"}
+              link={SOCIALS.telegram}
               icon={
                 <svg
                   width="54"
@@ -124,7 +126,7 @@ export default function Community() {
               }
             />
             <SocialLink
-              link={"#"}
+              link={SOCIALS.youtube}
               icon={
                 <svg
                   width="54"
@@ -142,7 +144,7 @@ export default function Community() {
               }
             />
             <SocialLink
-              link={"#"}
+              link={SOCIALS.medium}
               icon={
                 <svg
                   width="65"
@@ -162,7 +164,7 @@ export default function Community() {
           </div>
           <span
             className={
-              "font-helvetica-now lg:!w-[40%] text-center uppercase text-white text-[5.412vw] lg:!text-[1.563vw] leading-[110%] font-medium"
+              "font-outfit lg:!w-[40%] text-center uppercase text-white text-[5.412vw] lg:!text-[1.563vw] leading-[110%] font-medium"
             }
           >
             Would you like to collaborate or build something using the ZkNoid

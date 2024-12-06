@@ -3,11 +3,15 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import Link from "next/link";
-import lotteryGameImg from "@/public/image/slides/lottery-game.svg";
 import { cn } from "@/lib/helpers";
 import { useCallback, useEffect, useState } from "react";
 import ArrowButton from "@/shared/ArrowButton";
 import { motion } from "framer-motion";
+import lotteryGameImg from "@/public/image/slides/lottery-game.svg";
+import arkanoidGameImg from "@/public/image/slides/arkanoid.svg";
+import checkersGameImg from "@/public/image/slides/checkers.svg";
+import randzuGameImg from "@/public/image/slides/randzu.svg";
+import thimblerigGameImg from "@/public/image/slides/thimblerig.svg";
 
 const Slide = ({
   gameName,
@@ -23,8 +27,8 @@ const Slide = ({
   gameName: string;
   link: string;
   image: any;
-  tags: string[];
-  network: string;
+  tags?: string[];
+  network?: string;
   description: string;
   type: "currentSlide" | "nextSlide" | "slide";
   className?: string;
@@ -43,36 +47,39 @@ const Slide = ({
         className,
       )}
     >
-      <div className={"flex flex-row items-center justify-between"}>
+      <div className={"flex w-full flex-row items-center justify-between"}>
         <div
           className={
             "flex flex-row gap-[2.353vw] lg:!gap-[0.521vw] items-center"
           }
         >
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className={cn(
-                "rounded-full py-[0.824vw] lg:!py-[0.156vw] border px-[2vw] lg:!px-[0.313vw] text-[3.294vw] lg:!text-[0.729vw] text-white font-helvetica-now leading-[110%]",
-                type === "currentSlide"
-                  ? "border-gray-light bg-gray-light"
-                  : "border-white",
-              )}
-            >
-              {tag}
-            </span>
-          ))}
+          {tags &&
+            tags.map((tag, index) => (
+              <span
+                key={index}
+                className={cn(
+                  "rounded-full py-[0.824vw] lg:!py-[0.156vw] border px-[2vw] lg:!px-[0.313vw] text-[3.294vw] lg:!text-[0.729vw] text-white font-helvetica-now leading-[110%]",
+                  type === "currentSlide"
+                    ? "border-gray-light bg-gray-light"
+                    : "border-white",
+                )}
+              >
+                {tag}
+              </span>
+            ))}
         </div>
-        <span
-          className={cn(
-            "rounded-full py-[0.824vw] lg:!py-[0.156vw] border px-[2vw] lg:!px-[0.313vw] text-[3.294vw] lg:!text-[0.729vw] text-white font-helvetica-now leading-[110%]",
-            type === "currentSlide"
-              ? "border-gray-light bg-gray-light"
-              : "border-white",
-          )}
-        >
-          {network}
-        </span>
+        {network && (
+          <span
+            className={cn(
+              "rounded-full py-[0.824vw] lg:!py-[0.156vw] border px-[2vw] lg:!px-[0.313vw] text-[3.294vw] lg:!text-[0.729vw] text-white font-helvetica-now leading-[110%]",
+              type === "currentSlide"
+                ? "border-gray-light bg-gray-light"
+                : "border-white",
+            )}
+          >
+            {network}
+          </span>
+        )}
       </div>
       <div
         className={
@@ -95,7 +102,7 @@ const Slide = ({
       </span>
       <span
         className={cn(
-          "mt-[1.176vw] lg:!mt-[0.26vw] font-helvetica-now text-[3.294vw] lg:!text-[0.833vw]",
+          "mt-[1.176vw] mb-auto text-left lg:!mt-[0.26vw] font-helvetica-now text-[3.294vw] lg:!text-[0.833vw]",
           type === "currentSlide" ? "text-gray-dark" : "text-white opacity-80",
         )}
       >
@@ -109,6 +116,8 @@ const Slide = ({
       />
       <Link
         href={link}
+        rel="noopener noreferrer"
+        target="_blank"
         className={
           "flex hover:opacity-80 flex-row gap-[1.176vw] lg:!gap-[0.625vw] ml-auto items-center mt-[2.353vw] lg:!mt-[0.625vw] mr-px"
         }
@@ -178,66 +187,48 @@ const Slide = ({
 const slides = [
   {
     tags: ["L1appchain", "Lucky"],
-    network: "Testnet",
+    network: "Devnet",
     image: lotteryGameImg,
     gameName: "Lottery",
     description:
       "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-    link: "#",
+    link: "https://app.zknoid.io/games/lottery/global",
   },
   {
-    tags: ["L1appchain", "Lucky"],
-    network: "Testnet",
-    image: lotteryGameImg,
-    gameName: "Lottery",
+    tags: ["Protokit", "Board"],
+    network: "Devnet",
+    image: randzuGameImg,
+    gameName: "Randzu",
     description:
-      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-    link: "#",
+      "Randzu is a game played on a 15x15 grid, similar to tic-tac-toe. Two players take turns placing their mark, using balls of different colors. The goal is to get five of your marks in a row, either horizontally, vertically or diagonally.",
+    link: "https://app.zknoid.io/games/randzu/global",
   },
   {
-    tags: ["L1appchain", "Lucky"],
-    network: "Testnet",
-    image: lotteryGameImg,
-    gameName: "Lottery",
+    tags: ["Protokit", "Board"],
+    network: "Devnet",
+    image: arkanoidGameImg,
+    gameName: "Arkanoid",
     description:
-      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-    link: "#",
+      "In Arkanoid, your objective is to break all the bricks on the screen using a bouncing ball and a platform. You need to bounce the ball and prevent it from falling off the bottom of the screen.",
+    link: "https://app.zknoid.io/games/arkanoid/global",
   },
   {
-    tags: ["L1appchain", "Lucky"],
-    network: "Testnet",
-    image: lotteryGameImg,
-    gameName: "Lottery",
+    tags: ["Protokit", "Board"],
+    network: "Devnet",
+    image: checkersGameImg,
+    gameName: "Checkers",
     description:
-      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-    link: "#",
+      "Checkers is a two-player game played on an 8x8 board. Players take turns moving their pieces diagonally forward, capturing opponent's pieces by jumping over them.",
+    link: "https://app.zknoid.io/games/checkers/global",
   },
   {
-    tags: ["L1appchain", "Lucky"],
-    network: "Testnet",
-    image: lotteryGameImg,
-    gameName: "Lottery",
+    tags: ["Protokit", "Lucky"],
+    network: "Devnet",
+    image: thimblerigGameImg,
+    gameName: "Thimblerig",
     description:
-      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-    link: "#",
-  },
-  {
-    tags: ["L1appchain", "Lucky"],
-    network: "Testnet",
-    image: lotteryGameImg,
-    gameName: "Lottery",
-    description:
-      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-    link: "#",
-  },
-  {
-    tags: ["L1appchain", "Lucky"],
-    network: "Testnet",
-    image: lotteryGameImg,
-    gameName: "Lottery",
-    description:
-      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-    link: "#",
+      "Two players participate in each round of the game. One player hides a ball under one of three thimbles, and the other player attempts to guess the location of the ball.",
+    link: "https://app.zknoid.io/games/thimblerig/global",
   },
 ];
 
@@ -281,6 +272,7 @@ export default function Games() {
 
   return (
     <section
+      id="games"
       className={
         "px-[4.706vw] lg:!px-[10.938vw] mt-[25.882vw] lg:!mt-[10.417vw] flex flex-col"
       }
@@ -298,9 +290,10 @@ export default function Games() {
           Games
         </span>
         <ArrowButton
-          link={"#"}
+          link={"https://app.zknoid.io/"}
           text={"Go to App"}
           className={"hidden lg:!flex"}
+          openAsNewTab
         />
       </div>
       <div ref={emblaRef} className={"overflow-hidden w-full hidden lg:!block"}>
@@ -390,7 +383,9 @@ export default function Games() {
           ))}
         </div>
         <Link
-          href={"#"}
+          href={"https://app.zknoid.io/"}
+          rel="noopener noreferrer"
+          target={"_blank"}
           className={
             "mt-[4.706vw] lg:!hidden flex flex-col justify-center items-center py-[2.353vw] w-full bg-yellow rounded-[2.353vw]"
           }

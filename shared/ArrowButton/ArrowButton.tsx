@@ -5,10 +5,12 @@ export default function ArrowButton({
   link,
   text,
   className,
+  openAsNewTab,
 }: {
   link: string;
   text: string;
   className?: string;
+  openAsNewTab?: boolean;
 }) {
   return (
     <Link
@@ -17,6 +19,8 @@ export default function ArrowButton({
         "flex flex-row justify-center items-center group w-full lg:w-auto",
         className,
       )}
+      target={openAsNewTab ? "_blank" : "_self"}
+      rel={"noopener noreferrer"}
     >
       <div
         className={
