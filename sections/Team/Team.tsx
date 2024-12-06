@@ -241,7 +241,7 @@ const members: {
   {
     type: "sm",
     image: fosImg,
-    fullName: "Antony Solover",
+    fullName: "Anthony Solover",
     title: "Content manager",
     description:
       "Web3 content creator, community manager, and researcher since 2022. Academic background, on the verge of obtaining a PhD in biotechnology. His work includes in-depth analysis of current hot topics and passionate exploration of emerging trends",

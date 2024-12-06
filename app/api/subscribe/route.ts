@@ -13,6 +13,7 @@ export async function POST(request: Request) {
     {
       $set: {
         termsChecked,
+        timestamp: new Date().toISOString(),
       },
     },
     { upsert: true },
