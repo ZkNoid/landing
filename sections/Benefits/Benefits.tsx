@@ -136,19 +136,22 @@ const BenefitCard = ({
   text,
   color,
   icon,
+  className,
 }: {
   title: string;
   text: string;
   color: "blue" | "red" | "purple";
   icon: ReactNode;
+  className?: string;
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <div
-      className={
-        "relative rounded-[3.529vw] lg:!rounded-[0.781vw] h-full w-full p-[3.529vw] lg:!p-[0.781vw] flex flex-col bg-white"
-      }
+      className={cn(
+        "relative rounded-[3.529vw] lg:!rounded-[0.781vw] h-full w-full p-[3.529vw] lg:!p-[0.781vw] flex flex-col bg-white",
+        className,
+      )}
     >
       <AnimatePresence initial={false} mode={"popLayout"}>
         {!isOpen && (
@@ -329,39 +332,23 @@ export default function Benefits() {
       </div>
       <div
         className={
-          "flex flex-col items-center gap-[2.353vw] lg:!gap-[0.521vw] w-full lg:!w-[70%]"
+          "lg:!grid grid-cols-6 grid-rows-2 gap-[2.353vw] lg:!gap-[0.521vw] flex flex-col w-full lg:!w-[70%]"
         }
       >
-        <div
-          className={
-            "flex w-full lg:!w-auto flex-col lg:!flex-row items-center gap-[2.353vw] lg:!gap-[0.521vw]"
-          }
-        >
-          {benefits.toSpliced(3, benefits.length).map((item, index) => (
-            <BenefitCard
-              key={index}
-              title={item.title}
-              text={item.text}
-              color={item.color}
-              icon={item.icon}
-            />
-          ))}
-        </div>
-        <div
-          className={
-            "flex flex-col w-full lg:!w-auto lg:!flex-row items-center gap-[2.353vw] lg:!gap-[0.521vw]"
-          }
-        >
-          {benefits.toSpliced(0, 3).map((item, index) => (
-            <BenefitCard
-              key={index + 3}
-              title={item.title}
-              text={item.text}
-              color={item.color}
-              icon={item.icon}
-            />
-          ))}
-        </div>
+        {benefits.map((item, index) => (
+          <BenefitCard
+            key={index}
+            title={item.title}
+            text={item.text}
+            color={item.color}
+            icon={item.icon}
+            className={
+              index + 3 > benefits.length
+                ? "col-span-3 row-start-2"
+                : "col-span-2"
+            }
+          />
+        ))}
       </div>
     </section>
   );
