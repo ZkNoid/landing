@@ -7,11 +7,6 @@ import { cn } from "@/lib/helpers";
 import { useCallback, useEffect, useState } from "react";
 import ArrowButton from "@/shared/ArrowButton";
 import { motion } from "framer-motion";
-import lotteryGameImg from "@/public/image/slides/lottery-game.svg";
-import arkanoidGameImg from "@/public/image/slides/arkanoid.svg";
-import checkersGameImg from "@/public/image/slides/checkers.svg";
-import randzuGameImg from "@/public/image/slides/randzu.svg";
-import thimblerigGameImg from "@/public/image/slides/thimblerig.svg";
 
 const Slide = ({
   gameName,
@@ -88,6 +83,9 @@ const Slide = ({
       >
         <Image
           src={image}
+          crossOrigin="anonymous"
+          width={350}
+          height={350}
           alt={"Slide image"}
           className={"w-full h-full object-center object-cover"}
         />
@@ -188,7 +186,8 @@ const slides = [
   {
     tags: ["L1appchain", "Lucky"],
     network: "Devnet",
-    image: lotteryGameImg,
+    image:
+      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/hjvrfzqfs2ipagw9ssvi",
     gameName: "Lottery",
     description:
       "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
@@ -197,7 +196,8 @@ const slides = [
   {
     tags: ["Protokit", "Board"],
     network: "Devnet",
-    image: randzuGameImg,
+    image:
+      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/osupvpfrmbs3sjtyedhj",
     gameName: "Randzu",
     description:
       "Randzu is a game played on a 15x15 grid, similar to tic-tac-toe. Two players take turns placing their mark, using balls of different colors. The goal is to get five of your marks in a row, either horizontally, vertically or diagonally.",
@@ -206,7 +206,8 @@ const slides = [
   {
     tags: ["Protokit", "Board"],
     network: "Devnet",
-    image: arkanoidGameImg,
+    image:
+      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/wwzdbxebkblsjnppzndi",
     gameName: "Arkanoid",
     description:
       "In Arkanoid, your objective is to break all the bricks on the screen using a bouncing ball and a platform. You need to bounce the ball and prevent it from falling off the bottom of the screen.",
@@ -215,7 +216,8 @@ const slides = [
   {
     tags: ["Protokit", "Board"],
     network: "Devnet",
-    image: checkersGameImg,
+    image:
+      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/uonrfe1ikbh6bztjtntz",
     gameName: "Checkers",
     description:
       "Checkers is a two-player game played on an 8x8 board. Players take turns moving their pieces diagonally forward, capturing opponent's pieces by jumping over them.",
@@ -224,7 +226,8 @@ const slides = [
   {
     tags: ["Protokit", "Lucky"],
     network: "Devnet",
-    image: thimblerigGameImg,
+    image:
+      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/syrrq2hvfgerof7ypjk1",
     gameName: "Thimblerig",
     description:
       "Two players participate in each round of the game. One player hides a ball under one of three thimbles, and the other player attempts to guess the location of the ball.",
