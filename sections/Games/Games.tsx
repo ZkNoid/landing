@@ -184,16 +184,6 @@ const Slide = ({
 
 const slides = [
   {
-    tags: ["L1appchain", "Lucky"],
-    network: "Devnet",
-    image:
-      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/hjvrfzqfs2ipagw9ssvi",
-    gameName: "Lottery",
-    description:
-      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-    link: "https://app.zknoid.io/games/lottery/global",
-  },
-  {
     tags: ["Protokit", "Board"],
     network: "Devnet",
     image:
@@ -212,6 +202,16 @@ const slides = [
     description:
       "In Arkanoid, your objective is to break all the bricks on the screen using a bouncing ball and a platform. You need to bounce the ball and prevent it from falling off the bottom of the screen.",
     link: "https://app.zknoid.io/games/arkanoid/global",
+  },
+  {
+    tags: ["L1appchain", "Lucky"],
+    network: "Devnet",
+    image:
+      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/hjvrfzqfs2ipagw9ssvi",
+    gameName: "Lottery",
+    description:
+      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
+    link: "https://app.zknoid.io/games/lottery/global",
   },
   {
     tags: ["Protokit", "Board"],

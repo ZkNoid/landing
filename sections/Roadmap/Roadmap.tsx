@@ -25,7 +25,7 @@ const RoadmapItem = ({
       }
     >
       <div className={"flex flex-row items-center"}>
-        <div className={"flex flex-col lg:!flex-row w-full"}>
+        <div className={"flex flex-col lg:!flex-row w-full lg:!items-center"}>
           <span
             className={
               "text-[3.765vw] lg:!text-[1.042vw] lg:!w-[30%] lg:!mr-auto leading-[120%] font-helvetica-now font-medium uppercase text-white"

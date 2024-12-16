@@ -5,6 +5,7 @@ import Link from "next/link";
 import ArrowButton from "@/shared/ArrowButton";
 import useEmblaCarousel from "embla-carousel-react";
 import { SOCIALS } from "@/lib/socials";
+import { useEffect, useState } from "react";
 
 enum ArticleType {
   Announcements = "Announcements",
@@ -105,7 +106,7 @@ const Card = ({
   );
 };
 
-const articlesTop: {
+const articles: {
   color: "white" | "black";
   tag: { type: ArticleType; color: "yellow" | "red" | "blue" | "purple" };
   link: string;
@@ -133,15 +134,6 @@ const articlesTop: {
     title: "Mina Action & Reducers Guide: Why We Need Them",
     text: "Have you faced an issue of processing multiple transactions in the same block - both users trying to update the state simutaniously, one do it successfully, but other one got a failed transaction? Don’t worry, it isn’t a problem no more for all MinaDevelopers who building on MinaProtocol. The beauty and clear solution to this problem: Reducers.",
   },
-];
-
-const articlesBottom: {
-  color: "white" | "black";
-  tag: { type: ArticleType; color: "yellow" | "red" | "blue" | "purple" };
-  link: string;
-  title: string;
-  text: string;
-}[] = [
   {
     color: "white",
     tag: { type: ArticleType.Vision, color: "blue" },
@@ -166,23 +158,32 @@ const articlesBottom: {
   },
 ];
 
-const ArticleCounterItem = ({
-  title,
-  link,
-  count,
-}: {
-  title: string;
-  link: string;
-  count: number;
-}) => {
+const ArticleCounterItem = ({ title, tag }: { title: string; tag: string }) => {
+  const [count, setCount] = useState<number>(0);
+
+  useEffect(() => {
+    const getArticlesCount = async () => {
+      const res = await fetch("/api/getArticles", {
+        headers: {
+          Tag: tag,
+        },
+      });
+      if (!res.ok)
+        throw new Error(`Failed to fetch articles, code: ${res.status}`);
+      const data: number = await res.json();
+      setCount(data);
+    };
+    getArticlesCount();
+  }, []);
+
   return (
     <div
       className={
-        "flex flex-row border-t last-of-type:border-b border-white items-center justify-between py-[1.176vw] lg:!py-[0.26vw]"
+        "flex flex-row border-t last-of-type:border-b border-white items-center justify-between py-[1.176vw] lg:!py-[0.13vw]"
       }
     >
       <Link
-        href={link}
+        href={`https://medium.com/zknoid/tagged/${tag}`}
         target="_blank"
         rel="noopener noreferrer"
         className={
@@ -196,15 +197,15 @@ const ArticleCounterItem = ({
           "text-[3.765vw] lg:!text-[0.833vw] font-helvetica-now text-white"
         }
       >
-        ({count})
+        {count ? `(${count.toString()})` : `(0)`}
       </span>
     </div>
   );
 };
 
-const ArticlesCounter = () => {
+const ArticlesCounter = ({ className }: { className?: string }) => {
   return (
-    <div className={"w-full flex flex-col"}>
+    <div className={cn("w-full flex flex-col", className)}>
       <span
         className={
           "text-[13.647vw] lg:!text-[5.208vw] mb-[4.706vw] lg:!mb-[1.042vw] text-center leading-[80%] font-kavaimo uppercase text-yellow"
@@ -214,45 +215,18 @@ const ArticlesCounter = () => {
       </span>
       <ArticleCounterItem
         title={ArticleType.Announcements}
-        link={"https://medium.com/zknoid/tagged/announcements"}
-        count={1}
+        tag={"announcements"}
       />
-      <ArticleCounterItem
-        title={ArticleType.Vision}
-        link={"https://medium.com/zknoid/tagged/vision"}
-        count={4}
-      />
-      <ArticleCounterItem
-        title={ArticleType.Reports}
-        link={"https://medium.com/zknoid/tagged/report"}
-        count={8}
-      />
-      <ArticleCounterItem
-        title={ArticleType.DeepDive}
-        link={"https://medium.com/zknoid/tagged/technology"}
-        count={6}
-      />
-      <ArticleCounterItem
-        title={ArticleType.Guides}
-        link={"https://medium.com/zknoid/tagged/guide"}
-        count={6}
-      />
-      <ArticleCounterItem
-        title={ArticleType.ZkNoidSDK}
-        link={"https://medium.com/zknoid/tagged/sdk"}
-        count={2}
-      />
-      <ArticleCounterItem
-        title={ArticleType.Ecosystem}
-        link={"https://medium.com/zknoid/tagged/ecosystem"}
-        count={2}
-      />
+      <ArticleCounterItem title={ArticleType.Vision} tag={"vision"} />
+      <ArticleCounterItem title={ArticleType.Reports} tag={"reports"} />
+      <ArticleCounterItem title={ArticleType.DeepDive} tag={"technology"} />
+      <ArticleCounterItem title={ArticleType.Guides} tag={"guides"} />
+      <ArticleCounterItem title={ArticleType.ZkNoidSDK} tag={"sdk"} />
+      <ArticleCounterItem title={ArticleType.Ecosystem} tag={"ecosystem"} />
       <ArrowButton
         link={SOCIALS.medium}
         text={"VIEW ALL"}
-        className={
-          "mt-[3.529vw] mb-0 lg:!mt-[1.563vw] lg:!mb-[1.563vw] mx-auto"
-        }
+        className={"mt-[3.529vw] mb-0 lg:!mt-[1vw] lg:!mb-[1vw] mx-auto"}
         openAsNewTab
       />
     </div>
@@ -267,41 +241,15 @@ export default function Blog() {
     slidesToScroll: 1,
     skipSnaps: true,
   });
+
   return (
     <section
       className={
         "px-[4.706vw] lg:!px-[10.938vw] mt-[25.882vw] lg:!mt-[10.417vw] flex flex-col lg:!gap-[0.521vw]"
       }
     >
-      <div className={"hidden lg:!flex flex-row gap-[0.521vw]"}>
-        <Card
-          key={0}
-          color={articlesTop[0].color}
-          tag={articlesTop[0].tag}
-          link={articlesTop[0].link}
-          title={articlesTop[0].title}
-          text={articlesTop[0].text}
-        />
-        <ArticlesCounter />
-        <Card
-          key={1}
-          color={articlesTop[1].color}
-          tag={articlesTop[1].tag}
-          link={articlesTop[1].link}
-          title={articlesTop[1].title}
-          text={articlesTop[1].text}
-        />
-        <Card
-          key={2}
-          color={articlesTop[2].color}
-          tag={articlesTop[2].tag}
-          link={articlesTop[2].link}
-          title={articlesTop[2].title}
-          text={articlesTop[2].text}
-        />
-      </div>
-      <div className={"hidden lg:!flex flex-row gap-[0.521vw]"}>
-        {articlesBottom.map((item, index) => (
+      <div className={"hidden lg:!grid grid-cols-4 gap-[0.521vw]"}>
+        {articles.map((item, index) => (
           <Card
             key={index}
             color={item.color}
@@ -309,9 +257,13 @@ export default function Blog() {
             link={item.link}
             title={item.title}
             text={item.text}
-            className={index == 0 ? "w-[200%]" : undefined}
+            className={index === 3 ? "col-span-2" : undefined}
           />
         ))}
+        <ArticlesCounter
+          key={"articles-counter"}
+          className={"col-start-2 col-end-2 row-start-1 row-end-1"}
+        />
       </div>
       <div className={"lg:!hidden flex flex-col gap-[4.706vw]"}>
         <ArticlesCounter />
@@ -320,7 +272,7 @@ export default function Blog() {
           className={"overflow-hidden w-full flex lg:!hidden"}
         >
           <div className={"w-full flex flex-row"}>
-            {[...articlesTop, ...articlesBottom].map((item, index) => (
+            {articles.map((item, index) => (
               <Card
                 key={index}
                 color={item.color}
