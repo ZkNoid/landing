@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { ReactNode, useState } from "react";
 import { cn } from "@/lib/helpers";
+import Card3D from "@/shared/Card3D";
 
 const benefits: {
   title: string;
@@ -336,18 +337,21 @@ export default function Benefits() {
         }
       >
         {benefits.map((item, index) => (
-          <BenefitCard
+          <Card3D
             key={index}
-            title={item.title}
-            text={item.text}
-            color={item.color}
-            icon={item.icon}
             className={
               index + 3 > benefits.length
                 ? "col-span-3 row-start-2"
                 : "col-span-2"
             }
-          />
+          >
+            <BenefitCard
+              title={item.title}
+              text={item.text}
+              color={item.color}
+              icon={item.icon}
+            />
+          </Card3D>
         ))}
       </div>
     </section>

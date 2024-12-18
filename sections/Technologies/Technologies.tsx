@@ -1,6 +1,9 @@
+"use client";
+
 import { ReactNode } from "react";
 import { cn } from "@/lib/helpers";
 import Link from "next/link";
+import Card3D from "@/shared/Card3D";
 
 const Block = ({
   index,
@@ -21,7 +24,7 @@ const Block = ({
       target="_blank"
       rel="noopener noreferrer"
       className={
-        "w-full group p-[3.529vw] lg:!p-[0.781vw] hover:bg-white transition-colors hover:text-black h-auto rounded-[2.353vw] lg:!rounded-[0.521vw] bg-gray-light flex flex-col"
+        "w-full group p-[3.529vw] lg:!p-[0.781vw] hover:bg-white transition-colors hover:text-black h-full rounded-[2.353vw] lg:!rounded-[0.521vw] bg-gray-light flex flex-col"
       }
     >
       <div className="flex flex-row w-full items-center justify-between">
@@ -238,14 +241,15 @@ export default function Technologies() {
         className={"flex flex-col lg:!flex-row gap-[2.353vw] lg:!gap-[0.521vw]"}
       >
         {blocks.map((item, index) => (
-          <Block
-            key={index}
-            index={index + 1}
-            link={item.link}
-            title={item.title}
-            text={item.text}
-            icon={item.icon}
-          />
+          <Card3D key={index} className={"w-full h-auto"}>
+            <Block
+              index={index + 1}
+              link={item.link}
+              title={item.title}
+              text={item.text}
+              icon={item.icon}
+            />
+          </Card3D>
         ))}
       </div>
     </section>

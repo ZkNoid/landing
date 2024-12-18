@@ -6,6 +6,7 @@ import ArrowButton from "@/shared/ArrowButton";
 import useEmblaCarousel from "embla-carousel-react";
 import { SOCIALS } from "@/lib/socials";
 import { useEffect, useState } from "react";
+import Card3D from "@/shared/Card3D";
 
 enum ArticleType {
   Announcements = "Announcements",
@@ -35,7 +36,7 @@ const Card = ({
   return (
     <div
       className={cn(
-        "rounded-[2.353vw] lg:!rounded-[0.521vw] p-[3.529vw] lg:!p-[0.781vw] w-full flex flex-col flex-[0_0_85%] ml-[2.353vw] first:ml-0 lg:!ml-0 min-w-0 lg:!min-w-0 lg:!flex-auto",
+        "rounded-[2.353vw] lg:!rounded-[0.521vw] p-[3.529vw] lg:!p-[0.781vw] w-full h-full flex flex-col flex-[0_0_85%] lg:!flex-[1_1_auto] ml-[2.353vw] first:ml-0 lg:!ml-0 min-w-0 lg:!min-w-0",
         color == "white" ? "bg-white" : "bg-gray-light",
         className,
       )}
@@ -250,15 +251,18 @@ export default function Blog() {
     >
       <div className={"hidden lg:!grid grid-cols-4 gap-[0.521vw]"}>
         {articles.map((item, index) => (
-          <Card
+          <Card3D
             key={index}
-            color={item.color}
-            tag={item.tag}
-            link={item.link}
-            title={item.title}
-            text={item.text}
             className={index === 3 ? "col-span-2" : undefined}
-          />
+          >
+            <Card
+              color={item.color}
+              tag={item.tag}
+              link={item.link}
+              title={item.title}
+              text={item.text}
+            />
+          </Card3D>
         ))}
         <ArticlesCounter
           key={"articles-counter"}
