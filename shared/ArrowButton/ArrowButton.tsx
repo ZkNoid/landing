@@ -1,4 +1,5 @@
 import { cn } from "@/lib/helpers";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function ArrowButton({
@@ -13,21 +14,59 @@ export default function ArrowButton({
   openAsNewTab?: boolean;
 }) {
   return (
-    <Link
-      href={link}
+    <motion.div
       className={cn(
-        "flex flex-row justify-center items-center group w-full lg:w-auto",
+        "relative overflow-hidden flex flex-row justify-center items-center group w-full lg:w-auto",
         className,
       )}
-      target={openAsNewTab ? "_blank" : "_self"}
-      rel={"noopener noreferrer"}
+      initial={"initial"}
+      whileHover={"hovered"}
     >
+      <Link
+        href={link}
+        target={openAsNewTab ? "_blank" : "_self"}
+        rel={"noopener noreferrer"}
+        className={"absolute top-0 left-0 w-full h-full z-[1]"}
+      />
       <div
         className={
-          "text-gray-dark py-[2.353vw] w-[95%] lg:w-auto lg:py-[0.417vw] group-hover:bg-white uppercase lg:px-[1.146vw] bg-yellow text-center rounded-[11.765vw] lg:rounded-[2.604vw] text-[3.765vw] lg:text-[0.833vw] font-medium font-outfit leading-[110%]"
+          "py-[2.353vw] w-[95%] flex flex-col justify-center items-center lg:!w-auto lg:!py-[0.417vw] group-hover:bg-white lg:!px-[1.146vw] bg-yellow rounded-[11.765vw] lg:!rounded-[2.604vw]"
         }
       >
-        {text}
+        <motion.div
+          variants={{
+            initial: { y: 0 },
+            hovered: { y: "-10vw" },
+          }}
+          transition={{
+            duration: 0.35,
+            type: "spring",
+            ease: "linear",
+            stiffness: 50,
+          }}
+          className={
+            "text-gray-dark touch-none cursor-pointer absolute text-[3.765vw] lg:text-[0.833vw] font-medium font-outfit leading-[110%] uppercase"
+          }
+        >
+          {text}
+        </motion.div>
+        <motion.div
+          variants={{
+            initial: { y: "10vw" },
+            hovered: { y: 0 },
+          }}
+          transition={{
+            duration: 0.35,
+            type: "spring",
+            ease: "linear",
+            stiffness: 50,
+          }}
+          className={
+            "text-gray-dark touch-none cursor-pointer text-[3.765vw] lg:text-[0.833vw] font-medium font-outfit leading-[110%] uppercase"
+          }
+        >
+          {text}
+        </motion.div>
       </div>
       <div
         className={
@@ -51,6 +90,6 @@ export default function ArrowButton({
           />
         </svg>
       </div>
-    </Link>
+    </motion.div>
   );
 }

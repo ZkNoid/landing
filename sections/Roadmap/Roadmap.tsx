@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { ReactNode, useState } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { ReactNode, useRef, useState } from "react";
 import Link from "next/link";
 
 const RoadmapItem = ({
@@ -374,10 +374,13 @@ const roadmapItems: {
 
 export default function Roadmap() {
   const [openIndex, setOpenIndex] = useState<number | undefined>(undefined);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <section
       id="roadmap"
+      ref={ref}
       className={"mt-[25.882vw] lg:!mt-[10.417vw] relative flex flex-col"}
     >
       <div className={"px-[4.706vw] lg:!px-[26.667vw] flex flex-col"}>
@@ -435,8 +438,7 @@ export default function Roadmap() {
               stroke="#3A39FF"
               strokeWidth="4"
               strokeMiterlimit="10"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
+              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
               transition={{ duration: 1.2 }}
             />
             <motion.path
@@ -444,8 +446,7 @@ export default function Roadmap() {
               stroke="#D4FF33"
               strokeWidth="4"
               strokeMiterlimit="10"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
+              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
               transition={{ duration: 1.2 }}
             />
             <motion.path
@@ -453,8 +454,7 @@ export default function Roadmap() {
               stroke="#FF5B23"
               strokeWidth="4"
               strokeMiterlimit="10"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
+              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
               transition={{ duration: 1.2 }}
             />
           </g>

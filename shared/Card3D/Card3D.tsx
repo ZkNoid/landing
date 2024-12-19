@@ -1,19 +1,24 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { ReactNode, useEffect, useRef, useState } from "react";
 
 export default function Card3D({
   children,
   className,
+  hasViewAnimation,
 }: {
   children: ReactNode;
   className?: string;
+  hasViewAnimation?: boolean;
 }) {
+  const [isMobile, setIsMobile] = useState(false);
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const angle = 15;
   const [rotateX, setRotateX] = useState<string>("");
   const [rotateY, setRotateY] = useState<string>("");
+  const cardRef = useRef<HTMLDivElement>(null);
+  const angle = 15;
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   // @ts-ignore
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
@@ -48,11 +53,44 @@ export default function Card3D({
       setRotateY("" + ry + "deg");
     }
   }, [mouseX, mouseY]);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      window.innerWidth >= 1024 ? setIsMobile(false) : setIsMobile(true);
+    };
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+
   return (
-    <div className={className} onMouseMove={handleMouseMove}>
+    <div ref={ref} className={className} onMouseMove={handleMouseMove}>
       <motion.div
         ref={cardRef}
         className={"w-full h-full"}
+        animate={
+          hasViewAnimation && !isMobile
+            ? isInView
+              ? {
+                  y: 0,
+                  transition: {
+                    duration: 1,
+                    type: "spring",
+                    ease: "linear",
+                    stiffness: 70,
+                  },
+                }
+              : {
+                  y: "10vw",
+                  transition: {
+                    duration: 1,
+                    type: "spring",
+                    ease: "linear",
+                    stiffness: 70,
+                  },
+                }
+            : undefined
+        }
         initial={{
           rotateX: 0,
           rotateY: 0,

@@ -241,7 +241,11 @@ export default function Technologies() {
         className={"flex flex-col lg:!flex-row gap-[2.353vw] lg:!gap-[0.521vw]"}
       >
         {blocks.map((item, index) => (
-          <Card3D key={index} className={"w-full h-auto"}>
+          <Card3D
+            key={index}
+            className={"w-full h-auto"}
+            hasViewAnimation={true}
+          >
             <Block
               index={index + 1}
               link={item.link}

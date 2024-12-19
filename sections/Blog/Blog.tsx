@@ -242,7 +242,6 @@ export default function Blog() {
     slidesToScroll: 1,
     skipSnaps: true,
   });
-
   return (
     <section
       className={
@@ -254,6 +253,7 @@ export default function Blog() {
           <Card3D
             key={index}
             className={index === 3 ? "col-span-2" : undefined}
+            hasViewAnimation={true}
           >
             <Card
               color={item.color}

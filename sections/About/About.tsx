@@ -3,24 +3,36 @@
 import ArrowButton from "@/shared/ArrowButton";
 import Image from "next/image";
 import aboutBgImg from "@/public/image/about-bg.svg";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export default function About() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <section
+      ref={ref}
       id="about"
       className={
         "px-[4.706vw] lg:!px-[10.938vw] mt-[23.529vw] lg:!mt-[7.813vw] relative gap-[4.167vw] flex flex-row items-center justify-center"
       }
     >
-      <span
+      <motion.div
         className={
           "hidden lg:!inline-block w-[45%] opacity-80 mt-[6%] text-center text-[0.833vw] leading-[120%] font-helvetica-now font-medium text-white"
         }
+        animate={isInView ? { y: 0 } : { y: "10vw" }}
+        transition={{
+          duration: 1,
+          type: "spring",
+          ease: "linear",
+          stiffness: 70,
+        }}
       >
         While playing all your actions are accumulated inside a zero-knowledge
         circuit on the client side, ensuring verifiability of the game process
         while your strategy remains confidential.
-      </span>
+      </motion.div>
       <div className={"w-full flex flex-col justify-center items-center"}>
         <span
           className={
@@ -68,15 +80,22 @@ export default function About() {
           openAsNewTab
         />
       </div>
-      <span
+      <motion.div
         className={
           "hidden lg:!inline-block w-[45%] opacity-80 mt-[6%] text-center text-[0.833vw] leading-[120%] font-helvetica-now font-medium text-white"
         }
+        animate={isInView ? { y: 0 } : { y: "10vw" }}
+        transition={{
+          duration: 1,
+          type: "spring",
+          ease: "linear",
+          stiffness: 70,
+        }}
       >
         ZkNoid provides the united ecosystem for ZK gaming – developers can use
         SDK to be a part of the platform. L2 rollup based on protokit network
         enables gasless sessions, fast transactions
-      </span>
+      </motion.div>
       <div
         className={
           "hidden lg:!flex w-full h-full mt-[1%] -z-[1] absolute left-0 top-0 flex-col justify-center items-center"
