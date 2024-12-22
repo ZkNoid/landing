@@ -18,7 +18,9 @@ export default function Card3D({
   const cardRef = useRef<HTMLDivElement>(null);
   const angle = 15;
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, {
+    once: true,
+  });
 
   // @ts-ignore
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
@@ -74,19 +76,19 @@ export default function Card3D({
               ? {
                   y: 0,
                   transition: {
-                    duration: 1,
+                    duration: 4,
                     type: "spring",
                     ease: "linear",
-                    stiffness: 70,
+                    stiffness: 50,
                   },
                 }
               : {
                   y: "10vw",
                   transition: {
-                    duration: 1,
+                    duration: 4,
                     type: "spring",
                     ease: "linear",
-                    stiffness: 70,
+                    stiffness: 50,
                   },
                 }
             : undefined
