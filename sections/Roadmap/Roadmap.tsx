@@ -145,7 +145,7 @@ const roadmapItems: {
 }[] = [
   {
     date: "Q1, 2024",
-    title: "Arcanoid, Randzu, Thimblerig",
+    title: "Arkanoid, Randzu, Thimblerig",
     content: (
       <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
         <div
@@ -311,9 +311,9 @@ const roadmapItems: {
           >
             <CheckboxedItem isChecked={true} text={"SDK for games"} />
             <CheckboxedItem isChecked={true} text={"SDK: Cards Engine"} />
-            <CheckboxedItem isChecked={false} text={"Lottery game testnet"} />
+            <CheckboxedItem isChecked={true} text={"Lottery game testnet"} />
             <CheckboxedItem isChecked={false} text={"VRF Integration"} />
-            <CheckboxedItem isChecked={false} text={"Guides & Workshops"} />
+            <CheckboxedItem isChecked={true} text={"Guides & Workshops"} />
           </div>
         </div>
         <Link
