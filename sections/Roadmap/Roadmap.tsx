@@ -419,7 +419,7 @@ export default function Roadmap() {
           viewBox="0 0 1920 247"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className={"object-cover object-center w-screen"}
+          className={"object-cover object-center w-screen h-full"}
         >
           <mask
             id="mask0_1033_3978"
