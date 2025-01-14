@@ -405,6 +405,24 @@ export default function MobileHeader() {
                 </span>
               </Link>
             </MenuItem>
+            <MenuItem className={"mt-[2.353vw] mb-[4.706vw] w-full"}>
+              <Link
+                href={"https://app.zknoid.io/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={
+                  "py-[2.588vw] bg-blue rounded-[2.353vw] flex flex-col justify-center items-center"
+                }
+              >
+                <span
+                  className={
+                    "text-white font-medium text-[3.765vw] font-helvetica-now leading-[110%]"
+                  }
+                >
+                  Go to App
+                </span>
+              </Link>
+            </MenuItem>
             <MenuItem
               className={
                 "mt-[5.882vw] w-full flex flex-col items-center justify-center"

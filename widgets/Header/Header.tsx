@@ -62,7 +62,7 @@ export default function Header() {
       animate={isOpen ? "open" : "closed"}
       transition={{ duration: 0.35, ease: "easeInOut", type: "just" }}
       className={
-        "w-full z-[51] top-0 left-0 bg-bg-dark fixed lg:!flex hidden py-[2.344vw] px-[3.125vw] flex-row justify-between items-center"
+        "w-full z-[51] top-0 left-0 bg-bg-dark fixed lg:!grid hidden py-[2.344vw] px-[3.125vw] grid-cols-3 items-center"
       }
     >
       <Link href="/">
@@ -90,20 +90,38 @@ export default function Header() {
           openAsNewTab
         />
       </nav>
-      <Link
-        href={"https://docs.zknoid.io/docs/zknoid_for_developers/sdk/overview"}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <motion.div
-          className={
-            "bg-yellow text-[0.833vw] font-helvetica-now font-medium text-black rounded-[0.521vw] px-[0.625vw] py-[0.417vw]"
-          }
-          whileHover={{ backgroundColor: "#FFFCF5" }}
+      <div className={"flex flex-row gap-[1.024vw] items-center justify-end"}>
+        <Link
+          href={"https://app.zknoid.io/"}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Start Build
-        </motion.div>
-      </Link>
+          <motion.div
+            className={
+              "bg-yellow text-[0.833vw] font-helvetica-now font-medium text-black rounded-[0.521vw] px-[1.25vw] py-[0.417vw]"
+            }
+            whileHover={{ backgroundColor: "#FFFCF5" }}
+          >
+            Go to App
+          </motion.div>
+        </Link>
+        <Link
+          href={
+            "https://docs.zknoid.io/docs/zknoid_for_developers/sdk/overview"
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <motion.div
+            className={
+              "bg-yellow text-[0.833vw] font-helvetica-now font-medium text-black rounded-[0.521vw] px-[0.625vw] py-[0.417vw]"
+            }
+            whileHover={{ backgroundColor: "#FFFCF5" }}
+          >
+            Start Build
+          </motion.div>
+        </Link>
+      </div>
     </motion.header>
   );
 }
