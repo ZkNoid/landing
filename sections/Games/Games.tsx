@@ -204,8 +204,8 @@ const slides = [
     link: "https://app.zknoid.io/games/arkanoid/global",
   },
   {
-    tags: ["L1appchain", "Lucky"],
-    network: "Devnet",
+    tags: ["Mina L1", "Lucky"],
+    network: "Mainnet",
     image:
       "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/hjvrfzqfs2ipagw9ssvi",
     gameName: "Lottery",
