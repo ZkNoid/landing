@@ -6,7 +6,6 @@ import ArrowButton from "@/shared/ArrowButton";
 import useEmblaCarousel from "embla-carousel-react";
 import { SOCIALS } from "@/lib/socials";
 import { useEffect, useState } from "react";
-import Card3D from "@/shared/Card3D";
 
 enum ArticleType {
   Announcements = "Announcements",
@@ -250,19 +249,15 @@ export default function Blog() {
     >
       <div className={"hidden lg:!grid grid-cols-4 gap-[0.521vw]"}>
         {articles.map((item, index) => (
-          <Card3D
+          <Card
             key={index}
+            color={item.color}
+            tag={item.tag}
+            link={item.link}
+            title={item.title}
+            text={item.text}
             className={index === 3 ? "col-span-2" : undefined}
-            hasViewAnimation={true}
-          >
-            <Card
-              color={item.color}
-              tag={item.tag}
-              link={item.link}
-              title={item.title}
-              text={item.text}
-            />
-          </Card3D>
+          />
         ))}
         <ArticlesCounter
           key={"articles-counter"}

@@ -90,7 +90,7 @@ export default function Header() {
           openAsNewTab
         />
       </nav>
-      <div className={"flex flex-row gap-[1.024vw] items-center justify-end"}>
+      <div className={"flex flex-row gap-[0.26vw] items-center justify-end"}>
         <Link
           href={"https://app.zknoid.io/"}
           target="_blank"
@@ -114,7 +114,7 @@ export default function Header() {
         >
           <motion.div
             className={
-              "bg-yellow text-[0.833vw] font-helvetica-now font-medium text-black rounded-[0.521vw] px-[0.625vw] py-[0.417vw]"
+              "bg-blue text-[0.833vw] font-helvetica-now font-medium text-white hover:text-black rounded-[0.521vw] px-[0.625vw] py-[0.417vw]"
             }
             whileHover={{ backgroundColor: "#FFFCF5" }}
           >

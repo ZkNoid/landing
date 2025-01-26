@@ -7,10 +7,10 @@ import { cn } from "@/lib/helpers";
 import { useCallback, useEffect, useState } from "react";
 import ArrowButton from "@/shared/ArrowButton";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Slide = ({
   gameName,
-  link,
   image,
   tags,
   network,
@@ -20,7 +20,6 @@ const Slide = ({
   onClick,
 }: {
   gameName: string;
-  link: string;
   image: any;
   tags?: string[];
   network?: string;
@@ -112,10 +111,7 @@ const Slide = ({
           type === "currentSlide" ? "bg-gray-dark" : "bg-white",
         )}
       />
-      <Link
-        href={link}
-        rel="noopener noreferrer"
-        target="_blank"
+      <button
         className={
           "flex hover:opacity-80 flex-row gap-[1.176vw] lg:!gap-[0.625vw] ml-auto items-center mt-[2.353vw] lg:!mt-[0.625vw] mr-px"
         }
@@ -177,7 +173,7 @@ const Slide = ({
             />
           </svg>
         )}
-      </Link>
+      </button>
     </button>
   );
 };
@@ -261,6 +257,7 @@ export default function Games() {
   const onSelectMobile = useCallback((mobileEmblaApi: any) => {
     setMobileSelectedIndex(mobileEmblaApi.selectedScrollSnap());
   }, []);
+  const router = useRouter();
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -309,8 +306,11 @@ export default function Games() {
               image={slide.image}
               gameName={slide.gameName}
               description={slide.description}
-              link={slide.link}
-              onClick={() => emblaApi?.scrollTo(index)}
+              onClick={() =>
+                index == selectedIndex
+                  ? router.push(slide.link)
+                  : emblaApi?.scrollTo(index)
+              }
               type={
                 index == selectedIndex
                   ? "currentSlide"
@@ -347,8 +347,11 @@ export default function Games() {
               image={slide.image}
               gameName={slide.gameName}
               description={slide.description}
-              link={slide.link}
-              onClick={() => mobileEmblaApi?.scrollTo(index)}
+              onClick={() =>
+                index == mobileSelectedIndex
+                  ? router.push(slide.link)
+                  : mobileEmblaApi?.scrollTo(index)
+              }
               type={index == mobileSelectedIndex ? "currentSlide" : "nextSlide"}
             />
           ))}

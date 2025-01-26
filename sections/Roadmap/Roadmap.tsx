@@ -333,7 +333,7 @@ const roadmapItems: {
   },
   {
     date: "Q4, 2024",
-    title: "Tokenomics",
+    title: "Orderbook & Tokenomics",
     content: (
       <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
         <div
@@ -341,6 +341,30 @@ const roadmapItems: {
             "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
           }
         >
+          <div
+            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
+          >
+            <CheckboxedItem
+              isChecked={false}
+              text={"Order book conception on Mina Protocol development"}
+            />
+            <CheckboxedItem
+              isChecked={false}
+              text={"Order book contracts development"}
+            />
+            <CheckboxedItem
+              isChecked={false}
+              text={"Order book backend development"}
+            />
+            <CheckboxedItem
+              isChecked={false}
+              text={"Order book user interface & design"}
+            />
+            <CheckboxedItem
+              isChecked={false}
+              text={"Order book frontend development"}
+            />
+          </div>
           <div
             className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
           >
