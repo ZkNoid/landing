@@ -458,7 +458,7 @@ export default function Footer() {
               />
             </Link>
           </div>
-          <div className={"w-full flex justify-center items-end"}>
+          <div className={"w-full flex justify-start items-end ml-[22.5vw]"}>
             <span
               className={
                 "opacity-60 cursor-not-allowed text-[0.833vw] hover:opacity-60 uppercase underline text-black font-medium font-outfit leading-[110%]"

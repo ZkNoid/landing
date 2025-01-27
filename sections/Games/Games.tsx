@@ -111,7 +111,7 @@ const Slide = ({
           type === "currentSlide" ? "bg-gray-dark" : "bg-white",
         )}
       />
-      <button
+      <div
         className={
           "flex hover:opacity-80 flex-row gap-[1.176vw] lg:!gap-[0.625vw] ml-auto items-center mt-[2.353vw] lg:!mt-[0.625vw] mr-px"
         }
@@ -173,7 +173,7 @@ const Slide = ({
             />
           </svg>
         )}
-      </button>
+      </div>
     </button>
   );
 };

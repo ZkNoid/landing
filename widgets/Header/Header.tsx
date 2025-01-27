@@ -90,7 +90,7 @@ export default function Header() {
           openAsNewTab
         />
       </nav>
-      <div className={"flex flex-row gap-[0.26vw] items-center justify-end"}>
+      <div className={"flex flex-row gap-[0.521vw] items-center justify-end"}>
         <Link
           href={"https://app.zknoid.io/"}
           target="_blank"

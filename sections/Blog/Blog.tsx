@@ -5,7 +5,8 @@ import Link from "next/link";
 import ArrowButton from "@/shared/ArrowButton";
 import useEmblaCarousel from "embla-carousel-react";
 import { SOCIALS } from "@/lib/socials";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 
 enum ArticleType {
   Announcements = "Announcements",
@@ -241,28 +242,81 @@ export default function Blog() {
     slidesToScroll: 1,
     skipSnaps: true,
   });
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+  });
+
   return (
     <section
+      ref={ref}
       className={
         "px-[4.706vw] lg:!px-[10.938vw] mt-[25.882vw] lg:!mt-[10.417vw] flex flex-col lg:!gap-[0.521vw]"
       }
     >
       <div className={"hidden lg:!grid grid-cols-4 gap-[0.521vw]"}>
         {articles.map((item, index) => (
-          <Card
+          <motion.div
             key={index}
-            color={item.color}
-            tag={item.tag}
-            link={item.link}
-            title={item.title}
-            text={item.text}
             className={index === 3 ? "col-span-2" : undefined}
-          />
+            animate={
+              isInView
+                ? {
+                    y: 0,
+                    transition: {
+                      duration: 4,
+                      type: "spring",
+                      ease: "linear",
+                      stiffness: 50,
+                    },
+                  }
+                : {
+                    y: "10vw",
+                    transition: {
+                      duration: 4,
+                      type: "spring",
+                      ease: "linear",
+                      stiffness: 50,
+                    },
+                  }
+            }
+          >
+            <Card
+              color={item.color}
+              tag={item.tag}
+              link={item.link}
+              title={item.title}
+              text={item.text}
+            />
+          </motion.div>
         ))}
-        <ArticlesCounter
-          key={"articles-counter"}
+        <motion.div
           className={"col-start-2 col-end-2 row-start-1 row-end-1"}
-        />
+          animate={
+            isInView
+              ? {
+                  y: 0,
+                  transition: {
+                    duration: 4,
+                    type: "spring",
+                    ease: "linear",
+                    stiffness: 50,
+                  },
+                }
+              : {
+                  y: "10vw",
+                  transition: {
+                    duration: 4,
+                    type: "spring",
+                    ease: "linear",
+                    stiffness: 50,
+                  },
+                }
+          }
+        >
+          <ArticlesCounter key={"articles-counter"} />
+        </motion.div>
       </div>
       <div className={"lg:!hidden flex flex-col gap-[4.706vw]"}>
         <ArticlesCounter />
