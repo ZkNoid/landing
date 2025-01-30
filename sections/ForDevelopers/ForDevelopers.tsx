@@ -2,21 +2,24 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/helpers";
+import { IStrapiData, IStrapiResponse } from "@/lib/strapi/types";
+import { strapiRequest } from "@/lib/strapi/strapiRequest";
+import Skeleton from "@/shared/Skeleton";
 
 const FeatureAccordion = ({
   index,
   title,
   description,
-  status,
+  featureStatus,
   onClick,
   isOpen,
 }: {
   index: number;
   title: string;
   description: string;
-  status: "progress" | "ready";
+  featureStatus: "progress" | "ready";
   onClick: () => void;
   isOpen: boolean;
 }) => {
@@ -44,10 +47,10 @@ const FeatureAccordion = ({
           <span
             className={cn(
               "lg:!hidden text-[2.824vw] font-helvetica-now leading-[120%]",
-              status === "progress" ? "text-red" : "text-purple",
+              featureStatus === "progress" ? "text-red" : "text-purple",
             )}
           >
-            {status === "progress" ? "In progress..." : "Ready to use"}
+            {featureStatus === "progress" ? "In progress..." : "Ready to use"}
           </span>
           <span
             className={cn(
@@ -61,10 +64,10 @@ const FeatureAccordion = ({
         <span
           className={cn(
             "hidden lg:!inline-block text-[0.833vw] font-helvetica-now leading-[120%] lg:!col-span-2",
-            status === "progress" ? "text-red" : "text-purple",
+            featureStatus === "progress" ? "text-red" : "text-purple",
           )}
         >
-          {status === "progress" ? "In progress..." : "Ready to use"}
+          {featureStatus === "progress" ? "In progress..." : "Ready to use"}
         </span>
         <div
           className={cn(
@@ -96,51 +99,73 @@ const FeatureAccordion = ({
   );
 };
 
-const features: {
+// const features: {
+//   title: string;
+//   description: string;
+//   status: "progress" | "ready";
+// }[] = [
+//   {
+//     title: "Session keys",
+//     description:
+//       "Session keys are generated for each match and stored on the user's frontend, eliminating the need for manual transaction signing. This greatly improves the user experience by keeping transactions hidden from the user.",
+//     status: "ready",
+//   },
+//   {
+//     title: "Cards Engine",
+//     description:
+//       "The Card Engine provides game developers with user-friendly tools to create custom card games without the need for complex encryption implementations. Developers simply need to design the cards and define the game logic, and the Card Engine will handle everything else, including provable shuffle, card disclosure and the secure management of the game state.",
+//     status: "progress",
+//   },
+//   {
+//     title: "Commit Reveal Scheme",
+//     description:
+//       "The Commit-Reveal Schema is a two-step process that helps conceal information on-chain before proving it. First, a hash of the hidden data and a random salt is published. Later, the data and salt are provided to verify the original commitment.",
+//     status: "ready",
+//   },
+//   {
+//     title: "VRF Random generation",
+//     description:
+//       "A Verifiable Random Function (VRF) generates a provably random number. It ensures that the number is truly random, preventing any prior prediction, while also being verifiable, allowing others to confirm its proper computation. Random numbers are crucial in many games, such as lotteries.",
+//     status: "progress",
+//   },
+//   {
+//     title: "Matchmaking and Lobby",
+//     description:
+//       "The matchmaking and lobby features provided in our SDK offer an out-of-the-box solution for multiplayer games, simplifying multiplayer session creation and player discovery.",
+//     status: "ready",
+//   },
+//   {
+//     title: "Leaderboard",
+//     description:
+//       "The ZkNoid SDK includes the GameHub module, which allows developers to easily create runtime modules for single-player games with zk-proofed scores. Games built on top of GameHub automatically store users' scores on a leaderboard, encouraging competition and enabling reward distribution among the top players.",
+//     status: "ready",
+//   },
+// ];
+
+interface IForDevsItemData extends IStrapiData {
   title: string;
   description: string;
-  status: "progress" | "ready";
-}[] = [
-  {
-    title: "Session keys",
-    description:
-      "Session keys are generated for each match and stored on the user's frontend, eliminating the need for manual transaction signing. This greatly improves the user experience by keeping transactions hidden from the user.",
-    status: "ready",
-  },
-  {
-    title: "Cards Engine",
-    description:
-      "The Card Engine provides game developers with user-friendly tools to create custom card games without the need for complex encryption implementations. Developers simply need to design the cards and define the game logic, and the Card Engine will handle everything else, including provable shuffle, card disclosure and the secure management of the game state.",
-    status: "progress",
-  },
-  {
-    title: "Commit Reveal Scheme",
-    description:
-      "The Commit-Reveal Schema is a two-step process that helps conceal information on-chain before proving it. First, a hash of the hidden data and a random salt is published. Later, the data and salt are provided to verify the original commitment.",
-    status: "ready",
-  },
-  {
-    title: "VRF Random generation",
-    description:
-      "A Verifiable Random Function (VRF) generates a provably random number. It ensures that the number is truly random, preventing any prior prediction, while also being verifiable, allowing others to confirm its proper computation. Random numbers are crucial in many games, such as lotteries.",
-    status: "progress",
-  },
-  {
-    title: "Matchmaking and Lobby",
-    description:
-      "The matchmaking and lobby features provided in our SDK offer an out-of-the-box solution for multiplayer games, simplifying multiplayer session creation and player discovery.",
-    status: "ready",
-  },
-  {
-    title: "Leaderboard",
-    description:
-      "The ZkNoid SDK includes the GameHub module, which allows developers to easily create runtime modules for single-player games with zk-proofed scores. Games built on top of GameHub automatically store users' scores on a leaderboard, encouraging competition and enabling reward distribution among the top players.",
-    status: "ready",
-  },
-];
+  featureStatus: "progress" | "ready";
+  priority: number;
+}
+
+interface IForDevsItemsResponse extends IStrapiResponse {
+  data: IForDevsItemData[];
+}
 
 export default function ForDevelopers() {
   const [openIndex, setOpenIndex] = useState<number | undefined>(undefined);
+  const [features, setFeatures] = useState<IForDevsItemData[]>([]);
+
+  useEffect(() => {
+    strapiRequest({
+      pluralApi: "landing-for-devs",
+      fetchConfig: { revalidate: 600 },
+      cache: "force-cache",
+    })
+      .then((response: IForDevsItemsResponse) => setFeatures(response.data))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <section
@@ -161,21 +186,31 @@ export default function ForDevelopers() {
         }
       >
         <div className={"w-full lg:!w-[56%] flex flex-col"}>
-          {features.map((item, index) => (
-            <FeatureAccordion
-              key={index}
-              index={index + 1}
-              title={item.title}
-              description={item.description}
-              status={item.status}
-              onClick={() => {
-                openIndex == index
-                  ? setOpenIndex(undefined)
-                  : setOpenIndex(index);
-              }}
-              isOpen={openIndex == index}
+          {features.length > 0 ? (
+            features
+              .sort((a, b) => b.priority - a.priority)
+              .map((item, index) => (
+                <FeatureAccordion
+                  key={index}
+                  index={index + 1}
+                  title={item.title}
+                  description={item.description}
+                  featureStatus={item.featureStatus}
+                  onClick={() => {
+                    openIndex == index
+                      ? setOpenIndex(undefined)
+                      : setOpenIndex(index);
+                  }}
+                  isOpen={openIndex == index}
+                />
+              ))
+          ) : (
+            <Skeleton
+              className={
+                "w-full h-[82.353vw] lg:!h-[20.833vw] bg-gray-light rounded-[3.529vw] lg:!rounded-[0.781vw]"
+              }
             />
-          ))}
+          )}
         </div>
         <div
           className={

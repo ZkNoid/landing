@@ -8,10 +8,13 @@ import { useCallback, useEffect, useState } from "react";
 import ArrowButton from "@/shared/ArrowButton";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { IStrapiData, IStrapiImage, IStrapiResponse } from "@/lib/strapi/types";
+import { strapiRequest } from "@/lib/strapi/strapiRequest";
+import Skeleton from "@/shared/Skeleton";
 
 const Slide = ({
   gameName,
-  image,
+  imageID,
   tags,
   network,
   description,
@@ -20,9 +23,9 @@ const Slide = ({
   onClick,
 }: {
   gameName: string;
-  image: any;
-  tags?: string[];
-  network?: string;
+  imageID: string;
+  tags: string[];
+  network: string;
   description: string;
   type: "currentSlide" | "nextSlide" | "slide";
   className?: string;
@@ -81,7 +84,7 @@ const Slide = ({
         }
       >
         <Image
-          src={image}
+          src={`https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/${imageID}`}
           crossOrigin="anonymous"
           width={350}
           height={350}
@@ -178,58 +181,19 @@ const Slide = ({
   );
 };
 
-const slides = [
-  {
-    tags: ["Protokit", "Board"],
-    network: "Devnet",
-    image:
-      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/osupvpfrmbs3sjtyedhj",
-    gameName: "Randzu",
-    description:
-      "Randzu is a game played on a 15x15 grid, similar to tic-tac-toe. Two players take turns placing their mark, using balls of different colors. The goal is to get five of your marks in a row, either horizontally, vertically or diagonally.",
-    link: "https://app.zknoid.io/games/randzu/global",
-  },
-  {
-    tags: ["Protokit", "Board"],
-    network: "Devnet",
-    image:
-      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/wwzdbxebkblsjnppzndi",
-    gameName: "Arkanoid",
-    description:
-      "In Arkanoid, your objective is to break all the bricks on the screen using a bouncing ball and a platform. You need to bounce the ball and prevent it from falling off the bottom of the screen.",
-    link: "https://app.zknoid.io/games/arkanoid/global",
-  },
-  {
-    tags: ["Mina L1", "Lucky"],
-    network: "Mainnet",
-    image:
-      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/hjvrfzqfs2ipagw9ssvi",
-    gameName: "Lottery",
-    description:
-      "Lottery round lasts 24 hours, user buys ticket and chooses 6 numbers on it. At the end of the round, a random 6-digit win number is generated and user can claim his reward if he guessed the numbers or a part of them. The percentage of winnings depends on the number of guessed numbers in the ticket.",
-    link: "https://app.zknoid.io/games/lottery/global",
-  },
-  {
-    tags: ["Protokit", "Board"],
-    network: "Devnet",
-    image:
-      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/uonrfe1ikbh6bztjtntz",
-    gameName: "Checkers",
-    description:
-      "Checkers is a two-player game played on an 8x8 board. Players take turns moving their pieces diagonally forward, capturing opponent's pieces by jumping over them.",
-    link: "https://app.zknoid.io/games/checkers/global",
-  },
-  {
-    tags: ["Protokit", "Lucky"],
-    network: "Devnet",
-    image:
-      "https://res.cloudinary.com/dw4kivbv0/image/upload/w_800,f_auto,q_auto:best/v1/landing/team/syrrq2hvfgerof7ypjk1",
-    gameName: "Thimblerig",
-    description:
-      "Two players participate in each round of the game. One player hides a ball under one of three thimbles, and the other player attempts to guess the location of the ball.",
-    link: "https://app.zknoid.io/games/thimblerig/global",
-  },
-];
+interface ISlideData extends IStrapiData {
+  gameName: string;
+  tags: string;
+  network: string;
+  description: string;
+  link: string;
+  centered: boolean;
+  image: IStrapiImage;
+}
+
+interface ISlidesResponse extends IStrapiResponse {
+  data: ISlideData[];
+}
 
 export default function Games() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -250,6 +214,7 @@ export default function Games() {
   });
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [mobileSelectedIndex, setMobileSelectedIndex] = useState<number>(0);
+  const [slides, setSlides] = useState<ISlideData[]>([]);
 
   const onSelect = useCallback((emblaApi: any) => {
     setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -269,6 +234,48 @@ export default function Games() {
     emblaApi.on("reInit", onSelect).on("select", onSelect);
     mobileEmblaApi.on("reInit", onSelectMobile).on("select", onSelectMobile);
   }, [emblaApi, onSelect, mobileEmblaApi, onSelectMobile]);
+
+  useEffect(() => {
+    strapiRequest({
+      pluralApi: "landing-games",
+      populate: true,
+      fetchConfig: { revalidate: 600 },
+      cache: "force-cache",
+    })
+      .then((response: ISlidesResponse) => setSlides(response.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  const positionCenteredSlide = ({
+    slides,
+    targetIndex,
+  }: {
+    slides: ISlideData[];
+    targetIndex: 0 | 2;
+  }) => {
+    if (
+      (targetIndex == 2 && slides.length < 5) ||
+      (targetIndex == 0 && slides.length == 0)
+    ) {
+      return slides;
+    }
+
+    const centeredIndex = slides.findIndex((slide) => slide.centered);
+
+    if (centeredIndex === -1 || centeredIndex === targetIndex) {
+      return slides;
+    }
+
+    const [centeredSlide] = slides.splice(centeredIndex, 1);
+
+    slides.splice(targetIndex, 0, centeredSlide);
+
+    return slides;
+  };
+
+  useEffect(() => {
+    emblaApi?.scrollTo(2);
+  }, [slides]);
 
   return (
     <section
@@ -298,63 +305,105 @@ export default function Games() {
       </div>
       <div ref={emblaRef} className={"overflow-hidden w-full hidden lg:!block"}>
         <div className={"flex-row w-full flex"}>
-          {slides.map((slide, index) => (
-            <Slide
-              key={index}
-              tags={slide.tags}
-              network={slide.network}
-              image={slide.image}
-              gameName={slide.gameName}
-              description={slide.description}
-              onClick={() =>
-                index == selectedIndex
-                  ? router.push(slide.link)
-                  : emblaApi?.scrollTo(index)
-              }
-              type={
-                index == selectedIndex
-                  ? "currentSlide"
-                  : index + 1 == selectedIndex || index - 1 == selectedIndex
-                    ? "nextSlide"
-                    : "slide"
-              }
-              className={
-                index != selectedIndex
-                  ? index + 1 == selectedIndex
-                    ? "-mr-[3.5%]"
-                    : index - 1 == selectedIndex
-                      ? "-ml-[3.5%]"
-                      : index + 2 == selectedIndex
-                        ? "-mr-[7%]"
-                        : index - 2 == selectedIndex
-                          ? "-ml-[7%]"
-                          : index < selectedIndex
-                            ? "-mr-[5%]"
-                            : "-ml-[5%]"
-                  : undefined
-              }
-            />
-          ))}
+          {slides.length > 0 ? (
+            positionCenteredSlide({ slides: slides, targetIndex: 2 }).map(
+              (slide, index) => (
+                <Slide
+                  key={index}
+                  tags={slide.tags.split(",")}
+                  network={slide.network}
+                  imageID={slide.image.provider_metadata.public_id}
+                  gameName={slide.gameName}
+                  description={slide.description}
+                  onClick={() =>
+                    index == selectedIndex
+                      ? router.push(slide.link)
+                      : emblaApi?.scrollTo(index)
+                  }
+                  type={
+                    index == selectedIndex
+                      ? "currentSlide"
+                      : index + 1 == selectedIndex || index - 1 == selectedIndex
+                        ? "nextSlide"
+                        : "slide"
+                  }
+                  className={
+                    index != selectedIndex
+                      ? index + 1 == selectedIndex
+                        ? "-mr-[3.5%]"
+                        : index - 1 == selectedIndex
+                          ? "-ml-[3.5%]"
+                          : index + 2 == selectedIndex
+                            ? "-mr-[7%]"
+                            : index - 2 == selectedIndex
+                              ? "-ml-[7%]"
+                              : index < selectedIndex
+                                ? "-mr-[5%]"
+                                : "-ml-[5%]"
+                      : undefined
+                  }
+                />
+              ),
+            )
+          ) : (
+            <>
+              <Skeleton
+                className={
+                  "h-[23.438vw] w-[10.417vw] mt-[3.5vw] scale-[0.75] bg-gray-light rounded-[2.353vw] lg:!rounded-[0.521vw] transition-transform min-w-0 flex-[0_0_85%] lg:!flex-[0_0_25%] px-[3.529vw] lg:!px-[0.781vw] pt-[3.529vw] lg:!pt-[0.781vw] pb-[2.353vw] lg:!pb-[0.521vw] flex flex-col"
+                }
+              />
+              <Skeleton
+                className={
+                  "h-[23.438vw] w-[10.417vw] mt-[3.5vw] lg:!scale-[0.85] z-[1] bg-gray-light rounded-[2.353vw] lg:!rounded-[0.521vw] transition-transform min-w-0 flex-[0_0_85%] lg:!flex-[0_0_25%] px-[3.529vw] lg:!px-[0.781vw] pt-[3.529vw] lg:!pt-[0.781vw] pb-[2.353vw] lg:!pb-[0.521vw] flex flex-col"
+                }
+              />
+              <Skeleton
+                className={
+                  "h-[23.438vw] w-[10.417vw] mt-[3.5vw] z-[2] bg-gray-light rounded-[2.353vw] lg:!rounded-[0.521vw] transition-transform min-w-0 flex-[0_0_85%] lg:!flex-[0_0_25%] px-[3.529vw] lg:!px-[0.781vw] pt-[3.529vw] lg:!pt-[0.781vw] pb-[2.353vw] lg:!pb-[0.521vw] flex flex-col"
+                }
+              />
+              <Skeleton
+                className={
+                  "h-[23.438vw] w-[10.417vw] mt-[3.5vw] lg:!scale-[0.85] z-[1] bg-gray-light rounded-[2.353vw] lg:!rounded-[0.521vw] transition-transform min-w-0 flex-[0_0_85%] lg:!flex-[0_0_25%] px-[3.529vw] lg:!px-[0.781vw] pt-[3.529vw] lg:!pt-[0.781vw] pb-[2.353vw] lg:!pb-[0.521vw] flex flex-col"
+                }
+              />
+              <Skeleton
+                className={
+                  "h-[23.438vw] w-[10.417vw] mt-[3.5vw] scale-[0.75] bg-gray-light rounded-[2.353vw] lg:!rounded-[0.521vw] transition-transform min-w-0 flex-[0_0_85%] lg:!flex-[0_0_25%] px-[3.529vw] lg:!px-[0.781vw] pt-[3.529vw] lg:!pt-[0.781vw] pb-[2.353vw] lg:!pb-[0.521vw] flex flex-col"
+                }
+              />
+            </>
+          )}
         </div>
       </div>
       <div className={"overflow-hidden w-full lg:!hidden"} ref={mobileEmblaRef}>
         <div className={"flex flex-row w-full"}>
-          {slides.map((slide, index) => (
-            <Slide
-              key={index}
-              tags={slide.tags}
-              network={slide.network}
-              image={slide.image}
-              gameName={slide.gameName}
-              description={slide.description}
-              onClick={() =>
-                index == mobileSelectedIndex
-                  ? router.push(slide.link)
-                  : mobileEmblaApi?.scrollTo(index)
-              }
-              type={index == mobileSelectedIndex ? "currentSlide" : "nextSlide"}
+          {slides.length > 0 ? (
+            positionCenteredSlide({ slides: slides, targetIndex: 0 }).map(
+              (slide, index) => (
+                <Slide
+                  key={index}
+                  tags={slide.tags.split(",")}
+                  network={slide.network}
+                  imageID={slide.image.provider_metadata.public_id}
+                  gameName={slide.gameName}
+                  description={slide.description}
+                  onClick={() =>
+                    index == mobileSelectedIndex
+                      ? router.push(slide.link)
+                      : mobileEmblaApi?.scrollTo(index)
+                  }
+                  type={
+                    index == mobileSelectedIndex ? "currentSlide" : "nextSlide"
+                  }
+                />
+              ),
+            )
+          ) : (
+            <Skeleton
+              className={"w-full h-[105.882vw] bg-gray-light rounded-[2.353vw]"}
             />
-          ))}
+          )}
         </div>
       </div>
       <div

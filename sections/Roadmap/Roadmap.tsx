@@ -1,8 +1,28 @@
 "use client";
 
 import { AnimatePresence, motion, useInView } from "framer-motion";
-import { ReactNode, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { IStrapiData, IStrapiResponse } from "@/lib/strapi/types";
+import { strapiRequest } from "@/lib/strapi/strapiRequest";
+import Skeleton from "@/shared/Skeleton";
+
+interface RoadmapCheckboxedItem {
+  isChecked: boolean;
+  text: string;
+}
+
+interface IRoadmapItemData extends IStrapiData {
+  title: string;
+  date: string;
+  link?: string;
+  priority: number;
+  items: RoadmapCheckboxedItem[];
+}
+
+interface IRoadmapItemsResponse extends IStrapiResponse {
+  data: IRoadmapItemData[];
+}
 
 const RoadmapItem = ({
   date,
@@ -10,12 +30,14 @@ const RoadmapItem = ({
   isOpen,
   setIsOpen,
   content,
+  link,
 }: {
   date: string;
   title: string;
   isOpen: boolean;
   setIsOpen: () => void;
-  content: ReactNode;
+  content: RoadmapCheckboxedItem[];
+  link?: string;
 }) => {
   return (
     <div
@@ -80,7 +102,35 @@ const RoadmapItem = ({
             }}
             className={"overflow-hidden"}
           >
-            {content}
+            <div
+              className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}
+            >
+              <div
+                className={
+                  "grid gird-cols-1 lg:!grid-cols-2 last:mb-[2.353vw] lg:!mb-0 justify-between gap-[2.353vw] lg:!gap-[0.521vw]"
+                }
+              >
+                {content.map((item, index) => (
+                  <CheckboxedItem
+                    key={index}
+                    isChecked={item.isChecked}
+                    text={item.text}
+                  />
+                ))}
+              </div>
+              {link && (
+                <Link
+                  href={link}
+                  target={"_blank"}
+                  rel={"noopener noreferrer"}
+                  className={
+                    "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
+                  }
+                >
+                  Show full progress
+                </Link>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -138,268 +188,22 @@ const CheckboxedItem = ({
   );
 };
 
-const roadmapItems: {
-  date: string;
-  title: string;
-  content: ReactNode;
-}[] = [
-  {
-    date: "Q1, 2024",
-    title: "Arkanoid, Randzu, Thimblerig",
-    content: (
-      <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
-        <div
-          className={
-            "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:!flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
-          }
-        >
-          <div
-            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
-          >
-            <CheckboxedItem isChecked={true} text={"Lending development"} />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Game platform Design & Frontend"}
-            />
-            <CheckboxedItem isChecked={true} text={"Arcanoid and Randzu UI"} />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Poker Game contracts implementation"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Competitions mechanism implementation"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Matchmaking mechanism implementation"}
-            />
-          </div>
-          <div
-            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
-          >
-            <CheckboxedItem
-              isChecked={true}
-              text={"Migrated to recursive proofs in arkanoid"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Background sessions implementation"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Mina and protokit networks interplay"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Changed game mechanics — added momentum"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={
-                "Made framework and protokit client modular with reusable on-chain"
-              }
-            />
-          </div>
-        </div>
-        <Link
-          href={
-            "https://medium.com/zknoid/monthly-recap-march-2024-576b61398d41"
-          }
-          target={"_blank"}
-          rel={"noopener noreferrer"}
-          className={
-            "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
-          }
-        >
-          Show full progress
-        </Link>
-      </div>
-    ),
-  },
-  {
-    date: "Q2, 2024",
-    title: "PvP infrastructure, Testnet",
-    content: (
-      <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
-        <div
-          className={
-            "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:!flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
-          }
-        >
-          <div
-            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
-          >
-            <CheckboxedItem
-              isChecked={true}
-              text={"Unified opponent timeout proving for multiplayer games"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={
-                "Migrated to o1js 1.1.0 experimentally supported by protokit"
-              }
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Lobby manager implementation"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Poker game design development"}
-            />
-          </div>
-          <div
-            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
-          >
-            <CheckboxedItem
-              isChecked={true}
-              text={"Lottery initial impelematation"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"ZkNoid Quest Website development"}
-            />
-            <CheckboxedItem isChecked={true} text={"ZkNoid First Testnet"} />
-          </div>
-        </div>
-        <Link
-          href={
-            "https://medium.com/zknoid/monthly-recap-april-2024-243fa068677d"
-          }
-          target={"_blank"}
-          rel={"noopener noreferrer"}
-          className={
-            "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
-          }
-        >
-          Show full progress
-        </Link>
-      </div>
-    ),
-  },
-  {
-    date: "Q3, 2024",
-    title: "Lottery L1, SDK",
-    content: (
-      <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
-        <div
-          className={
-            "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:!flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
-          }
-        >
-          <div
-            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
-          >
-            <CheckboxedItem isChecked={true} text={"Lottery game updates"} />
-            <CheckboxedItem isChecked={true} text={"Documentation update"} />
-            <CheckboxedItem
-              isChecked={true}
-              text={"ETHGlobal Online Hackathon"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"ETHGlobal Singapore Hackathon"}
-            />
-            <CheckboxedItem
-              isChecked={true}
-              text={"Move to microservice architecture"}
-            />
-          </div>
-          <div
-            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
-          >
-            <CheckboxedItem isChecked={true} text={"SDK for games"} />
-            <CheckboxedItem isChecked={true} text={"SDK: Cards Engine"} />
-            <CheckboxedItem isChecked={true} text={"Lottery game testnet"} />
-            <CheckboxedItem isChecked={false} text={"VRF Integration"} />
-            <CheckboxedItem isChecked={true} text={"Guides & Workshops"} />
-          </div>
-        </div>
-        <Link
-          href={
-            "https://forums.minaprotocol.com/t/zknoid-l1-lottery-sdk-improvements/6424"
-          }
-          target={"_blank"}
-          rel={"noopener noreferrer"}
-          className={
-            "underline mr-auto mt-[4.706vw] lg:!mt-[1.302vw] font-outfit text-[3.765vw] lg:!text-[0.833vw] font-medium leading-[110%] uppercase text-white hover:opacity-80"
-          }
-        >
-          Show full roadmap
-        </Link>
-      </div>
-    ),
-  },
-  {
-    date: "Q4, 2024",
-    title: "Orderbook & Tokenomics",
-    content: (
-      <div className={"w-full flex flex-col mt-[2.353vw] lg:!mt-[1.563vw]"}>
-        <div
-          className={
-            "flex last:mb-[2.353vw] lg:!mb-0 flex-col lg:flex-row justify-between gap-[3.059vw] lg:!gap-[2.083vw]"
-          }
-        >
-          <div
-            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
-          >
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book conception on Mina Protocol development"}
-            />
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book contracts development"}
-            />
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book backend development"}
-            />
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book user interface & design"}
-            />
-            <CheckboxedItem
-              isChecked={false}
-              text={"Order book frontend development"}
-            />
-          </div>
-          <div
-            className={"flex flex-col gap-[3.059vw] lg:!gap-[0.521vw] w-full"}
-          >
-            <CheckboxedItem isChecked={false} text={"Token design"} />
-            <CheckboxedItem isChecked={false} text={"Token contracts"} />
-            <CheckboxedItem isChecked={false} text={"Revenue model"} />
-            <CheckboxedItem
-              isChecked={false}
-              text={"Token implementation & launch"}
-            />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: "Clicker game",
-    date: "Q1, 2025",
-    content: (
-      <div
-        className={
-          "text-[3.294vw] mt-[2.353vw] lg:!mb-0 lg:!mt-[1.563vw] last:mb-[2.353vw] lg:!text-[0.938vw] text-white lg:!w-[60%] leading-[120%] font-helvetica-now"
-        }
-      >
-        Initial token distribution will be made by the “proof of tap” online
-        clicker game with play-to earn mechanism
-      </div>
-    ),
-  },
-];
-
 export default function Roadmap() {
   const [openIndex, setOpenIndex] = useState<number | undefined>(undefined);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const [roadmapItems, setRoadmapItems] = useState<IRoadmapItemData[]>([]);
+
+  useEffect(() => {
+    strapiRequest({
+      pluralApi: "landing-roadmaps",
+      populate: true,
+      fetchConfig: { revalidate: 600 },
+      cache: "force-cache",
+    })
+      .then((response: IRoadmapItemsResponse) => setRoadmapItems(response.data))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <section
@@ -416,20 +220,31 @@ export default function Roadmap() {
           Roadmap
         </span>
         <div className={"flex flex-col"}>
-          {roadmapItems.map((item, index) => (
-            <RoadmapItem
-              key={index}
-              date={item.date}
-              title={item.title}
-              isOpen={index == openIndex}
-              setIsOpen={() =>
-                index == openIndex
-                  ? setOpenIndex(undefined)
-                  : setOpenIndex(index)
+          {roadmapItems.length > 0 ? (
+            roadmapItems
+              .sort((a, b) => b.priority - a.priority)
+              .map((item, index) => (
+                <RoadmapItem
+                  key={index}
+                  date={item.date}
+                  title={item.title}
+                  isOpen={index == openIndex}
+                  setIsOpen={() =>
+                    index == openIndex
+                      ? setOpenIndex(undefined)
+                      : setOpenIndex(index)
+                  }
+                  content={item.items}
+                  link={item.link}
+                />
+              ))
+          ) : (
+            <Skeleton
+              className={
+                "w-full h-[82.353vw] lg:!h-[20.833vw] bg-gray-light rounded-[3.529vw] lg:!rounded-[0.781vw]"
               }
-              content={item.content}
             />
-          ))}
+          )}
         </div>
       </div>
       <div
