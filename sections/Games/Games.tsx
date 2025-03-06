@@ -91,7 +91,7 @@ const Slide = ({
       </div>
       <span
         className={cn(
-          "mt-[2.353vw] lg:!mt-[0.521vw] font-helvetica-now font-medium text-[3.765vw] lg:!text-[0.833vw]",
+          "mt-[2.353vw] lg:!mt-[0.521vw] font-helvetica-now font-medium text-[3.765vw] lg:!text-[0.833vw] text-start",
           type === "currentSlide" ? "text-gray-dark" : "text-white",
         )}
       >

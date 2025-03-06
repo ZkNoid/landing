@@ -10,6 +10,7 @@ import mizoriImg from "@/public/image/team/mizori.svg";
 import neoImg from "@/public/image/team/neo.svg";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
+import img from "@/public/image/3.png";
 
 const TwitterIcon = () => {
   return (
@@ -245,7 +246,18 @@ const members: {
     title: "Content manager",
     description:
       "Web3 content creator, community manager, and researcher since 2022. Academic background, on the verge of obtaining a PhD in biotechnology. His work includes in-depth analysis of current hot topics and passionate exploration of emerging trends",
-    socials: [],
+    socials: [
+      {
+        icon: <TwitterIcon />,
+        link: "https://x.com/Anthony_Solover",
+      },
+      {
+        icon: (
+          <Image src={img} alt={"em"} className={"w-[1.042vw] h-[1.042vw]"} />
+        ),
+        link: "#",
+      },
+    ],
   },
   {
     type: "md",
