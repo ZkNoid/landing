@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import alexImg from "@/public/image/team/alex.svg";
-import andreyImg from "@/public/image/team/andrey.svg";
+import chebImg from "@/public/image/team/cheb.svg";
 import fosImg from "@/public/image/team/fos.svg";
 import mizoriImg from "@/public/image/team/mizori.svg";
 import neoImg from "@/public/image/team/neo.svg";
@@ -207,7 +207,7 @@ const members: {
     socials: [
       {
         icon: <TwitterIcon />,
-        link: "https://twitter.com/intent/follow?screen_name=IvlevCrypto&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3AShiroy_k%7Ctwcon%5Es2",
+        link: "https://x.com/intent/follow?screen_name=IvlevCrypto&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3AShiroy_k%7Ctwcon%5Es2",
       },
     ],
   },
@@ -221,21 +221,21 @@ const members: {
     socials: [
       {
         icon: <TwitterIcon />,
-        link: "https://twitter.com/intent/follow?screen_name=Shiroy_k&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3AShiroy_k%7Ctwcon%5Es2",
+        link: "https://x.com/intent/follow?screen_name=Shiroy_k&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3AShiroy_k%7Ctwcon%5Es2",
       },
     ],
   },
   {
     type: "lg",
-    image: andreyImg,
-    fullName: "Simaranov Andrey",
-    title: "Fullstack Developer",
+    image: neoImg,
+    fullName: "Nikita Vatletsov",
+    title: "Frontend Developer",
     description:
-      "Top-1 solidity auditor at Mixbytes auditor DAO. Core builder of xraise.io project – account abstraction based wallet. Blockchain and full-stack developer. Studied at MSU, applied math and computer science. A leader who inspires the whole team to conquer new heights",
+      "Lead frontend developer at ZkNoid. Developed most of the UI for the ZkNoid, focusing on user-friendly interfaces and design. Over 3 years of experience building and improving web applications. Specializes in frontend architecture, optimizing performance and scalability across the platform",
     socials: [
       {
         icon: <TwitterIcon />,
-        link: "https://twitter.com/intent/follow?screen_name=asimaranov&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3Aasimaranov%7Ctwcon%5Es2",
+        link: "https://twitter.com/intent/follow?screen_name=NeoGar_real&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3ANeoGar_real%7Ctwcon%5Es2",
       },
     ],
   },
@@ -261,15 +261,15 @@ const members: {
   },
   {
     type: "md",
-    image: neoImg,
-    fullName: "Nikita Vatletsov",
-    title: "Frontend Developer",
+    image: chebImg,
+    fullName: "Alexander Scherbatyuk",
+    title: "Fullstack Developer",
     description:
-      "Lead frontend developer at ZkNoid. Developed most of the UI for the ZkNoid, focusing on user-friendly interfaces and design. Over 3 years of experience building and improving web applications. Specializes in frontend architecture, optimizing performance and scalability across the platform",
+      "Solidity / TypeScript developer with expertise in blockchain protocols, dApps, and EVM mechanics. Proficient in implementing DeFi protocols and blockchain oracles through smart contracts and backend SDK integrations for Ethereum and L2 rollups, with a strong track record of building and maintaining production-critical systems.",
     socials: [
       {
         icon: <TwitterIcon />,
-        link: "https://twitter.com/intent/follow?screen_name=NeoGar_real&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3ANeoGar_real%7Ctwcon%5Es2",
+        link: "https://x.com/intent/follow?screen_name=AlexScherbatyuk&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%AlexScherbatyuk%7Ctwcon%5Es2",
       },
     ],
   },
